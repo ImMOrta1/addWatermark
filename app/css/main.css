@@ -1,0 +1,66 @@
+/* --------- global styles --------- */
+body {
+  background-color: #f4f4f4;
+  font-family: "RobotoLight";
+  font-size: 14px;
+  color: #333;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  background: url(/img/site-bg.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+body, ul, ol, li, h1 {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: #333;
+}
+
+p {
+  font-weight: normal;
+  line-height: 20px;
+}
+
+.wrapper {
+  min-width: 1200px;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+
+/* --------- sections --------- */
+/* --------- fonts --------- */
+/* font-family: "RobotoLight"; */
+@font-face {
+  font-family: "RobotoLight";
+  src: url("../fonts/RobotoLight/RobotoLight.eot");
+  src: url("../fonts/RobotoLight/RobotoLight.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoLight/RobotoLight.woff") format("woff"), url("../fonts/RobotoLight/RobotoLight.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+/* font-family: "RobotoMedium"; */
+@font-face {
+  font-family: "RobotoMedium";
+  src: url("../fonts/RobotoMedium/RobotoMedium.eot");
+  src: url("../fonts/RobotoMedium/RobotoMedium.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoMedium/RobotoMedium.woff") format("woff"), url("../fonts/RobotoMedium/RobotoMedium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}

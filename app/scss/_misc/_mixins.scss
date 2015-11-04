@@ -1,0 +1,15 @@
+//$map: sprite-map('icons/*.png', $spacing: 70px);
+
+@mixin get-sprite ($map, $icon) {
+  $sprite-image: sprite-file($map, $icon);
+  $sprite-map: sprite-url($map);
+  $sprite-position: sprite-position($map, $icon);
+
+  background: $sprite-map $sprite-position no-repeat;
+
+  $sprite-height: image-height($sprite-image);
+  $sprite-width: image-width($sprite-image);
+
+  height: $sprite-height;
+  width: $sprite-width;
+}
