@@ -1,0 +1,10 @@
+{
+  "name": "my-first-project",
+  "devDependencies": {
+    "browser-sync": "^2.9.11",
+    "gulp": "^3.9.0",
+    "gulp-compass": "^2.1.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-plumber": "^1.0.1"
+  }
+}
