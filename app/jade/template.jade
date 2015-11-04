@@ -12,9 +12,36 @@ html(lang="ru-RU")
 		.wrapper
 			.main
 				section.image-view
-					h1.image-view__title
+					.image-view__text
+						h1.image-view__title Генератор водяных знаков
 					.image-view__container
 				aside.saidbar
+					.saidbar_text
+						h2.saidbar__title Настройки
+
+					ul.saidbar__list
+						li.saidbar__item
+							form.file-upload
+								label.file-upload__label
+									.file-upload__title Исходное изображение
+									.file-upload__container
+										input.file-upload__input(type="file")
+										.file-upload__fake image.jpg
+										.file-upload__icon
+								label.file-upload__label
+									.file-upload__title Водяной знак
+									.file-upload__container
+										input.file-upload__input(type="file")
+										.file-upload__fake image.png
+										.file-upload__icon
+					ul.saidbar__list
+						li.saidbar__item
+					ul.saidbar__list
+						li.saidbar__item
+					ul.saidbar__list
+						li.saidbar__item
+
+		footer.footer © 2014, Это мой сайт, пожалуйста, не копируйте и не воруйте его
 
 		script(src="bower/jquery/dist/jquery.js")
 		script(src="js/main.js")

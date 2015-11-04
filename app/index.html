@@ -14,8 +14,6 @@
 		<!-- includes-->
 		<script src="bower/modernizr/modernizr.js"></script>
 		<link rel="stylesheet" type="text/css" href="/bower/normalize-css/normalize.css">
-		<link rel="stylesheet" type="text/css" href="/js/components/jquery-ui/jquery-ui.css">
-		<link rel="stylesheet" type="text/css" href="/js/components/select/select2.css">
 		<link rel="stylesheet" type="text/css" href="/css/main.css">
 		<title>Приложение для добавления водяных знаков на фотографию</title>
 	</head>
@@ -23,12 +21,50 @@
 		<div class="wrapper">
 			<div class="main">
 				<section class="image-view">
-					<h1 class="image-view__title"></h1>
+					<div class="image-view__text">
+						<h1 class="image-view__title">Генератор водяных знаков</h1>
+					</div>
 					<div class="image-view__container"></div>
 				</section>
-				<aside class="saidbar"></aside>
+				<aside class="saidbar">
+					<div class="saidbar_text">
+						<h2 class="saidbar__title">Настройки</h2>
+					</div>
+					<ul class="saidbar__list">
+						<li class="saidbar__item">
+							<form class="file-upload">
+								<label class="file-upload__label">
+									<div class="file-upload__title">Исходное изображение</div>
+									<div class="file-upload__container">
+										<input type="file" class="file-upload__input">
+										<div class="file-upload__fake">image.jpg</div>
+										<div class="file-upload__icon"></div>
+									</div>
+								</label>
+								<label class="file-upload__label">
+									<div class="file-upload__title">Водяной знак</div>
+									<div class="file-upload__container">
+										<input type="file" class="file-upload__input">
+										<div class="file-upload__fake">image.png</div>
+										<div class="file-upload__icon"></div>
+									</div>
+								</label>
+							</form>
+						</li>
+					</ul>
+					<ul class="saidbar__list">
+						<li class="saidbar__item"></li>
+					</ul>
+					<ul class="saidbar__list">
+						<li class="saidbar__item"></li>
+					</ul>
+					<ul class="saidbar__list">
+						<li class="saidbar__item"></li>
+					</ul>
+				</aside>
 			</div>
 		</div>
+		<footer class="footer">© 2014, Это мой сайт, пожалуйста, не копируйте и не воруйте его</footer>
 		<script src="bower/jquery/dist/jquery.js"></script>
 		<script src="js/main.js"></script>
 	</body>

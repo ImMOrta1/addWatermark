@@ -1,0 +1,93 @@
+.main {
+	width: 960px;
+	height: 670px;
+	background: #f1f1f5;
+	@include center;
+}
+
+.image-view {
+	float: left;
+	width: 650px;
+	height: 620px;
+	padding: 25px;
+	background: url(/img/image-bg.png);
+}
+
+.image-view__text {
+	height: 90px;
+}
+
+.image-view__title {
+	font-family: $fira;
+	font-size: 36px;
+	color: #fff;
+}
+
+.image-view__container {
+	background: #fff;
+	height: 530px;
+}
+
+.saidbar {
+	float: right;
+	width: 258px;
+}
+
+.saidbar_text {
+	height: 62px;
+	padding-top: 25px;
+	text-align: center;
+}
+
+.saidbar__title {
+	font-family: $light;
+	font-size: 26px;
+	color: $black;
+	line-height: 28px;
+}
+
+// form
+.file-upload {
+	padding: 0 21px 0 18px;
+}
+
+.file-upload__label {
+	display: block;
+	margin-bottom: 22px;
+}
+
+.file-upload__title {
+	font-family: $light;
+	font-size: 14px;
+	margin-bottom: 7px;
+	color: $black;
+}
+
+.file-upload__container {
+	position: relative;
+}
+
+.file-upload__input {
+	position: absolute;
+	top: 0;
+	left: -9999px;
+}
+
+.file-upload__fake {
+	font-family: $light;
+	font-size: 12px;
+	color: $grey;
+	padding: 4px 3px;
+	border: $greyBord;
+	outline: 0px;
+	@include border-radius;
+}
+	
+.file-upload-icon {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	z-index: 99;
+	@include get-sprite($map, image-upload);
+}

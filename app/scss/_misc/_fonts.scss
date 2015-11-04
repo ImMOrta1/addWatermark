@@ -18,3 +18,12 @@
     font-style: normal;
     font-weight: normal;
 }
+@font-face {
+    font-family: "fira_sanslight";
+    src: url("../fonts/FirasansLight/firasans-light.eot");
+    src: url("../fonts/FirasansLight/firasans-light.eot?#iefix") format("embedded-opentype"),
+         url("../fonts/FirasansLight/firasans-light.woff") format("woff"),
+         url("../fonts/FirasansLight/firasans-light.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
