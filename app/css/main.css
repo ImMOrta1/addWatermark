@@ -1,74 +1,66 @@
-/*
-Error: No files were found in the load path matching "icons/*.png". Your current load paths are: D:/WebProjects/loftschool/watermark/app/img
-        on line 1 of D:/WebProjects/loftschool/watermark/app/scss/_misc/_mixins.scss
-        from line 5 of D:/WebProjects/loftschool/watermark/app/scss/main.scss
+/* --------- global styles --------- */
+body {
+  background-color: #f4f4f4;
+  font-family: "RobotoLight";
+  font-size: 14px;
+  color: #333;
+}
 
-1: @import "compass";
-2: 
-3: /* --------- global styles --------- *\/
-4: @import "_misc/_global";
-5: @import "_misc/_mixins";
-6: 
+body, html {
+  width: 100%;
+  height: 100%;
+  background: url(/img/site-bg.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
 
-Backtrace:
-D:/WebProjects/loftschool/watermark/app/scss/_misc/_mixins.scss:1
-D:/WebProjects/loftschool/watermark/app/scss/main.scss:5
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/lib/compass/sprite_importer.rb:89:in `files'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/lib/compass/sass_extensions/sprites/sprite_map.rb:19:in `from_uri'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/lib/compass/sass_extensions/functions/sprites.rb:78:in `sprite_map'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/script/tree/funcall.rb:140:in `_perform'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/script/tree/node.rb:50:in `perform'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:469:in `visit_variable'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `block in with_base'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/stack.rb:115:in `with_frame'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `with_base'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `visit'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:326:in `block (2 levels) in visit_import'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:326:in `map'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:326:in `block in visit_import'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/stack.rb:88:in `block in with_import'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/stack.rb:115:in `with_frame'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/stack.rb:88:in `with_import'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:323:in `visit_import'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `block in with_base'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/stack.rb:115:in `with_frame'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `with_base'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `visit'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:52:in `map'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:157:in `visit'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:8:in `visit'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/root_node.rb:36:in `css_tree'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/root_node.rb:20:in `render'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/engine.rb:278:in `render'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:209:in `each'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/lib/compass/sass_compiler.rb:40:in `compile!'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/lib/compass/commands/update_project.rb:49:in `perform'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/lib/compass/commands/base.rb:18:in `execute'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/lib/compass/commands/project_base.rb:19:in `execute'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/lib/compass/exec/sub_command_ui.rb:15:in `run!'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/bin/compass:30:in `block in <top (required)>'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/bin/compass:44:in `call'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/bin/compass:44:in `<top (required)>'
-C:/Ruby21-x64/bin/compass:23:in `load'
-C:/Ruby21-x64/bin/compass:23:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: No files were found in the load path matching \"icons/*.png\". Your current load paths are: D:/WebProjects/loftschool/watermark/app/img\A         on line 1 of D:/WebProjects/loftschool/watermark/app/scss/_misc/_mixins.scss\A         from line 5 of D:/WebProjects/loftschool/watermark/app/scss/main.scss\A \A 1: @import \"compass\";\A 2: \A 3: /* --------- global styles --------- */\A 4: @import \"_misc/_global\";\A 5: @import \"_misc/_mixins\";\A 6: "; }
+body, ul, ol, li, h1 {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: #333;
+}
+
+p {
+  font-weight: normal;
+  line-height: 20px;
+}
+
+.wrapper {
+  min-width: 1200px;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+
+/* --------- sections --------- */
+/* --------- fonts --------- */
+/* font-family: "RobotoLight"; */
+@font-face {
+  font-family: "RobotoLight";
+  src: url("../fonts/RobotoLight/RobotoLight.eot");
+  src: url("../fonts/RobotoLight/RobotoLight.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoLight/RobotoLight.woff") format("woff"), url("../fonts/RobotoLight/RobotoLight.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+/* font-family: "RobotoMedium"; */
+@font-face {
+  font-family: "RobotoMedium";
+  src: url("../fonts/RobotoMedium/RobotoMedium.eot");
+  src: url("../fonts/RobotoMedium/RobotoMedium.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoMedium/RobotoMedium.woff") format("woff"), url("../fonts/RobotoMedium/RobotoMedium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}

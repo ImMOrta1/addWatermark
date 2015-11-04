@@ -1,4 +1,4 @@
-$map: sprite-map('icons/*.png', $spacing: 70px);
+//$map: sprite-map('icons/*.png', $spacing: 70px);
 
 @mixin get-sprite ($map, $icon) {
   $sprite-image: sprite-file($map, $icon);
