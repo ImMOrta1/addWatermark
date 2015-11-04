@@ -7,3 +7,7 @@
 3. bower i
 4. npm i
 5. gulp
+
+## Team 
+
+![Image alt](https://github.com/imezler/Test/blob/master/team1.png)
