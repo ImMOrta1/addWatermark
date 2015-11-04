@@ -11,3 +11,6 @@
 ## Team 
 
 ![Image alt](https://github.com/imezler/Test/blob/master/team1.png)
+![Image alt](https://github.com/imezler/Test/blob/master/team2.png)
+![Image alt](https://github.com/imezler/Test/blob/master/team3.png)
+![Image alt](https://github.com/imezler/Test/blob/master/team4.png)
