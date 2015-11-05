@@ -33,7 +33,7 @@ This service allows you to apply watermarks to images and download it further.
 * PHP
 
 ## Team 
-![Dmitry Mezhuev](https://github.com/imezler/Test/blob/master/team1.png "Dmitry Mezhuev") - Teamlead, web layout, JS, Git
-![Max Roschin](https://github.com/imezler/Test/blob/master/team2.png "Max Roschin") - PHP, JS
-![Artyom Danshin](https://github.com/imezler/Test/blob/master/team3.png "Artyom Danshin") - PHP, JS
-![Ilya Metsler](https://github.com/imezler/Test/blob/master/team4.png "Ilya Metsler") - Markdown, JS, Testing
+* ![Dmitry Mezhuev](https://github.com/imezler/Test/blob/master/team1.png "Dmitry Mezhuev") - Teamlead, web layout, JS, Git
+* ![Max Roschin](https://github.com/imezler/Test/blob/master/team2.png "Max Roschin") - PHP, JS
+* ![Artyom Danshin](https://github.com/imezler/Test/blob/master/team3.png "Artyom Danshin") - PHP, JS
+* ![Ilya Metsler](https://github.com/imezler/Test/blob/master/team4.png "Ilya Metsler") - Markdown, JS, Testing
