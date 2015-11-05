@@ -3,8 +3,8 @@
 This service allows you to apply watermarks to images and download it further. 
 
 ## How to install the project
-[Ruby](https://www.ruby-lang.org/en/) is required
-[Node.js](https://nodejs.org/en/) is required
+* [Ruby](https://www.ruby-lang.org/en/) is required
+* [Node.js](https://nodejs.org/en/) is required
 
 1. git clone https://github.com/ImMOrta1/addWatermark.git addWatermark
 2. cd addWatermark
@@ -33,7 +33,9 @@ This service allows you to apply watermarks to images and download it further.
 * PHP
 
 ## Team 
-* ![Dmitry Mezhuev](https://github.com/imezler/Test/blob/master/team1.png "Dmitry Mezhuev") - Teamlead, web layout, JS, Git
-* ![Max Roschin](https://github.com/imezler/Test/blob/master/team2.png "Max Roschin") - PHP, JS
-* ![Artyom Danshin](https://github.com/imezler/Test/blob/master/team3.png "Artyom Danshin") - PHP, JS
-* ![Ilya Metsler](https://github.com/imezler/Test/blob/master/team4.png "Ilya Metsler") - Markdown, JS, Testing
+[![Dmitry Mezhuev](https://github.com/imezler/Test/blob/master/team1.png)](https://github.com/ImMOrta1) | [![Max Roschin](https://github.com/imezler/Test/blob/master/team2.png)](https://github.com/Maksfin) | [![Artyom Danshin](https://github.com/imezler/Test/blob/master/team3.png)](https://github.com/SilverDragoon) | [![Ilya Metsler](https://github.com/imezler/Test/blob/master/team4.png)](https://github.com/imezler) 
+---|---
+[Dmitry Mezhuev](https://github.com/ImMOrta1) | [Max Roschin](https://github.com/Maksfin) | [Artyom Danshin](https://github.com/SilverDragoon) | [Ilya Metsler](https://github.com/imezler)
+
+
+
