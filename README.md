@@ -33,9 +33,12 @@ This service allows you to apply watermarks to images and download it further.
 * PHP
 
 ## Team 
-[![Dmitry Mezhuev](https://github.com/imezler/Test/blob/master/team1.png)](https://github.com/ImMOrta1) | [![Max Roschin](https://github.com/imezler/Test/blob/master/team2.png)](https://github.com/Maksfin) | [![Artyom Danshin](https://github.com/imezler/Test/blob/master/team3.png)](https://github.com/SilverDragoon) | [![Ilya Metsler](https://github.com/imezler/Test/blob/master/team4.png)](https://github.com/imezler) 
----|---
-[Dmitry Mezhuev](https://github.com/ImMOrta1) | [Max Roschin](https://github.com/Maksfin) | [Artyom Danshin](https://github.com/SilverDragoon) | [Ilya Metsler](https://github.com/imezler)
+[![Dmitry Mezhuev](https://github.com/imezler/Test/blob/master/team1.png)](https://github.com/ImMOrta1) 
+[![Max Roschin](https://github.com/imezler/Test/blob/master/team2.png)](https://github.com/Maksfin) 
+[![Artyom Danshin](https://github.com/imezler/Test/blob/master/team3.png)](https://github.com/SilverDragoon) 
+[![Ilya Metsler](https://github.com/imezler/Test/blob/master/team4.png)](https://github.com/imezler)
+
+[Dmitry Mezhuev](https://github.com/ImMOrta1)  [Max Roschin](https://github.com/Maksfin)  [Artyom Danshin](https://github.com/SilverDragoon)  [Ilya Metsler](https://github.com/imezler)
 
 
 

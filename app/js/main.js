@@ -1,16 +1,13 @@
-var addWatermark = (function (){
+$(function() {
+    $('.opacity__slider').slider({
+        range: 'min',
+        value: 50,
+        min: 1,
+        max: 100,
+        slide: function( event, ui ) {
+            $( "#amount" ).val( "$" + ui.value );
+        }
+    });
 
-    var initInside = function (){
-        _setUpListners();
-    };
-
-    var _setUpListners = function (){
-        //прослушка событий...
-    };
-
-    return{
-        init: initInside
-    };
-})();
-
-addWatermark.init();
+    $( "#amount" ).val( "$" + $( "#slider-range-min" ).slider( "value" ) );
+});
