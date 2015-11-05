@@ -1,3 +1,4 @@
+@import "../_misc/_mixins";
 .main {
 	width: 960px;
 	height: 670px;
@@ -8,19 +9,22 @@
 .image-view {
 	float: left;
 	width: 650px;
-	height: 620px;
-	padding: 25px;
+	height: 630px;
+	padding: 15px 25px 25px 25px;
 	background: url(/img/image-bg.png);
 }
 
 .image-view__text {
-	height: 90px;
+	height: 100px;
 }
 
 .image-view__title {
-	font-family: $fira;
+	font-family: $seg;
 	font-size: 36px;
+	line-height: 38px;
 	color: #fff;
+	margin-top: 0;
+	padding-top: 0;
 }
 
 .image-view__container {
@@ -30,7 +34,7 @@
 
 .saidbar {
 	float: right;
-	width: 258px;
+	width: 260px;
 }
 
 .saidbar_text {
@@ -48,12 +52,14 @@
 
 // form
 .file-upload {
-	padding: 0 21px 0 18px;
+	padding: $pdg;
+	position: relative;
+	margin-bottom: 30px;	
 }
 
 .file-upload__label {
 	display: block;
-	margin-bottom: 22px;
+	margin-bottom: 21px;
 }
 
 .file-upload__title {
@@ -77,17 +83,211 @@
 	font-family: $light;
 	font-size: 12px;
 	color: $grey;
-	padding: 4px 3px;
+	padding: 5px 3px 4px 3px;
 	border: $greyBord;
 	outline: 0px;
 	@include border-radius;
+	cursor: pointer;
 }
 	
-.file-upload-icon {
+.file-upload__icon {
 	position: absolute;
 	right: 0;
 	bottom: 0;
 	top: 0;
 	z-index: 99;
 	@include get-sprite($map, image-upload);
+	cursor: pointer;
+}
+
+// position
+.position {
+	padding: $pdg;
+	border-top: 1px solid #f4c3c2;
+	position: relative;
+
+	&:before {
+		position: absolute;
+		top: -1px;
+		right: 0;
+		left: 0;
+		margin: auto;
+		content: "";
+		width: 19px;
+		height: 11px;
+		background: url(/img/title-arrow.jpg) no-repeat;
+	}
+}
+
+.position__title {
+	padding-top: 13px;
+	margin-bottom: 34px;
+}
+
+
+.position-container {
+	@include clearfix;
+}
+
+.position-left {
+	float: left;
+}
+
+.position-left__list {
+	font-size: 0;
+	width: 101px;
+	@include border-radius;
+	overflow: hidden;
+	border: $greyBord;
+}
+
+.position-left__item {
+	border-bottom: $greyBord;
+	border-right: $greyBord;
+	display: inline-block;
+	background: #dbe1e8;
+
+	&:nth-child(3n) {
+		border-right: 0;
+	}
+
+	&:nth-child(7n) {
+		border-bottom: 0;
+	}
+
+	&:nth-child(8n) {
+		border-bottom: 0;
+	}
+
+	&:nth-child(9n) {
+		border-bottom: 0;
+	}
+}
+
+.position-left__link {
+	display: block;
+	width: 33px;
+	height: 33px;
+
+	&:hover {
+		background: #eee;
+	}
+
+	&_active {
+
+	}
+}
+
+.position-right {
+	float: right;
+}
+
+.position-right__top,
+.position-right__bottom {
+	margin-bottom: 11px;
+}
+
+.position-right__vector {
+	@include inlineblock;
+	width: 13px;
+	font-family: $light;
+	font-size: 16px;
+	color: $black;
+	padding-top: 15px;
+}
+
+.position-right__input-top {
+	background: #f1f1f5;
+	width: 43px;
+	padding: 6px 0;
+	text-align: center;
+	@include inlineblock;
+	font-family: $seg;
+	font-size: 24px;
+	line-height: 24px;
+	color: $LightBl;
+	outline: none;
+	border: $greyBord;
+	@include border-radius;
+}
+
+.position-right__input-bot {
+	@extend .position-right__input-top;
+}
+
+.position-right__buttons {
+	height: 43px;
+	margin-left: 3px;
+	width: 14px;
+	@include inlineblock;
+	position: relative;
+}
+
+.position-right__up {
+	display: block;
+	@include get-sprite($map, arrow-up);
+	position: absolute;
+	top: 5px;
+
+	&:hover {
+		@include get-sprite($map, arrow-up-hover);
+	}
+}
+
+.position-right__down {
+	display: block;
+	@include get-sprite($map, arrow-down);
+	position: absolute;
+	bottom: 3px;
+
+	&:hover {
+		@include get-sprite($map, arrow-down-hover);
+	}
+}
+
+//buttons
+.buttons {
+	position: relative;
+	@include clearfix;
+	border-top: 1px solid #f4c3c2;
+	padding: 0 10px;
+	padding-top: 30px;
+
+	&:before {
+		position: absolute;
+		top: -1px;
+		right: 0;
+		left: 0;
+		margin: auto;
+		content: "";
+		width: 19px;
+		height: 11px;
+		background: url(/img/title-arrow.jpg) no-repeat;
+	}
+}
+
+.buttons__reset {
+	float: left;
+	border: none;
+	width: 99px;
+	padding: 10px 0;
+	text-align: center;
+	background: #c1cfd9;
+	font-family: $med;
+	font-size: 18px;
+	color: #fff;
+	@include border-radius;
+}
+
+.buttons__download {
+	float: right;
+	border: none;
+	width: 99px;
+	padding: 10px 0;
+	text-align: center;
+	background: #f97e76;
+	font-family: $med;
+	font-size: 18px;
+	color: #fff;
+	@include border-radius;
 }

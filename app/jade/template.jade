@@ -15,33 +15,59 @@ html(lang="ru-RU")
 					.image-view__text
 						h1.image-view__title Генератор водяных знаков
 					.image-view__container
+
 				aside.saidbar
 					.saidbar_text
 						h2.saidbar__title Настройки
 
-					ul.saidbar__list
-						li.saidbar__item
-							form.file-upload
-								label.file-upload__label
-									.file-upload__title Исходное изображение
-									.file-upload__container
-										input.file-upload__input(type="file")
-										.file-upload__fake image.jpg
-										.file-upload__icon
-								label.file-upload__label
-									.file-upload__title Водяной знак
-									.file-upload__container
-										input.file-upload__input(type="file")
-										.file-upload__fake image.png
-										.file-upload__icon
-					ul.saidbar__list
-						li.saidbar__item
-					ul.saidbar__list
-						li.saidbar__item
-					ul.saidbar__list
-						li.saidbar__item
+
+					form.file-upload
+						label.file-upload__label
+							.file-upload__title Исходное изображение
+							.file-upload__container
+								input.file-upload__input(type="file")
+								.file-upload__fake image.jpg
+								.file-upload__icon
+
+						label.file-upload__label
+							.file-upload__title Водяной знак
+							.file-upload__container
+								input.file-upload__input(type="file")
+								.file-upload__fake image.png
+								.file-upload__icon
+
+
+					.position
+						.position__title Положение
+						.position-container
+
+							.position-left
+								ul.position-left__list
+									- for (var i = 0; i < 9; i++)
+										li.position-left__item
+											a.position-left__link(href="#")
+
+							.position-right
+								.position-right__top
+									span.position-right__vector X
+									input.position-right__input-top(type="text" value="0")
+									.position-right__buttons
+										a.position-right__up(href="#")
+										a.position-right__down(href="#")		
+								.position-right__bottom
+									span.position-right__vector Y
+									input.position-right__input-bot(type="text" value="0")
+									.position-right__buttons
+										a.position-right__up(href="#")
+										a.position-right__down(href="#")
+
+					.buttons
+						button.buttons__reset(type="reset") Сброс
+						button.buttons__download(type="submit") Скачать
+
 
 		footer.footer © 2014, Это мой сайт, пожалуйста, не копируйте и не воруйте его
 
 		script(src="bower/jquery/dist/jquery.js")
 		script(src="js/main.js")
+		script(src="bower/jquery-ui/jquery-ui.min.js")
