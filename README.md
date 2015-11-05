@@ -14,7 +14,7 @@
 
 ## Team 
 
-![Dmitry Mezhuev](https://github.com/imezler/Test/blob/master/team1.png)
-![Max Roschin](https://github.com/imezler/Test/blob/master/team2.png)
-![Artyom Danshin](https://github.com/imezler/Test/blob/master/team3.png)
-![Ilya Metsler](https://github.com/imezler/Test/blob/master/team4.png)
+![Dmitry Mezhuev](https://github.com/imezler/Test/blob/master/team1.png "Dmitry Mezhuev")
+![Max Roschin](https://github.com/imezler/Test/blob/master/team2.png "Max Roschin")
+![Artyom Danshin](https://github.com/imezler/Test/blob/master/team3.png "Artyom Danshin")
+![Ilya Metsler](https://github.com/imezler/Test/blob/master/team4.png "Ilya Metsler")
