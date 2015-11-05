@@ -179,6 +179,7 @@ p {
   padding: 0 21px 0 20px;
   border-top: 1px solid #f4c3c2;
   position: relative;
+  margin-bottom: 25px;
 }
 .position:before {
   position: absolute;
@@ -325,6 +326,43 @@ p {
   background: url('../img/icons-scb35751632.png') 0 0 no-repeat;
   height: 8px;
   width: 13px;
+}
+
+.opacity {
+  position: relative;
+  border-top: 1px solid #f4c3c2;
+  padding: 0 21px 0 20px;
+  padding-top: 15px;
+  margin-bottom: 20px;
+}
+.opacity:before {
+  position: absolute;
+  top: -1px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  content: "";
+  width: 19px;
+  height: 11px;
+  background: url(/img/title-arrow.jpg) no-repeat;
+}
+
+.opacity__title {
+  margin-bottom: 20px;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+  background: url('../img/icons-scb35751632.png') 0 -504px no-repeat;
+  height: 24px;
+  width: 24px;
+  border: 0;
+}
+
+.ui-slider .ui-slider-handle {
+  width: 24px !important;
+  height: 24px !important;
 }
 
 .buttons {
