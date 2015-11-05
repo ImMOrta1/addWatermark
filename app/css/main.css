@@ -169,7 +169,7 @@ p {
   bottom: 0;
   top: 0;
   z-index: 99;
-  background: url('../img/icons-scb35751632.png') 0 -313px no-repeat;
+  background: url('../img/icons-s7fc1c71963.png') 0 -313px no-repeat;
   height: 27px;
   width: 39px;
   cursor: pointer;
@@ -302,28 +302,28 @@ p {
 
 .position-right__up {
   display: block;
-  background: url('../img/icons-scb35751632.png') 0 -234px no-repeat;
+  background: url('../img/icons-s7fc1c71963.png') 0 -234px no-repeat;
   height: 9px;
   width: 13px;
   position: absolute;
   top: 5px;
 }
 .position-right__up:hover {
-  background: url('../img/icons-scb35751632.png') 0 -156px no-repeat;
+  background: url('../img/icons-s7fc1c71963.png') 0 -156px no-repeat;
   height: 8px;
   width: 13px;
 }
 
 .position-right__down {
   display: block;
-  background: url('../img/icons-scb35751632.png') 0 -78px no-repeat;
+  background: url('../img/icons-s7fc1c71963.png') 0 -78px no-repeat;
   height: 8px;
   width: 13px;
   position: absolute;
   bottom: 3px;
 }
 .position-right__down:hover {
-  background: url('../img/icons-scb35751632.png') 0 0 no-repeat;
+  background: url('../img/icons-s7fc1c71963.png') 0 0 no-repeat;
   height: 8px;
   width: 13px;
 }
@@ -333,7 +333,7 @@ p {
   border-top: 1px solid #f4c3c2;
   padding: 0 21px 0 20px;
   padding-top: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 33px;
 }
 .opacity:before {
   position: absolute;
@@ -348,28 +348,43 @@ p {
 }
 
 .opacity__title {
-  margin-bottom: 20px;
+  margin-bottom: 27px;
 }
 
-.ui-state-default,
-.ui-widget-content .ui-state-default,
-.ui-widget-header .ui-state-default {
-  background: url('../img/icons-scb35751632.png') 0 -504px no-repeat;
-  height: 24px;
-  width: 24px;
-  border: 0;
+.ui-state-default {
+  border: 0 !important;
+  outline: none !important;
 }
 
-.ui-slider .ui-slider-handle {
+.ui-widget-content {
+  border: 0 !important;
+}
+
+.ui-slider-horizontal {
+  height: 3px !important;
+  background: #dbe1e8 !important;
+}
+
+.ui-widget-header {
+  background: #9eb2c0 !important;
+}
+
+.ui-slider-handle {
+  background: url("../img/icons-s7fc1c71963.png") 0 -504px no-repeat !important;
   width: 24px !important;
   height: 24px !important;
+  top: -9px !important;
+  margin-left: -10px !important;
+}
+.ui-slider-handle:hover {
+  background: url("../img/icons-s7fc1c71963.png") 0 -410px no-repeat !important;
 }
 
 .buttons {
   position: relative;
   border-top: 1px solid #f4c3c2;
   padding: 0 10px;
-  padding-top: 30px;
+  padding-top: 55px;
 }
 .buttons:before, .buttons:after {
   content: "";

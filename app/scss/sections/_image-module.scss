@@ -49,7 +49,7 @@
 	line-height: 28px;
 }
 
-// form
+//----------------- form --------------------
 .file-upload {
 	padding: $pdg;
 	position: relative;
@@ -99,7 +99,7 @@
 	cursor: pointer;
 }
 
-// position
+//------------- position -------------------
 .position {
 	padding: $pdg;
 	border-top: 1px solid #f4c3c2;
@@ -145,7 +145,7 @@
 	border-bottom: $greyBord;
 	border-right: $greyBord;
 	display: inline-block;
-	background: #dbe1e8;
+	background: $lightGrey;
 
 	&:nth-child(3n) {
 		border-right: 0;
@@ -245,13 +245,13 @@
 	}
 }
 
-//opacity
+//-------------- opacity --------------------
 .opacity {
 	position: relative;
 	border-top: 1px solid #f4c3c2;
 	padding: $pdg;
 	padding-top: 15px;
-	margin-bottom: 20px;
+	margin-bottom: 33px;
 
 	&:before {
 		position: absolute;
@@ -268,32 +268,46 @@
 }
 
 .opacity__title {
-	margin-bottom: 20px;
+	margin-bottom: 27px;
 }
 
-.ui-state-default,
-.ui-widget-content .ui-state-default,
-.ui-widget-header .ui-state-default {
-	//border: 1px solid #c5c5c5;
-	//background: #f6f6f6;
-	//font-weight: normal;
-	//color: #454545;
-	@include get-sprite($map, slider-button);
-	border: 0;
+.ui-state-default {
+	border: 0 !important;
+	outline: none !important;
 }
 
-.ui-slider .ui-slider-handle {
+.ui-widget-content {
+	border: 0 !important;
+}
+
+.ui-slider-horizontal {
+	height: 3px !important;
+	background: $lightGrey !important;
+}
+
+.ui-widget-header {
+	background: $grey !important;
+}
+
+.ui-slider-handle {
+	background: url('../img/icons-s7fc1c71963.png') 0 -504px no-repeat !important;
 	width: 24px !important;
 	height: 24px !important;
+	top: -9px !important;
+	margin-left: -10px !important;
+
+	&:hover {
+		background: url('../img/icons-s7fc1c71963.png') 0 -410px no-repeat !important;
+	}
 }
 
-//buttons
+// ------------- buttons --------------------------
 .buttons {
 	position: relative;
 	@include clearfix;
 	border-top: 1px solid #f4c3c2;
 	padding: 0 10px;
-	padding-top: 30px;
+	padding-top: 55px;
 
 	&:before {
 		position: absolute;
