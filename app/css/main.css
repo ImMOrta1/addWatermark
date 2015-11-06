@@ -97,8 +97,29 @@ p {
 }
 
 .image-view__container {
+  position: relative;
   background: #fff;
   height: 530px;
+}
+
+.image-view__upload {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.image-view__watermark {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
 }
 
 .saidbar {
@@ -336,12 +357,12 @@ p {
   margin-bottom: 33px;
 }
 .opacity:before {
+  content: "";
   position: absolute;
   top: -1px;
   right: 0;
   left: 0;
   margin: auto;
-  content: "";
   width: 19px;
   height: 11px;
   background: url(/img/title-arrow.jpg) no-repeat;
