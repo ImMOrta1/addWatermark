@@ -2,10 +2,10 @@
   "name": "my-first-project",
   "dependencies": {
     "jquery": "~2.1.4",
-    "blueimp-file-upload": "jquery-file-upload#~9.11.2",
+    "blueimp-file-upload": "~9.11.2",
     "jquery-ui": "~1.11.4",
     "qtip2": "~2.2.1",
     "normalize-css": "normalize.css#~3.0.3",
-    "modernizr": "~3.2.0"
+    "modernizr": "2.8.3"
   }
 }
