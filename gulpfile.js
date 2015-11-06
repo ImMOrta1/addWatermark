@@ -74,7 +74,6 @@ gulp.task('sync', function() {
 gulp.task('watch', function(){
 	gulp.watch(paths.jade.location, ['jade']);
 	gulp.watch(paths.scss.location, ['compass']);
-	
 	gulp.watch(paths.browserSync.watchPaths).on('change', browserSync.reload);
 });
 

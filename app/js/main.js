@@ -1,13 +1,28 @@
-$(function() {
-    $('.opacity__slider').slider({
-        range: 'min',
-        value: 50,
-        min: 1,
-        max: 100,
-        slide: function( event, ui ) {
-            $( "#amount" ).val( "$" + ui.value );
-        }
-    });
 
-    $( "#amount" ).val( "$" + $( "#slider-range-min" ).slider( "value" ) );
-});
+var Unity = (function () {
+    function _setUpListeners() {
+        $('#file-upload').fileupload({
+            dataType: 'json',
+            acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+
+            add: function(e, data) {
+                data.submit();
+                console.log('upload');
+            },
+            done: function(e, data) {
+                var uploadImg = data.result.files[0].name;
+            }
+
+        })
+    };
+
+    return {
+        init: function () {
+            _setUpListeners();
+        }
+    }
+
+
+})();
+
+Unity.init();

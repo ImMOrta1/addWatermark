@@ -12,7 +12,7 @@
 		<meta name="description" content="Дмитрий Межуев">
 		<!-- favicons-->
 		<!-- includes-->
-		<script src="bower/modernizr/modernizr.js"></script>
+		<!--<script src="bower/modernizr/modernizr.js"></script>-->
 		<link rel="stylesheet" type="text/css" href="/bower/normalize-css/normalize.css">
 		<link rel="stylesheet" type="text/css" href="/css/main.css">
 		<link rel="stylesheet" type="text/css" href="/bower/jquery-ui/themes/base/jquery-ui.css">
@@ -35,13 +35,13 @@
 						<label class="file-upload__label">
 							<div class="file-upload__title">Исходное изображение</div>
 							<div class="file-upload__container">
-								<input type="file" class="file-upload__input">
-								<div class="file-upload__fake">image.jpg</div>
+								<input type="file" class="file-upload__input" id="file-upload" name="files[]" data-url="server/php/" multiple>
+								<div class="file-upload__fake" qtip-content="Загрузите изображение"></div>
 								<div class="file-upload__icon"></div>
 							</div>
 						</label>
 						<label class="file-upload__label">
-							<div class="file-upload__title">Водяной знак</div>
+							<div class="file-upload__title" qtip-content="Загрузите водяной знак">Водяной знак</div>
 							<div class="file-upload__container">
 								<input type="file" class="file-upload__input">
 								<div class="file-upload__fake">image.png</div>
@@ -90,7 +90,12 @@
 		</div>
 		<footer class="footer">© 2014, Это мой сайт, пожалуйста, не копируйте и не воруйте его</footer>
 		<script src="bower/jquery/dist/jquery.js"></script>
-		<script src="js/main.js"></script>
+		<script src="bower/qtip2/jquery.qtip.js"></script>
 		<script src="bower/jquery-ui/jquery-ui.min.js"></script>
+		<script src="bower/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+		<script src="bower/blueimp-file-upload/js/jquery.fileupload-validate.js"></script>
+		<script src="bower/blueimp-file-upload/js/jquery.fileupload.js"></script>
+
+		<script src="js/main.js"></script>
 	</body>
 </html>

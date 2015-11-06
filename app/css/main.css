@@ -148,6 +148,7 @@ p {
 }
 
 .file-upload__fake {
+  height: 16px;
   font-family: "RobotoLight";
   font-size: 12px;
   color: #9eb2c0;
