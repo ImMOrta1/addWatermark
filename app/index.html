@@ -12,10 +12,10 @@
 		<meta name="description" content="Дмитрий Межуев">
 		<!-- favicons-->
 		<!-- includes-->
-		<script src="bower/modernizr/modernizr.js"></script>
-		<link rel="stylesheet" type="text/css" href="/bower/normalize-css/normalize.css">
-		<link rel="stylesheet" type="text/css" href="/css/main.css">
-		<link rel="stylesheet" type="text/css" href="/bower/jquery-ui/themes/base/jquery-ui.css">
+		<!--<script src="bower/modernizr/modernizr.js"></script>-->
+		<link rel="stylesheet" type="text/css" href="bower/normalize-css/normalize.css">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<link rel="stylesheet" type="text/css" href="bower/jquery-ui/themes/base/jquery-ui.css">
 		<title>Приложение для добавления водяных знаков на фотографию</title>
 	</head>
 	<body>
@@ -25,7 +25,9 @@
 					<div class="image-view__text">
 						<h1 class="image-view__title">Генератор водяных знаков</h1>
 					</div>
-					<div class="image-view__container"><img src="img/upload.jpg" alt="" class="image-view__upload"><img src="img/watermark.png" alt="" class="image-view__watermark"></div>
+					<div class="image-view__container">
+						<div class="image-view__main-img"></div>
+						<div class="image-view__water-img"></div>
 				</section>
 				<aside class="saidbar">
 					<div class="saidbar_text">
@@ -35,17 +37,19 @@
 						<label class="file-upload__label">
 							<div class="file-upload__title">Исходное изображение</div>
 							<div class="file-upload__container">
-								<input type="file" class="file-upload__input">
-								<div class="file-upload__fake">image.jpg</div>
+								<input type="file" class="file-upload__input"  id="fileupload" name="files" accept="image/jpeg, image/png, image/jpg">
+								<div class="file-upload__fake"  id="fake">image.jpg</div>
 								<div class="file-upload__icon"></div>
+								<input type="text" name="mainFileText" id="mainFileText" class="file-upload__inputInvis">
 							</div>
 						</label>
 						<label class="file-upload__label">
 							<div class="file-upload__title">Водяной знак</div>
 							<div class="file-upload__container">
-								<input type="file" class="file-upload__input">
-								<div class="file-upload__fake">image.png</div>
+								<input type="file" class="file-upload__input" id="fileuploadWat" accept="image/jpeg, image/png, image/jpg">
+								<div class="file-upload__fake" id="fakeWat">image.png</div>
 								<div class="file-upload__icon"></div>
+								<input type="text" name="waterFileText" id="waterFileText" class="file-upload__inputInvis">
 							</div>
 						</label>
 					</form>
@@ -90,7 +94,12 @@
 		</div>
 		<footer class="footer">© 2014, Это мой сайт, пожалуйста, не копируйте и не воруйте его</footer>
 		<script src="bower/jquery/dist/jquery.js"></script>
+		<script src="bower/qtip2/jquery.qtip.js"></script>
 		<script src="bower/jquery-ui/jquery-ui.min.js"></script>
+		<script src="bower/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+		<!--<script src="bower/blueimp-file-upload/js/jquery.fileupload-validate.js"></script>-->
+		<script src="bower/blueimp-file-upload/js/jquery.fileupload.js"></script>
+		<script src="js/fileLoadToForm.js"></script>
 		<script src="js/main.js"></script>
 	</body>
 </html>
