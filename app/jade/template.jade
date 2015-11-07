@@ -27,15 +27,17 @@ html(lang="ru-RU")
 								.file-upload__title Исходное изображение
 								.file-upload__container
 									input.file-upload__input(type="file" name="files" id="mainFileInput")
-									.file-upload__fake image.jpg
+									.file-upload__fake(id="mainFileFake") image.jpg
 									.file-upload__icon
+									input.file-upload__inputInvis(type="text" name="mainFileText" id="mainFileText")
 
 							label.file-upload__label
 								.file-upload__title Водяной знак
 								.file-upload__container
 									input.file-upload__input(type="file" name="files" id="waterFileInput")
-									.file-upload__fake image.png
+									.file-upload__fake(id="waterFileFake") image.png
 									.file-upload__icon
+									input.file-upload__inputInvis(type="text" name="waterFileText" id="waterFileText")
 
 
 						.position
