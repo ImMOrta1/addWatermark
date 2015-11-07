@@ -15,15 +15,15 @@ var fileUploadToServer = (function () {
 		event.preventDefault();
 
 		var form = $(this),
-			url = 'add_project.php',
+			url = 'php/add_project.php',
 			defObj = _ajaxForm(form,url);
 
 		//Если JS валидация успешна, то Ajax запрос на сервер
 		if (defObj) {
 			defObj.done(function(ans) {
 				if (ans.status ==='OK') {
-					console.log(ans.text1);
-					console.log(ans.text2);
+					console.log(ans.text);
+					document.location = ans.fileName;
 				} else {
 					console.log(ans.text);
 				}
