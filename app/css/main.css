@@ -8,7 +8,7 @@ body {
 body, html {
   width: 100%;
   height: 100%;
-  background: url(/img/site-bg.jpg) no-repeat;
+  background: url(../img/site-bg.jpg) no-repeat;
   background-size: cover;
   background-position: center center;
 }
@@ -80,7 +80,7 @@ p {
   width: 650px;
   height: 630px;
   padding: 15px 25px 25px 25px;
-  background: url(/img/image-bg.png);
+  background: url(../img/image-bg.png);
 }
 
 .image-view__text {
@@ -147,6 +147,12 @@ p {
   left: -9999px;
 }
 
+.file-upload__inputInvis {
+  position: absolute;
+  top: 0;
+  left: -9999px;
+}
+
 .file-upload__fake {
   font-family: "RobotoLight";
   font-size: 12px;
@@ -190,7 +196,7 @@ p {
   content: "";
   width: 19px;
   height: 11px;
-  background: url(/img/title-arrow.jpg) no-repeat;
+  background: url(../img/title-arrow.jpg) no-repeat;
 }
 
 .position__title {
@@ -347,7 +353,7 @@ p {
   content: "";
   width: 19px;
   height: 11px;
-  background: url(/img/title-arrow.jpg) no-repeat;
+  background: url(../img/title-arrow.jpg) no-repeat;
 }
 
 .opacity__title {
@@ -390,7 +396,7 @@ p {
   content: "";
   width: 19px;
   height: 11px;
-  background: url(/img/title-arrow.jpg) no-repeat;
+  background: url(../img/title-arrow.jpg) no-repeat;
 }
 
 .buttons__reset {

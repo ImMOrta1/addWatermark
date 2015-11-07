@@ -10,7 +10,7 @@
 	width: 650px;
 	height: 630px;
 	padding: 15px 25px 25px 25px;
-	background: url(/img/image-bg.png);
+	background: url(../img/image-bg.png);
 }
 
 .image-view__text {
@@ -77,6 +77,11 @@
 	top: 0;
 	left: -9999px;
 }
+.file-upload__inputInvis {
+	position: absolute;
+	top: 0;
+	left: -9999px;
+}
 
 .file-upload__fake {
 	font-family: $light;
@@ -115,7 +120,7 @@
 		content: "";
 		width: 19px;
 		height: 11px;
-		background: url(/img/title-arrow.jpg) no-repeat;
+		background: url(../img/title-arrow.jpg) no-repeat;
 	}
 }
 
@@ -266,7 +271,7 @@
 		content: "";
 		width: 19px;
 		height: 11px;
-		background: url(/img/title-arrow.jpg) no-repeat;
+		background: url(../img/title-arrow.jpg) no-repeat;
 	}
 
 }
@@ -308,7 +313,7 @@
 		content: "";
 		width: 19px;
 		height: 11px;
-		background: url(/img/title-arrow.jpg) no-repeat;
+		background: url(../img/title-arrow.jpg) no-repeat;
 	}
 }
 
