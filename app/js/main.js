@@ -62,7 +62,7 @@ var positionModule = (function() {
     };
 
     var watermark = $('.image-view__water-img');
-    _spinnerX = $('.position-right__input-top'),
+        _spinnerX = $('.position-right__input-top'),
         _spinnerY = $('.position-right__input-bot');
 
     var  _dragWatermark = function() {
