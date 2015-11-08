@@ -148,11 +148,11 @@ function removeDirectory($dir) {
 		$type1 = end($type1_mas);
 		$type2 = end($type2_mas);
 		
-		if (!(image_unpack($type1,$file1) == false) && ($type2 == 'png')) {
+		if (!(image_unpack($type1,$file1) == false) && !(image_unpack($type2,$file2) == false) ) {
 	
 
 			$im1 = image_unpack($type1,$file1); 
-			$im2 = imagecreatefrompng($file2); 
+			$im2 = image_unpack($type2,$file2); 
 
 			$watermark = new watermark3();
 			$im=$watermark->create_watermark($im1,$im2,$posX,$poxY,$opacity_water);
@@ -171,6 +171,4 @@ function removeDirectory($dir) {
 
   exit;
 
-// Добавить проверку на тот случай, если изображение меньше холста.
-  //Добавить проверку чтобы картинка не выезжала за поля
 ?>
