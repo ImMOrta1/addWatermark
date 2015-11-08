@@ -121,3 +121,31 @@ var opacitySlider = (function() {
 }());
 
 opacitySlider.init();
+
+//------------Reset function----------------
+
+var resetForm = (function(){
+    var resetInit = function(){
+        _setupListners();
+    };
+
+    var _setupListners = function(){
+        $('.buttons__reset').on('click', function(){
+            $('.image-view__water-img').slider("value", 1)
+        })
+    };
+
+
+    return{
+        init: resetInit
+    }
+}());
+
+resetForm.init();
+
+
+
+
+
+
+
