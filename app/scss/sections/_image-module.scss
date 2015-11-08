@@ -145,7 +145,7 @@
 	content: "";
 	width: 19px;
 	height: 11px;
-	background: url(/img/title-arrow.jpg) no-repeat;
+	background: url(../img/title-arrow.jpg) no-repeat;
   }
 }
 .position {
@@ -221,11 +221,16 @@
 		background: #eee;
 	}
 
-	&_active {
-
-	}
 }
 
+.position-left__item_active {
+	background-color: #f97e76;	
+	&:hover {
+		.position-left__link {
+			background: none;
+		}
+	} 
+}
 .position-right {
 	float: right;
 }
@@ -242,6 +247,59 @@
 	font-size: 16px;
 	color: $black;
 	padding-top: 15px;
+}
+
+.ui-widget-content {
+	background: #f1f1f5 !important;
+	color: #444a53 !important;
+	font-size: 24px !important;
+	line-height: 24px !important;
+}
+
+.ui-spinner-input {
+	font-family: "SegoeUILight" !important;
+	width: 45px;
+	padding: 6px 0 !important;
+	border: 1px solid #9eb2c0 !important;
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+	margin-left: 0 !important;
+}
+
+.ui-state-default {
+	background: none !important;
+}
+
+.ui-state-hover {
+	background-image: none !important;
+}
+
+.ui-spinner-down {
+	bottom: -5px !important;
+}
+
+.ui-icon-triangle-1-n {
+	cursor: pointer !important;
+	display: block !important;
+	width: 13px !important;
+	height: 8px !important;
+	background: url('../img/icons-s7fc1c71963.png') 0 -234px no-repeat !important;
+
+	&:hover {
+		background: url('../img/icons-s7fc1c71963.png') 0 -156px no-repeat !important;
+	}
+}
+
+.ui-icon-triangle-1-s {
+	cursor: pointer !important;
+	display: block !important;
+	width: 13px !important;
+	height: 8px !important;
+	background: url('../img/icons-s7fc1c71963.png') 0 -78px no-repeat !important;
+
+	&:hover {
+		background: url('../img/icons-s7fc1c71963.png') 0 0 no-repeat !important;
+	}
 }
 
 .position-right__input-top {
@@ -261,36 +319,6 @@
 
 .position-right__input-bot {
 	@extend .position-right__input-top;
-}
-
-.position-right__buttons {
-	height: 43px;
-	margin-left: 3px;
-	width: 14px;
-	@include inlineblock;
-	position: relative;
-}
-
-.position-right__up {
-	display: block;
-	@include get-sprite($map, arrow-up);
-	position: absolute;
-	top: 5px;
-
-	&:hover {
-		@include get-sprite($map, arrow-up-hover);
-	}
-}
-
-.position-right__down {
-	display: block;
-	@include get-sprite($map, arrow-down);
-	position: absolute;
-	bottom: 3px;
-
-	&:hover {
-		@include get-sprite($map, arrow-down-hover);
-	}
 }
 
 //-------------- opacity --------------------
