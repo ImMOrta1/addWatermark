@@ -63,9 +63,10 @@ gulp.task('compass', function() {
 
 gulp.task('sync', function() {
 	browserSync.init({
-		server: {
-			baseDir: paths.browserSync.baseDir
-		}
+		proxy: "addWatermark/app"
+		// server: {
+		// 	baseDir: paths.browserSync.baseDir
+		// }
 	});
 });
 
@@ -74,7 +75,6 @@ gulp.task('sync', function() {
 gulp.task('watch', function(){
 	gulp.watch(paths.jade.location, ['jade']);
 	gulp.watch(paths.scss.location, ['compass']);
-	
 	gulp.watch(paths.browserSync.watchPaths).on('change', browserSync.reload);
 });
 

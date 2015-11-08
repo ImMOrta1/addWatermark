@@ -7,7 +7,7 @@ var fileLoadToForm = (function () {
 
 // Прослушивание событий
     var _setUpListners = function () {
-        _fileUploadFunc('#fileupload','.image-view__main-img ');
+        _fileUploadFunc('#fileupload','.image-view__main-img');
         _fileUploadFunc('#fileuploadWat','.image-view__water-img');
     };
 
