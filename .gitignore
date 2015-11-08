@@ -2,3 +2,5 @@ app/bower
 .sass-cache
 node_modules
 dist
+.sass-cache
+.idea/

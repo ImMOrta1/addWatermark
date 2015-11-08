@@ -43,32 +43,20 @@ gulp.task('compass', function() {
     .pipe(gulp.dest('app/css'));
 });
 
-// Запускаем локальный сервер (только после компиляции jade)
-gulp.task('server', function () {
-  browserSync({
-    notify: false,
-    port: 9000,
-    server: {
-      baseDir: 'app'
-    }
-  });
-});
-
-// Подключаем ссылки на bower для jade
-gulp.task('wiredep', function () {
-  gulp.src('app/*.html')
-    .pipe(wiredep({
-        exclude: ['modernizr'],
-        ignorePath: /^(\.\.\/)*\.\./
-      }))
-      .pipe(gulp.dest('app/'));
+gulp.task('sync', function() {
+	browserSync.init({
+		proxy: "addWatermark/app"
+		// server: {
+		// 	baseDir: paths.browserSync.baseDir
+		// }
+	});
+>>>>>>> master
 });
 
 // слежка и запуск задач
 gulp.task('watch', function () {
   gulp.watch('app/jade/**/*.jade', ['jade']);
   gulp.watch('app/sass/**/*.scss', ['compass']);
-  gulp.watch('bower.json', ['wiredep']);
   gulp.watch([
     'app/*.html',
     'app/js/**/*.js',
@@ -76,21 +64,6 @@ gulp.task('watch', function () {
   ]).on('change', reload);
 });
 
-// Задача по-умолчанию
-gulp.task('default', ['jade', 'compass', 'watch', 'server']);
-
-// Более наглядный вывод ошибок
-var log = function (error) {
-  console.log([
-    '',
-    "----------ERROR MESSAGE START----------",
-    ("[" + error.name + " in " + error.plugin + "]"),
-    error.message,
-    "----------ERROR MESSAGE END----------",
-    ''
-  ].join('\n'));
-  this.end();
-};
 
 // ====================================================
 // =============== Важные моменты  ====================
@@ -103,11 +76,6 @@ var log = function (error) {
 // ====================================================
 // ================= Сборка DIST ======================
 // ====================================================
-
-// Очистка папки
-gulp.task("clean", function () {
-    return del(["./dist/**", "!./dist/"]);
-});
 
 // Переносим HTML, CSS, JS в папку dist
 gulp.task('useref', function () {
