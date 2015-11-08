@@ -172,7 +172,7 @@ var positionModule = (function() {
                         
                 }
 
-        };
+        }
 
     return {
         init: positionInit
