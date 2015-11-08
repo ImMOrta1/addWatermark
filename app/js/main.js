@@ -103,7 +103,7 @@ var positionModule = (function() {
                 elem = watermark;
             }
 
-            coordinate = elem.position(),
+            var coordinate = elem.position(),
                 positionX  = Math.round( (coordinate.left) ),
                 positionY  = Math.round( (coordinate.top) );
             _setCoordinate(positionX,positionY);
@@ -172,7 +172,12 @@ var resetForm = (function(){
 
     var _setupListners = function(){
         $('.buttons__reset').on('click', function(){
-            $('.image-view__water-img').slider('value', 1)
+            $('.image-view__water-img').css('left', 0),
+            $('.image-view__water-img').css('top', 0),
+                $('.position-right__input-top').spinner('value', 0),
+                $('.position-right__input-bot').spinner('value', 0),
+                $('.opacity__slider').slider("value", 1),
+                $('.image-view__water-img').css('opacity', 1)
         })
     };
 
