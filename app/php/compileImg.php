@@ -12,8 +12,27 @@
 			$watermark_img_obj_w	= imagesx( $watermark_img_obj );
 			$watermark_img_obj_h	= imagesy( $watermark_img_obj );
 
-			$water_position_x_perc =  floor( $water_position_x / 625 * 100 );
-			$water_position_y_perc =  floor( $water_position_y / 530 * 100 );
+			if ($main_img_obj_w > $main_img_obj_h) {
+				if ($main_img_obj_w > 650) {
+					$box_width = 650;
+					$box_heigth = ($main_img_obj_h * $box_width / $main_img_obj_w);
+				} else {
+					$box_width = $main_img_obj_w;
+					$box_heigth = ($main_img_obj_h * $box_width / $main_img_obj_w);
+
+				} 
+			} else {
+				if ($main_img_obj_h > 530) {
+					$box_heigth = 530;
+					$box_width = ($main_img_obj_w * $box_heigth / $main_img_obj_h);
+				} else {
+					$box_heigth = $main_img_obj_h;
+					$box_width = ($main_img_obj_w * $box_heigth / $main_img_obj_h);
+				} 
+			}
+
+			$water_position_x_perc =  floor( $water_position_x / $box_width * 100 );
+			$water_position_y_perc =  floor( $water_position_y / $box_heigth * 100 );
 	 
 			# determine center position coordinates
 			$main_img_obj_min_x	= floor( $water_position_x_perc * $main_img_obj_w / 100 );
@@ -143,7 +162,7 @@ function removeDirectory($dir) {
 			imagejpeg($im,$finalName,95);
 			imagedestroy($im);
 
-			echo '<img src="' . $finalName . '" width=100%">';
+			echo '<img src="' . $finalName . '">';
 		} else {
 			echo "Неправильные форматы файлов";
 		}
