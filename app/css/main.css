@@ -1,74 +1,521 @@
-/*
-Error: No files were found in the load path matching "icons/*.png". Your current load paths are: D:/WebProjects/loftschool/watermark/app/img
-        on line 1 of D:/WebProjects/loftschool/watermark/app/scss/_misc/_mixins.scss
-        from line 5 of D:/WebProjects/loftschool/watermark/app/scss/main.scss
+/* --------- global styles --------- */
+body {
+  font-family: "RobotoLight";
+  font-size: 14px;
+  color: #333;
+}
 
-1: @import "compass";
-2: 
-3: /* --------- global styles --------- *\/
-4: @import "_misc/_global";
-5: @import "_misc/_mixins";
-6: 
+body, html {
+  width: 100%;
+  height: 100%;
+  background: url(../img/site-bg.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
 
-Backtrace:
-D:/WebProjects/loftschool/watermark/app/scss/_misc/_mixins.scss:1
-D:/WebProjects/loftschool/watermark/app/scss/main.scss:5
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/lib/compass/sprite_importer.rb:89:in `files'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/lib/compass/sass_extensions/sprites/sprite_map.rb:19:in `from_uri'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/lib/compass/sass_extensions/functions/sprites.rb:78:in `sprite_map'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/script/tree/funcall.rb:140:in `_perform'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/script/tree/node.rb:50:in `perform'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:469:in `visit_variable'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `block in with_base'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/stack.rb:115:in `with_frame'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `with_base'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `visit'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:326:in `block (2 levels) in visit_import'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:326:in `map'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:326:in `block in visit_import'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/stack.rb:88:in `block in with_import'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/stack.rb:115:in `with_frame'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/stack.rb:88:in `with_import'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:323:in `visit_import'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `block in with_base'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/stack.rb:115:in `with_frame'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `with_base'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `visit'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:52:in `map'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:157:in `visit'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:8:in `visit'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/root_node.rb:36:in `css_tree'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/root_node.rb:20:in `render'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/engine.rb:278:in `render'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:209:in `each'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/lib/compass/sass_compiler.rb:40:in `compile!'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/lib/compass/commands/update_project.rb:49:in `perform'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/lib/compass/commands/base.rb:18:in `execute'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/lib/compass/commands/project_base.rb:19:in `execute'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/lib/compass/exec/sub_command_ui.rb:15:in `run!'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/bin/compass:30:in `block in <top (required)>'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/bin/compass:44:in `call'
-C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/bin/compass:44:in `<top (required)>'
-C:/Ruby21-x64/bin/compass:23:in `load'
-C:/Ruby21-x64/bin/compass:23:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: No files were found in the load path matching \"icons/*.png\". Your current load paths are: D:/WebProjects/loftschool/watermark/app/img\A         on line 1 of D:/WebProjects/loftschool/watermark/app/scss/_misc/_mixins.scss\A         from line 5 of D:/WebProjects/loftschool/watermark/app/scss/main.scss\A \A 1: @import \"compass\";\A 2: \A 3: /* --------- global styles --------- */\A 4: @import \"_misc/_global\";\A 5: @import \"_misc/_mixins\";\A 6: "; }
+body, ul, ol, li, h1, h2 {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2 {
+  font-weight: normal;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: #333;
+}
+
+p {
+  font-weight: normal;
+  line-height: 20px;
+}
+
+.wrapper {
+  position: relative;
+  min-width: 960px;
+  min-height: 100%;
+  box-sizing: border-box;
+  padding-bottom: 30px;
+}
+
+.footer {
+  min-width: 960px;
+  height: 30px;
+  clear: both;
+  margin-top: -30px;
+  font-family: "SegoeUILight";
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+}
+
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+
+/* --------- sections --------- */
+.main {
+  width: 960px;
+  height: 670px;
+  background: #f1f1f5;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.image-view {
+  float: left;
+  width: 650px;
+  height: 630px;
+  padding: 15px 25px 25px 25px;
+  background: url(../img/image-bg.png);
+}
+
+.image-view__text {
+  height: 100px;
+}
+
+.image-view__title {
+  font-family: "SegoeUILight";
+  font-size: 36px;
+  line-height: 38px;
+  color: #fff;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.image-view__container {
+  position: relative;
+  background: #fff;
+  height: 530px;
+}
+
+.image-view__container .image-view__main-img {
+  width: 100%;
+  height: 100%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.image-view__container .image-view__water-img {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.image-view__upload {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.image-view__watermark {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.saidbar {
+  float: right;
+  width: 260px;
+}
+
+.saidbar_text {
+  height: 62px;
+  padding-top: 25px;
+  text-align: center;
+}
+
+.saidbar__title {
+  font-family: "RobotoLight";
+  font-size: 26px;
+  color: #2e3641;
+  line-height: 28px;
+}
+
+.file-upload {
+  padding: 0 21px 0 20px;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.file-upload__label {
+  display: block;
+  margin-bottom: 21px;
+}
+
+.file-upload__title {
+  font-family: "RobotoLight";
+  font-size: 14px;
+  margin-bottom: 7px;
+  color: #2e3641;
+}
+
+.file-upload__container {
+  position: relative;
+}
+
+.file-upload__input {
+  position: absolute;
+  top: 0;
+  left: -9999px;
+}
+
+.file-upload__inputInvis {
+  position: absolute;
+  top: 0;
+  left: -9999px;
+}
+
+.file-upload__fake {
+  font-family: "RobotoLight";
+  font-size: 12px;
+  color: #9eb2c0;
+  padding: 5px 3px 4px 3px;
+  border: 1px solid #9eb2c0;
+  outline: 0px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  cursor: pointer;
+}
+
+.file-upload__icon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 99;
+  background: url('../img/icons-s7fc1c71963.png') 0 -313px no-repeat;
+  height: 27px;
+  width: 39px;
+  cursor: pointer;
+}
+
+.separator {
+  border-top: 1px solid #f4c3c2;
+}
+.separator:before {
+  position: absolute;
+  top: -1px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  content: "";
+  width: 19px;
+  height: 11px;
+  background: url(/img/title-arrow.jpg) no-repeat;
+}
+
+.position {
+  padding: 0 21px 0 20px;
+  border-top: 1px solid #f4c3c2;
+  position: relative;
+  margin-bottom: 25px;
+}
+.position:before {
+  position: absolute;
+  top: -1px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  content: "";
+  width: 19px;
+  height: 11px;
+  background: url(../img/title-arrow.jpg) no-repeat;
+}
+
+.position__title {
+  padding-top: 13px;
+  margin-bottom: 34px;
+}
+
+.position-container:before, .position-container:after {
+  content: "";
+  display: table;
+}
+.position-container:after {
+  clear: both;
+}
+
+.position-left {
+  float: left;
+}
+
+.position-left__list {
+  font-size: 0;
+  width: 101px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  overflow: hidden;
+  border: 1px solid #9eb2c0;
+}
+
+.position-left__item {
+  border-bottom: 1px solid #9eb2c0;
+  border-right: 1px solid #9eb2c0;
+  display: inline-block;
+  background: #dbe1e8;
+}
+.position-left__item:nth-child(3n) {
+  border-right: 0;
+}
+.position-left__item:nth-child(7n) {
+  border-bottom: 0;
+}
+.position-left__item:nth-child(8n) {
+  border-bottom: 0;
+}
+.position-left__item:nth-child(9n) {
+  border-bottom: 0;
+}
+
+.position-left__link {
+  display: block;
+  width: 33px;
+  height: 33px;
+}
+.position-left__link:hover {
+  background: #eee;
+}
+
+.position-right {
+  float: right;
+}
+
+.position-right__top,
+.position-right__bottom {
+  margin-bottom: 11px;
+}
+
+.position-right__vector {
+  display: inline-block;
+  vertical-align: top;
+  width: 13px;
+  font-family: "RobotoLight";
+  font-size: 16px;
+  color: #2e3641;
+  padding-top: 15px;
+}
+
+.position-right__input-top, .position-right__input-bot {
+  background: #f1f1f5;
+  width: 43px;
+  padding: 6px 0;
+  text-align: center;
+  display: inline-block;
+  vertical-align: top;
+  font-family: "SegoeUILight";
+  font-size: 24px;
+  line-height: 24px;
+  color: #444a53;
+  outline: none;
+  border: 1px solid #9eb2c0;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+
+.position-right__buttons {
+  height: 43px;
+  margin-left: 3px;
+  width: 14px;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+}
+
+.position-right__up {
+  display: block;
+  background: url('../img/icons-s7fc1c71963.png') 0 -234px no-repeat;
+  height: 9px;
+  width: 13px;
+  position: absolute;
+  top: 5px;
+}
+.position-right__up:hover {
+  background: url('../img/icons-s7fc1c71963.png') 0 -156px no-repeat;
+  height: 8px;
+  width: 13px;
+}
+
+.position-right__down {
+  display: block;
+  background: url('../img/icons-s7fc1c71963.png') 0 -78px no-repeat;
+  height: 8px;
+  width: 13px;
+  position: absolute;
+  bottom: 3px;
+}
+.position-right__down:hover {
+  background: url('../img/icons-s7fc1c71963.png') 0 0 no-repeat;
+  height: 8px;
+  width: 13px;
+}
+
+.opacity {
+  position: relative;
+}
+
+.opacity__style {
+  padding: 0 21px 0 20px;
+  padding-top: 15px;
+  margin-bottom: 33px;
+}
+
+.opacity__title {
+  margin-bottom: 27px;
+}
+
+.ui-state-default {
+  border: 0 !important;
+  outline: none !important;
+}
+
+.ui-widget-content {
+  border: 0 !important;
+}
+
+.ui-slider-horizontal {
+  height: 3px !important;
+  background: #dbe1e8 !important;
+}
+
+.ui-widget-header {
+  background: #9eb2c0 !important;
+}
+
+.ui-slider-handle {
+  background: url("../img/icons-s7fc1c71963.png") 0 -504px no-repeat !important;
+  width: 24px !important;
+  height: 24px !important;
+  top: -9px !important;
+  margin-left: -10px !important;
+}
+.ui-slider-handle:hover {
+  background: url("../img/icons-s7fc1c71963.png") 0 -410px no-repeat !important;
+}
+
+.buttons {
+  position: relative;
+  border-top: 1px solid #f4c3c2;
+  padding: 0 10px;
+  padding-top: 55px;
+}
+.buttons:before, .buttons:after {
+  content: "";
+  display: table;
+}
+.buttons:after {
+  clear: both;
+}
+.buttons:before {
+  position: absolute;
+  top: -1px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  content: "";
+  width: 19px;
+  height: 11px;
+  background: url(../img/title-arrow.jpg) no-repeat;
+}
+
+.buttons__reset {
+  float: left;
+  border: none;
+  width: 99px;
+  padding: 10px 0;
+  text-align: center;
+  background: #c1cfd9;
+  font-family: "RobotoMedium";
+  font-size: 18px;
+  color: #fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+
+.buttons__download {
+  float: right;
+  border: none;
+  width: 99px;
+  padding: 10px 0;
+  text-align: center;
+  background: #f97e76;
+  font-family: "RobotoMedium";
+  font-size: 18px;
+  color: #fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+
+/* --------- fonts --------- */
+/* font-family: "RobotoLight"; */
+@font-face {
+  font-family: "RobotoLight";
+  src: url("../fonts/RobotoLight/RobotoLight.eot");
+  src: url("../fonts/RobotoLight/RobotoLight.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoLight/RobotoLight.woff") format("woff"), url("../fonts/RobotoLight/RobotoLight.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+/* font-family: "RobotoMedium"; */
+@font-face {
+  font-family: "RobotoMedium";
+  src: url("../fonts/RobotoMedium/RobotoMedium.eot");
+  src: url("../fonts/RobotoMedium/RobotoMedium.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoMedium/RobotoMedium.woff") format("woff"), url("../fonts/RobotoMedium/RobotoMedium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "SegoeUILight";
+  src: url("../fonts/SegoeUILight/SegoeUILight.eot");
+  src: url("../fonts/SegoeUILight/SegoeUILight.eot?#iefix") format("embedded-opentype"), url("../fonts/SegoeUILight/SegoeUILight.woff") format("woff"), url("../fonts/SegoeUILight/SegoeUILight.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}

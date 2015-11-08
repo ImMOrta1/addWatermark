@@ -1,0 +1,384 @@
+.main {
+	width: 960px;
+	height: 670px;
+	background: #f1f1f5;
+	@include center;
+}
+
+.image-view {
+	float: left;
+	width: 650px;
+	height: 630px;
+	padding: 15px 25px 25px 25px;
+	background: url(../img/image-bg.png);
+}
+
+.image-view__text {
+	height: 100px;
+}
+
+.image-view__title {
+	font-family: $seg;
+	font-size: 36px;
+	line-height: 38px;
+	color: #fff;
+	margin-top: 0;
+	padding-top: 0;
+}
+
+.image-view__container {
+	position: relative;
+	background: #fff;
+	height: 530px;
+}
+.image-view__container .image-view__main-img {
+  width: 100%;
+  height: 100%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.image-view__container .image-view__water-img {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.image-view__upload {
+	width: 100%;
+	height: auto;
+	@include center;
+}
+
+.image-view__watermark {
+	@include center;
+}
+
+.saidbar {
+	float: right;
+	width: 260px;
+}
+
+.saidbar_text {
+	height: 62px;
+	padding-top: 25px;
+	text-align: center;
+}
+
+.saidbar__title {
+	font-family: $light;
+	font-size: 26px;
+	color: $black;
+	line-height: 28px;
+}
+
+//----------------- form --------------------
+.file-upload {
+	padding: $pdg;
+	position: relative;
+	margin-bottom: 30px;	
+}
+
+.file-upload__label {
+	display: block;
+	margin-bottom: 21px;
+}
+
+.file-upload__title {
+	font-family: $light;
+	font-size: 14px;
+	margin-bottom: 7px;
+	color: $black;
+}
+
+.file-upload__container {
+	position: relative;
+}
+
+.file-upload__input {
+	position: absolute;
+	top: 0;
+	left: -9999px;
+}
+.file-upload__inputInvis {
+  position: absolute;
+  top: 0;
+  left: -9999px;
+}
+.file-upload__fake {
+	font-family: $light;
+	font-size: 12px;
+	color: $grey;
+	padding: 5px 3px 4px 3px;
+	border: $greyBord;
+	outline: 0px;
+	@include border-radius;
+	cursor: pointer;
+}
+	
+.file-upload__icon {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	z-index: 99;
+	@include get-sprite($map, image-upload);
+	cursor: pointer;
+}
+
+//------------- position -------------------
+.separator {
+  border-top: 1px solid #f4c3c2;
+
+  &:before {
+	position: absolute;
+	top: -1px;
+	right: 0;
+	left: 0;
+	margin: auto;
+	content: "";
+	width: 19px;
+	height: 11px;
+	background: url(/img/title-arrow.jpg) no-repeat;
+  }
+}
+.position {
+	padding: $pdg;
+	border-top: 1px solid #f4c3c2;
+	position: relative;
+	margin-bottom: 25px;
+
+	&:before {
+		position: absolute;
+		top: -1px;
+		right: 0;
+		left: 0;
+		margin: auto;
+		content: "";
+		width: 19px;
+		height: 11px;
+		background: url(../img/title-arrow.jpg) no-repeat;
+	}
+}
+
+.position__title {
+	padding-top: 13px;
+	margin-bottom: 34px;
+}
+
+
+.position-container {
+	@include clearfix;
+}
+
+.position-left {
+	float: left;
+}
+
+.position-left__list {
+	font-size: 0;
+	width: 101px;
+	@include border-radius;
+	overflow: hidden;
+	border: $greyBord;
+}
+
+.position-left__item {
+	border-bottom: $greyBord;
+	border-right: $greyBord;
+	display: inline-block;
+	background: $lightGrey;
+
+	&:nth-child(3n) {
+		border-right: 0;
+	}
+
+	&:nth-child(7n) {
+		border-bottom: 0;
+	}
+
+	&:nth-child(8n) {
+		border-bottom: 0;
+	}
+
+	&:nth-child(9n) {
+		border-bottom: 0;
+	}
+}
+
+.position-left__link {
+	display: block;
+	width: 33px;
+	height: 33px;
+
+	&:hover {
+		background: #eee;
+	}
+
+	&_active {
+
+	}
+}
+
+.position-right {
+	float: right;
+}
+
+.position-right__top,
+.position-right__bottom {
+	margin-bottom: 11px;
+}
+
+.position-right__vector {
+	@include inlineblock;
+	width: 13px;
+	font-family: $light;
+	font-size: 16px;
+	color: $black;
+	padding-top: 15px;
+}
+
+.position-right__input-top {
+	background: #f1f1f5;
+	width: 43px;
+	padding: 6px 0;
+	text-align: center;
+	@include inlineblock;
+	font-family: $seg;
+	font-size: 24px;
+	line-height: 24px;
+	color: $LightBl;
+	outline: none;
+	border: $greyBord;
+	@include border-radius;
+}
+
+.position-right__input-bot {
+	@extend .position-right__input-top;
+}
+
+.position-right__buttons {
+	height: 43px;
+	margin-left: 3px;
+	width: 14px;
+	@include inlineblock;
+	position: relative;
+}
+
+.position-right__up {
+	display: block;
+	@include get-sprite($map, arrow-up);
+	position: absolute;
+	top: 5px;
+
+	&:hover {
+		@include get-sprite($map, arrow-up-hover);
+	}
+}
+
+.position-right__down {
+	display: block;
+	@include get-sprite($map, arrow-down);
+	position: absolute;
+	bottom: 3px;
+
+	&:hover {
+		@include get-sprite($map, arrow-down-hover);
+	}
+}
+
+//-------------- opacity --------------------
+.opacity {
+	position: relative;
+}
+.opacity__style {
+  padding: $pdg;
+  padding-top: 15px;
+  margin-bottom: 33px;
+}
+.opacity__title {
+	margin-bottom: 27px;
+}
+
+.ui-state-default {
+	border: 0 !important;
+	outline: none !important;
+}
+
+.ui-widget-content {
+	border: 0 !important;
+}
+
+.ui-slider-horizontal {
+	height: 3px !important;
+	background: $lightGrey !important;
+}
+
+.ui-widget-header {
+	background: $grey !important;
+}
+
+.ui-slider-handle {
+	background: url('../img/icons-s7fc1c71963.png') 0 -504px no-repeat !important;
+	width: 24px !important;
+	height: 24px !important;
+	top: -9px !important;
+	margin-left: -10px !important;
+
+	&:hover {
+		background: url('../img/icons-s7fc1c71963.png') 0 -410px no-repeat !important;
+	}
+}
+
+// ------------- buttons --------------------------
+.buttons {
+	position: relative;
+	@include clearfix;
+	border-top: 1px solid #f4c3c2;
+	padding: 0 10px;
+	padding-top: 55px;
+
+	&:before {
+		position: absolute;
+		top: -1px;
+		right: 0;
+		left: 0;
+		margin: auto;
+		content: "";
+		width: 19px;
+		height: 11px;
+		background: url(../img/title-arrow.jpg) no-repeat;
+	}
+}
+
+.buttons__reset {
+	float: left;
+	border: none;
+	width: 99px;
+	padding: 10px 0;
+	text-align: center;
+	background: #c1cfd9;
+	font-family: $med;
+	font-size: 18px;
+	color: #fff;
+	@include border-radius;
+}
+
+.buttons__download {
+	float: right;
+	border: none;
+	width: 99px;
+	padding: 10px 0;
+	text-align: center;
+	background: #f97e76;
+	font-family: $med;
+	font-size: 18px;
+	color: #fff;
+	@include border-radius;
+}

@@ -11,36 +11,96 @@
 		<meta name="keywords" content="разработка сайтов, frontend разработка, веб-дизайн">
 		<meta name="description" content="Дмитрий Межуев">
 		<!-- favicons-->
-		<link rel="shortcut icon" href="/favicons/favicon.icon" type="image/x-icon">
-		<link rel="icon" href="/favicons/favicon.icon" type="image/x-icon">
-		<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
-		<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
-		<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
-		<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
-		<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
-		<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
-		<link rel="apple-touch-icon" sizes="144x144" href="/favicons/favicons/apple-touch-icon-144x144.png">
-		<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
-		<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png">
-		<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
-		<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
-		<link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96">
-		<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
-		<link rel="manifest" href="/favicons/manifest.json">
-		<meta name="msapplication-TileColor" content="#da532c">
-		<meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
-		<meta name="theme-color" content="#ffffff">
 		<!-- includes-->
 		<script src="bower/modernizr/modernizr.js"></script>
-		<link rel="stylesheet" type="text/css" href="/bower/normalize-css/normalize.css">
-		<link rel="stylesheet" type="text/css" href="/js/components/jquery-ui/jquery-ui.css">
-		<link rel="stylesheet" type="text/css" href="/js/components/select/select2.css">
-		<link rel="stylesheet" type="text/css" href="/css/main.css">
+		<link rel="stylesheet" type="text/css" href="bower/normalize-css/normalize.css">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<link rel="stylesheet" type="text/css" href="bower/jquery-ui/themes/base/jquery-ui.css">
 		<title>Приложение для добавления водяных знаков на фотографию</title>
 	</head>
 	<body>
-		<div class="wrapper"></div>
+		<div class="wrapper">
+			<div class="main">
+				<section class="image-view">
+					<div class="image-view__text">
+						<h1 class="image-view__title">Генератор водяных знаков</h1>
+					</div>
+					<div class="image-view__container">
+						<div class="image-view__main-img">
+							<div class="image-view__water-img"></div>
+						</div>
+					</div>
+				</section>
+				<aside class="saidbar">
+					<div class="saidbar_text">
+						<h2 class="saidbar__title">Настройки</h2>
+					</div>
+					<form class="file-upload">
+						<label class="file-upload__label">
+							<div class="file-upload__title">Исходное изображение</div>
+							<div class="file-upload__container">
+								<input type="file" id="fileupload" name="files[]" accept="image/jpeg, image/jpg" class="file-upload__input">
+								<div id="fake" class="file-upload__fake">image.jpg</div>
+								<div class="file-upload__icon"></div>
+								<input type="text" name="mainFileText" id="mainFileText" class="file-upload__inputInvis">
+							</div>
+						</label>
+						<label class="file-upload__label">
+							<div class="file-upload__title">Водяной знак</div>
+							<div class="file-upload__container">
+								<input type="file" id="fileuploadWat" accept="image/png" class="file-upload__input">
+								<div id="fakeWat" class="file-upload__fake">image.png</div>
+								<div class="file-upload__icon"></div>
+								<input type="text" name="waterFileText" id="waterFileText" class="file-upload__inputInvis">
+							</div>
+						</label>
+					</form>
+					<div class="position separator">
+						<div class="position__title">Положение</div>
+						<div class="position-container">
+							<div class="position-left">
+								<ul class="position-left__list">
+									<li data-pos="top-left" class="position-left__item"><a href="#" class="position-left__link"></a></li>
+									<li data-pos="top-center" class="position-left__item"><a href="#" class="position-left__link"></a></li>
+									<li data-pos="top-right" class="position-left__item"><a href="#" class="position-left__link"></a></li>
+									<li data-pos="mid-left" class="position-left__item"><a href="#" class="position-left__link"></a></li>
+									<li data-pos="mid-center" class="position-left__item"><a href="#" class="position-left__link"></a></li>
+									<li data-pos="mid-right" class="position-left__item"><a href="#" class="position-left__link"></a></li>
+									<li data-pos="btm-left" class="position-left__item"><a href="#" class="position-left__link"></a></li>
+									<li data-pos="btm-center" class="position-left__item"><a href="#" class="position-left__link"></a></li>
+									<li data-pos="btm-right" class="position-left__item"><a href="#" class="position-left__link"></a></li>
+								</ul>
+							</div>
+							<div class="position-right">
+								<div class="position-right__top"><span class="position-right__vector">X</span>
+									<input type="text" value="0" class="position-right__input-top">
+									<div class="position-right__buttons"><a href="#" class="position-right__up"></a><a href="#" class="position-right__down"></a></div>
+								</div>
+								<div class="position-right__bottom"><span class="position-right__vector">Y</span>
+									<input type="text" value="0" class="position-right__input-bot">
+									<div class="position-right__buttons"><a href="#" class="position-right__up"></a><a href="#" class="position-right__down"></a></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="opacity opacity__style separator">
+						<div class="opacity__title">Прозрачность</div>
+						<div class="opacity__slider"></div>
+					</div>
+					<div class="buttons separator">
+						<button type="reset" class="buttons__reset">Сброс</button>
+						<button type="submit" class="buttons__download">Скачать</button>
+					</div>
+				</aside>
+			</div>
+		</div>
+		<footer class="footer">© 2014, Это мой сайт, пожалуйста, не копируйте и не воруйте его</footer>
 		<script src="bower/jquery/dist/jquery.js"></script>
+		<script src="bower/qtip2/jquery.qtip.js"></script>
+		<script src="bower/jquery-ui/jquery-ui.min.js"></script>
+		<script src="bower/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+		<script src="bower/blueimp-file-upload/js/jquery.fileupload.js"></script>
+		<script src="js/fileLoadToForm.js"></script>
 		<script src="js/main.js"></script>
 	</body>
 </html>
