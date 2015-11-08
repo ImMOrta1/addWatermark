@@ -50,6 +50,7 @@ var positionModule = (function() {
         _coordinates();
         _getCoordinates();
         _setCoordinate();
+        _setCoordinate(0,0);
     };
 
     var watermark = $('.image-view__water-img'),
@@ -58,11 +59,14 @@ var positionModule = (function() {
         positionBlock = $('.position'),
         inputX = positionBlock.find('.position-right__input-top'),
         inputY = positionBlock.find('.position-right__input-bot'),
-        bgContainer = $('.image-view__main-img');
+        bgContainer = $('.image-view__main-img'),
+        positionX = 0,
+        positionY = 0;
 
     var  _dragWatermark = function() {
         watermark.draggable({
             containment: bgContainer,
+            snapTolerance: 0,
             cursor: 'move',
              drag: function(ev, ui){
                     _getCoordinates();
@@ -93,9 +97,7 @@ var positionModule = (function() {
     },
 
         _getCoordinates = function(elem) {
-            var
-                positionX = 0,
-                positionY = 0;
+            
 
             if (typeof elem === 'undefined') {
                 elem = watermark;
