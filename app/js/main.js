@@ -51,7 +51,10 @@ var positionModule = (function() {
         _getCoordinates();
         _setCoordinate();
         _setCoordinate(0,0);
+<<<<<<< HEAD
         $('.position-left__list li').on('click touchstart', _gridChange);
+=======
+>>>>>>> ed6b5e99963bd1c9c4b7feefb6d1f46a1471944d
     };
 
     var watermark = $('.image-view__water-img'),
@@ -63,7 +66,10 @@ var positionModule = (function() {
         bgContainer = $('.image-view__main-img'),
         positionX = 0,
         positionY = 0;
+<<<<<<< HEAD
         coordinate = 0;
+=======
+>>>>>>> ed6b5e99963bd1c9c4b7feefb6d1f46a1471944d
 
     var  _dragWatermark = function() {
         watermark.draggable({
