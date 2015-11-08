@@ -221,11 +221,16 @@
 		background: #eee;
 	}
 
-	&_active {
-
-	}
 }
 
+.position-left__item_active {
+	background-color: #f97e76;	
+	&:hover {
+		.position-left__link {
+			background: none;
+		}
+	} 
+}
 .position-right {
 	float: right;
 }
