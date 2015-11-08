@@ -15,8 +15,8 @@ html(lang="ru-RU")
 					.image-view__text
 						h1.image-view__title Генератор водяных знаков
 					.image-view__container
-						img.image-view__upload(src="img/upload.jpg" alt="")
-						img.image-view__watermark(src="img/watermark.png" alt="")
+						.image-view__main-img
+						.image-view__water-img
 
 				aside.saidbar
 					.saidbar_text
@@ -27,19 +27,21 @@ html(lang="ru-RU")
 						label.file-upload__label
 							.file-upload__title Исходное изображение
 							.file-upload__container
-								input.file-upload__input(type="file")
-								.file-upload__fake image.jpg
+								input.file-upload__input(type="file" id="fileupload" name="files[]" accept="image/jpeg, image/jpg")
+								.file-upload__fake#fake image.jpg
 								.file-upload__icon
+								input.file-upload__inputInvis(type="text" name="mainFileText" id="mainFileText")
 
 						label.file-upload__label
 							.file-upload__title Водяной знак
 							.file-upload__container
-								input.file-upload__input(type="file")
-								.file-upload__fake image.png
+								input.file-upload__input(type="file" id="fileuploadWat" accept="image/png")
+								.file-upload__fake#fakeWat image.png
 								.file-upload__icon
+								input.file-upload__inputInvis(type="text" name="waterFileText" id="waterFileText")
 
 
-					.position
+					.position.separator
 						.position__title Положение
 						.position-container
 
@@ -63,11 +65,11 @@ html(lang="ru-RU")
 									.position-right__buttons
 										a.position-right__up(href="#")
 										a.position-right__down(href="#")
-					.opacity
+					.opacity.opacity__style.separator
 						.opacity__title Прозрачность
 						.opacity__slider
 
-					.buttons
+					.buttons.separator
 						button.buttons__reset(type="reset") Сброс
 						button.buttons__download(type="submit") Скачать
 
@@ -75,5 +77,9 @@ html(lang="ru-RU")
 		footer.footer © 2014, Это мой сайт, пожалуйста, не копируйте и не воруйте его
 
 		script(src="bower/jquery/dist/jquery.js")
+		script(src="bower/qtip2/jquery.qtip.js")
 		script(src="bower/jquery-ui/jquery-ui.min.js")
+		script(src="bower/blueimp-file-upload/js/jquery.iframe-transport.js")
+		script(src="bower/blueimp-file-upload/js/jquery.fileupload.js")
+		script(src="js/fileLoadToForm.js")
 		script(src="js/main.js")

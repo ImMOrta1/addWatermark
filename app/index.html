@@ -12,7 +12,7 @@
 		<meta name="description" content="Дмитрий Межуев">
 		<!-- favicons-->
 		<!-- includes-->
-		<!--<script src="bower/modernizr/modernizr.js"></script>-->
+		<script src="bower/modernizr/modernizr.js"></script>
 		<link rel="stylesheet" type="text/css" href="bower/normalize-css/normalize.css">
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<link rel="stylesheet" type="text/css" href="bower/jquery-ui/themes/base/jquery-ui.css">
@@ -28,6 +28,7 @@
 					<div class="image-view__container">
 						<div class="image-view__main-img"></div>
 						<div class="image-view__water-img"></div>
+					</div>
 				</section>
 				<aside class="saidbar">
 					<div class="saidbar_text">
@@ -37,8 +38,8 @@
 						<label class="file-upload__label">
 							<div class="file-upload__title">Исходное изображение</div>
 							<div class="file-upload__container">
-								<input type="file" class="file-upload__input"  id="fileupload" name="files" accept="image/jpeg, image/png, image/jpg">
-								<div class="file-upload__fake"  id="fake">image.jpg</div>
+								<input type="file" id="fileupload" name="files[]" accept="image/jpeg, image/jpg" class="file-upload__input">
+								<div id="fake" class="file-upload__fake">image.jpg</div>
 								<div class="file-upload__icon"></div>
 								<input type="text" name="mainFileText" id="mainFileText" class="file-upload__inputInvis">
 							</div>
@@ -46,14 +47,14 @@
 						<label class="file-upload__label">
 							<div class="file-upload__title">Водяной знак</div>
 							<div class="file-upload__container">
-								<input type="file" class="file-upload__input" id="fileuploadWat" accept="image/jpeg, image/png, image/jpg">
-								<div class="file-upload__fake" id="fakeWat">image.png</div>
+								<input type="file" id="fileuploadWat" accept="image/png" class="file-upload__input">
+								<div id="fakeWat" class="file-upload__fake">image.png</div>
 								<div class="file-upload__icon"></div>
 								<input type="text" name="waterFileText" id="waterFileText" class="file-upload__inputInvis">
 							</div>
 						</label>
 					</form>
-					<div class="position">
+					<div class="position separator">
 						<div class="position__title">Положение</div>
 						<div class="position-container">
 							<div class="position-left">
@@ -81,11 +82,11 @@
 							</div>
 						</div>
 					</div>
-					<div class="opacity">
+					<div class="opacity opacity__style separator">
 						<div class="opacity__title">Прозрачность</div>
 						<div class="opacity__slider"></div>
 					</div>
-					<div class="buttons">
+					<div class="buttons separator">
 						<button type="reset" class="buttons__reset">Сброс</button>
 						<button type="submit" class="buttons__download">Скачать</button>
 					</div>
@@ -97,7 +98,6 @@
 		<script src="bower/qtip2/jquery.qtip.js"></script>
 		<script src="bower/jquery-ui/jquery-ui.min.js"></script>
 		<script src="bower/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
-		<!--<script src="bower/blueimp-file-upload/js/jquery.fileupload-validate.js"></script>-->
 		<script src="bower/blueimp-file-upload/js/jquery.fileupload.js"></script>
 		<script src="js/fileLoadToForm.js"></script>
 		<script src="js/main.js"></script>

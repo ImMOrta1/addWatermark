@@ -1,6 +1,6 @@
 
 //Input file name module -----------------------------------
-var Unity = (function() {
+var fileUpload = (function() {
 
     var InputInit = function() {
         _setupListners();
@@ -10,35 +10,23 @@ var Unity = (function() {
 
         $('#fileuploadWat').on('change', _uploadInfoWat);
         $('#fileupload').on('change', _uploadInfo);
-
-        //$('#fileupload').fileupload({
-        //    dataType: 'json',
-        //    acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
-        //    url: 'php/',
-        //
-        //    add: function(e, data) {
-        //        data.submit();
-        //        console.log('upload');
-        //    },
-        //    done: function(e, data) {
-        //        var _uploadImg = data.result.files[0].name;
-        //    }
-        //
-        //})
-
     };
-            var _uploadInfo = function (){
-                var $input = $(this),
-                         val = $input.val().slice(12),
-                         fileName = $('#fake');
-                         fileName.text(val);
-            };
-            var _uploadInfoWat = function (){
-                var $input = $(this),
-                         val = $input.val().slice(12),
-                         fileName = $('#fakeWat');
-                         fileName.text(val);
-            };
+
+    var _uploadInfo = function (){
+        var $input = $(this),
+            val = $input.val().slice(12),
+            fileName = $('#fake');
+            fileName.text(val);
+    };
+    var _uploadInfoWat = function (){
+        var $input = $(this),
+            val = $input.val().slice(12),
+            fileName = $('#fakeWat');
+            fileName.text(val);
+    };
+
+
+
 
     return {
         init: InputInit
@@ -46,7 +34,7 @@ var Unity = (function() {
 
 }());
 
-Unity.init();
+fileUpload.init();
 
 
 //position module ----------------------------------------
@@ -62,7 +50,7 @@ var positionModule = (function() {
     };
 
     var watermark = $('.image-view__water-img');
-    _spinnerX = $('.position-right__input-top'),
+        _spinnerX = $('.position-right__input-top'),
         _spinnerY = $('.position-right__input-bot');
 
     var  _dragWatermark = function() {
