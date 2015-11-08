@@ -3,7 +3,7 @@
 	class watermark3{
 	 
 		# given two images, return a blended watermarked image
-		function create_watermark( $main_img_obj, $watermark_img_obj, $alpha_level = 100 ) {
+		function create_watermark( $main_img_obj, $watermark_img_obj, $water_position_x, $water_position_y, $alpha_level = 100 ) {
 			$alpha_level	/= 100;	# convert 0-100 (%) alpha to decimal
 
 			# calculate our images dimensions
@@ -11,11 +11,14 @@
 			$main_img_obj_h	= imagesy( $main_img_obj );
 			$watermark_img_obj_w	= imagesx( $watermark_img_obj );
 			$watermark_img_obj_h	= imagesy( $watermark_img_obj );
+
+			$water_position_x_perc =  floor( $water_position_x / 625 * 100 );
+			$water_position_y_perc =  floor( $water_position_y / 530 * 100 );
 	 
 			# determine center position coordinates
-			$main_img_obj_min_x	= floor( ( $main_img_obj_w / 2 ) - ( $watermark_img_obj_w / 2 ) );
+			$main_img_obj_min_x	= floor( $water_position_x_perc * $main_img_obj_w / 100 );
 			$main_img_obj_max_x	= ceil( ( $main_img_obj_w / 2 ) + ( $watermark_img_obj_w / 2 ) );
-			$main_img_obj_min_y	= floor( ( $main_img_obj_h / 2 ) - ( $watermark_img_obj_h / 2 ) );
+			$main_img_obj_min_y	= floor( $water_position_y_perc * $main_img_obj_h / 100 );
 			$main_img_obj_max_y	= ceil( ( $main_img_obj_h / 2 ) + ( $watermark_img_obj_h / 2 ) ); 
 	 
 			# create new image to hold merged changes
@@ -84,7 +87,9 @@
 
 }
 
-	function image_unpack($type, $file) {
+	
+
+function image_unpack($type, $file) {
 		    if ($type == 'jpg')
 				return imagecreatefromjpeg($file);
 			elseif ($type == 'png')
@@ -93,11 +98,31 @@
 				return imagecreatefromgif($file);
 			return
 				false;
-		}
+	}
 
+function random($length = 10) { 
+		static $randStr = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'; 
+		$rand = ''; 
+		for($i=0; $i<$length; $i++) { 
+		$key = rand(0, strlen($randStr)-1); 
+		$rand .= $randStr[$key]; 
+		} 
+		return $rand; 
+	} 
+
+function removeDirectory($dir) {
+    if ($objs = glob($dir."/*")) {
+       foreach($objs as $obj) {
+         is_dir($obj) ? removeDirectory($obj) : unlink($obj);
+       }
+    }
+  }
 
 		$file1 = $_POST['mainFileText'];
 		$file2 = $_POST['waterFileText'];
+		$posX = $_POST['positionX'];
+		$poxY = $_POST['positionY'];
+		$opacity_water = $_POST['opacityWater'] * 100;
 
 		$type1_mas = explode('.', $file1);
 		$type2_mas = explode('.', $file2);
@@ -106,28 +131,27 @@
 		
 		if (!(image_unpack($type1,$file1) == false) && ($type2 == 'png')) {
 	
-			$data['status'] = 'OK';
-			$data['text'] = 'Файлы подходят по форматам';
 
 			$im1 = image_unpack($type1,$file1); 
 			$im2 = imagecreatefrompng($file2); 
 
 			$watermark = new watermark3();
-			$im=$watermark->create_watermark($im1,$im2,100);
+			$im=$watermark->create_watermark($im1,$im2,$posX,$poxY,$opacity_water);
 
+			$finalName = 'results/' . random(8) . '-water.jpg';
 
-			imagejpeg($im,'result.jpg',95);
+			imagejpeg($im,$finalName,95);
 			imagedestroy($im);
-			$data['fileName'] = 'result.jpg';
-		} else {
-			$data['status'] = 'ERROR!';
-			$data['text'] = 'Ошибка формата файла!';
 
+			echo '<img src="' . $finalName . '" width=100%">';
+		} else {
+			echo "Неправильные форматы файлов";
 		}
 		
-		header("Content-Type: application/json");
-		echo json_encode($data);
+		removeDirectory("files");
 
   exit;
 
+// Добавить проверку на тот случай, если изображение меньше холста.
+  //Добавить проверку чтобы картинка не выезжала за поля
 ?>

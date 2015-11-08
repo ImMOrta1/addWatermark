@@ -15,7 +15,7 @@ var fileUploadToServer = (function () {
 		event.preventDefault();
 
 		var form = $(this),
-			url = 'php/add_project.php',
+			url = 'php/compileImg.php',
 			defObj = _ajaxForm(form,url);
 
 		//Если JS валидация успешна, то Ajax запрос на сервер
@@ -23,7 +23,7 @@ var fileUploadToServer = (function () {
 			defObj.done(function(ans) {
 				if (ans.status ==='OK') {
 					console.log(ans.text);
-					document.location = ans.fileName;
+					document.location = 'php/' + ans.fileName;
 				} else {
 					console.log(ans.text);
 				}
