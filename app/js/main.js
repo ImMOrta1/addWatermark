@@ -16,13 +16,13 @@ var fileUpload = (function() {
         var $input = $(this),
             val = $input.val().slice(12),
             fileName = $('#fake');
-            fileName.text(val);
+        fileName.text(val);
     };
     var _uploadInfoWat = function (){
         var $input = $(this),
             val = $input.val().slice(12),
             fileName = $('#fakeWat');
-            fileName.text(val);
+        fileName.text(val);
     };
 
 
@@ -37,6 +37,7 @@ var fileUpload = (function() {
 fileUpload.init();
 
 
+
 //position module ----------------------------------------
 var positionModule = (function() {
 
@@ -47,39 +48,73 @@ var positionModule = (function() {
     var _setupListners = function() {
         _dragWatermark();
         _coordinates();
+        _getCoordinates();
+        _setCoordinate();
     };
 
-    var watermark = $('.image-view__water-img');
+    var watermark = $('.image-view__water-img'),
         _spinnerX = $('.position-right__input-top'),
-        _spinnerY = $('.position-right__input-bot');
+        _spinnerY = $('.position-right__input-bot'),
+        positionBlock = $('.position'),
+        inputX = positionBlock.find('.position-right__input-top'),
+        inputY = positionBlock.find('.position-right__input-bot'),
+        bgContainer = $('.image-view__main-img');
 
     var  _dragWatermark = function() {
         watermark.draggable({
-            containment: 'parent'
+            containment: bgContainer,
+            cursor: 'move',
+            drag: function(ev, ui){
+                _getCoordinates();
+            }
         });
     };
 
     var _coordinates = function() {
 
-        _spinnerX.spinner({ min: 0, max: 650 });
-        _spinnerX.on('spin', function(event, ui) {
-            var currentValX = ui.value;
+            _spinnerX.spinner({ min: 0, max: 650 });
+            _spinnerX.on('spin', function(event, ui) {
+                var currentValX = ui.value;
 
-            watermark.css({
-                left: currentValX + 'px'
-            })
-        });
+                watermark.css({
+                    left: currentValX + 'px'
+                })
+            });
 
-        _spinnerY.spinner({ min: 0, max: 530 });
-        _spinnerY.on('spin', function(event, ui) {
-            var currentValY = ui.value;
+            _spinnerY.spinner({ min: 0, max: 530 });
+            _spinnerY.on('spin', function(event, ui) {
+                var currentValY = ui.value;
 
-            watermark.css({
-                top: currentValY + 'px'
-            })
-        });
+                watermark.css({
+                    top: currentValY + 'px'
+                })
+            });
 
-    };
+        },
+
+        _getCoordinates = function(elem) {
+            var positionX = 0,
+                positionY = 0;
+
+            if (typeof elem === 'undefined') {
+                elem = watermark;
+            }
+
+            coordinate = elem.position(),
+                positionX  = Math.round( (coordinate.left) ),
+                positionY  = Math.round( (coordinate.top) );
+            _setCoordinate(positionX,positionY);
+
+            return {
+                x: positionX,
+                y: positionY
+            };
+        },
+
+        _setCoordinate = function (x,y) {
+            inputX.val(Math.round(x));
+            inputY.val(Math.round(y));
+        };
 
     return {
         init: positionInit
@@ -88,6 +123,9 @@ var positionModule = (function() {
 }());
 
 positionModule.init();
+
+
+
 
 
 // opacity module ----------------------------------------
