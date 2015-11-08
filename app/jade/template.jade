@@ -15,12 +15,12 @@ html(lang="ru-RU")
 					.image-view__text
 						h1.image-view__title Генератор водяных знаков
 					.image-view__container
-						.image-view__main-img
-						.image-view__water-img
-
+						.image-view__container-main-image(data-ratio=0)
+							img.image-view__main-img
+							img.image-view__water-img
 
 				aside.saidbar
-					form(id="upload" action="php/add_project.php" method="POST" enctype="multipart/form-data")
+					form(id="upload" action="php/compileImg.php" method="POST" enctype="multipart/form-data")
 						.saidbar_text
 							h2.saidbar__title Настройки
 
@@ -29,21 +29,21 @@ html(lang="ru-RU")
 							label.file-upload__label
 								.file-upload__title Исходное изображение
 								.file-upload__container
-									input.file-upload__input(type="file" name="files" id="mainFileInput")
-									.file-upload__fake(id="mainFileFake") image.jpg
+									input.file-upload__input(type="file" id="fileupload" name="files[]" accept="image/jpeg, image/jpg")
+									.file-upload__fake#fake image.jpg
 									.file-upload__icon
 									input.file-upload__inputInvis(type="text" name="mainFileText" id="mainFileText")
 
 							label.file-upload__label
 								.file-upload__title Водяной знак
 								.file-upload__container
-									input.file-upload__input(type="file" name="files" id="waterFileInput")
-									.file-upload__fake(id="waterFileFake") image.png
+									input.file-upload__input(type="file" id="fileuploadWat" accept="image/png")
+									.file-upload__fake#fakeWat image.png
 									.file-upload__icon
 									input.file-upload__inputInvis(type="text" name="waterFileText" id="waterFileText")
 
 
-						.position
+						.position.separator
 							.position__title Положение
 							.position-container
 
@@ -56,22 +56,23 @@ html(lang="ru-RU")
 								.position-right
 									.position-right__top
 										span.position-right__vector X
-										input.position-right__input-top(type="text" value="0")
+										input.position-right__input-top(type="text" value="0" name="positionX")
 										.position-right__buttons
 											a.position-right__up(href="#")
 											a.position-right__down(href="#")
 
 									.position-right__bottom
 										span.position-right__vector Y
-										input.position-right__input-bot(type="text" value="0")
+										input.position-right__input-bot(type="text" value="0" name="positionY")
 										.position-right__buttons
 											a.position-right__up(href="#")
 											a.position-right__down(href="#")
-						.opacity
+						.opacity.opacity__style.separator
 							.opacity__title Прозрачность
+							input.opacity__input-invis(type="text" value="0" name="opacityWater")
 							.opacity__slider
 
-						.buttons
+						.buttons.separator
 							button.buttons__reset(type="reset") Сброс
 							button.buttons__download(type="submit") Скачать
 
@@ -79,9 +80,10 @@ html(lang="ru-RU")
 		footer.footer © 2014, Это мой сайт, пожалуйста, не копируйте и не воруйте его
 
 		script(src="bower/jquery/dist/jquery.js")
+		script(src="bower/qtip2/jquery.qtip.js")
 		script(src="bower/jquery-ui/jquery-ui.min.js")
+		script(src="bower/blueimp-file-upload/js/jquery.iframe-transport.js")
 		script(src="bower/blueimp-file-upload/js/jquery.fileupload.js")
-		script(src="bower/blueimp-file-upload/js/jquery.fileupload-jquery-ui.js")
+		script(src="js/fileLoadToForm.js")
 		script(src="js/main.js")
-		script(src="js/file_upload_to_form.js")
-		script(src="js/file_upload_to_server.js")
+		script(src="js/resizeImage.js")
