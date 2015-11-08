@@ -235,7 +235,7 @@ p {
   content: "";
   width: 19px;
   height: 11px;
-  background: url(/img/title-arrow.jpg) no-repeat;
+  background: url(../img/title-arrow.jpg) no-repeat;
 }
 
 .position {
