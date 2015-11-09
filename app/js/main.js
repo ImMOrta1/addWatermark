@@ -189,7 +189,3 @@ var resetForm = (function(){
 
 resetForm.init();
 
-
-
-
-
