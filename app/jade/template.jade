@@ -15,32 +15,62 @@ html(lang="ru-RU")
 					.image-view__text
 						h1.image-view__title Генератор водяных знаков
 					.image-view__container
-						.image-view__main-img
-							.image-view__water-img
+						.image-view__container-main-image(data-ratio=0)
+							img.image-view__main-img
+							img.image-view__water-img
 
 				aside.saidbar
-					.saidbar_text
-						h2.saidbar__title Настройки
+					form(id="upload" action="php/compileImg.php" method="POST" enctype="multipart/form-data")
+						.saidbar_text
+							h2.saidbar__title Настройки
 
+						.file-upload
+							label.file-upload__label
+								.file-upload__title Исходное изображение
+								.file-upload__container
+									input.file-upload__input(type="file" id="fileupload" name="files[]" accept="image/jpeg, image/jpg")
+									.file-upload__fake#fake image.jpg
+									.file-upload__icon
+									input.file-upload__inputInvis(type="text" name="mainFileText" id="mainFileText")
 
-					form.file-upload
-						label.file-upload__label
-							.file-upload__title Исходное изображение
-							.file-upload__container
-								input.file-upload__input(type="file" id="fileupload" name="files[]" accept="image/jpeg, image/jpg")
-								.file-upload__fake#fake image.jpg
-								.file-upload__icon
-								input.file-upload__inputInvis(type="text" name="mainFileText" id="mainFileText")
+							label.file-upload__label
+								.file-upload__title Водяной знак
+								.file-upload__container
+									input.file-upload__input(type="file" id="fileuploadWat" accept="image/png")
+									.file-upload__fake#fakeWat image.png
+									.file-upload__icon
+									input.file-upload__inputInvis(type="text" name="waterFileText" id="waterFileText")
 
-						label.file-upload__label
-							.file-upload__title Водяной знак
-							.file-upload__container
-								input.file-upload__input(type="file" id="fileuploadWat" accept="image/png")
-								.file-upload__fake#fakeWat image.png
-								.file-upload__icon
-								input.file-upload__inputInvis(type="text" name="waterFileText" id="waterFileText")
+						.position.separator
+							.position__title Положение
+							.position-container
+								
+								.position-left
+									-var datas = ['top-left', 'top-center', 'top-right', 'mid-left', 'mid-center', 'mid-right', 'btm-left', 'btm-center', 'btm-right']; 
+									ul.position-left__list
+										each item in datas
+											li(class="position-left__item" data-pos= item)
+												a.position-left__link(href="#")
+								.position-right
+									.position-right__top
+										span.position-right__vector X
+										input.position-right__input-top(type="text" value="0" name="positionX")
+										.position-right__buttons
+											a.position-right__up(href="#")
+											a.position-right__down(href="#")
 
+									.position-right__bottom
+										span.position-right__vector Y
+										input.position-right__input-bot(type="text" value="0" name="positionY")
+										.position-right__buttons
+											a.position-right__up(href="#")
+											a.position-right__down(href="#")
+						.opacity.opacity__style.separator
+							.opacity__title Прозрачность
+							input.opacity__input-invis(type="text" value="0" name="opacityWater")
+							.opacity__slider
 
+<<<<<<< HEAD
 					.position.separator
 						.position__title Положение
 						.position-container
@@ -75,6 +105,11 @@ html(lang="ru-RU")
 						button.buttons__download(type="submit") Скачать
 					.sidebar__disable
 
+=======
+						.buttons.separator
+							button.buttons__reset(type="reset") Сброс
+							button.buttons__download(type="submit") Скачать
+>>>>>>> 1f37aa1295b461cf7b47c68c3cab4adb5ea543b6
 
 		footer.footer © 2014, Это мой сайт, пожалуйста, не копируйте и не воруйте его
 
@@ -86,3 +121,4 @@ html(lang="ru-RU")
 		script(src="bower/sweetalert/dist/sweetalert.min.js")
 		script(src="js/fileLoadToForm.js")
 		script(src="js/main.js")
+		script(src="js/resizeImage.js")

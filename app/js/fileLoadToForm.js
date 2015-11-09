@@ -1,17 +1,17 @@
 var fileLoadToForm = (function () {
 
-// Инициализация
+// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ
     var init = function () {
         _setUpListners();
     };
 
-// Прослушивание событий
+// РџСЂРѕСЃР»СѓС€РёРІР°РЅРёРµ СЃРѕР±С‹С‚РёР№
     var _setUpListners = function () {
         _fileUploadFunc('#fileupload','.image-view__main-img');
         _fileUploadFunc('#fileuploadWat','.image-view__water-img');
     };
 
-//Загрузка файлов на сервер jQueri File Upload
+//Р—Р°РіСЂСѓР·РєР° С„Р°Р№Р»РѕРІ РЅР° СЃРµСЂРІРµСЂ jQueri File Upload
     var _fileUploadFunc = function (inputFile,container) {
 
         var inputImg = $(inputFile),
@@ -21,35 +21,44 @@ var fileLoadToForm = (function () {
 
         $(inputFile).fileupload({
 
-            // Папка где располагается PHP скрипт jQuery File Upload
+            // РџР°РїРєР° РіРґРµ СЂР°СЃРїРѕР»Р°РіР°РµС‚СЃСЏ PHP СЃРєСЂРёРїС‚ jQuery File Upload 
             url: 'php/',
 
-            // Отправляем данные на сервер
+            // РћС‚РїСЂР°РІР»СЏРµРј РґР°РЅРЅС‹Рµ РЅР° СЃРµСЂРІРµСЂ
             add: function(e, data) {
                 data.submit();
             },
 
-            // В случае ошибки на сервере выводит сообщение в консоль
+            // Р’ СЃР»СѓС‡Р°Рµ РѕС€РёР±РєРё РЅР° СЃРµСЂРІРµСЂРµ РІС‹РІРѕРґРёС‚ СЃРѕРѕР±С‰РµРЅРёРµ РІ РєРѕРЅСЃРѕР»СЊ
             fail:function(e, data, error){
-                // Что-то пошло не так!
+                // Г—ГІГ®-ГІГ® ГЇГ®ГёГ«Г® Г­ГҐ ГІГ ГЄ!
                 console.log(data);
                 console.log(error);
             },
 
-            // В случае успеха на сервере, выполняем эту функцию
+            // Р’ СЃР»СѓС‡Р°Рµ СѓСЃРїРµС…Р° РЅР° СЃРµСЂРІРµСЂРµ, РІС‹РїРѕР»РЅСЏРµРј СЌС‚Сѓ С„СѓРЅРєС†РёСЋ
             done: function(e, data) {
-                //Переводим данный из JSON строки в JS объект
-                //и сохраняем URL в отдельную переменную
+                    //РџРµСЂРµРІРѕРґРёРј РґР°РЅРЅС‹Р№ РёР· JSON СЃС‚СЂРѕРєРё РІ JS РѕР±СЉРµРєС‚ 
+                    //Рё СЃРѕС…СЂР°РЅСЏРµРј URL РІ РѕС‚РґРµР»СЊРЅСѓСЋ РїРµСЂРµРјРµРЅРЅСѓСЋ
                 var imgObj = JSON.parse(data.result),
                     imgUrl = imgObj.files[0].url;
 
-                //Записываем путь до файла на сервере в background-image элемента
-                $(container).css('background-image', 'url(' + imgUrl + ')');
+                //Р—Р°РїРёСЃС‹РІР°РµРј РїСѓС‚СЊ РґРѕ С„Р°Р№Р»Р° РЅР° СЃРµСЂРІРµСЂРµ РІ background-image СЌР»РµРјРµРЅС‚Р°
+                $(container).attr('src', imgUrl);
 
-                //Сохраняем путь до файла на сервере в скрытый Input
+                // РР·РјРµРЅРµРЅРёРµ СЂР°Р·РјРµСЂР° РёР·РѕР±СЂР°Р¶РµРЅРёР№
+                if (container == '.image-view__main-img') {
+                    resizeImage.resizeMain(container)
+                } 
+                if (container == '.image-view__water-img') {
+                    resizeImage.resizeWater(container)
+                } 
+
+
+                //РЎРѕС…СЂР°РЅСЏРµРј РїСѓС‚СЊ РґРѕ С„Р°Р№Р»Р° РЅР° СЃРµСЂРІРµСЂРµ РІ СЃРєСЂС‹С‚С‹Р№ Input
                 fakeTextUrl.val(imgUrl);
 
-                // Отрезаем лишнию часть пути, для вывода в fakeInput
+                // РћС‚СЂРµР·Р°РµРј Р»РёС€РЅРёСЋ С‡Р°СЃС‚СЊ РїСѓС‚Рё, РґР»СЏ РІС‹РІРѕРґР° РІ fakeInput
                 fileName = imgUrl.replace(/.+[\\\/]/, "");
                 fileNameText.text(fileName);
                 console.log('done');
@@ -59,7 +68,8 @@ var fileLoadToForm = (function () {
 
     };
 
-//Возвращаем значения
+
+//Р’РѕР·РІСЂР°С‰Р°РµРј Р·РЅР°С‡РµРЅРёСЏ
     return {
         init: init
     }
@@ -69,5 +79,6 @@ if (typeof console === "undefined" || typeof console.log === "undefined") {
     console = {};
     console.log = function() {};
 };
+
 
 fileLoadToForm.init();
