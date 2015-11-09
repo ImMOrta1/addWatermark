@@ -438,6 +438,7 @@
 	font-size: 18px;
 	color: #fff;
 	@include border-radius;
+	outline: none;
 }
 
 .buttons__download {
@@ -451,4 +452,5 @@
 	font-size: 18px;
 	color: #fff;
 	@include border-radius;
+	outline: none;
 }

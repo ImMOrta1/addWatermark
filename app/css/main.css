@@ -528,6 +528,7 @@ p {
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
+  outline: none;
 }
 
 .buttons__download {
@@ -546,6 +547,7 @@ p {
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
+  outline: none;
 }
 
 /* --------- fonts --------- */
