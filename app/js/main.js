@@ -8,8 +8,8 @@ var fileUpload = (function() {
 
     var _setupListners = function() {
 
-        $('#fileuploadWat').on('change', _uploadInfoWat);
-        $('#fileupload').on('change', _uploadInfo);
+        $('#waterFileInput').on('change', _uploadInfoWat);
+        $('#mainFileInput').on('change', _uploadInfo);
     };
 
     var _uploadInfo = function (){

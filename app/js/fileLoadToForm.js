@@ -7,8 +7,8 @@ var fileLoadToForm = (function () {
 
 // Прослушивание событий
     var _setUpListners = function () {
-        _fileUploadFunc('#fileupload','.image-view__main-img');
-        _fileUploadFunc('#fileuploadWat','.image-view__water-img');
+        _fileUploadFunc('#mainFileInput','.image-view__main-img');
+        _fileUploadFunc('#waterFileInput','.image-view__water-img');
     };
 
 //Загрузка файлов на сервер jQueri File Upload
