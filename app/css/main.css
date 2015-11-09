@@ -143,6 +143,7 @@ p {
 .saidbar {
   float: right;
   width: 260px;
+  position: relative;
 }
 
 .saidbar_text {
@@ -156,6 +157,25 @@ p {
   font-size: 26px;
   color: #2e3641;
   line-height: 28px;
+}
+
+.sidebar__disable {
+  position: absolute;
+  height: 500px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background: #f1f1f5;
+  opacity: 0.3;
+}
+
+.sidebar__disable_settings {
+  height: 360px;
+}
+
+.sidebar__disable_none {
+  display: none;
 }
 
 .file-upload {

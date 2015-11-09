@@ -70,9 +70,45 @@ html(lang="ru-RU")
 							input.opacity__input-invis(type="text" value="0" name="opacityWater")
 							.opacity__slider
 
+
+					.position.separator
+						.position__title Положение
+						.position-container
+
+							.position-left
+								-var datas = ['top-left', 'top-center', 'top-right', 'mid-left', 'mid-center', 'mid-right', 'btm-left', 'btm-center', 'btm-right']; 
+								ul.position-left__list
+									each item in datas
+										li(class="position-left__item" data-pos= item)
+											a.position-left__link(href="#")
+
+							.position-right
+								.position-right__top
+									span.position-right__vector X
+									input.position-right__input-top(type="text" value="0")
+									.position-right__buttons
+										a.position-right__up(href="#")
+										a.position-right__down(href="#")
+
+								.position-right__bottom
+									span.position-right__vector Y
+									input.position-right__input-bot(type="text" value="0")
+									.position-right__buttons
+										a.position-right__up(href="#")
+										a.position-right__down(href="#")
+					.opacity.opacity__style.separator
+						.opacity__title Прозрачность
+						.opacity__slider
+
+					.buttons.separator
+						button.buttons__reset(type="reset") Сброс
+						button.buttons__download(type="submit") Скачать
+					.sidebar__disable
+
 						.buttons.separator
 							button.buttons__reset(type="reset") Сброс
 							button.buttons__download(type="submit") Скачать
+
 
 		footer.footer © 2014, Это мой сайт, пожалуйста, не копируйте и не воруйте его
 
@@ -81,6 +117,7 @@ html(lang="ru-RU")
 		script(src="bower/jquery-ui/jquery-ui.min.js")
 		script(src="bower/blueimp-file-upload/js/jquery.iframe-transport.js")
 		script(src="bower/blueimp-file-upload/js/jquery.fileupload.js")
+		script(src="bower/sweetalert/dist/sweetalert.min.js")
 		script(src="js/fileLoadToForm.js")
 		script(src="js/main.js")
 		script(src="js/resizeImage.js")

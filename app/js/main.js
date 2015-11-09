@@ -1,4 +1,3 @@
-
 //Input file name module -----------------------------------
 var fileUpload = (function() {
 
@@ -23,9 +22,6 @@ var fileUpload = (function() {
             fileName = $('#fakeWat');
             fileName.text(val);
     };
-
-
-
 
     return {
         init: InputInit
@@ -214,6 +210,7 @@ var opacitySlider = (function() {
 
 opacitySlider.init();
 
+
 //------------Reset function----------------
 
 var resetForm = (function(){
@@ -232,11 +229,52 @@ var resetForm = (function(){
         })
     };
 
-
-    return{
+    return {
         init: resetInit
     }
 }());
 
 resetForm.init();
 
+
+// disabler -------------------------------
+var disabler = (function() {
+
+    var disableInit = function() {
+        _setupListners();
+    };
+
+    var _setupListners = function() {
+        _disableFunc();
+        _disableAlert();
+    };
+
+    var _disableFunc = function() {
+
+        $('#fileupload').on('change', function() {
+            $('.sidebar__disable').addClass('sidebar__disable_settings')
+        });
+
+        $('#fileuploadWat').on('change', function() {
+            $('.sidebar__disable').addClass('sidebar__disable_none')
+        });
+    };
+
+    var _disableAlert = function() {
+        $('.sidebar__disable').on('click', function() {
+            swal({
+                title: 'АХТУНГ, Вы забыли выбрать изображения',
+                text: 'Для включения настроек изменения водяного знака сначала выберите необходимые вам изображения!',
+                type: "error",
+                confirmButtonText: "Продожить работу" 
+            });
+        });
+    };
+
+    return {
+        init: disableInit
+    }
+
+}());
+
+disabler.init();
