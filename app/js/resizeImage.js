@@ -4,7 +4,7 @@ var resizeImage = (function () {
 	var resizeMain = function (image) {
         $(image).load(function() {
 
-            var $this = $(this);
+            var $this = $(this),
                 widthMainNatural = $this.width(),
                 heigthMainNatural = $this.height(),
                 ImgContainer = $this.closest('.image-view__container-main-image'),
@@ -32,13 +32,15 @@ var resizeImage = (function () {
                     ImgContainer.css("height", heigthContainer);
                 }
             } else {
-                if (widthMainNatural > 530) {
-                    q = heightMainNatural / 530;
+                if (heigthMainNatural > 530) {
+                    q = heigthMainNatural / 530;
                     ImgContainer.attr('data-ratio', q);
                     $this.height('530');
 
                     var widthContainer = $this.width(),
                         heigthContainer = $this.height();
+
+                    console.log(widthContainer);
 
                     ImgContainer.css("width", widthContainer);
                     ImgContainer.css("height", heigthContainer);
