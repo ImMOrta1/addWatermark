@@ -7,9 +7,8 @@ var fileUpload = (function() {
     };
 
     var _setupListners = function() {
-
-        $('#waterFileInput').on('change', _uploadInfoWat);
-        $('#mainFileInput').on('change', _uploadInfo);
+        $('#fileuploadWat').on('change', _uploadInfoWat);
+        $('#fileupload').on('change', _uploadInfo);
     };
 
     var _uploadInfo = function (){
@@ -35,7 +34,6 @@ var fileUpload = (function() {
 }());
 
 fileUpload.init();
-
 
 
 //position module ----------------------------------------
@@ -183,9 +181,6 @@ var positionModule = (function() {
 positionModule.init();
 
 
-
-
-
 // opacity module ----------------------------------------
 var opacitySlider = (function() {
 
@@ -205,7 +200,8 @@ var opacitySlider = (function() {
             step: 0.01,
             value: 1,
             slide: function( event, ui ) {
-                $('.image-view__water-img').css('opacity', ui.value)
+                $('.image-view__water-img').css('opacity', ui.value);
+                $('.opacity__input-invis').val(ui.value);
             }
         });
     };
