@@ -1,4 +1,3 @@
-
 //Input file name module -----------------------------------
 var fileUpload = (function() {
 
@@ -25,9 +24,6 @@ var fileUpload = (function() {
             fileName.text(val);
     };
 
-
-
-
     return {
         init: InputInit
     };
@@ -35,7 +31,6 @@ var fileUpload = (function() {
 }());
 
 fileUpload.init();
-
 
 
 //position module ----------------------------------------
@@ -183,9 +178,6 @@ var positionModule = (function() {
 positionModule.init();
 
 
-
-
-
 // opacity module ----------------------------------------
 var opacitySlider = (function() {
 
@@ -218,6 +210,7 @@ var opacitySlider = (function() {
 
 opacitySlider.init();
 
+
 //------------Reset function----------------
 
 var resetForm = (function(){
@@ -236,11 +229,40 @@ var resetForm = (function(){
         })
     };
 
-
-    return{
+    return {
         init: resetInit
     }
 }());
 
 resetForm.init();
 
+
+// disabler -------------------------------
+var disabler = (function() {
+
+    var disableInit = function() {
+        _setupListners();
+    };
+
+    var _setupListners = function() {
+        _disableFunc();
+    };
+
+    var _disableFunc = function() {
+
+        $('#fileupload').on('change', function() {
+            $('.sidebar__disable').addClass('sidebar__disable_settings')
+        });
+
+        $('#fileuploadWat').on('change', function() {
+            $('.sidebar__disable').addClass('sidebar__disable_none')
+        });
+    };
+
+    return {
+        init: disableInit
+    }
+
+}());
+
+disabler.init();
