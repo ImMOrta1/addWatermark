@@ -24,7 +24,6 @@ html(lang="ru-RU")
 						.saidbar_text
 							h2.saidbar__title Настройки
 
-
 						.file-upload
 							label.file-upload__label
 								.file-upload__title Исходное изображение
@@ -42,17 +41,16 @@ html(lang="ru-RU")
 									.file-upload__icon
 									input.file-upload__inputInvis(type="text" name="waterFileText" id="waterFileText")
 
-
 						.position.separator
 							.position__title Положение
 							.position-container
-
+								
 								.position-left
+									-var datas = ['top-left', 'top-center', 'top-right', 'mid-left', 'mid-center', 'mid-right', 'btm-left', 'btm-center', 'btm-right']; 
 									ul.position-left__list
-										- for (var i = 0; i < 9; i++)
-											li.position-left__item
+										each item in datas
+											li(class="position-left__item" data-pos= item)
 												a.position-left__link(href="#")
-
 								.position-right
 									.position-right__top
 										span.position-right__vector X
@@ -75,7 +73,6 @@ html(lang="ru-RU")
 						.buttons.separator
 							button.buttons__reset(type="reset") Сброс
 							button.buttons__download(type="submit") Скачать
-
 
 		footer.footer © 2014, Это мой сайт, пожалуйста, не копируйте и не воруйте его
 
