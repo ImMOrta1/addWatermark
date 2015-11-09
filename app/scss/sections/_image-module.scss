@@ -30,6 +30,28 @@
 	position: relative;
 	background: #fff;
 	height: 530px;
+
+  	.image-view__container-main-image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+
+		.image-view__main-img {
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		}
+		.image-view__water-img {
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		}
+  	}
+
+
 }
 .image-view__container .image-view__main-img {
   width: 100%;
@@ -218,7 +240,7 @@
 .position-left__link {
 	display: block;
 	width: 100%;
-	height: 100%;
+	height:  100%;
 
 	&:hover {
 		background: #eee;
@@ -251,7 +273,11 @@
 	color: $black;
 	padding-top: 15px;
 }
-
+.opacity__input-invis {
+  position: absolute;
+  top: 0;
+  left: -9999px;
+}
 .ui-widget-content {
 	background: #f1f1f5 !important;
 	color: #444a53 !important;
