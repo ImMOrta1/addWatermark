@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* --------- global styles --------- */
 body {
   font-family: "RobotoLight";
@@ -453,3 +454,547 @@ p {
   font-style: normal;
   font-weight: normal;
 }
+=======
+/* --------- global styles --------- */
+body {
+  font-family: "RobotoLight";
+  font-size: 14px;
+  color: #333;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  background: url(../img/site-bg.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+body, ul, ol, li, h1, h2 {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2 {
+  font-weight: normal;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: #333;
+}
+
+p {
+  font-weight: normal;
+  line-height: 20px;
+}
+
+.wrapper {
+  position: relative;
+  min-width: 960px;
+  min-height: 100%;
+  box-sizing: border-box;
+  padding-bottom: 30px;
+}
+
+.footer {
+  min-width: 960px;
+  height: 30px;
+  clear: both;
+  margin-top: -30px;
+  font-family: "SegoeUILight";
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+}
+
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+
+/* --------- sections --------- */
+.main {
+  width: 960px;
+  height: 670px;
+  background: #f1f1f5;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.image-view {
+  float: left;
+  width: 650px;
+  height: 630px;
+  padding: 15px 25px 25px 25px;
+  background: url(../img/image-bg.png);
+}
+
+.image-view__text {
+  height: 100px;
+}
+
+.image-view__title {
+  font-family: "SegoeUILight";
+  font-size: 36px;
+  line-height: 38px;
+  color: #fff;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.image-view__container {
+  position: relative;
+  background: #fff;
+  height: 530px;
+}
+
+.image-view__container .image-view__main-img {
+  width: 100%;
+  height: 100%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.image-view__container .image-view__water-img {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.image-view__upload {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.image-view__watermark {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.saidbar {
+  float: right;
+  width: 260px;
+}
+
+.saidbar_text {
+  height: 62px;
+  padding-top: 25px;
+  text-align: center;
+}
+
+.saidbar__title {
+  font-family: "RobotoLight";
+  font-size: 26px;
+  color: #2e3641;
+  line-height: 28px;
+}
+
+.file-upload {
+  padding: 0 21px 0 20px;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.file-upload__label {
+  display: block;
+  margin-bottom: 21px;
+}
+
+.file-upload__title {
+  font-family: "RobotoLight";
+  font-size: 14px;
+  margin-bottom: 7px;
+  color: #2e3641;
+}
+
+.file-upload__container {
+  position: relative;
+}
+
+.file-upload__input {
+  position: absolute;
+  top: 0;
+  left: -9999px;
+}
+
+.file-upload__inputInvis {
+  position: absolute;
+  top: 0;
+  left: -9999px;
+}
+
+.file-upload__fake {
+  font-family: "RobotoLight";
+  font-size: 12px;
+  color: #9eb2c0;
+  padding: 5px 3px 4px 3px;
+  border: 1px solid #9eb2c0;
+  outline: 0px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  cursor: pointer;
+}
+
+.file-upload__icon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 99;
+  background: url('../img/icons-s7fc1c71963.png') 0 -313px no-repeat;
+  height: 27px;
+  width: 39px;
+  cursor: pointer;
+}
+
+.separator {
+  border-top: 1px solid #f4c3c2;
+}
+.separator:before {
+  position: absolute;
+  top: -1px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  content: "";
+  width: 19px;
+  height: 11px;
+  background: url(../img/title-arrow.jpg) no-repeat;
+}
+
+.position {
+  padding: 0 21px 0 20px;
+  border-top: 1px solid #f4c3c2;
+  position: relative;
+  margin-bottom: 25px;
+}
+.position:before {
+  position: absolute;
+  top: -1px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  content: "";
+  width: 19px;
+  height: 11px;
+  background: url(../img/title-arrow.jpg) no-repeat;
+}
+
+.position__title {
+  padding-top: 13px;
+  margin-bottom: 34px;
+}
+
+.position-container:before, .position-container:after {
+  content: "";
+  display: table;
+}
+.position-container:after {
+  clear: both;
+}
+
+.position-left {
+  float: left;
+}
+
+.position-left__list {
+  font-size: 0;
+  width: 101px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  overflow: hidden;
+  border: 1px solid #9eb2c0;
+}
+
+.position-left__item {
+  border-bottom: 1px solid #9eb2c0;
+  border-right: 1px solid #9eb2c0;
+  display: inline-block;
+  background: #dbe1e8;
+}
+.position-left__item:nth-child(3n) {
+  border-right: 0;
+}
+.position-left__item:nth-child(7n) {
+  border-bottom: 0;
+}
+.position-left__item:nth-child(8n) {
+  border-bottom: 0;
+}
+.position-left__item:nth-child(9n) {
+  border-bottom: 0;
+}
+
+.position-left__link {
+  display: block;
+  width: 33px;
+  height: 33px;
+}
+.position-left__link:hover {
+  background: #eee;
+}
+
+.position-left__item_active {
+  background-color: #f97e76;
+}
+.position-left__item_active:hover .position-left__link {
+  background: none;
+}
+
+.position-right {
+  float: right;
+}
+
+.position-right__top,
+.position-right__bottom {
+  margin-bottom: 11px;
+}
+
+.position-right__vector {
+  display: inline-block;
+  vertical-align: top;
+  width: 13px;
+  font-family: "RobotoLight";
+  font-size: 16px;
+  color: #2e3641;
+  padding-top: 15px;
+}
+
+.ui-widget-content {
+  background: #f1f1f5 !important;
+  color: #444a53 !important;
+  font-size: 24px !important;
+  line-height: 24px !important;
+}
+
+.ui-spinner-input {
+  font-family: "SegoeUILight" !important;
+  width: 45px;
+  padding: 6px 0 !important;
+  border: 1px solid #9eb2c0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  margin-left: 0 !important;
+}
+
+.ui-state-default {
+  background: none !important;
+}
+
+.ui-state-hover {
+  background-image: none !important;
+}
+
+.ui-spinner-down {
+  bottom: -5px !important;
+}
+
+.ui-icon-triangle-1-n {
+  cursor: pointer !important;
+  display: block !important;
+  width: 13px !important;
+  height: 8px !important;
+  background: url("../img/icons-s7fc1c71963.png") 0 -234px no-repeat !important;
+}
+.ui-icon-triangle-1-n:hover {
+  background: url("../img/icons-s7fc1c71963.png") 0 -156px no-repeat !important;
+}
+
+.ui-icon-triangle-1-s {
+  cursor: pointer !important;
+  display: block !important;
+  width: 13px !important;
+  height: 8px !important;
+  background: url("../img/icons-s7fc1c71963.png") 0 -78px no-repeat !important;
+}
+.ui-icon-triangle-1-s:hover {
+  background: url("../img/icons-s7fc1c71963.png") 0 0 no-repeat !important;
+}
+
+.position-right__input-top, .position-right__input-bot {
+  background: #f1f1f5;
+  width: 43px;
+  padding: 6px 0;
+  text-align: center;
+  display: inline-block;
+  vertical-align: top;
+  font-family: "SegoeUILight";
+  font-size: 24px;
+  line-height: 24px;
+  color: #444a53;
+  outline: none;
+  border: 1px solid #9eb2c0;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+
+.opacity {
+  position: relative;
+}
+
+.opacity__style {
+  padding: 0 21px 0 20px;
+  padding-top: 15px;
+  margin-bottom: 33px;
+}
+
+.opacity__title {
+  margin-bottom: 27px;
+}
+
+.ui-state-default {
+  border: 0 !important;
+  outline: none !important;
+}
+
+.ui-widget-content {
+  border: 0 !important;
+}
+
+.ui-slider-horizontal {
+  height: 3px !important;
+  background: #dbe1e8 !important;
+}
+
+.ui-widget-header {
+  background: #9eb2c0 !important;
+}
+
+.ui-slider-handle {
+  background: url("../img/icons-s7fc1c71963.png") 0 -504px no-repeat !important;
+  width: 24px !important;
+  height: 24px !important;
+  top: -9px !important;
+  margin-left: -10px !important;
+}
+.ui-slider-handle:hover {
+  background: url("../img/icons-s7fc1c71963.png") 0 -410px no-repeat !important;
+}
+
+.buttons {
+  position: relative;
+  border-top: 1px solid #f4c3c2;
+  padding: 0 10px;
+  padding-top: 55px;
+}
+.buttons:before, .buttons:after {
+  content: "";
+  display: table;
+}
+.buttons:after {
+  clear: both;
+}
+.buttons:before {
+  position: absolute;
+  top: -1px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  content: "";
+  width: 19px;
+  height: 11px;
+  background: url(../img/title-arrow.jpg) no-repeat;
+}
+
+.buttons__reset {
+  float: left;
+  border: none;
+  width: 99px;
+  padding: 10px 0;
+  text-align: center;
+  background: #c1cfd9;
+  font-family: "RobotoMedium";
+  font-size: 18px;
+  color: #fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+
+.buttons__download {
+  float: right;
+  border: none;
+  width: 99px;
+  padding: 10px 0;
+  text-align: center;
+  background: #f97e76;
+  font-family: "RobotoMedium";
+  font-size: 18px;
+  color: #fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+
+/* --------- fonts --------- */
+/* font-family: "RobotoLight"; */
+@font-face {
+  font-family: "RobotoLight";
+  src: url("../fonts/RobotoLight/RobotoLight.eot");
+  src: url("../fonts/RobotoLight/RobotoLight.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoLight/RobotoLight.woff") format("woff"), url("../fonts/RobotoLight/RobotoLight.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+/* font-family: "RobotoMedium"; */
+@font-face {
+  font-family: "RobotoMedium";
+  src: url("../fonts/RobotoMedium/RobotoMedium.eot");
+  src: url("../fonts/RobotoMedium/RobotoMedium.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoMedium/RobotoMedium.woff") format("woff"), url("../fonts/RobotoMedium/RobotoMedium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "SegoeUILight";
+  src: url("../fonts/SegoeUILight/SegoeUILight.eot");
+  src: url("../fonts/SegoeUILight/SegoeUILight.eot?#iefix") format("embedded-opentype"), url("../fonts/SegoeUILight/SegoeUILight.woff") format("woff"), url("../fonts/SegoeUILight/SegoeUILight.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+>>>>>>> master

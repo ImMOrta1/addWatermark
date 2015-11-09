@@ -56,7 +56,7 @@ var modulelLoad = (function () {
 		return result;
 	};
 
-//Загрузка файлов на сервер jQueri File Upload
+//Загрузка файлов на сервер jQuery File Upload
 	var _fileUploadFunc = function (inputFile,container) {
 			$(inputFile).fileupload({
 

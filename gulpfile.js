@@ -59,10 +59,10 @@ gulp.task('compass', function() {
 
 gulp.task('sync', function() {
 	browserSync.init({
-		port: 9000,
-		server: {
-			baseDir: paths.browserSync.baseDir
-		}
+		proxy: "addWatermark/app"
+		// server: {
+		// 	baseDir: paths.browserSync.baseDir
+		// }
 	});
 
 });
