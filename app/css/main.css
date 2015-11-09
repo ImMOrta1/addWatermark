@@ -314,6 +314,13 @@ p {
   background: #eee;
 }
 
+.position-left__item_active {
+  background-color: #f97e76;
+}
+.position-left__item_active:hover .position-left__link {
+  background: none;
+}
+
 .position-right {
   float: right;
 }
