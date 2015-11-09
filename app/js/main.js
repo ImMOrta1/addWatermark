@@ -217,3 +217,30 @@ var opacitySlider = (function() {
 }());
 
 opacitySlider.init();
+
+//------------Reset function----------------
+
+var resetForm = (function(){
+    var resetInit = function(){
+        _setupListners();
+    };
+
+    var _setupListners = function(){
+        $('.buttons__reset').on('click', function(){
+            $('.image-view__water-img').css('left', 0),
+            $('.image-view__water-img').css('top', 0),
+                $('.position-right__input-top').spinner('value', 0),
+                $('.position-right__input-bot').spinner('value', 0),
+                $('.opacity__slider').slider("value", 1),
+                $('.image-view__water-img').css('opacity', 1)
+        })
+    };
+
+
+    return{
+        init: resetInit
+    }
+}());
+
+resetForm.init();
+
