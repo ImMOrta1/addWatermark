@@ -246,6 +246,7 @@ var disabler = (function() {
 
     var _setupListners = function() {
         _disableFunc();
+        _disableAlert();
     };
 
     var _disableFunc = function() {
@@ -256,6 +257,17 @@ var disabler = (function() {
 
         $('#fileuploadWat').on('change', function() {
             $('.sidebar__disable').addClass('sidebar__disable_none')
+        });
+    };
+
+    var _disableAlert = function() {
+        $('.sidebar__disable').on('click', function() {
+            swal({
+                title: 'АХТУНГ, Вы забыли выбрать изображения',
+                text: 'Для включения настроек изменения водяного знака сначала выберите необходимые вам изображения!',
+                type: "error",
+                confirmButtonText: "Продожить работу" 
+            });
         });
     };
 
