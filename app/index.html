@@ -26,10 +26,7 @@
 						<h1 class="image-view__title">Генератор водяных знаков</h1>
 					</div>
 					<div class="image-view__container">
-						<div data-ratio='0' class="image-view__container-main-image">
-							<div class="image-view__main-img"></div>
-							<div class="image-view__water-img"></div>
-						</div>
+						<div data-ratio='0' class="image-view__container-main-image"><img class="image-view__main-img"><img class="image-view__water-img"></div>
 					</div>
 				</section>
 				<aside class="saidbar">
@@ -37,64 +34,64 @@
 						<div class="saidbar_text">
 							<h2 class="saidbar__title">Настройки</h2>
 						</div>
-					</form>
-					<form class="file-upload">
-						<label class="file-upload__label">
-							<div class="file-upload__title">Исходное изображение</div>
-							<div class="file-upload__container">
-								<input type="file" id="mainFileInput" name="files[]" accept="image/jpeg, image/jpg" class="file-upload__input">
-								<div id="fake" class="file-upload__fake">image.jpg</div>
-								<div class="file-upload__icon"></div>
-								<input type="text" name="mainFileText" id="mainFileText" class="file-upload__inputInvis">
-							</div>
-						</label>
-						<label class="file-upload__label">
-							<div class="file-upload__title">Водяной знак</div>
-							<div class="file-upload__container">
-								<input type="file" id="waterFileInput" accept="image/png" class="file-upload__input">
-								<div id="fakeWat" class="file-upload__fake">image.png</div>
-								<div class="file-upload__icon"></div>
-								<input type="text" name="waterFileText" id="waterFileText" class="file-upload__inputInvis">
-							</div>
-						</label>
-					</form>
-					<div class="position separator">
-						<div class="position__title">Положение</div>
-						<div class="position-container">
-							<div class="position-left">
-								<ul class="position-left__list">
-									<li data-pos="top-left" class="position-left__item"><a href="#" class="position-left__link"></a></li>
-									<li data-pos="top-center" class="position-left__item"><a href="#" class="position-left__link"></a></li>
-									<li data-pos="top-right" class="position-left__item"><a href="#" class="position-left__link"></a></li>
-									<li data-pos="mid-left" class="position-left__item"><a href="#" class="position-left__link"></a></li>
-									<li data-pos="mid-center" class="position-left__item"><a href="#" class="position-left__link"></a></li>
-									<li data-pos="mid-right" class="position-left__item"><a href="#" class="position-left__link"></a></li>
-									<li data-pos="btm-left" class="position-left__item"><a href="#" class="position-left__link"></a></li>
-									<li data-pos="btm-center" class="position-left__item"><a href="#" class="position-left__link"></a></li>
-									<li data-pos="btm-right" class="position-left__item"><a href="#" class="position-left__link"></a></li>
-								</ul>
-							</div>
-							<div class="position-right">
-								<div class="position-right__top"><span class="position-right__vector">X</span>
-									<input type="text" value="0" name="positionX" class="position-right__input-top">
-									<div class="position-right__buttons"><a href="#" class="position-right__up"></a><a href="#" class="position-right__down"></a></div>
+						<div class="file-upload">
+							<label class="file-upload__label">
+								<div class="file-upload__title">Исходное изображение</div>
+								<div class="file-upload__container">
+									<input type="file" id="fileupload" name="files[]" accept="image/jpeg, image/jpg" class="file-upload__input">
+									<div id="fake" class="file-upload__fake">image.jpg</div>
+									<div class="file-upload__icon"></div>
+									<input type="text" name="mainFileText" id="mainFileText" class="file-upload__inputInvis">
 								</div>
-								<div class="position-right__bottom"><span class="position-right__vector">Y</span>
-									<input type="text" value="0" name="positionY" class="position-right__input-bot">
-									<div class="position-right__buttons"><a href="#" class="position-right__up"></a><a href="#" class="position-right__down"></a></div>
+							</label>
+							<label class="file-upload__label">
+								<div class="file-upload__title">Водяной знак</div>
+								<div class="file-upload__container">
+									<input type="file" id="fileuploadWat" accept="image/png" class="file-upload__input">
+									<div id="fakeWat" class="file-upload__fake">image.png</div>
+									<div class="file-upload__icon"></div>
+									<input type="text" name="waterFileText" id="waterFileText" class="file-upload__inputInvis">
+								</div>
+							</label>
+						</div>
+						<div class="position separator">
+							<div class="position__title">Положение</div>
+							<div class="position-container">
+								<div class="position-left">
+									<ul class="position-left__list">
+										<li data-pos="top-left" class="position-left__item"><a href="#" class="position-left__link"></a></li>
+										<li data-pos="top-center" class="position-left__item"><a href="#" class="position-left__link"></a></li>
+										<li data-pos="top-right" class="position-left__item"><a href="#" class="position-left__link"></a></li>
+										<li data-pos="mid-left" class="position-left__item"><a href="#" class="position-left__link"></a></li>
+										<li data-pos="mid-center" class="position-left__item"><a href="#" class="position-left__link"></a></li>
+										<li data-pos="mid-right" class="position-left__item"><a href="#" class="position-left__link"></a></li>
+										<li data-pos="btm-left" class="position-left__item"><a href="#" class="position-left__link"></a></li>
+										<li data-pos="btm-center" class="position-left__item"><a href="#" class="position-left__link"></a></li>
+										<li data-pos="btm-right" class="position-left__item"><a href="#" class="position-left__link"></a></li>
+									</ul>
+								</div>
+								<div class="position-right">
+									<div class="position-right__top"><span class="position-right__vector">X</span>
+										<input type="text" value="0" name="positionX" class="position-right__input-top">
+										<div class="position-right__buttons"><a href="#" class="position-right__up"></a><a href="#" class="position-right__down"></a></div>
+									</div>
+									<div class="position-right__bottom"><span class="position-right__vector">Y</span>
+										<input type="text" value="0" name="positionY" class="position-right__input-bot">
+										<div class="position-right__buttons"><a href="#" class="position-right__up"></a><a href="#" class="position-right__down"></a></div>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="opacity opacity__style separator">
-						<div class="opacity__title">Прозрачность</div>
-						<input type="text" value="0" name="opacityWater" class="opacity__input-invis">
-						<div class="opacity__slider"></div>
-					</div>
-					<div class="buttons separator">
-						<button type="reset" class="buttons__reset">Сброс</button>
-						<button type="submit" class="buttons__download">Скачать</button>
-					</div>
+						<div class="opacity opacity__style separator">
+							<div class="opacity__title">Прозрачность</div>
+							<input type="text" value="0" name="opacityWater" class="opacity__input-invis">
+							<div class="opacity__slider"></div>
+						</div>
+						<div class="buttons separator">
+							<button type="reset" class="buttons__reset">Сброс</button>
+							<button type="submit" class="buttons__download">Скачать</button>
+						</div>
+					</form>
 				</aside>
 			</div>
 		</div>
@@ -105,7 +102,7 @@
 		<script src="bower/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
 		<script src="bower/blueimp-file-upload/js/jquery.fileupload.js"></script>
 		<script src="js/fileLoadToForm.js"></script>
-		<script src="js/file_upload.js"></script>
 		<script src="js/main.js"></script>
+		<script src="js/resizeImage.js"></script>
 	</body>
 </html>

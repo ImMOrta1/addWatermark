@@ -31,7 +31,8 @@
 	background: #fff;
 	height: 530px;
 
-  	.image-view__container-main-image {
+
+.image-view__container-main-image {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -40,38 +41,18 @@
 		margin: auto;
 
 		.image-view__main-img {
-		  position: absolute;
-		  top: 0;
-		  left: 0;
+			position: absolute;
+			top: 0;
+			left: 0;
 		}
 		.image-view__water-img {
-		  position: absolute;
-		  top: 0;
-		  left: 0;
+			position: absolute;
+			top: 0;
+			left: 0;
 		}
-  	}
+	}
+}
 
-
-}
-.image-view__container .image-view__main-img {
-  width: 100%;
-  height: 100%;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  position: relative;
-}
-.image-view__container .image-view__water-img {
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-}
 .image-view__upload {
 	width: 100%;
 	height: auto;
@@ -214,11 +195,11 @@
 .position-left__item {
 	border-bottom: $greyBord;
 	border-right: $greyBord;
-	box-sizing: border-box;
-	width: 33px;
-	height: 33px;
 	display: inline-block;
 	background: $lightGrey;
+	width: 33px;
+	height: 33px;
+	box-sizing:border-box;
 
 	&:nth-child(3n) {
 		border-right: 0;
@@ -240,12 +221,16 @@
 .position-left__link {
 	display: block;
 	width: 100%;
-	height:  100%;
+	height: 100%;
 
 	&:hover {
 		background: #eee;
 	}
-}
+
+	&_active {
+
+	}
+} 
 
 .position-left__item_active {
 	background-color: #f97e76;	
@@ -351,6 +336,7 @@
 }
 
 //-------------- opacity --------------------
+
 .opacity {
 	position: relative;
 }
@@ -361,6 +347,11 @@
 }
 .opacity__title {
 	margin-bottom: 27px;
+}
+.opacity__input-invis {
+  position: absolute;
+  top: 0;
+  left: -9999px;
 }
 
 .ui-state-default {
