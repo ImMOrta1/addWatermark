@@ -121,11 +121,15 @@ function removeDirectory($dir) {
     }
   }
 
-		$file1 = $_POST['mainFileText'];
-		$file2 = $_POST['waterFileText'];
-		$posX = $_POST['positionX'];
-		$poxY = $_POST['positionY'];
-		$opacity_water = $_POST['opacityWater'] * 100;
+  		$data = json_decode($_POST['jsonData']);
+
+
+		$file1 = $data -> {'urlMain'};
+		$file2 = $data -> {'urlWater'};
+		$posX = $data -> {'posX'};
+		$poxY = $data -> {'posY'};
+		$opacity_water = $data -> {'opacity'} * 100;
+		$data = array();
 
 		$type1_mas = explode('.', $file1);
 		$type2_mas = explode('.', $file2);
@@ -143,15 +147,23 @@ function removeDirectory($dir) {
 
 			$finalName = 'results/' . random(8) . '-water.jpg';
 
-			imagejpeg($im,$finalName,95);
+  			imagejpeg($im,$finalName,95);
 			imagedestroy($im);
 
-			echo '<img src="' . $finalName . '">';
+  			$data['status'] = 'OK';
+			$data['text'] = 'Выполнено! Получите ссылку';
+			$data['url'] = $finalName;
+
+
 		} else {
-			echo "Неправильные форматы файлов";
+			$data['status'] = 'ERROR!';
+			$data['text'] = 'Заполните имя!';
 		}
 		
 		removeDirectory("files");
+
+		header("Content-Type: application/json");
+		echo json_encode($data);
 
   exit;
 

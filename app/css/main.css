@@ -63,6 +63,12 @@ p {
 }
 
 /* --------- sections --------- */
+.hiddenFrame {
+  width: 1px;
+  height: 1px;
+  visibility: hidden;
+}
+
 .main {
   width: 960px;
   height: 670px;
