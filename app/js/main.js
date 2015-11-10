@@ -266,7 +266,8 @@ var disabler = (function() {
                 title: 'АХТУНГ, Вы забыли выбрать изображения',
                 text: 'Для включения настроек изменения водяного знака сначала выберите необходимые вам изображения!',
                 type: "error",
-                confirmButtonText: "Продолжить работу" 
+
+                confirmButtonText: "Продолжить работу"
             });
         });
     };
@@ -278,3 +279,25 @@ var disabler = (function() {
 }());
 
 disabler.init();
+//------------change languages----------------
+var lang = function () {
+    var langInit = function () {
+        _setupListners();
+    }
+    var _setupListners = function(){
+        $('#eng').on('click', function(){
+            $('.icons__lang-item').removeClass('active');
+            $('#eng').addClass('active');
+        });
+        $('#rus').on('click', function(){
+            $('#eng').removeClass('active');
+            $('#rus').addClass('active');
+        });
+    };
+
+
+    return {
+        init: langInit
+    }
+}();
+lang.init();
