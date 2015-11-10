@@ -279,3 +279,25 @@ var disabler = (function() {
 }());
 
 disabler.init();
+//------------change languages----------------
+var lang = function () {
+    var langInit = function () {
+        _setupListners();
+    }
+    var _setupListners = function(){
+        $('#eng').on('click', function(){
+            $('.icons__lang-item').removeClass('active');
+            $('#eng').addClass('active');
+        });
+        $('#rus').on('click', function(){
+            $('#eng').removeClass('active');
+            $('#rus').addClass('active');
+        });
+    };
+
+
+    return {
+        init: langInit
+    }
+}();
+lang.init();
