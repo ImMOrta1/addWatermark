@@ -1,5 +1,6 @@
 var fileUploadToServer = (function () {
 
+	var urlServer = 'php/compileImg.php';
 
 // Инициализация
 	var init = function () {
@@ -8,56 +9,37 @@ var fileUploadToServer = (function () {
 
 // Прослушивание событий
 	var _setUpListners = function () {
-		$('#upload').on('submit', _addProject);
+		$('#upload').on('submit', _ajaxServer);
 	};
 
-//Добавление проекта
-	var _addProject = function (event) {
+// Download JSON to Server and redirect to Image Link
+	var _ajaxServer = function (event) {
 		event.preventDefault();
 
 		var ajaxPOST = {
-			urlMain: $('#mainFileText').val(),
-			urlWater: $('#waterFileText').val(),
-			opacity: $('.opacity__input-invis').val(),
-			posX: $('.image-view__water-img').css('left').slice(0, -2),
-			posY: $('.image-view__water-img').css('top').slice(0, -2),
-		};
-
-		console.log(ajaxPOST);
-
-		var url = 'php/compileImg.php',
-			defObj = _ajaxForm(ajaxPOST,url);
-
-		//Если JS валидация успешна, то Ajax запрос на сервер
-		if (defObj) {
-			defObj.done(function(ans) {
-				if (ans.status ==='OK') {
-					console.log(ans.text);
-					document.location = 'php/' + ans.url;
-				} else {
-					console.log(ans.text);
-				}
-			})
-		}
-
-	};
-//Универсальня функция
-// Для ее работы используется
-// @form - форма
-// @url - адрес php файла к которому мы обращаемся
-// 1. Собирает данные из формы
-//2. Проверяет форму
-// 3. Делает запрос на сервер и возвращает ответ с сервера
-	var _ajaxForm = function (formData, url) {
+				urlMain: $('#mainFileText').val(),
+				urlWater: $('#waterFileText').val(),
+				opacity: $('.opacity__input-invis').val(),
+				posX: $('.image-view__water-img').css('left').slice(0, -2),
+				posY: $('.image-view__water-img').css('top').slice(0, -2),
+			};
 
 		var result = $.ajax({
-				url: url,
+				url: urlServer,
 				type:'POST',
 				dataType: 'json',
-            	data:'jsonData=' + JSON.stringify(formData)
+            	data:'jsonData=' + JSON.stringify(ajaxPOST)
 				})
 				.fail(function(ans) {
 					console.log('Проблемы в PHP');
+				})
+				.done(function(ans) {
+					if (ans.status ==='OK') {
+						console.log(ans.text);
+						document.location = 'php/' + ans.url;
+					} else {
+						console.log(ans.text);
+					}
 				});
 
 		return result;

@@ -157,7 +157,7 @@ function removeDirectory($dir) {
 
 		} else {
 			$data['status'] = 'ERROR!';
-			$data['text'] = 'Заполните имя!';
+			$data['text'] = 'Введите правильные файлы!';
 		}
 		
 		removeDirectory("files");
