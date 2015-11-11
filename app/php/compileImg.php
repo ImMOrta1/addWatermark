@@ -17,7 +17,7 @@
 					$box_heigth = ($main_img_obj_h * $box_width / $main_img_obj_w);
 				} else {
 					$box_width = $main_img_obj_w;
-					$box_heigth = ($main_img_obj_h * $box_width / $main_img_obj_w);
+					$box_heigth = $main_img_obj_h;
 
 				} 
 			} else {
@@ -26,7 +26,7 @@
 					$box_width = ($main_img_obj_w * $box_heigth / $main_img_obj_h);
 				} else {
 					$box_heigth = $main_img_obj_h;
-					$box_width = ($main_img_obj_w * $box_heigth / $main_img_obj_h);
+					$box_width = $main_img_obj_w;
 				} 
 			}
 
@@ -98,6 +98,23 @@
 			$watermark_img_obj_w	= imagesx( $watermark_img_obj );
 			$watermark_img_obj_h	= imagesy( $watermark_img_obj );
 
+			if ($main_img_obj_w > $main_img_obj_h) {
+				if ($main_img_obj_w > 650) {
+					$q = $main_img_obj_w / 650;
+				} else {
+					$q = 1;
+				} 
+			} else {
+				if ($main_img_obj_h > 530) {
+					$q = $main_img_obj_h / 530;
+				} else {
+					$q = 1;
+				} 
+			}
+
+			$marginVertNat = $marginVert * $q;
+			$marginGorNat = $marginGor * $q;
+
 			$till_img_elems_w = floor( $main_img_obj_w / $watermark_img_obj_w );
 			$till_img_elems_h = floor( $main_img_obj_h / $watermark_img_obj_h );
 
@@ -112,7 +129,7 @@
 
 			for( $y = 0; $y < $till_img_elems_h * 2; $y++ ) {
 				for( $x = 0; $x < $till_img_elems_w * 2; $x++ ) {
-					imagecopy($return_img, $watermark_img_obj, ($watermark_img_obj_w + $marginGor) * $x, ($watermark_img_obj_h + $marginVert) * $y, 0, 0, $watermark_img_obj_w, $watermark_img_obj_h);
+					imagecopy($return_img, $watermark_img_obj, ($watermark_img_obj_w + $marginGorNat) * $x, ($watermark_img_obj_h + $marginVertNat) * $y, 0, 0, $watermark_img_obj_w, $watermark_img_obj_h);
 				}
 			}
 
@@ -158,6 +175,8 @@ function removeDirectory($dir) {
 		$file2 = $data -> {'urlWater'};
 		$posX = $data -> {'posX'};
 		$posY = $data -> {'posY'};
+		$margX = $data -> {'margX'};
+		$margY = $data -> {'margY'};
 		$opacity_water = $data -> {'opacity'} * 100;
 		$mode = $data -> {'mode'};
 		$data = array();
@@ -177,7 +196,7 @@ function removeDirectory($dir) {
 			if ($mode == 'normal') {
 				$im=$watermark->create_watermark($im1,$im2,$posX,$posY,$opacity_water);
 			} elseif ($mode == 'till') {
-				$till_img=$watermark->till_image($im1,$im2,0,0);
+				$till_img=$watermark->till_image($im1,$im2,$margY,$margX);
 				$im=$watermark->create_watermark($im1,$till_img,$posX,$posY,$opacity_water);
 			}
 

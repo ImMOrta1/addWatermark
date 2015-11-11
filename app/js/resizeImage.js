@@ -4,6 +4,7 @@ var resizeImage = (function () {
 	var resizeMain = function (image) {
         $(image).load(function() {
 
+
             var $this = $(this),
                 widthMainNatural = $this.width(),
                 heigthMainNatural = $this.height(),
@@ -89,17 +90,20 @@ var resizeImage = (function () {
                 q = ImgContainer.attr('data-ratio'),
                 tillBlock = $('.wrap-image-view__water-till-block');
 
+
             widthContainerImages = ImgContainer.css('width').slice(0, -2);
             heightContainerImages = ImgContainer.css('height').slice(0, -2);
 
 
             horizontalElems = Math.round(widthContainerImages / widthWater);
             horizontalElemsBlock = horizontalElems * 2;
+            tillBlock.attr('data-x-elem', horizontalElemsBlock);
             verticalElems = Math.round(heightContainerImages / heightWater);
             verticalElemsBlock = verticalElems * 2;
+            tillBlock.attr('data-y-elem', verticalElemsBlock);
 
-            widthElemsBlock = widthWater * (horizontalElemsBlock+2);
-            heigthElemsBlock = heightWater * (verticalElemsBlock+2);
+            widthElemsBlock = widthWater * horizontalElemsBlock;
+            heigthElemsBlock = heightWater * verticalElemsBlock;
 
             tillBlock.css('width', widthElemsBlock);
             tillBlock.css('height', heigthElemsBlock);

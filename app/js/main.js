@@ -1,16 +1,11 @@
 var mainJS = (function() {
 
-    var watermark = $('.image-view__water-img'),
+    var 
         _spinnerX = $('.position-right__input-top'),
         _spinnerY = $('.position-right__input-bot'),
         positionBlock = $('.position'),
         inputX = positionBlock.find('.position-right__input-top'),
         inputY = positionBlock.find('.position-right__input-bot'),
-        bgContainer = $('.image-view__main-img'),
-        parentDrag = bgContainer,
-        positionX = 0,
-        positionY = 0,
-        coordinate = 0,
         ajaxPOST = {
             urlMain: '',
             urlWater: '',
@@ -18,6 +13,8 @@ var mainJS = (function() {
             posX: 0,
             posY: 0,
             mode: 'normal',
+            margX: 0,
+            margY: 0
         },
         urlServer = 'php/compileImg.php';
 
@@ -37,14 +34,11 @@ var mainJS = (function() {
         //Upload to Server 
         $('#upload').on('submit', _ajaxServer);
 
-        //Reset Function 
+        //Reset function 
         resetForm();
 
-        _coordinates();
-        _getCoordinates();
-        _setCoordinate();
+        //Reset position function
         _setCoordinate(0,0);
-        $('.position-left__list li').on('click touchstart', _gridChange);
 
         //Default Mode
         SingleMode();
@@ -60,36 +54,42 @@ var mainJS = (function() {
 //Modes Functions
     var SingleMode = function() {
         watermark = $('.image-view__water-img');
+        watermarkImg = $('.image-view__water-img');
         bgContainer = $('.image-view__main-img');
-        positionX = 0,
-        positionY = 0;
-        coordinate = 0;
         parentDrag = bgContainer;
+        opacity = watermark.css('opacity');
         ajaxPOST.mode = 'normal';
 
         $('.wrap-image-view__water-till-block').css('display', 'none');
         $('.image-view__water-img').css('display', 'block');
 
-        _dragWatermark(watermark, parentDrag);
+        //Positon Function Normal Mode
+        _coordinates();
+        _dragWatermark(watermark, parentDrag, _dragGetSlice);
+        _getCoordinates();
+        $('.position-left__list li').on('click touchstart', _gridChange);
+
         //Opacity Function Listen
-        _opacity(watermark);
+        _opacity(watermark,opacity);
     }
 
     var TillMode = function() {
         watermark = $('.wrap-image-view__water-till-block');
+        watermarkImg = $('.image-view__water-till-img');
         bgContainer = $('.image-view__container');
-        positionX = 0,
-        positionY = 0;
-        coordinate = 0;
         parentDrag = '';
+        opacity = watermark.css('opacity');
         ajaxPOST.mode = 'till';
 
         $('.image-view__water-img').css('display', 'none');
         $('.wrap-image-view__water-till-block').css('display', 'block');
 
-        _dragWatermark(watermark, parentDrag);
+        //Positon Function Till Mode
+        _dragWatermark(watermark, parentDrag, '');
+        _paddingTill(watermarkImg, watermark);
+        _getPaddingTill();
         //Opacity Function Listen
-        _opacity(watermark);
+        _opacity(watermark,opacity);
     }
 
 
@@ -109,15 +109,17 @@ var mainJS = (function() {
 
 //Position Funstions
 
-    var  _dragWatermark = function(dragBlock, container) {
+    var  _dragWatermark = function(dragBlock, container, func) {
         dragBlock.draggable({
             containment: container,
             snapTolerance: 0,
             cursor: 'move',
-            drag: function(ev, ui){
-                    _getCoordinates();
-                }
+            drag: func
             });
+        };
+
+    var _dragGetSlice = function(ev, ui){
+            _getCoordinates();
         };
 
     var _coordinates = function() {
@@ -139,11 +141,14 @@ var mainJS = (function() {
                 top: currentValY + 'px'
             })
         });
-
-        };
+    };
 
     var _getCoordinates = function(elem) {
-            
+        
+        var positionX = 0,
+            positionY = 0,
+            coordinate = 0;
+
         if (typeof elem === 'undefined') {
             elem = watermark;
         }   
@@ -215,14 +220,62 @@ var mainJS = (function() {
                 }
             };
 
+//Padding Spinners Functions
+    var _paddingTill = function(watermark, watermarkBlock) {
+
+        var widthImg = watermark.css('width').slice(0,-2),
+            heightImg = watermark.css('height').slice(0,-2),
+            widthElems = watermarkBlock.attr('data-x-elem'),
+            heightElems = watermarkBlock.attr('data-y-elem'),
+            widthBlock = 0,
+            heightBlock = 0;
+
+        _spinnerX.spinner({ min: 0, max: 100 });
+        _spinnerX.on('spin', function(event, ui) {
+            var currentValX = ui.value;
+
+            watermark.css('padding-right', currentValX + 'px');
+            widthBlock = ( widthImg + currentValX ) * widthElems;
+            watermarkBlock.css('width', widthBlock)
+        });
+
+        _spinnerY.spinner({ min: 0, max: 100 });
+        _spinnerY.on('spin', function(event, ui) {
+            var currentValY = ui.value;
+
+            watermark.css('padding-bottom', currentValY + 'px');
+            heightBlock = ( heightImg + currentValY ) * heightElems;
+            watermarkBlock.css('height', heightBlock)
+        });
+    };
+
+    var _getPaddingTill = function(elem) {
+        
+        var paddingX = 0,
+            paddingY = 0;
+
+        if (typeof elem === 'undefined') {
+            elem = watermarkImg;
+        } 
+        
+            paddingX  = Math.round( (elem.css('padding-right')).slice(0,-2) );
+            paddingY  = Math.round( (elem.css('padding-bottom')).slice(0,-2) );
+            _setCoordinate(paddingX,paddingY);
+
+            return {
+                x: paddingX,
+                y: paddingY
+            };
+        };
+
 //Opacity Function
-    var _opacity = function(water) {
+    var _opacity = function(water, opacValue) {
         $('.opacity__slider').slider({
             range: 'min',
             min: 0,
             max: 1,
             step: 0.01,
-            value: 1,
+            value: opacValue,
             slide: function( event, ui ) {
                 water.css('opacity', ui.value);
             }
@@ -271,8 +324,11 @@ var mainJS = (function() {
 
         ajaxPOST.urlMain = $('#mainFileText').val();
         ajaxPOST.urlWater = $('#waterFileText').val();
-        ajaxPOST.posX = watermark.css('left');
-        ajaxPOST.posY = watermark.css('top');
+        ajaxPOST.posX = watermark.css('left').slice(0, -2);
+        ajaxPOST.posY = watermark.css('top').slice(0, -2);
+        ajaxPOST.opacity = watermark.css('opacity');
+        ajaxPOST.margX = watermarkImg.css('padding-right').slice(0, -2);
+        ajaxPOST.margY = watermarkImg.css('padding-bottom').slice(0, -2);
 
         var result = $.ajax({
                 url: urlServer,
