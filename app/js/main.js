@@ -40,17 +40,14 @@ var mainJS = (function() {
         //Reset Function 
         resetForm();
 
-        //Position Functions Listen
-        _dragWatermark(watermark, bgContainer);
         _coordinates();
         _getCoordinates();
         _setCoordinate();
         _setCoordinate(0,0);
         $('.position-left__list li').on('click touchstart', _gridChange);
 
-        //Opacity Function Listen
-        _opacity();
-
+        //Default Mode
+        SingleMode();
         //Mode Selection
         $('#checkModeNormal').on('click', function(event) {
             SingleMode()
@@ -74,6 +71,8 @@ var mainJS = (function() {
         $('.image-view__water-img').css('display', 'block');
 
         _dragWatermark(watermark, parentDrag);
+        //Opacity Function Listen
+        _opacity(watermark);
     }
 
     var TillMode = function() {
@@ -89,6 +88,8 @@ var mainJS = (function() {
         $('.wrap-image-view__water-till-block').css('display', 'block');
 
         _dragWatermark(watermark, parentDrag);
+        //Opacity Function Listen
+        _opacity(watermark);
     }
 
 
@@ -215,7 +216,7 @@ var mainJS = (function() {
             };
 
 //Opacity Function
-    var _opacity = function() {
+    var _opacity = function(water) {
         $('.opacity__slider').slider({
             range: 'min',
             min: 0,
@@ -223,8 +224,7 @@ var mainJS = (function() {
             step: 0.01,
             value: 1,
             slide: function( event, ui ) {
-                $('.image-view__water-img').css('opacity', ui.value);
-                ajaxPOST.opacity = ui.value;
+                water.css('opacity', ui.value);
             }
         });
     };
