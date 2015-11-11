@@ -107,7 +107,8 @@ p {
   background: #fff;
   height: 530px;
 }
-.image-view__container .image-view__container-main-image {
+
+.image-view__container-main-image {
   position: absolute;
   top: 0;
   left: 0;
@@ -116,17 +117,17 @@ p {
   margin: auto;
   overflow: hidden;
 }
-.image-view__container .image-view__container-main-image .image-view__main-img {
+.image-view__container-main-image .image-view__main-img {
   position: absolute;
   top: 0;
   left: 0;
 }
-.image-view__container .image-view__container-main-image .image-view__water-img {
+.image-view__container-main-image .image-view__water-img {
   position: absolute;
   top: 0;
   left: 0;
 }
-.image-view__container .image-view__container-main-image .wrap-image-view__water-till-block {
+.image-view__container-main-image .wrap-image-view__water-till-block {
   position: absolute;
   top: 0;
   left: 0;
@@ -561,6 +562,112 @@ p {
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
   outline: none;
+}
+
+.icons {
+  display: block;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  z-index: 10;
+}
+
+.icons__lang-list {
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+.icons__lang-item {
+  font-family: 'SegoeUILight';
+  font-size: 18px;
+  display: block;
+  padding: 4px 3px;
+  margin-bottom: 1px;
+  background: #d7d5d7;
+}
+.icons__lang-item.active {
+  background: #b2b0b2;
+}
+
+.icons__lang-item.active .icons__lang-link {
+  color: #FFFFFF;
+}
+
+.icons__lang-link {
+  text-decoration: none;
+  color: #999ca1;
+}
+
+.icons__social {
+  display: block;
+  left: 0;
+}
+.icons__social:hover {
+  left: 39px;
+  position: absolute;
+  -webkit-transition: left .5s;
+  -moz-transition: left .5s;
+  -ms-transition: left .5s;
+  -o-transition: left .5s;
+  transition: left .5s;
+}
+
+.icons__social-link {
+  text-indent: -9999px;
+}
+.icons__social-link.like {
+  position: absolute;
+  left: 0;
+  background: url('../img/social-sef46c9fe99.png') 0 -333px no-repeat;
+  height: 41px;
+  width: 39px;
+}
+.icons__social-link.like:hover {
+  background: url('../img/social-sef46c9fe99.png') 0 -222px no-repeat;
+  height: 41px;
+  width: 39px;
+}
+
+.icons__social-list {
+  position: absolute;
+  left: -39px;
+}
+
+.icons__social-item {
+  display: block;
+}
+
+.icons__social-item_fb {
+  background: url('../img/social-sef46c9fe99.png') 0 -111px no-repeat;
+  height: 41px;
+  width: 39px;
+}
+.icons__social-item_fb:hover {
+  background: url('../img/social-sef46c9fe99.png') 0 0 no-repeat;
+  height: 41px;
+  width: 39px;
+}
+
+.icons__social-item_tw {
+  background: url('../img/social-sef46c9fe99.png') 0 -555px no-repeat;
+  height: 41px;
+  width: 39px;
+}
+.icons__social-item_tw:hover {
+  background: url('../img/social-sef46c9fe99.png') 0 -444px no-repeat;
+  height: 41px;
+  width: 39px;
+}
+
+.icons__social-item_vk {
+  background: url('../img/social-sef46c9fe99.png') 0 -777px no-repeat;
+  height: 41px;
+  width: 39px;
+}
+.icons__social-item_vk:hover {
+  background: url('../img/social-sef46c9fe99.png') 0 -666px no-repeat;
+  height: 41px;
+  width: 39px;
 }
 
 /* --------- fonts --------- */

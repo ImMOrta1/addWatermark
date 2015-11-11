@@ -10,6 +10,20 @@ html(lang="ru-RU")
 		title Приложение для добавления водяных знаков на фотографию
 	body
 		.wrapper
+			.icons
+				ul.icons__lang-list
+					li.icons__lang-item.active#rus
+						a.icons__lang-link(href="#") РУС
+					li.icons__lang-item#eng
+						a.icons__lang-link(href="#") ENG
+				.icons__social
+					a.icons__social-link.like(href="#")
+					ul.icons__social-list
+						- var items = ['fb', 'tw', 'vk']
+						each item in items
+							li(class="icons__social-item icons__social-item_" + item)
+								a.icons__social-link(href="#")
+
 			.main
 				section.image-view
 					.image-view__text
@@ -53,7 +67,7 @@ html(lang="ru-RU")
 									-var datas = ['top-left', 'top-center', 'top-right', 'mid-left', 'mid-center', 'mid-right', 'btm-left', 'btm-center', 'btm-right']; 
 									ul.position-left__list
 										each item in datas
-											li(class="position-left__item" data-pos= item)
+											li(class="position-left__item" data-pos= item) like
 												a.position-left__link(href="#")
 								.position-right
 									.position-right__top
