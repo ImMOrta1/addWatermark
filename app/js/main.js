@@ -271,8 +271,8 @@ var mainJS = (function() {
 
         ajaxPOST.urlMain = $('#mainFileText').val();
         ajaxPOST.urlWater = $('#waterFileText').val();
-        ajaxPOST.posX = watermark.css('top');
-        ajaxPOST.posY = watermark.css('left');
+        ajaxPOST.posX = watermark.css('left');
+        ajaxPOST.posY = watermark.css('top');
 
         var result = $.ajax({
                 url: urlServer,
