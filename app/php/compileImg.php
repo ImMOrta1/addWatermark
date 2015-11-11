@@ -90,6 +90,36 @@
 			return imagecolorclosest($im, $r, $g, $b);
 		} 
 
+
+		function till_image($main_img_obj, $watermark_img_obj,  $marginVert, $marginGor) {
+
+			$main_img_obj_w	= imagesx( $main_img_obj );
+			$main_img_obj_h	= imagesy( $main_img_obj );
+			$watermark_img_obj_w	= imagesx( $watermark_img_obj );
+			$watermark_img_obj_h	= imagesy( $watermark_img_obj );
+
+			$till_img_elems_w = floor( $main_img_obj_w / $watermark_img_obj_w );
+			$till_img_elems_h = floor( $main_img_obj_h / $watermark_img_obj_h );
+
+			$till_img_obj_w = $till_img_elems_w * 2 * ($watermark_img_obj_w + $marginGor);
+			$till_img_obj_h = $till_img_elems_h * 2 * ($watermark_img_obj_h + $marginVert);
+
+			$return_img	= imagecreatetruecolor( $till_img_obj_w, $till_img_obj_h );
+			imagesavealpha($return_img, true);
+
+			$trans_color = imagecolorallocatealpha($return_img, 0, 0, 0, 127);
+			imagefill($return_img,0,0,$trans_color);
+
+			for( $y = 0; $y < $till_img_elems_h * 2; $y++ ) {
+				for( $x = 0; $x < $till_img_elems_w * 2; $x++ ) {
+					imagecopy($return_img, $watermark_img_obj, ($watermark_img_obj_w + $marginGor) * $x, ($watermark_img_obj_h + $marginVert) * $y, 0, 0, $watermark_img_obj_w, $watermark_img_obj_h);
+				}
+			}
+
+			return $return_img;
+
+		}
+
 }
 
 function image_unpack($type, $file) {
@@ -127,8 +157,9 @@ function removeDirectory($dir) {
 		$file1 = $data -> {'urlMain'};
 		$file2 = $data -> {'urlWater'};
 		$posX = $data -> {'posX'};
-		$poxY = $data -> {'posY'};
+		$posY = $data -> {'posY'};
 		$opacity_water = $data -> {'opacity'} * 100;
+		$mode = $data -> {'mode'};
 		$data = array();
 
 		$type1_mas = explode('.', $file1);
@@ -143,11 +174,16 @@ function removeDirectory($dir) {
 			$im2 = image_unpack($type2,$file2); 
 
 			$watermark = new watermark3();
-			$im=$watermark->create_watermark($im1,$im2,$posX,$poxY,$opacity_water);
+			if ($mode == 'normal') {
+				$im=$watermark->create_watermark($im1,$im2,$posX,$posY,$opacity_water);
+			} elseif ($mode == 'till') {
+				$till_img=$watermark->till_image($im1,$im2,0,0);
+				$im=$watermark->create_watermark($im1,$till_img,$posX,$posY,$opacity_water);
+			}
 
 			$finalName = 'results/' . random(8) . '-water.jpg';
 
-  			imagejpeg($im,$finalName,95);
+  			imagejpeg($im,$finalName, 90);
 			imagedestroy($im);
 
   			$data['status'] = 'OK';

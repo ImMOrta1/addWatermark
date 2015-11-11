@@ -17,6 +17,7 @@ var mainJS = (function() {
             opacity: 1,
             posX: 0,
             posY: 0,
+            mode: 'normal',
         },
         urlServer = 'php/compileImg.php';
 
@@ -50,9 +51,6 @@ var mainJS = (function() {
         //Opacity Function Listen
         _opacity();
 
-        //Upload to Server 
-        $('#upload').on('submit', _ajaxServer);watermark.css('top');
-
         //Mode Selection
         $('#checkModeNormal').on('click', function(event) {
             SingleMode()
@@ -70,6 +68,7 @@ var mainJS = (function() {
         positionY = 0;
         coordinate = 0;
         parentDrag = bgContainer;
+        ajaxPOST.mode = 'normal';
 
         $('.wrap-image-view__water-till-block').css('display', 'none');
         $('.image-view__water-img').css('display', 'block');
@@ -84,6 +83,7 @@ var mainJS = (function() {
         positionY = 0;
         coordinate = 0;
         parentDrag = '';
+        ajaxPOST.mode = 'till';
 
         $('.image-view__water-img').css('display', 'none');
         $('.wrap-image-view__water-till-block').css('display', 'block');
