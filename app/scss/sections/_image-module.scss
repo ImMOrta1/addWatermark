@@ -46,6 +46,7 @@
 		right: 0;
 		bottom: 0;
 		margin: auto;
+		overflow: hidden;
 
 		.image-view__main-img {
 			position: absolute;
@@ -56,6 +57,13 @@
 			position: absolute;
 			top: 0;
 			left: 0;
+		}
+
+		.wrap-image-view__water-till-block {
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: none;
 		}
 	}
 }

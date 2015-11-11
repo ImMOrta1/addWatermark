@@ -1,15 +1,98 @@
-//Input file name module -----------------------------------
-var fileUpload = (function() {
+var mainJS = (function() {
 
-    var InputInit = function() {
+    var watermark = $('.image-view__water-img'),
+        _spinnerX = $('.position-right__input-top'),
+        _spinnerY = $('.position-right__input-bot'),
+        positionBlock = $('.position'),
+        inputX = positionBlock.find('.position-right__input-top'),
+        inputY = positionBlock.find('.position-right__input-bot'),
+        bgContainer = $('.image-view__main-img'),
+        parentDrag = bgContainer,
+        positionX = 0,
+        positionY = 0,
+        coordinate = 0,
+        ajaxPOST = {
+            urlMain: '',
+            urlWater: '',
+            opacity: 1,
+            posX: 0,
+            posY: 0,
+        },
+        urlServer = 'php/compileImg.php';
+
+    var Init = function() {
         _setupListners();
     };
 
     var _setupListners = function() {
+        //FileUpload Function Start
         $('#fileuploadWat').on('change', _uploadInfoWat);
         $('#fileupload').on('change', _uploadInfo);
+
+        //Disable Functions Start
+        _disableFunc();
+        _disableAlert();
+
+        //Upload to Server 
+        $('#upload').on('submit', _ajaxServer);
+
+        //Reset Function 
+        resetForm();
+
+        //Position Functions Listen
+        _dragWatermark(watermark, bgContainer);
+        _coordinates();
+        _getCoordinates();
+        _setCoordinate();
+        _setCoordinate(0,0);
+        $('.position-left__list li').on('click touchstart', _gridChange);
+
+        //Opacity Function Listen
+        _opacity();
+
+        //Upload to Server 
+        $('#upload').on('submit', _ajaxServer);watermark.css('top');
+
+        //Mode Selection
+        $('#checkModeNormal').on('click', function(event) {
+            SingleMode()
+        });
+        $('#checkModeTilling').on('click', function(event) {
+            TillMode()
+        });
     };
 
+//Modes Functions
+    var SingleMode = function() {
+        watermark = $('.image-view__water-img');
+        bgContainer = $('.image-view__main-img');
+        positionX = 0,
+        positionY = 0;
+        coordinate = 0;
+        parentDrag = bgContainer;
+
+        $('.wrap-image-view__water-till-block').css('display', 'none');
+        $('.image-view__water-img').css('display', 'block');
+
+        _dragWatermark(watermark, parentDrag);
+    }
+
+    var TillMode = function() {
+        watermark = $('.wrap-image-view__water-till-block');
+        bgContainer = $('.image-view__container');
+        positionX = 0,
+        positionY = 0;
+        coordinate = 0;
+        parentDrag = '';
+
+        $('.image-view__water-img').css('display', 'none');
+        $('.wrap-image-view__water-till-block').css('display', 'block');
+
+        _dragWatermark(watermark, parentDrag);
+    }
+
+
+//Function Upload Name
     var _uploadInfo = function (){
         var $input = $(this),
             val = $input.val().slice(12),
@@ -23,52 +106,18 @@ var fileUpload = (function() {
             fileName.text(val);
     };
 
-    return {
-        init: InputInit
-    };
+//Position Funstions
 
-}());
-
-fileUpload.init();
-
-
-//position module ----------------------------------------
-var positionModule = (function() {
-
-    var positionInit = function() {
-        _setupListners();
-    };
-
-    var _setupListners = function() {
-        _dragWatermark();
-        _coordinates();
-        _getCoordinates();
-        _setCoordinate();
-        _setCoordinate(0,0);
-        $('.position-left__list li').on('click touchstart', _gridChange);
-    };
-
-    var watermark = $('.image-view__water-img'),
-        _spinnerX = $('.position-right__input-top'),
-        _spinnerY = $('.position-right__input-bot'),
-        positionBlock = $('.position'),
-        inputX = positionBlock.find('.position-right__input-top'),
-        inputY = positionBlock.find('.position-right__input-bot'),
-        bgContainer = $('.image-view__main-img'),
-        positionX = 0,
-        positionY = 0;
-        coordinate = 0;
-
-    var  _dragWatermark = function() {
-        watermark.draggable({
-            containment: bgContainer,
+    var  _dragWatermark = function(dragBlock, container) {
+        dragBlock.draggable({
+            containment: container,
             snapTolerance: 0,
             cursor: 'move',
-             drag: function(ev, ui){
+            drag: function(ev, ui){
                     _getCoordinates();
                 }
-        });
-    };
+            });
+        };
 
     var _coordinates = function() {
 
@@ -90,11 +139,10 @@ var positionModule = (function() {
             })
         });
 
-    },
+        };
 
-        _getCoordinates = function(elem) {
+    var _getCoordinates = function(elem) {
             
-
         if (typeof elem === 'undefined') {
             elem = watermark;
         }   
@@ -108,14 +156,14 @@ var positionModule = (function() {
                 x: positionX,
                 y: positionY
             };
-        },
+        };
 
-        _setCoordinate = function (x,y) {
-            inputX.val(Math.round(x));
-            inputY.val(Math.round(y));
-        },
+    var _setCoordinate = function (x,y) {
+        inputX.val(Math.round(x));
+        inputY.val(Math.round(y));
+        };
 
-        _gridChange = function () {
+    var _gridChange = function () {
             var 
                 minPosX = 0,
                 minPosY = 0,
@@ -162,32 +210,11 @@ var positionModule = (function() {
                     case 'btm-right':
                         watermark.css({'left':maxPosX, 'top':maxPosY});
                         _setCoordinate(maxPosX,maxPosY);   
-                        break;                       
-                        
+                        break;                                 
                 }
+            };
 
-        };
-
-    return {
-        init: positionInit
-    };
-
-}());
-
-positionModule.init();
-
-
-// opacity module ----------------------------------------
-var opacitySlider = (function() {
-
-    var sliderInit = function() {
-        _setupListners();
-    };
-
-    var _setupListners = function() {
-        _opacity();
-    };
-
+//Opacity Function
     var _opacity = function() {
         $('.opacity__slider').slider({
             range: 'min',
@@ -197,28 +224,13 @@ var opacitySlider = (function() {
             value: 1,
             slide: function( event, ui ) {
                 $('.image-view__water-img').css('opacity', ui.value);
-                $('.opacity__input-invis').val(ui.value);
+                ajaxPOST.opacity = ui.value;
             }
         });
     };
 
-    return {
-        init: sliderInit
-    };
-
-}());
-
-opacitySlider.init();
-
-
-//------------Reset function----------------
-
-var resetForm = (function(){
-    var resetInit = function(){
-        _setupListners();
-    };
-
-    var _setupListners = function(){
+//Reset Funciton
+    var resetForm = function() {
         $('.buttons__reset').on('click', function(){
             $('.image-view__water-img').css('left', 0),
             $('.image-view__water-img').css('top', 0),
@@ -229,26 +241,7 @@ var resetForm = (function(){
         })
     };
 
-    return {
-        init: resetInit
-    }
-}());
-
-resetForm.init();
-
-
-// disabler -------------------------------
-var disabler = (function() {
-
-    var disableInit = function() {
-        _setupListners();
-    };
-
-    var _setupListners = function() {
-        _disableFunc();
-        _disableAlert();
-    };
-
+//Disable Functions
     var _disableFunc = function() {
 
         $('#fileupload').on('change', function() {
@@ -271,10 +264,40 @@ var disabler = (function() {
         });
     };
 
+//Upload to Server Function
+    var _ajaxServer = function (event) {
+        event.preventDefault();
+
+        ajaxPOST.urlMain = $('#mainFileText').val();
+        ajaxPOST.urlWater = $('#waterFileText').val();
+        ajaxPOST.posX = watermark.css('top');
+        ajaxPOST.posY = watermark.css('left');
+
+        var result = $.ajax({
+                url: urlServer,
+                type:'POST',
+                dataType: 'json',
+                data:'jsonData=' + JSON.stringify(ajaxPOST)
+            })
+            .fail(function(ans) {
+                console.log('Проблемы в PHP');
+            })
+            .done(function(ans) {
+                if (ans.status ==='OK') {
+                    console.log(ans.text);
+                    document.location = 'php/' + ans.url;
+                } else {
+                    console.log(ans.text);
+                }
+            });
+
+        return result;
+    };
+
     return {
-        init: disableInit
-    }
+        init: Init
+    };
 
 }());
 
-disabler.init();
+mainJS.init();
