@@ -1,17 +1,121 @@
+var mainJS = (function() {
 
-//Input file name module -----------------------------------
-var fileUpload = (function() {
+    var 
+        _spinnerX = $('.position-right__input-top'),
+        _spinnerY = $('.position-right__input-bot'),
+        positionBlock = $('.position'),
+        inputX = positionBlock.find('.position-right__input-top'),
+        inputY = positionBlock.find('.position-right__input-bot'),
+        ajaxPOST = {
+            urlMain: '',
+            urlWater: '',
+            opacity: 1,
+            posX: 0,
+            posY: 0,
+            mode: 'normal',
+            margX: 0,
+            margY: 0
+        },
+        urlServer = 'php/compileImg.php';
 
-    var InputInit = function() {
+    var Init = function() {
         _setupListners();
     };
 
     var _setupListners = function() {
-
+        //FileUpload Function Start
         $('#fileuploadWat').on('change', _uploadInfoWat);
         $('#fileupload').on('change', _uploadInfo);
+
+        //Disable Functions Start
+        _disableFunc();
+        _disableAlert();
+
+        //Upload to Server 
+        $('#upload').on('submit', _ajaxServer);
+
+        //Reset function 
+        resetForm();
+
+        //Reset position function
+        _setCoordinate(0,0);
+
+        //Default Mode
+        SingleMode();
+
+        //Mode Selection
+        $('.change-view__link_normal').on('click', function(event) {
+            SingleMode()
+        });
+        $('.change-view__link_multi').on('click', function(event) {
+            TillMode()
+        });
     };
 
+//Modes Functions
+    var SingleMode = function() {
+        watermark = $('.image-view__water-img');
+        watermarkImg = $('.image-view__water-img');
+        bgContainer = $('.image-view__main-img');
+        parentDrag = bgContainer;
+        opacity = watermark.css('opacity');
+        ajaxPOST.mode = 'normal';
+
+        $('.wrap-image-view__water-till-block').css('display', 'none');
+        $('.image-view__water-img').css('display', 'block');
+
+        $('.position-left__till').css('display', 'none');
+
+        $('.position-right_arrow-vert').css('display', 'none');
+        $('.position-right_arrow-hor').css('display', 'none');
+        $('.position-right__vector').css('display', 'block');
+
+        $(watermark).change(function(event) {
+            console.log('I am hero')
+        });
+
+        $('#fileuploadWat').on('change', function(event) {
+
+        });
+
+        //Positon Function Normal Mode
+        _coordinates();
+        _dragWatermark(watermark, parentDrag, _dragGetSlice);
+        _getCoordinates();
+        $('.position-left__list li').on('click touchstart', _gridChange);
+
+        //Opacity Function Listen
+        _opacity(watermark,opacity);
+    }
+
+    var TillMode = function() {
+        watermark = $('.wrap-image-view__water-till-block');
+        watermarkImg = $('.image-view__water-till-img');
+        bgContainer = $('.image-view__container');
+        parentDrag = '';
+        opacity = watermark.css('opacity');
+        ajaxPOST.mode = 'till';
+
+        $('.image-view__water-img').css('display', 'none');
+        $('.wrap-image-view__water-till-block').css('display', 'block');
+
+        $('.position-left__list li').removeClass('position-left__item_active');
+        $('.position-left__till').css('display', 'block');
+
+        $('.position-right_arrow-vert').css('display', 'block');
+        $('.position-right_arrow-hor').css('display', 'block');
+        $('.position-right__vector').css('display', 'none');
+
+        //Positon Function Till Mode
+        _dragWatermark(watermark, parentDrag, '');
+        _paddingTill(watermarkImg, watermark);
+        _getPaddingTill();
+        //Opacity Function Listen
+        _opacity(watermark,opacity);
+    }
+
+
+//Function Upload Name
     var _uploadInfo = function (){
         var $input = $(this),
             val = $input.val().slice(12),
@@ -25,62 +129,20 @@ var fileUpload = (function() {
             fileName.text(val);
     };
 
+//Position Funstions
 
-
-
-    return {
-        init: InputInit
-    };
-
-}());
-
-fileUpload.init();
-
-
-
-//position module ----------------------------------------
-var positionModule = (function() {
-
-    var positionInit = function() {
-        _setupListners();
-    };
-
-    var _setupListners = function() {
-        _dragWatermark();
-        _coordinates();
-        _getCoordinates();
-        _setCoordinate();
-        _setCoordinate(0,0);
-<<<<<<< HEAD
-        $('.position-left__list li').on('click touchstart', _gridChange);
-=======
->>>>>>> ed6b5e99963bd1c9c4b7feefb6d1f46a1471944d
-    };
-
-    var watermark = $('.image-view__water-img'),
-        _spinnerX = $('.position-right__input-top'),
-        _spinnerY = $('.position-right__input-bot'),
-        positionBlock = $('.position'),
-        inputX = positionBlock.find('.position-right__input-top'),
-        inputY = positionBlock.find('.position-right__input-bot'),
-        bgContainer = $('.image-view__main-img'),
-        positionX = 0,
-        positionY = 0;
-<<<<<<< HEAD
-        coordinate = 0;
-=======
->>>>>>> ed6b5e99963bd1c9c4b7feefb6d1f46a1471944d
-
-    var  _dragWatermark = function() {
-        watermark.draggable({
-            containment: bgContainer,
+    var  _dragWatermark = function(dragBlock, container, func) {
+        dragBlock.draggable({
+            containment: container,
             snapTolerance: 0,
             cursor: 'move',
-             drag: function(ev, ui){
-                    _getCoordinates();
-                }
-        });
-    };
+            drag: func
+            });
+        };
+
+    var _dragGetSlice = function(ev, ui){
+            _getCoordinates();
+        };
 
     var _coordinates = function() {
 
@@ -101,11 +163,13 @@ var positionModule = (function() {
                 top: currentValY + 'px'
             })
         });
+    };
 
-    },
-
-        _getCoordinates = function(elem) {
-            
+    var _getCoordinates = function(elem) {
+        
+        var positionX = 0,
+            positionY = 0,
+            coordinate = 0;
 
         if (typeof elem === 'undefined') {
             elem = watermark;
@@ -120,14 +184,14 @@ var positionModule = (function() {
                 x: positionX,
                 y: positionY
             };
-        },
+        };
 
-        _setCoordinate = function (x,y) {
-            inputX.val(Math.round(x));
-            inputY.val(Math.round(y));
-        },
+    var _setCoordinate = function (x,y) {
+        inputX.val(Math.round(x));
+        inputY.val(Math.round(y));
+        };
 
-        _gridChange = function () {
+    var _gridChange = function () {
             var 
                 minPosX = 0,
                 minPosY = 0,
@@ -174,52 +238,194 @@ var positionModule = (function() {
                     case 'btm-right':
                         watermark.css({'left':maxPosX, 'top':maxPosY});
                         _setCoordinate(maxPosX,maxPosY);   
-                        break;                       
-                        
+                        break;                                 
                 }
+            };
 
+//Padding Spinners Functions
+    var _paddingTill = function(watermark, watermarkBlock) {
+
+        var widthImg = watermark.css('width').slice(0,-2),
+            heightImg = watermark.css('height').slice(0,-2),
+            widthElems = watermarkBlock.attr('data-x-elem'),
+            heightElems = watermarkBlock.attr('data-y-elem'),
+            widthBlock = 0,
+            heightBlock = 0;
+
+        _spinnerX.spinner({ min: 0, max: 100 });
+        _spinnerX.on('spin', function(event, ui) {
+            var currentValX = ui.value;
+
+            watermark.css('padding-right', currentValX + 'px');
+            widthBlock = ( widthImg + currentValX ) * widthElems;
+            watermarkBlock.css('width', widthBlock);
+            _setPaddingTill(currentValX,0);
+        });
+
+        _spinnerY.spinner({ min: 0, max: 100 });
+        _spinnerY.on('spin', function(event, ui) {
+            var currentValY = ui.value;
+
+            watermark.css('padding-bottom', currentValY + 'px');
+            heightBlock = ( heightImg + currentValY ) * heightElems;
+            watermarkBlock.css('height', heightBlock);
+            _setPaddingTill(0,currentValY);
+        });
+    };
+
+    var _getPaddingTill = function(elem) {
+        
+        var paddingX = 0,
+            paddingY = 0;
+
+        if (typeof elem === 'undefined') {
+            elem = watermarkImg;
+        } 
+        
+            paddingX  = elem.css('padding-right').slice(0,-2);
+            paddingY  = elem.css('padding-bottom').slice(0,-2) ;
+            _setCoordinate(paddingX,paddingY);
+            _setPaddingTill(paddingX,paddingY);
+
+            return {
+                x: paddingX,
+                y: paddingY
+            };
+        };
+
+    var _setPaddingTill = function(padX, padY) {
+
+        var borderX = 0,
+            borderY = 0;
+
+        if ( !(padY == 0) ) {
+            borderY = Math.round( padY / 2);
+            $('.position-left__till-item_top-left').css('border-bottom-width', borderY);
+            $('.position-left__till-item_top-right').css('border-bottom-width', borderY);
+            $('.position-left__till-item_btm-left').css('border-top-width', borderY);
+            $('.position-left__till-item_btm-right').css('border-top-width', borderY);
         }
+        if ( !(padX == 0) ) {
+            borderX = Math.round( padX / 2);
+            $('.position-left__till-item_top-left').css('border-right-width', borderX);
+            $('.position-left__till-item_top-right').css('border-left-width', borderX);
+            $('.position-left__till-item_btm-left').css('border-right-width', borderX);
+            $('.position-left__till-item_btm-right').css('border-left-width', borderX);
+        }
+    }
 
-    return {
-        init: positionInit
-    };
-
-}());
-
-positionModule.init();
-
-
-
-
-
-// opacity module ----------------------------------------
-var opacitySlider = (function() {
-
-    var sliderInit = function() {
-        _setupListners();
-    };
-
-    var _setupListners = function() {
-        _opacity();
-    };
-
-    var _opacity = function() {
+//Opacity Function
+    var _opacity = function(water, opacValue) {
         $('.opacity__slider').slider({
             range: 'min',
             min: 0,
             max: 1,
             step: 0.01,
-            value: 1,
+            value: opacValue,
             slide: function( event, ui ) {
-                $('.image-view__water-img').css('opacity', ui.value)
+                water.css('opacity', ui.value);
             }
         });
     };
 
+//Reset Funciton
+    var resetForm = function() {
+        $('.buttons__reset').on('click', function(){
+            $('.image-view__water-img').css('left', 0),
+            $('.image-view__water-img').css('top', 0),
+                $('.position-right__input-top').spinner('value', 0),
+                $('.position-right__input-bot').spinner('value', 0),
+                $('.opacity__slider').slider("value", 1),
+                $('.image-view__water-img').css('opacity', 1)
+        })
+    };
+
+//Disable Functions
+    var _disableFunc = function() {
+
+        $('#fileupload').on('change', function() {
+            $('.sidebar__disable').addClass('sidebar__disable_settings')
+        });
+
+        $('#fileuploadWat').on('change', function() {
+            $('.sidebar__disable').addClass('sidebar__disable_none')
+        });
+    };
+
+    var _disableAlert = function() {
+        $('.sidebar__disable').on('click', function() {
+            swal({
+                title: 'АХТУНГ, Вы забыли выбрать изображения',
+                text: 'Для включения настроек изменения водяного знака сначала выберите необходимые вам изображения!',
+                type: "error",
+
+                confirmButtonText: "Продолжить работу"
+            });
+        });
+    };
+
+//Upload to Server Function
+    var _ajaxServer = function (event) {
+        event.preventDefault();
+
+        ajaxPOST.urlMain = $('#mainFileText').val();
+        ajaxPOST.urlWater = $('#waterFileText').val();
+        ajaxPOST.posX = watermark.css('left').slice(0, -2);
+        ajaxPOST.posY = watermark.css('top').slice(0, -2);
+        ajaxPOST.opacity = watermark.css('opacity');
+        ajaxPOST.margX = watermarkImg.css('padding-right').slice(0, -2);
+        ajaxPOST.margY = watermarkImg.css('padding-bottom').slice(0, -2);
+
+        var result = $.ajax({
+                url: urlServer,
+                type:'POST',
+                dataType: 'json',
+                data:'jsonData=' + JSON.stringify(ajaxPOST)
+            })
+            .fail(function(ans) {
+                console.log('Проблемы в PHP');
+            })
+            .done(function(ans) {
+                if (ans.status ==='OK') {
+                    console.log(ans.text);
+                    document.location = 'php/' + ans.url;
+                } else {
+                    console.log(ans.text);
+                }
+            });
+
+        return result;
+    };
+
     return {
-        init: sliderInit
+        init: Init
     };
 
 }());
 
-opacitySlider.init();
+mainJS.init();
+
+//------------change languages----------------
+var lang = function () {
+    var langInit = function () {
+        _setupListners();
+    }
+    var _setupListners = function(){
+        $('#eng').on('click', function(){
+            $('.icons__lang-item').removeClass('active');
+            $('#eng').addClass('active');
+        });
+        $('#rus').on('click', function(){
+            $('#eng').removeClass('active');
+            $('#rus').addClass('active');
+        });
+    };
+
+
+    return {
+        init: langInit
+    }
+}();
+
+lang.init();
+

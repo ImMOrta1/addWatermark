@@ -7,100 +7,149 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<!-- SEO-->
-		<meta name="description" content="Сайт Дмитрия Межуева">
-		<meta name="keywords" content="разработка сайтов, frontend разработка, веб-дизайн">
-		<meta name="description" content="Дмитрий Межуев">
+		<meta name="description" content="addWatermark - генератор водяных знаков">
+		<meta name="keywords" content="генератор водяных знаков">
+		<meta name="description" content="генератор водяных знаков">
 		<!-- favicons-->
+		<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+		<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96">
+		<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="/favicons/manifest.json">
+		<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5">
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="theme-color" content="#ffffff">
 		<!-- includes-->
 		<script src="bower/modernizr/modernizr.js"></script>
 		<link rel="stylesheet" type="text/css" href="bower/normalize-css/normalize.css">
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<link rel="stylesheet" type="text/css" href="bower/jquery-ui/themes/base/jquery-ui.css">
-		<title>Приложение для добавления водяных знако на фотографию</title>
+		<link rel="stylesheet" type="text/css" href="bower/sweetalert/dist/sweetalert.css">
+		<title>Приложение для добавления водяных знаков на фотографию</title>
 	</head>
 	<body>
 		<div class="wrapper">
+			<div class="icons">
+				<ul class="icons__lang-list">
+					<li id="rus" class="icons__lang-item active"><a href="#" class="icons__lang-link">РУС</a></li>
+					<li id="eng" class="icons__lang-item"><a href="#" class="icons__lang-link">ENG</a></li>
+				</ul>
+				<div class="icons__social"><a href="#" class="icons__social-link like"></a>
+					<ul class="icons__social-list">
+						<li class="icons__social-item icons__social-item_fb"><a href="#" class="icons__social-link"></a></li>
+						<li class="icons__social-item icons__social-item_tw"><a href="#" class="icons__social-link"></a></li>
+						<li class="icons__social-item icons__social-item_vk"><a href="#" class="icons__social-link"></a></li>
+					</ul>
+				</div>
+			</div>
 			<div class="main">
 				<section class="image-view">
 					<div class="image-view__text">
 						<h1 class="image-view__title">Генератор водяных знаков</h1>
 					</div>
 					<div class="image-view__container">
-						<div class="image-view__main-img">
-							<div class="image-view__water-img"></div>
+						<div data-ratio='0' class="image-view__container-main-image"><img class="image-view__main-img"><img class="image-view__water-img">
+							<div data-x-elem='0' data-y-elem='0' class="wrap-image-view__water-till-block"></div>
 						</div>
 					</div>
 				</section>
 				<aside class="saidbar">
-					<div class="saidbar_text">
-						<h2 class="saidbar__title">Настройки</h2>
-					</div>
-					<form class="file-upload">
-						<label class="file-upload__label">
-							<div class="file-upload__title">Исходное изображение</div>
-							<div class="file-upload__container">
-								<input type="file" id="fileupload" name="files[]" accept="image/jpeg, image/jpg" class="file-upload__input">
-								<div id="fake" class="file-upload__fake">image.jpg</div>
-								<div class="file-upload__icon"></div>
-								<input type="text" name="mainFileText" id="mainFileText" class="file-upload__inputInvis">
-							</div>
-						</label>
-						<label class="file-upload__label">
-							<div class="file-upload__title">Водяной знак</div>
-							<div class="file-upload__container">
-								<input type="file" id="fileuploadWat" accept="image/png" class="file-upload__input">
-								<div id="fakeWat" class="file-upload__fake">image.png</div>
-								<div class="file-upload__icon"></div>
-								<input type="text" name="waterFileText" id="waterFileText" class="file-upload__inputInvis">
-							</div>
-						</label>
-					</form>
-					<div class="position separator">
-						<div class="position__title">Положение</div>
-						<div class="position-container">
-							<div class="position-left">
-								<ul class="position-left__list">
-									<li data-pos="top-left" class="position-left__item"><a href="#" class="position-left__link"></a></li>
-									<li data-pos="top-center" class="position-left__item"><a href="#" class="position-left__link"></a></li>
-									<li data-pos="top-right" class="position-left__item"><a href="#" class="position-left__link"></a></li>
-									<li data-pos="mid-left" class="position-left__item"><a href="#" class="position-left__link"></a></li>
-									<li data-pos="mid-center" class="position-left__item"><a href="#" class="position-left__link"></a></li>
-									<li data-pos="mid-right" class="position-left__item"><a href="#" class="position-left__link"></a></li>
-									<li data-pos="btm-left" class="position-left__item"><a href="#" class="position-left__link"></a></li>
-									<li data-pos="btm-center" class="position-left__item"><a href="#" class="position-left__link"></a></li>
-									<li data-pos="btm-right" class="position-left__item"><a href="#" class="position-left__link"></a></li>
+					<form id="upload" action="php/compileImg.php" method="POST" enctype="multipart/form-data">
+						<div class="saidbar_text">
+							<h2 class="saidbar__title">Настройки</h2>
+						</div>
+						<div class="file-upload">
+							<label class="file-upload__label">
+								<div class="file-upload__title">Исходное изображение</div>
+								<div class="file-upload__container">
+									<input type="file" id="fileupload" name="files[]" accept="image/jpeg, image/jpg" class="file-upload__input">
+									<div id="fake" class="file-upload__fake">image.jpg</div>
+									<div class="file-upload__icon"></div>
+									<input type="text" name="mainFileText" id="mainFileText" class="file-upload__inputInvis">
+								</div>
+							</label>
+							<label class="file-upload__label">
+								<div class="file-upload__title">Водяной знак</div>
+								<div class="file-upload__container">
+									<input type="file" id="fileuploadWat" accept="image/png" class="file-upload__input">
+									<div id="fakeWat" class="file-upload__fake">image.png</div>
+									<div class="file-upload__icon"></div>
+									<input type="text" name="waterFileText" id="waterFileText" class="file-upload__inputInvis">
+								</div>
+							</label>
+						</div>
+						<div class="position separator">
+							<div class="position__title">Положение</div>
+							<div class="position-container">
+								<ul class="position-view__list">
+									<li class="position-view__item position-view__item_active">
+										<div class="position-left">
+											<ul class="position-left__list">
+												<li data-pos="top-left" class="position-left__item">like<a href="#" class="position-left__link"></a></li>
+												<li data-pos="top-center" class="position-left__item">like<a href="#" class="position-left__link"></a></li>
+												<li data-pos="top-right" class="position-left__item">like<a href="#" class="position-left__link"></a></li>
+												<li data-pos="mid-left" class="position-left__item">like<a href="#" class="position-left__link"></a></li>
+												<li data-pos="mid-center" class="position-left__item">like<a href="#" class="position-left__link"></a></li>
+												<li data-pos="mid-right" class="position-left__item">like<a href="#" class="position-left__link"></a></li>
+												<li data-pos="btm-left" class="position-left__item">like<a href="#" class="position-left__link"></a></li>
+												<li data-pos="btm-center" class="position-left__item">like<a href="#" class="position-left__link"></a></li>
+												<li data-pos="btm-right" class="position-left__item">like<a href="#" class="position-left__link"></a></li>
+											</ul>
+											<div class="position-left__till">
+												<div class="position-left__till-item position-left__till-item_top-left"></div>
+												<div class="position-left__till-item position-left__till-item_top-right"></div>
+												<div class="position-left__till-item position-left__till-item_btm-left"></div>
+												<div class="position-left__till-item position-left__till-item_btm-right"></div>
+											</div>
+										</div>
+										<div class="position-right">
+											<div class="position-right__top"><span class="position-right__vector">X</span>
+												<div class="position-right_arrow-vert"></div>
+												<input type="text" value="0" name="positionX" class="position-right__input-top">
+												<div class="position-right__buttons"><a href="#" class="position-right__up"></a><a href="#" class="position-right__down"></a></div>
+											</div>
+											<div class="position-right__bottom"><span class="position-right__vector">Y</span>
+												<div class="position-right_arrow-hor"></div>
+												<input type="text" value="0" name="positionY" class="position-right__input-bot">
+												<div class="position-right__buttons"><a href="#" class="position-right__up"></a><a href="#" class="position-right__down"></a></div>
+											</div>
+										</div>
+									</li>
 								</ul>
 							</div>
-							<div class="position-right">
-								<div class="position-right__top"><span class="position-right__vector">X</span>
-									<input type="text" value="0" class="position-right__input-top">
-									<div class="position-right__buttons"><a href="#" class="position-right__up"></a><a href="#" class="position-right__down"></a></div>
-								</div>
-								<div class="position-right__bottom"><span class="position-right__vector">Y</span>
-									<input type="text" value="0" class="position-right__input-bot">
-									<div class="position-right__buttons"><a href="#" class="position-right__up"></a><a href="#" class="position-right__down"></a></div>
-								</div>
+							<div class="change-view">
+								<ul class="change-view__list">
+									<li class="change-view__item"><a href="#" class="change-view__link change-view__link_normal"></a></li>
+									<li class="change-view__item"><a href="#" class="change-view__link change-view__link_multi"></a></li>
+								</ul>
 							</div>
 						</div>
-					</div>
-					<div class="opacity opacity__style separator">
-						<div class="opacity__title">Прозрачность</div>
-						<div class="opacity__slider"></div>
-					</div>
-					<div class="buttons separator">
-						<button type="reset" class="buttons__reset">Сброс</button>
-						<button type="submit" class="buttons__download">Скачать</button>
-					</div>
+						<div class="opacity opacity__style separator">
+							<div class="opacity__title">Прозрачность</div>
+							<div class="opacity__slider"></div>
+						</div>
+						<div class="buttons separator">
+							<button type="reset" class="buttons__reset">Сброс</button>
+							<button type="submit" class="buttons__download">Скачать</button>
+						</div>
+					</form>
+					<!--.sidebar__disable-->
+					
 				</aside>
 			</div>
 		</div>
-		<footer class="footer">© 2015, Это мой сайт, пожалуйста, не копируйте и не воруйте его</footer>
+		<footer class="footer">© 2014, Это мой сайт, пожалуйста, не копируйте и не воруйте его</footer>
 		<script src="bower/jquery/dist/jquery.js"></script>
 		<script src="bower/qtip2/jquery.qtip.js"></script>
 		<script src="bower/jquery-ui/jquery-ui.min.js"></script>
 		<script src="bower/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
 		<script src="bower/blueimp-file-upload/js/jquery.fileupload.js"></script>
+		<script src="bower/sweetalert/dist/sweetalert.min.js"></script>
 		<script src="js/fileLoadToForm.js"></script>
 		<script src="js/main.js"></script>
+		<script src="js/resizeImage.js"></script>
 	</body>
 </html>
