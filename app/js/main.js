@@ -42,6 +42,7 @@ var mainJS = (function() {
 
         //Default Mode
         SingleMode();
+
         //Mode Selection
         $('#checkModeNormal').on('click', function(event) {
             SingleMode()
@@ -64,6 +65,14 @@ var mainJS = (function() {
         $('.image-view__water-img').css('display', 'block');
 
         $('.position-left__till').css('display', 'none');
+
+        $(watermark).change(function(event) {
+            console.log('I am hero')
+        });
+
+        $('#fileuploadWat').on('change', function(event) {
+
+        });
 
         //Positon Function Normal Mode
         _coordinates();
@@ -381,7 +390,9 @@ var mainJS = (function() {
     };
 
     return {
-        init: Init
+        init: Init,
+        drag: _dragWatermark,
+        getCords: _getCoordinates
     };
 
 }());
