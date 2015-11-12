@@ -392,7 +392,8 @@ var mainJS = (function() {
     return {
         init: Init,
         drag: _dragWatermark,
-        getCords: _getCoordinates
+        getCords: _getCoordinates,
+        opac: _opacity
     };
 
 }());

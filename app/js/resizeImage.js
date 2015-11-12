@@ -79,6 +79,7 @@ var resizeImage = (function () {
             mainJS.drag($this,ImgContainer,function(ev, ui){
                mainJS.getCords($this);
             });
+            mainJS.opac($this, 1)
         })
     }
 
