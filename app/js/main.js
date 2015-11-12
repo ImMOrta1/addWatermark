@@ -18,10 +18,6 @@ var mainJS = (function() {
         },
         urlServer = 'php/compileImg.php';
 
-    var Init = function() {
-        _setupListners();
-    };
-
     var _setupListners = function() {
         //FileUpload Function Start
         $('#fileuploadWat').on('change', _uploadInfoWat);
@@ -398,7 +394,7 @@ var mainJS = (function() {
     };
 
     return {
-        init: Init
+        init: _setupListners
     };
 
 }());
@@ -406,7 +402,7 @@ var mainJS = (function() {
 mainJS.init();
 
 //------------change languages----------------
-var lang = function () {
+var lang = (function () {
     var langInit = function () {
         _setupListners();
     }
@@ -421,11 +417,63 @@ var lang = function () {
         });
     };
 
-
     return {
         init: langInit
     }
-}();
+})();
 
 lang.init();
+
+// Social Sharing Module
+    var SharingModule = (function() {
+        var
+            url = "http://silverdragoon.ru/watermark/",
+            title = document.title,
+            desc = $('meta[name="description"]').attr('content');
+
+        var _setupListners = function(){
+
+        };
+
+    function fb(e) {
+        e.preventDefault();
+        var url = 'http://www.facebook.com/sharer.php?s=100';
+        url += '&p[title]=' + encodeURIComponent(title);
+        url += '&p[summary]=' + encodeURIComponent(text);
+        url += '&p[url]=' + encodeURIComponent(purl);
+        url += '&p[images][0]=' + encodeURIComponent(img);
+        popup(url);
+    }
+
+    function tw(e) {
+        e.preventDefault();
+        var url = 'http://twitter.com/share?';
+        url += 'text=' + encodeURIComponent(title);
+        url += '&url=' + encodeURIComponent(purl);
+        url += '&counturl=' + encodeURIComponent(url);
+        popup(url);
+    }
+      
+    function vk(e) {
+        e.preventDefault();
+        var url = 'http://vk.com/share.php?';
+        url += 'url=' + encodeURIComponent(purl);
+        url += '&title=' + encodeURIComponent(title);
+        url += '&description=' + encodeURIComponent(text);
+        url += '&image=' + encodeURIComponent(img);
+        url += '&noparse=true';
+        popup(url);
+    }
+
+    function popup(url) {
+
+    }
+    
+    return {
+       init: SharingModule
+    }      
+})();
+
+
+SharingModule.init();
 
