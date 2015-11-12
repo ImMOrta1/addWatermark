@@ -69,6 +69,11 @@ html(lang="ru-RU")
 										each item in datas
 											li(class="position-left__item" data-pos= item) like
 												a.position-left__link(href="#")
+									-var angles = ['top-left', 'top-right', 'btm-left', 'btm-right']
+									.position-left__till
+										each angle in angles
+											div(class="position-left__till-item position-left__till-item_" + angle)
+
 								.position-right
 									.position-right__top
 										span.position-right__vector X

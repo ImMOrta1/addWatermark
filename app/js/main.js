@@ -63,6 +63,8 @@ var mainJS = (function() {
         $('.wrap-image-view__water-till-block').css('display', 'none');
         $('.image-view__water-img').css('display', 'block');
 
+        $('.position-left__till').css('display', 'none');
+
         //Positon Function Normal Mode
         _coordinates();
         _dragWatermark(watermark, parentDrag, _dragGetSlice);
@@ -83,6 +85,9 @@ var mainJS = (function() {
 
         $('.image-view__water-img').css('display', 'none');
         $('.wrap-image-view__water-till-block').css('display', 'block');
+
+        $('.position-left__list li').removeClass('position-left__item_active');
+        $('.position-left__till').css('display', 'block');
 
         //Positon Function Till Mode
         _dragWatermark(watermark, parentDrag, '');
@@ -236,7 +241,8 @@ var mainJS = (function() {
 
             watermark.css('padding-right', currentValX + 'px');
             widthBlock = ( widthImg + currentValX ) * widthElems;
-            watermarkBlock.css('width', widthBlock)
+            watermarkBlock.css('width', widthBlock);
+            _setPaddingTill(currentValX,0);
         });
 
         _spinnerY.spinner({ min: 0, max: 100 });
@@ -245,7 +251,8 @@ var mainJS = (function() {
 
             watermark.css('padding-bottom', currentValY + 'px');
             heightBlock = ( heightImg + currentValY ) * heightElems;
-            watermarkBlock.css('height', heightBlock)
+            watermarkBlock.css('height', heightBlock);
+            _setPaddingTill(0,currentValY);
         });
     };
 
@@ -258,15 +265,37 @@ var mainJS = (function() {
             elem = watermarkImg;
         } 
         
-            paddingX  = Math.round( (elem.css('padding-right')).slice(0,-2) );
-            paddingY  = Math.round( (elem.css('padding-bottom')).slice(0,-2) );
+            paddingX  = elem.css('padding-right').slice(0,-2);
+            paddingY  = elem.css('padding-bottom').slice(0,-2) ;
             _setCoordinate(paddingX,paddingY);
+            _setPaddingTill(paddingX,paddingY);
 
             return {
                 x: paddingX,
                 y: paddingY
             };
         };
+
+    var _setPaddingTill = function(padX, padY) {
+
+        var borderX = 0,
+            borderY = 0;
+
+        if ( !(padY == 0) ) {
+            borderY = Math.round( padY / 2);
+            $('.position-left__till-item_top-left').css('border-bottom-width', borderY);
+            $('.position-left__till-item_top-right').css('border-bottom-width', borderY);
+            $('.position-left__till-item_btm-left').css('border-top-width', borderY);
+            $('.position-left__till-item_btm-right').css('border-top-width', borderY);
+        }
+        if ( !(padX == 0) ) {
+            borderX = Math.round( padX / 2);
+            $('.position-left__till-item_top-left').css('border-right-width', borderX);
+            $('.position-left__till-item_top-right').css('border-left-width', borderX);
+            $('.position-left__till-item_btm-left').css('border-right-width', borderX);
+            $('.position-left__till-item_btm-right').css('border-left-width', borderX);
+        }
+    }
 
 //Opacity Function
     var _opacity = function(water, opacValue) {
