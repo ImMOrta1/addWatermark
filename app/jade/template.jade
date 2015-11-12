@@ -62,32 +62,43 @@ html(lang="ru-RU")
 							input(class='checkMode' type="radio" name='checkMode' id='checkModeTilling' value='Tilling')
 							.position__title Положение
 							.position-container
-								
-								.position-left
-									-var datas = ['top-left', 'top-center', 'top-right', 'mid-left', 'mid-center', 'mid-right', 'btm-left', 'btm-center', 'btm-right']; 
-									ul.position-left__list
-										each item in datas
-											li(class="position-left__item" data-pos= item) like
-												a.position-left__link(href="#")
-									-var angles = ['top-left', 'top-right', 'btm-left', 'btm-right']
-									.position-left__till
-										each angle in angles
-											div(class="position-left__till-item position-left__till-item_" + angle)
 
-								.position-right
-									.position-right__top
-										span.position-right__vector X
-										input.position-right__input-top(type="text" value="0" name="positionX")
-										.position-right__buttons
-											a.position-right__up(href="#")
-											a.position-right__down(href="#")
+								ul.position-view__list
+									li.position-view__item.position-view__item_active
+										.position-left
+											-var datas = ['top-left', 'top-center', 'top-right', 'mid-left', 'mid-center', 'mid-right', 'btm-left', 'btm-center', 'btm-right']; 
+											ul.position-left__list
+												each item in datas
+													li(class="position-left__item" data-pos= item) like
+														a.position-left__link(href="#")
+											-var angles = ['top-left', 'top-right', 'btm-left', 'btm-right']
+											.position-left__till
+												each angle in angles
+													div(class="position-left__till-item position-left__till-item_" + angle)
 
-									.position-right__bottom
-										span.position-right__vector Y
-										input.position-right__input-bot(type="text" value="0" name="positionY")
-										.position-right__buttons
-											a.position-right__up(href="#")
-											a.position-right__down(href="#")
+										.position-right
+											.position-right__top
+												span.position-right__vector X
+												input.position-right__input-top(type="text" value="0" name="positionX")
+												.position-right__buttons
+													a.position-right__up(href="#")
+													a.position-right__down(href="#")
+
+											.position-right__bottom
+												span.position-right__vector Y
+												input.position-right__input-bot(type="text" value="0" name="positionY")
+												.position-right__buttons
+													a.position-right__up(href="#")
+													a.position-right__down(href="#")
+
+									li.position-view__item Lorem ipsum dolor sit amet, consectetur
+							.change-view
+								ul.change-view__list
+									li.change-view__item
+										a.change-view__link.change-view__link_normal(href="#")
+									li.change-view__item
+										a.change-view__link.change-view__link_multi(href="#")
+
 						.opacity.opacity__style.separator
 							.opacity__title Прозрачность
 							.opacity__slider
@@ -96,7 +107,7 @@ html(lang="ru-RU")
 							button.buttons__reset(type="reset") Сброс
 							button.buttons__download(type="submit") Скачать
 
-					.sidebar__disable
+					//.sidebar__disable
 
 
 		footer.footer © 2014, Это мой сайт, пожалуйста, не копируйте и не воруйте его
