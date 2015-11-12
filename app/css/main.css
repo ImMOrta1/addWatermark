@@ -63,6 +63,12 @@ p {
 }
 
 /* --------- sections --------- */
+.hiddenFrame {
+  width: 1px;
+  height: 1px;
+  visibility: hidden;
+}
+
 .main {
   width: 960px;
   height: 670px;
@@ -101,44 +107,31 @@ p {
   background: #fff;
   height: 530px;
 }
-.image-view__container .image-view__container-main-image {
+
+.image-view__container-main-image {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   margin: auto;
+  overflow: hidden;
 }
-.image-view__container .image-view__container-main-image .image-view__main-img {
+.image-view__container-main-image .image-view__main-img {
   position: absolute;
   top: 0;
   left: 0;
 }
-.image-view__container .image-view__container-main-image .image-view__water-img {
+.image-view__container-main-image .image-view__water-img {
   position: absolute;
   top: 0;
   left: 0;
 }
-
-.image-view__container .image-view__main-img {
-  width: 100%;
-  height: 100%;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  position: relative;
-}
-
-.image-view__container .image-view__water-img {
+.image-view__container-main-image .wrap-image-view__water-till-block {
   position: absolute;
-  width: 300px;
-  height: 300px;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
+  display: none;
 }
 
 .image-view__upload {
@@ -309,6 +302,7 @@ p {
 
 .position-left {
   float: left;
+  position: relative;
 }
 
 .position-left__list {
@@ -360,6 +354,49 @@ p {
 }
 .position-left__item_active:hover .position-left__link {
   background: none;
+}
+
+.position-left__till {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  padding: 0;
+  box-sizing: border-box;
+  display: none;
+}
+
+.position-left__till-item {
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: #f97e76;
+  position: absolute;
+}
+
+.position-left__till-item_top-left {
+  top: 0;
+  left: 0;
+}
+
+.position-left__till-item_top-right {
+  top: 0;
+  right: 0;
+}
+
+.position-left__till-item_btm-left {
+  bottom: 0;
+  left: 0;
+}
+
+.position-left__till-item_btm-right {
+  bottom: 0;
+  right: 0;
 }
 
 .position-right {
