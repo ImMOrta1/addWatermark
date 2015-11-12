@@ -42,11 +42,12 @@ var mainJS = (function() {
 
         //Default Mode
         SingleMode();
+
         //Mode Selection
-        $('#checkModeNormal').on('click', function(event) {
+        $('.change-view__link_normal').on('click', function(event) {
             SingleMode()
         });
-        $('#checkModeTilling').on('click', function(event) {
+        $('.change-view__link_multi').on('click', function(event) {
             TillMode()
         });
     };
@@ -64,6 +65,18 @@ var mainJS = (function() {
         $('.image-view__water-img').css('display', 'block');
 
         $('.position-left__till').css('display', 'none');
+
+        $('.position-right_arrow-vert').css('display', 'none');
+        $('.position-right_arrow-hor').css('display', 'none');
+        $('.position-right__vector').css('display', 'block');
+
+        $(watermark).change(function(event) {
+            console.log('I am hero')
+        });
+
+        $('#fileuploadWat').on('change', function(event) {
+
+        });
 
         //Positon Function Normal Mode
         _coordinates();
@@ -88,6 +101,10 @@ var mainJS = (function() {
 
         $('.position-left__list li').removeClass('position-left__item_active');
         $('.position-left__till').css('display', 'block');
+
+        $('.position-right_arrow-vert').css('display', 'block');
+        $('.position-right_arrow-hor').css('display', 'block');
+        $('.position-right__vector').css('display', 'none');
 
         //Positon Function Till Mode
         _dragWatermark(watermark, parentDrag, '');
@@ -343,71 +360,10 @@ var mainJS = (function() {
                 type: "error",
 
                 confirmButtonText: "Продолжить работу"
-<<<<<<< HEAD
-=======
             });
         });
     };
 
-//Upload to Server Function
-    var _ajaxServer = function (event) {
-        event.preventDefault();
-
-        ajaxPOST.urlMain = $('#mainFileText').val();
-        ajaxPOST.urlWater = $('#waterFileText').val();
-        ajaxPOST.posX = watermark.css('left').slice(0, -2);
-        ajaxPOST.posY = watermark.css('top').slice(0, -2);
-        ajaxPOST.opacity = watermark.css('opacity');
-        ajaxPOST.margX = watermarkImg.css('padding-right').slice(0, -2);
-        ajaxPOST.margY = watermarkImg.css('padding-bottom').slice(0, -2);
-
-        var result = $.ajax({
-                url: urlServer,
-                type:'POST',
-                dataType: 'json',
-                data:'jsonData=' + JSON.stringify(ajaxPOST)
-            })
-            .fail(function(ans) {
-                console.log('Проблемы в PHP');
-            })
-            .done(function(ans) {
-                if (ans.status ==='OK') {
-                    console.log(ans.text);
-                    document.location = 'php/' + ans.url;
-                } else {
-                    console.log(ans.text);
-                }
->>>>>>> c49b190e6fd1abf59b8f34f4aa7bca654f6bb79c
-            });
-
-        return result;
-    };
-
-    return {
-        init: Init
-    };
-
-}());
-
-mainJS.init();
-
-//------------change languages----------------
-var lang = function () {
-    var langInit = function () {
-        _setupListners();
-    }
-    var _setupListners = function(){
-        $('#eng').on('click', function(){
-            $('.icons__lang-item').removeClass('active');
-            $('#eng').addClass('active');
-        });
-        $('#rus').on('click', function(){
-            $('#eng').removeClass('active');
-            $('#rus').addClass('active');
-        });
-    };
-
-<<<<<<< HEAD
 //Upload to Server Function
     var _ajaxServer = function (event) {
         event.preventDefault();
@@ -473,37 +429,3 @@ var lang = function () {
 
 lang.init();
 
-var changeView = (function() {
-
-    var changeViewInit = function() {
-        _setupListners();
-    };
-
-    var _setupListners = function() {
-        _changeViewFunc();
-    };
-
-    var _changeViewFunc = function() {
-
-        $('.change-view__link').on('click', function (e) {
-            e.preventDefault();
-
-            var tabLink = $(this).closest('.change-view__item'),
-                tabContent = $('.position-view__item'),
-                tabPosition = tabLink.index();
-
-            tabContent.eq(tabPosition)
-                .addClass('position-view__item_active')
-                .siblings()
-                .removeClass('position-view__item_active');
-            
-        });
-    };
-
-    return {
-        init: changeViewInit
-    }
-
-}());
-
-changeView.init();

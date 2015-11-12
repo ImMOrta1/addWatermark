@@ -41,8 +41,6 @@ var resizeImage = (function () {
                     var widthContainer = $this.width(),
                         heigthContainer = $this.height();
 
-                    console.log(widthContainer);
-
                     ImgContainer.css("width", widthContainer);
                     ImgContainer.css("height", heigthContainer);
                 } else {
@@ -75,7 +73,10 @@ var resizeImage = (function () {
 
                     $this.width(widthWater);
                     $this.height(heightWater);
+                    $this.addClass('ui-draggable ui-draggable-handle')
             }
+
+            $('.change-view__link_normal').trigger('click');
         })
     }
 
@@ -83,13 +84,15 @@ var resizeImage = (function () {
     var tillWater = function (image, url) {
         $(image).load(function() {
 
+            $('.wrap-image-view__water-till-block').remove();
+            $('<div data-x-elem=0 data-y-elem=0>').appendTo(ImgContainer).addClass('wrap-image-view__water-till-block');
+
             var $this = $(this);
                 widthWater = $this.width(),
                 heightWater = $this.height(),
                 ImgContainer = $this.closest('.image-view__container-main-image'),
                 q = ImgContainer.attr('data-ratio'),
                 tillBlock = $('.wrap-image-view__water-till-block');
-
 
             widthContainerImages = ImgContainer.css('width').slice(0, -2);
             heightContainerImages = ImgContainer.css('height').slice(0, -2);

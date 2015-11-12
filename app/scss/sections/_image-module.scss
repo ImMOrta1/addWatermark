@@ -335,6 +335,19 @@
 	padding-top: 15px;
 }
 
+.position-right_arrow-vert {
+	width: 11px;
+	height: 30px;
+	background: url('../img/arrow-vert.png') 0 0 no-repeat;
+	display: none;
+}
+
+.position-right_arrow-hor {
+	width: 29px;
+	height: 9px;
+	background: url('../img/arrow-hor.png') 0 0 no-repeat;
+	display: none;
+}
 // change-view ----------------------------
 .change-view {
 	position: absolute;
@@ -503,6 +516,7 @@
 
 	&:hover {
 		background: url('../img/icons-s29fed39708.png') 0 -410px no-repeat !important;
+	}
 }
 
 // ------------- buttons --------------------------
