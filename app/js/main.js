@@ -343,10 +343,71 @@ var mainJS = (function() {
                 type: "error",
 
                 confirmButtonText: "Продолжить работу"
+<<<<<<< HEAD
+=======
             });
         });
     };
 
+//Upload to Server Function
+    var _ajaxServer = function (event) {
+        event.preventDefault();
+
+        ajaxPOST.urlMain = $('#mainFileText').val();
+        ajaxPOST.urlWater = $('#waterFileText').val();
+        ajaxPOST.posX = watermark.css('left').slice(0, -2);
+        ajaxPOST.posY = watermark.css('top').slice(0, -2);
+        ajaxPOST.opacity = watermark.css('opacity');
+        ajaxPOST.margX = watermarkImg.css('padding-right').slice(0, -2);
+        ajaxPOST.margY = watermarkImg.css('padding-bottom').slice(0, -2);
+
+        var result = $.ajax({
+                url: urlServer,
+                type:'POST',
+                dataType: 'json',
+                data:'jsonData=' + JSON.stringify(ajaxPOST)
+            })
+            .fail(function(ans) {
+                console.log('Проблемы в PHP');
+            })
+            .done(function(ans) {
+                if (ans.status ==='OK') {
+                    console.log(ans.text);
+                    document.location = 'php/' + ans.url;
+                } else {
+                    console.log(ans.text);
+                }
+>>>>>>> c49b190e6fd1abf59b8f34f4aa7bca654f6bb79c
+            });
+
+        return result;
+    };
+
+    return {
+        init: Init
+    };
+
+}());
+
+mainJS.init();
+
+//------------change languages----------------
+var lang = function () {
+    var langInit = function () {
+        _setupListners();
+    }
+    var _setupListners = function(){
+        $('#eng').on('click', function(){
+            $('.icons__lang-item').removeClass('active');
+            $('#eng').addClass('active');
+        });
+        $('#rus').on('click', function(){
+            $('#eng').removeClass('active');
+            $('#rus').addClass('active');
+        });
+    };
+
+<<<<<<< HEAD
 //Upload to Server Function
     var _ajaxServer = function (event) {
         event.preventDefault();
