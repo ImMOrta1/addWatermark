@@ -1,3 +1,10 @@
+.hiddenFrame {
+	width:1px;
+	height:1px;
+	visibility:hidden
+}
+
+
 .main {
 	width: 960px;
 	height: 670px;
@@ -28,9 +35,9 @@
 
 .image-view__container {
 	position: relative;
-	background: #fff;
+	background: url(../img/workplace-bg.jpg);
 	height: 530px;
-
+}
 
 .image-view__container-main-image {
 		position: absolute;
@@ -39,6 +46,7 @@
 		right: 0;
 		bottom: 0;
 		margin: auto;
+		overflow: hidden;
 
 		.image-view__main-img {
 			position: absolute;
@@ -50,7 +58,13 @@
 			top: 0;
 			left: 0;
 		}
-	}
+
+		.wrap-image-view__water-till-block {
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: none;
+		}
 }
 
 .image-view__upload {
@@ -204,8 +218,8 @@
 
 .position-left {
 	float: left;
+	position: relative;
 }
-
 .position-left__list {
 	font-size: 0;
 	width: 99px;
@@ -263,6 +277,46 @@
 	} 
 }
 
+.position-left__till {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100px;
+	height: 100px;
+	padding: 0;
+	box-sizing:border-box;
+	display: none;
+}
+
+.position-left__till-item {
+	width: 50px;
+	height: 50px;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	border-width: 0;
+	border-style: solid;
+	border-color: #f97e76;
+	position: absolute;
+}
+.position-left__till-item_top-left {
+	top: 0;
+	left: 0;
+}
+.position-left__till-item_top-right {
+	top: 0;
+	right: 0;
+}
+.position-left__till-item_btm-left {
+	bottom: 0;
+	left: 0;
+}
+.position-left__till-item_btm-right {
+	bottom: 0;
+	right: 0;
+}
+
+
 .position-right {
 	float: right;
 }
@@ -280,6 +334,52 @@
 	color: $black;
 	padding-top: 15px;
 }
+
+// change-view ----------------------------
+.change-view {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 100px;
+}
+
+.change-view__item {
+  display: inline-block;
+  padding-left: 10px;
+  float: right;
+}
+
+.change-view__link {
+  display: block;
+  width: 19px;
+  height: 19px;
+}
+
+.change-view__link_normal {
+	@include get-sprite($map, view-normal);
+
+	&:hover {
+		@include get-sprite($map, view-normal-hover);
+	}
+}
+
+.change-view__link_multi {
+	@include get-sprite($map, view-multi);
+
+	&:hover {
+		@include get-sprite($map, view-multi-hover);
+	}
+}
+
+.position-view__item {
+	display: none;
+}
+
+.position-view__item_active {
+	display: block;
+}
+
+// opacity -----------------------------------------
 .opacity__input-invis {
   position: absolute;
   top: 0;
@@ -319,10 +419,10 @@
 	display: block !important;
 	width: 13px !important;
 	height: 8px !important;
-	background: url('../img/icons-s7fc1c71963.png') 0 -234px no-repeat !important;
+	background: url('../img/icons-s29fed39708.png') 0 -234px no-repeat !important;
 
 	&:hover {
-		background: url('../img/icons-s7fc1c71963.png') 0 -156px no-repeat !important;
+		background: url('../img/icons-s29fed39708.png') 0 -156px no-repeat !important;
 	}
 }
 
@@ -331,10 +431,10 @@
 	display: block !important;
 	width: 13px !important;
 	height: 8px !important;
-	background: url('../img/icons-s7fc1c71963.png') 0 -78px no-repeat !important;
+	background: url('../img/icons-s29fed39708.png') 0 -78px no-repeat !important;
 
 	&:hover {
-		background: url('../img/icons-s7fc1c71963.png') 0 0 no-repeat !important;
+		background: url('../img/icons-s29fed39708.png') 0 0 no-repeat !important;
 	}
 }
 
@@ -395,14 +495,13 @@
 }
 
 .ui-slider-handle {
-	background: url('../img/icons-s7fc1c71963.png') 0 -504px no-repeat !important;
+	background: url('../img/icons-s29fed39708.png') 0 -504px no-repeat !important;
 	width: 24px !important;
 	height: 24px !important;
 	top: -9px !important;
 	margin-left: -10px !important;
-
 	&:hover {
-		background: url('../img/icons-s7fc1c71963.png') 0 -410px no-repeat !important;
+		background: url('../img/icons-s29fed39708.png') 0 -410px no-repeat !important;
 	}
 }
 
@@ -452,5 +551,89 @@
 	font-size: 18px;
 	color: #fff;
 	@include border-radius;
-	outline: none;
+    outline: none;
 }
+
+//-------------Language--------------
+.icons{
+  display: block;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  z-index: 10;
+}
+.icons__lang-list{
+  padding: 0;
+  margin: 0 0 20px;
+}
+.icons__lang-item{
+  font-family: 'SegoeUILight';
+  font-size: 18px;
+  display: block;
+  padding: 4px 3px;
+  margin-bottom: 1px;
+  background: #d7d5d7;
+  &.active{
+    background: #b2b0b2;
+  }
+}
+.icons__lang-item.active .icons__lang-link{
+  color: #FFFFFF;
+}
+.icons__lang-link{
+  text-decoration: none;
+  color: #999ca1;
+}
+
+//--------------Social buttons--------------
+.icons__social{
+  display: block;
+  left: 0;
+  &:hover{
+    left: 39px;
+    position: absolute;
+    -webkit-transition: left .5s;
+    -moz-transition: left .5s;
+    -ms-transition: left .5s;
+    -o-transition: left .5s;
+    transition: left .5s;
+  }
+}
+.icons__social-link {
+  text-indent: -9999px;
+
+  &.like{
+    position: absolute;
+    left: 0;
+    @include get-sprite($map2, like);
+    &:hover{
+      @include get-sprite($map2, like-hover);
+    }
+  }
+}
+.icons__social-list{
+  position: absolute;
+  left: -39px;
+}
+.icons__social-item{
+  display: block;
+}
+.icons__social-item_fb{
+  @include get-sprite($map2, fb);
+  &:hover{
+    @include get-sprite($map2, fb-hover);
+  }
+}
+.icons__social-item_tw{
+  @include get-sprite($map2, tw);
+  &:hover{
+    @include get-sprite($map2, tw-hover);
+  }
+}
+.icons__social-item_vk{
+  @include get-sprite($map2, vk);
+  &:hover{
+    @include get-sprite($map2, vk-hover);
+  }
+}
+

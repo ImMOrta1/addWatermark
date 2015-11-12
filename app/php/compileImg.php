@@ -17,7 +17,7 @@
 					$box_heigth = ($main_img_obj_h * $box_width / $main_img_obj_w);
 				} else {
 					$box_width = $main_img_obj_w;
-					$box_heigth = ($main_img_obj_h * $box_width / $main_img_obj_w);
+					$box_heigth = $main_img_obj_h;
 
 				} 
 			} else {
@@ -26,7 +26,7 @@
 					$box_width = ($main_img_obj_w * $box_heigth / $main_img_obj_h);
 				} else {
 					$box_heigth = $main_img_obj_h;
-					$box_width = ($main_img_obj_w * $box_heigth / $main_img_obj_h);
+					$box_width = $main_img_obj_w;
 				} 
 			}
 
@@ -90,6 +90,53 @@
 			return imagecolorclosest($im, $r, $g, $b);
 		} 
 
+
+		function till_image($main_img_obj, $watermark_img_obj,  $marginVert, $marginGor) {
+
+			$main_img_obj_w	= imagesx( $main_img_obj );
+			$main_img_obj_h	= imagesy( $main_img_obj );
+			$watermark_img_obj_w	= imagesx( $watermark_img_obj );
+			$watermark_img_obj_h	= imagesy( $watermark_img_obj );
+
+			if ($main_img_obj_w > $main_img_obj_h) {
+				if ($main_img_obj_w > 650) {
+					$q = $main_img_obj_w / 650;
+				} else {
+					$q = 1;
+				} 
+			} else {
+				if ($main_img_obj_h > 530) {
+					$q = $main_img_obj_h / 530;
+				} else {
+					$q = 1;
+				} 
+			}
+
+			$marginVertNat = $marginVert * $q;
+			$marginGorNat = $marginGor * $q;
+
+			$till_img_elems_w = floor( $main_img_obj_w / $watermark_img_obj_w );
+			$till_img_elems_h = floor( $main_img_obj_h / $watermark_img_obj_h );
+
+			$till_img_obj_w = $till_img_elems_w * 2 * ($watermark_img_obj_w + $marginGor);
+			$till_img_obj_h = $till_img_elems_h * 2 * ($watermark_img_obj_h + $marginVert);
+
+			$return_img	= imagecreatetruecolor( $till_img_obj_w, $till_img_obj_h );
+			imagesavealpha($return_img, true);
+
+			$trans_color = imagecolorallocatealpha($return_img, 0, 0, 0, 127);
+			imagefill($return_img,0,0,$trans_color);
+
+			for( $y = 0; $y < $till_img_elems_h * 2; $y++ ) {
+				for( $x = 0; $x < $till_img_elems_w * 2; $x++ ) {
+					imagecopy($return_img, $watermark_img_obj, ($watermark_img_obj_w + $marginGorNat) * $x, ($watermark_img_obj_h + $marginVertNat) * $y, 0, 0, $watermark_img_obj_w, $watermark_img_obj_h);
+				}
+			}
+
+			return $return_img;
+
+		}
+
 }
 
 function image_unpack($type, $file) {
@@ -121,11 +168,18 @@ function removeDirectory($dir) {
     }
   }
 
-		$file1 = $_POST['mainFileText'];
-		$file2 = $_POST['waterFileText'];
-		$posX = $_POST['positionX'];
-		$poxY = $_POST['positionY'];
-		$opacity_water = $_POST['opacityWater'] * 100;
+  		$data = json_decode($_POST['jsonData']);
+
+
+		$file1 = $data -> {'urlMain'};
+		$file2 = $data -> {'urlWater'};
+		$posX = $data -> {'posX'};
+		$posY = $data -> {'posY'};
+		$margX = $data -> {'margX'};
+		$margY = $data -> {'margY'};
+		$opacity_water = $data -> {'opacity'} * 100;
+		$mode = $data -> {'mode'};
+		$data = array();
 
 		$type1_mas = explode('.', $file1);
 		$type2_mas = explode('.', $file2);
@@ -139,19 +193,32 @@ function removeDirectory($dir) {
 			$im2 = image_unpack($type2,$file2); 
 
 			$watermark = new watermark3();
-			$im=$watermark->create_watermark($im1,$im2,$posX,$poxY,$opacity_water);
+			if ($mode == 'normal') {
+				$im=$watermark->create_watermark($im1,$im2,$posX,$posY,$opacity_water);
+			} elseif ($mode == 'till') {
+				$till_img=$watermark->till_image($im1,$im2,$margY,$margX);
+				$im=$watermark->create_watermark($im1,$till_img,$posX,$posY,$opacity_water);
+			}
 
 			$finalName = 'results/' . random(8) . '-water.jpg';
 
-			imagejpeg($im,$finalName,95);
+  			imagejpeg($im,$finalName, 90);
 			imagedestroy($im);
 
-			echo '<img src="' . $finalName . '">';
+  			$data['status'] = 'OK';
+			$data['text'] = 'Выполнено! Получите ссылку';
+			$data['url'] = $finalName;
+
+
 		} else {
-			echo "Неправильные форматы файлов";
+			$data['status'] = 'ERROR!';
+			$data['text'] = 'Введите правильные файлы!';
 		}
 		
 		removeDirectory("files");
+
+		header("Content-Type: application/json");
+		echo json_encode($data);
 
   exit;
 

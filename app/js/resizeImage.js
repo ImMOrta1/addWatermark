@@ -4,6 +4,7 @@ var resizeImage = (function () {
 	var resizeMain = function (image) {
         $(image).load(function() {
 
+
             var $this = $(this),
                 widthMainNatural = $this.width(),
                 heigthMainNatural = $this.height(),
@@ -78,11 +79,52 @@ var resizeImage = (function () {
         })
     }
 
+// Tilling Water Image
+    var tillWater = function (image, url) {
+        $(image).load(function() {
+
+            var $this = $(this);
+                widthWater = $this.width(),
+                heightWater = $this.height(),
+                ImgContainer = $this.closest('.image-view__container-main-image'),
+                q = ImgContainer.attr('data-ratio'),
+                tillBlock = $('.wrap-image-view__water-till-block');
+
+
+            widthContainerImages = ImgContainer.css('width').slice(0, -2);
+            heightContainerImages = ImgContainer.css('height').slice(0, -2);
+
+
+            horizontalElems = Math.round(widthContainerImages / widthWater);
+            horizontalElemsBlock = horizontalElems * 2;
+            tillBlock.attr('data-x-elem', horizontalElemsBlock);
+            verticalElems = Math.round(heightContainerImages / heightWater);
+            verticalElemsBlock = verticalElems * 2;
+            tillBlock.attr('data-y-elem', verticalElemsBlock);
+
+            widthElemsBlock = widthWater * horizontalElemsBlock;
+            heigthElemsBlock = heightWater * verticalElemsBlock;
+
+            tillBlock.css('width', widthElemsBlock);
+            tillBlock.css('height', heigthElemsBlock);
+
+            for (i = 1; i < verticalElemsBlock; i++ ) {
+                for (j = 1; j < horizontalElemsBlock; j++ ) {
+                    $('<img src="' + url + '" class="image-view__water-till-img">').appendTo(tillBlock);
+                }
+                $('<br/>').appendTo(tillBlock);
+            }
+
+            $('.image-view__water-till-img').attr('width', widthWater);
+            $('.image-view__water-till-img').attr('height', heightWater);
+        })
+    }
 
 //Возвращаем значения
 	return {
 		resizeMain: resizeMain,
-		resizeWater: resizeWater
+		resizeWater: resizeWater,
+        tillWater: tillWater
 	}
 })();
 
