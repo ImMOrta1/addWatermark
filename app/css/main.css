@@ -116,10 +116,6 @@ p {
   bottom: 0;
   margin: auto;
   overflow: hidden;
-<<<<<<< HEAD
-}
-.image-view__container-main-image .image-view__main-img {
-=======
 }
 .image-view__container-main-image .image-view__main-img {
   position: absolute;
@@ -127,20 +123,9 @@ p {
   left: 0;
 }
 .image-view__container-main-image .image-view__water-img {
->>>>>>> c49b190e6fd1abf59b8f34f4aa7bca654f6bb79c
   position: absolute;
   top: 0;
   left: 0;
-}
-<<<<<<< HEAD
-.image-view__container-main-image .image-view__water-img {
-=======
-.image-view__container-main-image .wrap-image-view__water-till-block {
->>>>>>> c49b190e6fd1abf59b8f34f4aa7bca654f6bb79c
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: none;
 }
 .image-view__container-main-image .wrap-image-view__water-till-block {
   position: absolute;
@@ -431,6 +416,20 @@ p {
   font-size: 16px;
   color: #2e3641;
   padding-top: 15px;
+}
+
+.position-right_arrow-vert {
+  width: 11px;
+  height: 30px;
+  background: url("../img/arrow-vert.png") 0 0 no-repeat;
+  display: none;
+}
+
+.position-right_arrow-hor {
+  width: 29px;
+  height: 9px;
+  background: url("../img/arrow-hor.png") 0 0 no-repeat;
+  display: none;
 }
 
 .change-view {

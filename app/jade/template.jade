@@ -58,8 +58,6 @@ html(lang="ru-RU")
 									input.file-upload__inputInvis(type="text" name="waterFileText" id="waterFileText")
 
 						.position.separator
-							input(class='checkMode' type="radio" name='checkMode' id='checkModeNormal' value='Normal' checked)
-							input(class='checkMode' type="radio" name='checkMode' id='checkModeTilling' value='Tilling')
 							.position__title Положение
 							.position-container
 
@@ -79,6 +77,7 @@ html(lang="ru-RU")
 										.position-right
 											.position-right__top
 												span.position-right__vector X
+												.position-right_arrow-vert
 												input.position-right__input-top(type="text" value="0" name="positionX")
 												.position-right__buttons
 													a.position-right__up(href="#")
@@ -86,12 +85,11 @@ html(lang="ru-RU")
 
 											.position-right__bottom
 												span.position-right__vector Y
+												.position-right_arrow-hor
 												input.position-right__input-bot(type="text" value="0" name="positionY")
 												.position-right__buttons
 													a.position-right__up(href="#")
 													a.position-right__down(href="#")
-
-									li.position-view__item Lorem ipsum dolor sit amet, consectetur
 							.change-view
 								ul.change-view__list
 									li.change-view__item

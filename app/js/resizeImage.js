@@ -76,10 +76,7 @@ var resizeImage = (function () {
                     $this.addClass('ui-draggable ui-draggable-handle')
             }
 
-            mainJS.drag($this,ImgContainer,function(ev, ui){
-               mainJS.getCords($this);
-            });
-            mainJS.opac($this, 1)
+            $('.change-view__link_normal').trigger('click');
         })
     }
 
@@ -123,7 +120,6 @@ var resizeImage = (function () {
 
             $('.image-view__water-till-img').attr('width', widthWater);
             $('.image-view__water-till-img').attr('height', heightWater);
-            mainJS.drag(tillBlock,'','');
         })
     }
 
