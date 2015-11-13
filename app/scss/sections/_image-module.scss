@@ -9,7 +9,8 @@
 	width: 960px;
 	height: 670px;
 	background: #f1f1f5;
-	@include center;
+	@include clearfix;
+	margin: 0 auto;
 }
 
 .image-view {
@@ -338,14 +339,14 @@
 .position-right_arrow-vert {
 	width: 11px;
 	height: 30px;
-	background: url('../img/arrow-vert.png') 0 0 no-repeat;
+	@include get-sprite($map, y-position);
 	display: none !important;
 }
 
 .position-right_arrow-hor {
 	width: 29px;
 	height: 9px;
-	background: url('../img/arrow-hor.png') 0 0 no-repeat;
+	@include get-sprite($map, x-position);
 	display: none !important;
 }
 // change-view ----------------------------
@@ -386,6 +387,7 @@
 
 .position-view__item {
 	display: none;
+	@include clearfix;
 }
 
 .position-view__item_active {
@@ -432,10 +434,10 @@
 	display: block !important;
 	width: 13px !important;
 	height: 8px !important;
-	background: url('../img/icons-s29fed39708.png') 0 -234px no-repeat !important;
+	background: url('../img/icons-s0883b82317.png') 0 -234px no-repeat !important;
 
 	&:hover {
-		background: url('../img/icons-s29fed39708.png') 0 -156px no-repeat !important;
+		background: url('../img/icons-s0883b82317.png') 0 -156px no-repeat !important;
 	}
 }
 
@@ -444,10 +446,10 @@
 	display: block !important;
 	width: 13px !important;
 	height: 8px !important;
-	background: url('../img/icons-s29fed39708.png') 0 -78px no-repeat !important;
+	background: url('../img/icons-s0883b82317.png') 0 -78px no-repeat !important;
 
 	&:hover {
-		background: url('../img/icons-s29fed39708.png') 0 0 no-repeat !important;
+		background: url('../img/icons-s0883b82317.png') 0 0 no-repeat !important;
 	}
 }
 
@@ -508,14 +510,14 @@
 }
 
 .ui-slider-handle {
-	background: url('../img/icons-s29fed39708.png') 0 -504px no-repeat !important;
+	background: url('../img/icons-s0883b82317.png') 0 -504px no-repeat !important;
 	width: 24px !important;
 	height: 24px !important;
 	top: -9px !important;
 	margin-left: -10px !important;
 
 	&:hover {
-		background: url('../img/icons-s29fed39708.png') 0 -410px no-repeat !important;
+		background: url('../img/icons-s0883b82317.png') 0 -410px no-repeat !important;
 	}
 }
 
@@ -571,8 +573,8 @@
 //-------------Language--------------
 .icons{
   display: block;
-  position: fixed;
-  top: 100px;
+  position: absolute;
+  top: 15%;
   left: 0;
   z-index: 10;
 }
