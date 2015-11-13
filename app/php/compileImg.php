@@ -14,24 +14,24 @@
 			if ($main_img_obj_w > $main_img_obj_h) {
 				if ($main_img_obj_w > 650) {
 					$box_width = 650;
-					$box_heigth = ($main_img_obj_h * $box_width / $main_img_obj_w);
+					$box_height = ($main_img_obj_h * $box_width / $main_img_obj_w);
 				} else {
 					$box_width = $main_img_obj_w;
-					$box_heigth = $main_img_obj_h;
+					$box_height = $main_img_obj_h;
 
 				} 
 			} else {
 				if ($main_img_obj_h > 530) {
-					$box_heigth = 530;
-					$box_width = ($main_img_obj_w * $box_heigth / $main_img_obj_h);
+					$box_height = 530;
+					$box_width = ($main_img_obj_w * $box_height / $main_img_obj_h);
 				} else {
-					$box_heigth = $main_img_obj_h;
+					$box_height = $main_img_obj_h;
 					$box_width = $main_img_obj_w;
 				} 
 			}
 
 			$water_position_x_perc =  floor( $water_position_x / $box_width * 100 );
-			$water_position_y_perc =  floor( $water_position_y / $box_heigth * 100 );
+			$water_position_y_perc =  floor( $water_position_y / $box_height * 100 );
 	 
 			$main_img_obj_min_x	= floor( $water_position_x_perc * $main_img_obj_w / 100 );
 			$main_img_obj_max_x	= ceil( ( $main_img_obj_w / 2 ) + ( $watermark_img_obj_w / 2 ) );
