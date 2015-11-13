@@ -27,6 +27,18 @@ var mainJS = (function() {
         $('#fileuploadWat').on('change', _uploadInfoWat);
         $('#fileupload').on('change', _uploadInfo);
 
+        //Disable letters function
+        $('.position-right__input-top').on('click input keydown', function() {
+            if (this.value.match(/[^0-9]/g)) {
+                this.value = this.value.replace(/[^0-9]/g, '')
+            }
+        });
+        $('.position-right__input-bot').on('click input keydown', function() {
+            if (this.value.match(/[^0-9]/g)) {
+                this.value = this.value.replace(/[^0-9]/g, '')
+            }
+        });
+
         //Disable Functions Start
         _disableFunc();
         _disableAlert();
@@ -410,7 +422,7 @@ mainJS.init();
 var lang = function () {
     var langInit = function () {
         _setupListners();
-    }
+    };
     var _setupListners = function(){
         $('#eng').on('click', function(){
             $('.icons__lang-item').removeClass('active');
@@ -419,17 +431,6 @@ var lang = function () {
         $('#rus').on('click', function(){
             $('#eng').removeClass('active');
             $('#rus').addClass('active');
-        });
-
-        $('.position-right__input-top').on('click input keydown', function() {
-            if (this.value.match(/[^0-9]/g)) {
-                this.value = this.value.replace(/[^0-9]/g, '')
-            };
-        });
-        $('.position-right__input-bot').on('click input keydown', function() {
-            if (this.value.match(/[^0-9]/g)) {
-                this.value = this.value.replace(/[^0-9]/g, '')
-            };
         });
     };
 
