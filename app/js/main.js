@@ -355,10 +355,8 @@ var mainJS = (function() {
     var _disableAlert = function() {
         $('.sidebar__disable').on('click', function() {
             swal({
-                title: 'АХТУНГ, Вы забыли выбрать изображения',
+                title: 'Вы забыли выбрать изображения',
                 text: 'Для включения настроек изменения водяного знака сначала выберите необходимые вам изображения!',
-                type: "error",
-
                 confirmButtonText: "Продолжить работу"
             });
         });

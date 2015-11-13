@@ -9,21 +9,8 @@ html(lang="ru-RU")
 		include _common/_head
 		title Приложение для добавления водяных знаков на фотографию
 	body
+		div(id="particles-js")
 		.wrapper
-			.icons
-				ul.icons__lang-list
-					li.icons__lang-item.active#rus
-						a.icons__lang-link(href="#") РУС
-					li.icons__lang-item#eng
-						a.icons__lang-link(href="#") ENG
-				.icons__social
-					a.icons__social-link.like(href="#")
-					ul.icons__social-list
-						- var items = ['fb', 'tw', 'vk']
-						each item in items
-							li(class="icons__social-item icons__social-item_" + item)
-								a.icons__social-link(href="#")
-
 			.main
 				section.image-view
 					.image-view__text
@@ -45,7 +32,7 @@ html(lang="ru-RU")
 								.file-upload__title Исходное изображение
 								.file-upload__container
 									input.file-upload__input(type="file" id="fileupload" name="files[]" accept="image/jpeg, image/jpg")
-									.file-upload__fake#fake image.jpg
+									.file-upload__fake#fake выберите рисунок
 									.file-upload__icon
 									input.file-upload__inputInvis(type="text" name="mainFileText" id="mainFileText")
 
@@ -53,7 +40,7 @@ html(lang="ru-RU")
 								.file-upload__title Водяной знак
 								.file-upload__container
 									input.file-upload__input(type="file" id="fileuploadWat" accept="image/png")
-									.file-upload__fake#fakeWat image.png
+									.file-upload__fake#fakeWat выберите водяной знак
 									.file-upload__icon
 									input.file-upload__inputInvis(type="text" name="waterFileText" id="waterFileText")
 
@@ -107,6 +94,20 @@ html(lang="ru-RU")
 
 					//.sidebar__disable
 
+			.icons
+				ul.icons__lang-list
+					li.icons__lang-item.active#rus
+						a.icons__lang-link(href="#") РУС
+					li.icons__lang-item#eng
+						a.icons__lang-link(href="#") ENG
+				.icons__social
+					a.icons__social-link.like(href="#")
+					ul.icons__social-list
+						- var items = ['fb', 'tw', 'vk']
+						each item in items
+							li(class="icons__social-item icons__social-item_" + item)
+								a.icons__social-link(href="#")
+
 
 		footer.footer © 2014, Это мой сайт, пожалуйста, не копируйте и не воруйте его
 
@@ -119,3 +120,4 @@ html(lang="ru-RU")
 		script(src="js/fileLoadToForm.js")
 		script(src="js/main.js")
 		script(src="js/resizeImage.js")
+		script(src="bower/particles.js/particles.min.js")

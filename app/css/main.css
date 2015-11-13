@@ -3,14 +3,13 @@ body {
   font-family: "RobotoLight";
   font-size: 14px;
   color: #333;
+  background: url(../img/site-bg.jpg) top center no-repeat;
+  background-size: cover;
 }
 
-body, html {
+html, body {
   width: 100%;
   height: 100%;
-  background: url(../img/site-bg.jpg) no-repeat;
-  background-size: cover;
-  background-position: center center;
 }
 
 body, ul, ol, li, h1, h2 {
@@ -35,23 +34,36 @@ p {
   line-height: 20px;
 }
 
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+}
+
 .wrapper {
   position: relative;
-  min-width: 960px;
+  min-width: 1050px;
   min-height: 100%;
+  padding-top: 100px;
   box-sizing: border-box;
-  padding-bottom: 30px;
 }
 
 .footer {
-  min-width: 960px;
+  min-width: 1050px;
   height: 30px;
+  padding-top: 20px;
   clear: both;
-  margin-top: -30px;
   font-family: "SegoeUILight";
   font-size: 12px;
   color: #fff;
   text-align: center;
+  margin-top: -50px;
 }
 
 .clearfix:before, .clearfix:after {
@@ -73,12 +85,14 @@ p {
   width: 960px;
   height: 670px;
   background: #f1f1f5;
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  margin: auto;
+  margin: 0 auto;
+}
+.main:before, .main:after {
+  content: "";
+  display: table;
+}
+.main:after {
+  clear: both;
 }
 
 .image-view {
@@ -248,7 +262,7 @@ p {
   bottom: 0;
   top: 0;
   z-index: 99;
-  background: url('../img/icons-s29fed39708.png') 0 -313px no-repeat;
+  background: url('../img/icons-s0883b82317.png') 0 -313px no-repeat;
   height: 27px;
   width: 39px;
   cursor: pointer;
@@ -420,14 +434,18 @@ p {
 .position-right_arrow-vert {
   width: 11px;
   height: 30px;
-  background: url("../img/arrow-vert.png") 0 0 no-repeat;
+  background: url('../img/icons-s0883b82317.png') 0 -1033px no-repeat;
+  height: 30px;
+  width: 11px;
   display: none !important;
 }
 
 .position-right_arrow-hor {
   width: 29px;
   height: 9px;
-  background: url("../img/arrow-hor.png") 0 0 no-repeat;
+  background: url('../img/icons-s0883b82317.png') 0 -954px no-repeat;
+  height: 9px;
+  width: 29px;
   display: none !important;
 }
 
@@ -451,29 +469,36 @@ p {
 }
 
 .change-view__link_normal {
-  background: url('../img/icons-s29fed39708.png') 0 -865px no-repeat;
+  background: url('../img/icons-s0883b82317.png') 0 -865px no-repeat;
   height: 19px;
   width: 19px;
 }
 .change-view__link_normal:hover {
-  background: url('../img/icons-s29fed39708.png') 0 -776px no-repeat;
+  background: url('../img/icons-s0883b82317.png') 0 -776px no-repeat;
   height: 19px;
   width: 19px;
 }
 
 .change-view__link_multi {
-  background: url('../img/icons-s29fed39708.png') 0 -687px no-repeat;
+  background: url('../img/icons-s0883b82317.png') 0 -687px no-repeat;
   height: 19px;
   width: 19px;
 }
 .change-view__link_multi:hover {
-  background: url('../img/icons-s29fed39708.png') 0 -598px no-repeat;
+  background: url('../img/icons-s0883b82317.png') 0 -598px no-repeat;
   height: 19px;
   width: 19px;
 }
 
 .position-view__item {
   display: none;
+}
+.position-view__item:before, .position-view__item:after {
+  content: "";
+  display: table;
+}
+.position-view__item:after {
+  clear: both;
 }
 
 .position-view__item_active {
@@ -520,10 +545,10 @@ p {
   display: block !important;
   width: 13px !important;
   height: 8px !important;
-  background: url("../img/icons-s29fed39708.png") 0 -234px no-repeat !important;
+  background: url("../img/icons-s0883b82317.png") 0 -234px no-repeat !important;
 }
 .ui-icon-triangle-1-n:hover {
-  background: url("../img/icons-s29fed39708.png") 0 -156px no-repeat !important;
+  background: url("../img/icons-s0883b82317.png") 0 -156px no-repeat !important;
 }
 
 .ui-icon-triangle-1-s {
@@ -531,10 +556,10 @@ p {
   display: block !important;
   width: 13px !important;
   height: 8px !important;
-  background: url("../img/icons-s29fed39708.png") 0 -78px no-repeat !important;
+  background: url("../img/icons-s0883b82317.png") 0 -78px no-repeat !important;
 }
 .ui-icon-triangle-1-s:hover {
-  background: url("../img/icons-s29fed39708.png") 0 0 no-repeat !important;
+  background: url("../img/icons-s0883b82317.png") 0 0 no-repeat !important;
 }
 
 .position-right__input-top, .position-right__input-bot {
@@ -597,14 +622,14 @@ p {
 }
 
 .ui-slider-handle {
-  background: url("../img/icons-s29fed39708.png") 0 -504px no-repeat !important;
+  background: url("../img/icons-s0883b82317.png") 0 -504px no-repeat !important;
   width: 24px !important;
   height: 24px !important;
   top: -9px !important;
   margin-left: -10px !important;
 }
 .ui-slider-handle:hover {
-  background: url("../img/icons-s29fed39708.png") 0 -410px no-repeat !important;
+  background: url("../img/icons-s0883b82317.png") 0 -410px no-repeat !important;
 }
 
 .buttons {
@@ -672,8 +697,8 @@ p {
 
 .icons {
   display: block;
-  position: fixed;
-  top: 100px;
+  position: absolute;
+  top: 15%;
   left: 0;
   z-index: 10;
 }
