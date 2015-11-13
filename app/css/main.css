@@ -421,14 +421,14 @@ p {
   width: 11px;
   height: 30px;
   background: url("../img/arrow-vert.png") 0 0 no-repeat;
-  display: none;
+  display: none !important;
 }
 
 .position-right_arrow-hor {
   width: 29px;
   height: 9px;
   background: url("../img/arrow-hor.png") 0 0 no-repeat;
-  display: none;
+  display: none !important;
 }
 
 .change-view {
