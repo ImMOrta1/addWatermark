@@ -7,51 +7,51 @@ var resizeImage = (function () {
 
             var $this = $(this),
                 widthMainNatural = $this.width(),
-                heigthMainNatural = $this.height(),
+                heightMainNatural = $this.height(),
                 ImgContainer = $this.closest('.image-view__container-main-image'),
                 q = ImgContainer.attr('data-ratio');
 
-            if (widthMainNatural > heigthMainNatural) {
+            if (widthMainNatural > heightMainNatural) {
                 if (widthMainNatural > 650) {
                     q = widthMainNatural / 650;
                     ImgContainer.attr('data-ratio', q);
                     $this.width('650');
 
                     var widthContainer = $this.width(),
-                        heigthContainer = $this.height();
+                        heightContainer = $this.height();
 
                     ImgContainer.css("width", widthContainer);
-                    ImgContainer.css("height", heigthContainer);
+                    ImgContainer.css("height", heightContainer);
                 } else {
                     q = 0;
                     ImgContainer.attr('data-ratio', q);
 
                     var widthContainer = $this.width(),
-                        heigthContainer = $this.height();
+                        heightContainer = $this.height();
 
                     ImgContainer.css("width", widthContainer);
-                    ImgContainer.css("height", heigthContainer);
+                    ImgContainer.css("height", heightContainer);
                 }
             } else {
-                if (heigthMainNatural > 530) {
-                    q = heigthMainNatural / 530;
+                if (heightMainNatural > 530) {
+                    q = heightMainNatural / 530;
                     ImgContainer.attr('data-ratio', q);
                     $this.height('530');
 
                     var widthContainer = $this.width(),
-                        heigthContainer = $this.height();
+                        heightContainer = $this.height();
 
                     ImgContainer.css("width", widthContainer);
-                    ImgContainer.css("height", heigthContainer);
+                    ImgContainer.css("height", heightContainer);
                 } else {
                     q = 0;
                     ImgContainer.attr('data-ratio', q);
 
                     var widthContainer = $this.width(),
-                        heigthContainer = $this.height();
+                        heightContainer = $this.height();
 
                     ImgContainer.css("width", widthContainer);
-                    ImgContainer.css("height", heigthContainer);
+                    ImgContainer.css("height", heightContainer);
                 }
             }
         })
@@ -63,13 +63,13 @@ var resizeImage = (function () {
 
             var $this = $(this);
                 widthWaterNatural = $this.width(),
-                heigthWaterNatural = $this.height(),
+                heightWaterNatural = $this.height(),
                 ImgContainer = $this.closest('.image-view__container-main-image'),
                 q = ImgContainer.attr('data-ratio');
 
             if (!(q == 0)) {
                 var widthWater = widthWaterNatural / q,
-                    heightWater = heigthWaterNatural / q;
+                    heightWater = heightWaterNatural / q;
 
                     $this.width(widthWater);
                     $this.height(heightWater);
@@ -106,10 +106,10 @@ var resizeImage = (function () {
             tillBlock.attr('data-y-elem', verticalElemsBlock);
 
             widthElemsBlock = widthWater * horizontalElemsBlock;
-            heigthElemsBlock = heightWater * verticalElemsBlock;
+            heightElemsBlock = heightWater * verticalElemsBlock;
 
             tillBlock.css('width', widthElemsBlock);
-            tillBlock.css('height', heigthElemsBlock);
+            tillBlock.css('height', heightElemsBlock);
 
             for (i = 1; i < verticalElemsBlock; i++ ) {
                 for (j = 1; j < horizontalElemsBlock; j++ ) {
