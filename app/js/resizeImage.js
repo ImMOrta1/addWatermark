@@ -23,14 +23,26 @@ var resizeImage = (function () {
                     ImgContainer.css("width", widthContainer);
                     ImgContainer.css("height", heightContainer);
                 } else {
-                    q = 0;
-                    ImgContainer.attr('data-ratio', q);
+                    if (heightMainNatural > 530) {
+                        q = heightMainNatural / 530;
+                        ImgContainer.attr('data-ratio', q);
+                        $this.height('530');
 
-                    var widthContainer = $this.width(),
-                        heightContainer = $this.height();
+                        var widthContainer = $this.width(),
+                            heightContainer = $this.height();
 
-                    ImgContainer.css("width", widthContainer);
-                    ImgContainer.css("height", heightContainer);
+                        ImgContainer.css("width", widthContainer);
+                        ImgContainer.css("height", heightContainer);
+                    } else {
+                        q = 0;
+                        ImgContainer.attr('data-ratio', q);
+
+                        var widthContainer = $this.width(),
+                            heightContainer = $this.height();
+
+                        ImgContainer.css("width", widthContainer);
+                        ImgContainer.css("height", heightContainer);
+                    }
                 }
             } else {
                 if (heightMainNatural > 530) {
