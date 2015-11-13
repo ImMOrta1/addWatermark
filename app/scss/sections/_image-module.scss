@@ -327,12 +327,12 @@
 }
 
 .position-right__vector {
-	@include inlineblock;
+  	display: inline-block !important;
 	width: 13px;
 	font-family: $light;
 	font-size: 16px;
 	color: $black;
-	padding-top: 15px;
+	padding-top: 10px;
 }
 
 .position-right_arrow-vert {

@@ -78,7 +78,7 @@ var mainJS = (function() {
 
         });
 
-        //Positon Function Normal Mode
+        //Position Function Normal Mode
         _coordinates();
         _dragWatermark(watermark, parentDrag, _dragGetSlice);
         _getCoordinates();
@@ -106,7 +106,7 @@ var mainJS = (function() {
         $('.position-right_arrow-hor').css('display', 'block');
         $('.position-right__vector').css('display', 'none');
 
-        //Positon Function Till Mode
+        //Position Function Till Mode
         _dragWatermark(watermark, parentDrag, '');
         _paddingTill(watermarkImg, watermark);
         _getPaddingTill();
@@ -129,7 +129,7 @@ var mainJS = (function() {
             fileName.text(val);
     };
 
-//Position Funstions
+//Position Function
 
     var  _dragWatermark = function(dragBlock, container, func) {
         dragBlock.draggable({
@@ -328,7 +328,7 @@ var mainJS = (function() {
         });
     };
 
-//Reset Funciton
+//Reset Function
     var resetForm = function() {
         $('.buttons__reset').on('click', function(){
             $('.image-view__water-img').css('left', 0),
@@ -340,7 +340,7 @@ var mainJS = (function() {
         })
     };
 
-//Disable Functions
+//Disable Function
     var _disableFunc = function() {
 
         $('#fileupload').on('change', function() {

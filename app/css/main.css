@@ -409,13 +409,12 @@ p {
 }
 
 .position-right__vector {
-  display: inline-block;
-  vertical-align: top;
+  display: inline-block !important;
   width: 13px;
   font-family: "RobotoLight";
   font-size: 16px;
   color: #2e3641;
-  padding-top: 15px;
+  padding-top: 10px;
 }
 
 .position-right_arrow-vert {

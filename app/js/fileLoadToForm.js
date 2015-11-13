@@ -11,7 +11,7 @@ var fileLoadToForm = (function () {
         _fileUploadFunc('#fileuploadWat','.image-view__water-img');
     };
 
-//Загрузка файлов на сервер jQueri File Upload
+//Загрузка файлов на сервер jQuery File Upload
     var _fileUploadFunc = function (inputFile,container) {
 
         var inputImg = $(inputFile),
