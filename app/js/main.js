@@ -112,7 +112,7 @@ var mainJS = (function() {
         _getPaddingTill();
         //Opacity Function Listen
         _opacity(watermark,opacity);
-    }
+    };
 
 
 //Function Upload Name
@@ -332,12 +332,12 @@ var mainJS = (function() {
     var resetForm = function() {
         $('.buttons__reset').on('click', function(){
             $('.wrap-image-view__water-till-block').css('opacity', 1),
-            $('.image-view__water-img').css('left', 0),
-            $('.image-view__water-img').css('top', 0),
-                $('.position-right__input-top').spinner('value', 0),
-                $('.position-right__input-bot').spinner('value', 0),
+                watermark.css('left', 0),
+                watermark.css('top', 0),
+                inputX.spinner('value', 0),
+                inputY.spinner('value', 0),
                 $('.opacity__slider').slider("value", 1),
-                $('.image-view__water-img').css('opacity', 1)
+                watermark.css('opacity', 1)
         })
     };
 
@@ -419,6 +419,17 @@ var lang = function () {
         $('#rus').on('click', function(){
             $('#eng').removeClass('active');
             $('#rus').addClass('active');
+        });
+
+        $('.position-right__input-top').on('click input keydown', function() {
+            if (this.value.match(/[^0-9]/g)) {
+                this.value = this.value.replace(/[^0-9]/g, '')
+            };
+        });
+        $('.position-right__input-bot').on('click input keydown', function() {
+            if (this.value.match(/[^0-9]/g)) {
+                this.value = this.value.replace(/[^0-9]/g, '')
+            };
         });
     };
 
