@@ -312,7 +312,7 @@ var mainJS = (function() {
             $('.position-left__till-item_btm-left').css('border-right-width', borderX);
             $('.position-left__till-item_btm-right').css('border-left-width', borderX);
         }
-    }
+    };
 
 //Opacity Function
     var _opacity = function(water, opacValue) {
@@ -331,6 +331,7 @@ var mainJS = (function() {
 //Reset Function
     var resetForm = function() {
         $('.buttons__reset').on('click', function(){
+            $('.wrap-image-view__water-till-block').css('opacity', 1),
             $('.image-view__water-img').css('left', 0),
             $('.image-view__water-img').css('top', 0),
                 $('.position-right__input-top').spinner('value', 0),
