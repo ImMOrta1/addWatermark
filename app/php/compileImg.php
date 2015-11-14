@@ -200,6 +200,10 @@ function removeDirectory($dir) {
 				$im=$watermark->create_watermark($im1,$till_img,$posX,$posY,$opacity_water);
 			}
 
+			if (!(file_exists('results'))) {
+				mkdir('results');
+			}
+
 			$finalName = 'results/' . random(8) . '-water.jpg';
 
   			imagejpeg($im,$finalName, 90);
