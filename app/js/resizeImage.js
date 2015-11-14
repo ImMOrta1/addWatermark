@@ -8,8 +8,11 @@ var resizeImage = (function () {
             var $this = $(this),
                 widthMainNatural = $this.width(),
                 heightMainNatural = $this.height(),
-                ImgContainer = $this.closest('.image-view__container-main-image'),
+                ImgContainer = $this.closest('.image-view__container-main-image');
                 q = ImgContainer.attr('data-ratio');
+
+            ImgContainer.attr('data-width', widthMainNatural);
+            ImgContainer.attr('data-height', heightMainNatural);
 
             if (widthMainNatural > heightMainNatural) {
                 if (widthMainNatural > 650) {
@@ -66,6 +69,8 @@ var resizeImage = (function () {
                     ImgContainer.css("height", heightContainer);
                 }
             }
+
+            $('.change-view__link_normal').trigger('click');
         })
     }
 
@@ -77,7 +82,20 @@ var resizeImage = (function () {
                 widthWaterNatural = $this.width(),
                 heightWaterNatural = $this.height(),
                 ImgContainer = $this.closest('.image-view__container-main-image'),
-                q = ImgContainer.attr('data-ratio');
+                q = ImgContainer.attr('data-ratio'),
+                widthMainNatural = ImgContainer.attr('data-width'),
+                heightMainNatural = ImgContainer.attr('data-height');
+
+            if (widthWaterNatural > widthMainNatural) {
+                $this.width(widthMainNatural);
+                widthWaterNatural = $this.width();
+                heightWaterNatural = $this.height();
+            }
+            if (heightWaterNatural > heightMainNatural) {
+                $this.height(heightMainNatural);
+                widthWaterNatural = $this.width();
+                heightWaterNatural = $this.height();
+            }
 
             if (!(q == 0)) {
                 var widthWater = widthWaterNatural / q,
@@ -117,8 +135,8 @@ var resizeImage = (function () {
             verticalElemsBlock = verticalElems * 2;
             tillBlock.attr('data-y-elem', verticalElemsBlock);
 
-            widthElemsBlock = widthWater * horizontalElemsBlock;
-            heightElemsBlock = heightWater * verticalElemsBlock;
+            widthElemsBlock = (widthWater+15) * horizontalElemsBlock;
+            heightElemsBlock = (heightWater+15) * verticalElemsBlock;
 
             tillBlock.css('width', widthElemsBlock);
             tillBlock.css('height', heightElemsBlock);
@@ -132,6 +150,13 @@ var resizeImage = (function () {
 
             $('.image-view__water-till-img').attr('width', widthWater);
             $('.image-view__water-till-img').attr('height', heightWater);
+            $('.image-view__water-till-img').css('padding-right', 15);
+            $('.image-view__water-till-img').css('padding-bottom', 15);
+
+            centerLeft = widthContainerImages / 2 + widthContainerImages / 4;
+            centerTop = heightContainerImages / 2 + heightContainerImages / 4;
+            tillBlock.css('left', -centerLeft);
+            tillBlock.css('top', -centerTop);
         })
     }
 
