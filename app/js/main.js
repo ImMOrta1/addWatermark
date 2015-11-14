@@ -386,7 +386,7 @@ var mainJS = (function() {
             .done(function(ans) {
                 if (ans.status ==='OK') {
                     console.log(ans.text);
-                    document.location = 'php/' + ans.url;
+                    window.location = 'php/download.php?url=' + ans.url;
                 } else {
                     console.log(ans.text);
                 }

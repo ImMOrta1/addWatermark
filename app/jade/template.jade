@@ -16,7 +16,7 @@ html(lang="ru-RU")
 					.image-view__text
 						h1.image-view__title Генератор водяных знаков
 					.image-view__container
-						.image-view__container-main-image(data-ratio=0)
+						.image-view__container-main-image(data-ratio=0 data-width=0 data-height=0)
 							img.image-view__main-img
 							img.image-view__water-img
 							.wrap-image-view__water-till-block(data-x-elem=0 data-y-elem=0)
@@ -116,6 +116,7 @@ html(lang="ru-RU")
 		script(src="bower/blueimp-file-upload/js/jquery.iframe-transport.js")
 		script(src="bower/blueimp-file-upload/js/jquery.fileupload.js")
 		script(src="bower/sweetalert/dist/sweetalert.min.js")
+		script(src="bower/jquery-file-download/src/Scripts/jquery.fileDownload.js")
 		script(src="js/fileLoadToForm.js")
 		script(src="js/main.js")
 		script(src="js/resizeImage.js")
