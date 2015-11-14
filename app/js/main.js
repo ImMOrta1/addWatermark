@@ -467,25 +467,3 @@ var Popup = (function() {
 }());
 
 Popup.init();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> e819fe648b6210028fd6c1c5a938a30d01aee42f
