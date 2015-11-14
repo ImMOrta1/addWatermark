@@ -17,7 +17,8 @@ html(lang="ru-RU")
 					.image-view__container
 						.image-view__container-main-image(data-ratio=0)
 							img.image-view__main-img
-							img.image-view__water-img
+							.wrap-image-view__water-img
+								img.image-view__water-img
 
 				aside.saidbar
 					form(id="upload" action="php/compileImg.php" method="POST" enctype="multipart/form-data")
@@ -67,7 +68,6 @@ html(lang="ru-RU")
 											a.position-right__down(href="#")
 						.opacity.opacity__style.separator
 							.opacity__title Прозрачность
-							input.opacity__input-invis(type="text" value="0" name="opacityWater")
 							.opacity__slider
 
 						.buttons.separator
@@ -86,5 +86,5 @@ html(lang="ru-RU")
 		script(src="bower/blueimp-file-upload/js/jquery.fileupload.js")
 		script(src="bower/sweetalert/dist/sweetalert.min.js")
 		script(src="js/fileLoadToForm.js")
-		script(src="js/mainTest.js")
+		script(src="js/mainTiling.js")
 		script(src="js/resizeImage.js")

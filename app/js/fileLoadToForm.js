@@ -51,7 +51,7 @@ var fileLoadToForm = (function () {
                     resizeImage.resizeMain(container)
                 } 
                 if (container == '.image-view__water-img') {
-                    resizeImage.resizeWater(container)
+                    resizeImage.resizeWater(container);
                 } 
 
 
