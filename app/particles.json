@@ -8,7 +8,7 @@
       }
     },
     "color": {
-      "value": "#dc5a5a"
+      "value": "#fff"
     },
     "shape": {
       "type": "circle",
@@ -106,8 +106,7 @@
       }
     }
   },
-  "retina_detect": true
-}
+  "retina_detect": true,
   "config_demo": {
     "hide_card": false,
     "background_color": "#b61924",
