@@ -29,14 +29,10 @@ var mainJS = (function() {
 
         //Disable letters function
         $('.position-right__input-top').on('click input keydown', function() {
-            if (this.value.match(/[^0-9]/g)) {
-                this.value = this.value.replace(/[^0-9]/g, '')
-            }
+            $(this).prop('disabled', true);
         });
         $('.position-right__input-bot').on('click input keydown', function() {
-            if (this.value.match(/[^0-9]/g)) {
-                this.value = this.value.replace(/[^0-9]/g, '')
-            }
+            $(this).prop('disabled', true);
         });
 
         //Disable Functions Start
@@ -416,7 +412,7 @@ var mainJS = (function() {
 
 mainJS.init();
 
-//------------change languages----------------
+//------------change languages buttons----------------
 var lang = function () {
     var langInit = function () {
         _setupListners();
@@ -439,4 +435,25 @@ var lang = function () {
 }();
 
 lang.init();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
