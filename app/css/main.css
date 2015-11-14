@@ -742,6 +742,7 @@ p {
 
 .icons__social-item {
   display: block;
+  cursor: pointer;
 }
 
 .icons__social-item_fb {

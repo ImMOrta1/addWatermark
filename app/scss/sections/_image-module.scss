@@ -631,6 +631,7 @@
 }
 .icons__social-item{
   display: block;
+  cursor: pointer;
 }
 .icons__social-item_fb{
   @include get-sprite($map2, fb);
