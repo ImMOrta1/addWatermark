@@ -5,6 +5,7 @@ body {
   color: #333;
   background: url(../img/site-bg.jpg) top center no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 html, body {
@@ -50,7 +51,7 @@ p {
   position: relative;
   min-width: 1050px;
   min-height: 100%;
-  padding-top: 100px;
+  padding-top: 80px;
   box-sizing: border-box;
 }
 
@@ -114,6 +115,9 @@ p {
   color: #fff;
   margin-top: 0;
   padding-top: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .image-view__container {
@@ -185,6 +189,9 @@ p {
   font-size: 26px;
   color: #2e3641;
   line-height: 28px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .sidebar__disable {
@@ -222,6 +229,9 @@ p {
   font-size: 14px;
   margin-bottom: 7px;
   color: #2e3641;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .file-upload__container {
@@ -254,6 +264,7 @@ p {
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
   cursor: pointer;
+  background: #f7f7f7;
 }
 
 .file-upload__icon {
@@ -302,8 +313,12 @@ p {
 }
 
 .position__title {
+  width: 150px;
   padding-top: 13px;
   margin-bottom: 34px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .position-container:before, .position-container:after {
@@ -360,7 +375,11 @@ p {
   height: 100%;
 }
 .position-left__link:hover {
-  background: #eee;
+  background: #bfcbd9;
+  -webkit-transition: 0.7s;
+  -moz-transition: 0.7s;
+  -o-transition: 0.7s;
+  transition: 0.7s;
 }
 
 .position-left__item_active {
@@ -473,7 +492,7 @@ p {
   height: 19px;
   width: 19px;
 }
-.change-view__link_normal:hover {
+.change-view__link_normal:hover, .change-view__link_normal.active {
   background: url('../img/icons-s0883b82317.png') 0 -776px no-repeat;
   height: 19px;
   width: 19px;
@@ -484,7 +503,7 @@ p {
   height: 19px;
   width: 19px;
 }
-.change-view__link_multi:hover {
+.change-view__link_multi:hover, .change-view__link_multi.active {
   background: url('../img/icons-s0883b82317.png') 0 -598px no-repeat;
   height: 19px;
   width: 19px;
@@ -512,13 +531,14 @@ p {
 }
 
 .ui-widget-content {
-  background: #f1f1f5 !important;
+  background: none !important;
   color: #444a53 !important;
   font-size: 24px !important;
   line-height: 24px !important;
 }
 
 .ui-spinner-input {
+  background: #f7f7f7 !important;
   font-family: "SegoeUILight" !important;
   width: 45px;
   padding: 6px 0 !important;
@@ -529,11 +549,11 @@ p {
 }
 
 .ui-state-default {
-  background: none !important;
+  background: #f1f1f5 !important;
 }
 
 .ui-state-hover {
-  background-image: none !important;
+  background-image: #f1f1f5 !important;
 }
 
 .ui-spinner-down {
@@ -595,6 +615,9 @@ p {
 
 .opacity__title {
   margin-bottom: 27px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .opacity__input-invis {
@@ -675,6 +698,13 @@ p {
   background-clip: padding-box;
   outline: none;
 }
+.buttons__reset:hover {
+  background: #839fb3;
+  -webkit-transition: 0.7s;
+  -moz-transition: 0.7s;
+  -o-transition: 0.7s;
+  transition: 0.7s;
+}
 
 .buttons__download {
   float: right;
@@ -693,6 +723,13 @@ p {
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
   outline: none;
+}
+.buttons__download:hover {
+  background: #d73d33;
+  -webkit-transition: 0.7s;
+  -moz-transition: 0.7s;
+  -o-transition: 0.7s;
+  transition: 0.7s;
 }
 
 .icons {
