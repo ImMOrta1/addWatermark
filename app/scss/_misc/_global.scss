@@ -18,6 +18,7 @@ body {
 	color: #333;
 	background: url(../img/site-bg.jpg) top center no-repeat;
 	background-size: cover;
+	background-attachment: fixed;
 }
 
 html, body {
@@ -58,7 +59,7 @@ p {
 	position: relative;
 	min-width: 1050px;
 	min-height: 100%;
-	padding-top: 100px;
+	padding-top: 80px;
 	box-sizing: border-box;
 }
 

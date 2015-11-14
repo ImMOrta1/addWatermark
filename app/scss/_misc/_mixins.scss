@@ -64,3 +64,10 @@ $map2: sprite-map('social/*.png', $spacing: 70px);
 	bottom: 0;
 	margin: auto;
 }
+
+@mixin transition {
+	-webkit-transition: 0.7s;
+    -moz-transition: 0.7s;
+    -o-transition: 0.7s;
+    transition: 0.7s;
+}
