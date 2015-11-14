@@ -154,7 +154,7 @@
 				}
 			} elseif ($watermark_img_obj_h > $main_img_obj_h) {
 					$new_watermark_h = $main_img_obj_h;
-					$new_watermark_w = $new_watermark_w / $watermark_img_obj_h * $main_img_obj_h;
+					$new_watermark_w = $watermark_img_obj_w / $watermark_img_obj_h * $main_img_obj_h;
 			} else {
 				$new_watermark_h = $watermark_img_obj_h;
 				$new_watermark_w = $watermark_img_obj_w;
