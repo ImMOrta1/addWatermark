@@ -32,6 +32,9 @@
 	color: #fff;
 	margin-top: 0;
 	padding-top: 0;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .image-view__container {
@@ -97,6 +100,9 @@
 	font-size: 26px;
 	color: $black;
 	line-height: 28px;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .sidebar__disable {
@@ -135,6 +141,9 @@
 	font-size: 14px;
 	margin-bottom: 7px;
 	color: $black;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .file-upload__container {
@@ -160,6 +169,7 @@
 	outline: 0px;
 	@include border-radius;
 	cursor: pointer;
+	background: #f7f7f7;
 }
 	
 .file-upload__icon {
@@ -208,8 +218,12 @@
 }
 
 .position__title {
+	width: 150px;
 	padding-top: 13px;
 	margin-bottom: 34px;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 
@@ -236,7 +250,7 @@
 	background: $lightGrey;
 	width: 33px;
 	height: 33px;
-	box-sizing:border-box;
+	box-sizing: border-box;
 
 	&:nth-child(3n) {
 		border-right: 0;
@@ -261,7 +275,8 @@
 	height: 100%;
 
 	&:hover {
-		background: #eee;
+		background: #bfcbd9;
+		@include transition;
 	}
 
 	&_active {
@@ -372,7 +387,7 @@
 .change-view__link_normal {
 	@include get-sprite($map, view-normal);
 
-	&:hover {
+	&:hover, &.active {
 		@include get-sprite($map, view-normal-hover);
 	}
 }
@@ -380,7 +395,7 @@
 .change-view__link_multi {
 	@include get-sprite($map, view-multi);
 
-	&:hover {
+	&:hover, &.active {
 		@include get-sprite($map, view-multi-hover);
 	}
 }
@@ -394,20 +409,21 @@
 	display: block;
 }
 
-// opacity -----------------------------------------
+// spinners -----------------------------------------
 .opacity__input-invis {
   position: absolute;
   top: 0;
   left: -9999px;
 }
 .ui-widget-content {
-	background: #f1f1f5 !important;
+	background: none !important;
 	color: #444a53 !important;
 	font-size: 24px !important;
 	line-height: 24px !important;
 }
 
 .ui-spinner-input {
+	background: #f7f7f7 !important;
 	font-family: "SegoeUILight" !important;
 	width: 45px;
 	padding: 6px 0 !important;
@@ -418,11 +434,11 @@
 }
 
 .ui-state-default {
-	background: none !important;
+	background: #f1f1f5 !important;
 }
 
 .ui-state-hover {
-	background-image: none !important;
+	background-image: #f1f1f5 !important;
 }
 
 .ui-spinner-down {
@@ -484,6 +500,9 @@
 }
 .opacity__title {
 	margin-bottom: 27px;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .opacity__input-invis {
   position: absolute;
@@ -518,6 +537,7 @@
 
 	&:hover {
 		background: url('../img/icons-s0883b82317.png') 0 -410px no-repeat !important;
+		cursor: pointer !important;
 	}
 }
 
@@ -554,6 +574,11 @@
 	color: #fff;
 	@include border-radius;
 	outline: none;
+
+	&:hover {
+		background: #839fb3;
+		@include transition;
+	}
 }
 
 .buttons__download {
@@ -568,6 +593,11 @@
 	color: #fff;
 	@include border-radius;
     outline: none;
+
+    &:hover {
+    	background: #d73d33;
+    	@include transition;
+	}
 }
 
 //-------------Language--------------
