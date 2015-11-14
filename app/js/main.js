@@ -505,3 +505,4 @@ var resetFunc = function () {
 }();
 
 resetFunc.init();
+
