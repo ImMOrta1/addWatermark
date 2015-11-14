@@ -30,7 +30,7 @@ html(lang="ru-RU")
 							label.file-upload__label
 								.file-upload__title Исходное изображение
 								.file-upload__container
-									input.file-upload__input(type="file" id="fileupload" name="files[]" accept="image/jpeg, image/jpg")
+									input.file-upload__input(type="file" id="fileupload" name="files[]" accept="image/jpeg, image/jpg, image/png")
 									.file-upload__fake#fake выберите рисунок
 									.file-upload__icon
 									input.file-upload__inputInvis(type="text" name="mainFileText" id="mainFileText")
@@ -38,7 +38,7 @@ html(lang="ru-RU")
 							label.file-upload__label
 								.file-upload__title Водяной знак
 								.file-upload__container
-									input.file-upload__input(type="file" id="fileuploadWat" accept="image/png")
+									input.file-upload__input(type="file" id="fileuploadWat" accept="image/jpeg, image/jpg, image/png")
 									.file-upload__fake#fakeWat выберите водяной знак
 									.file-upload__icon
 									input.file-upload__inputInvis(type="text" name="waterFileText" id="waterFileText")
@@ -79,7 +79,7 @@ html(lang="ru-RU")
 							.change-view
 								ul.change-view__list
 									li.change-view__item
-										a.change-view__link.change-view__link_normal(href="#")
+										a.change-view__link.change-view__link_normal.active(href="#")
 									li.change-view__item
 										a.change-view__link.change-view__link_multi(href="#")
 
@@ -108,7 +108,7 @@ html(lang="ru-RU")
 								a.icons__social-link(href="#")
 
 
-		footer.footer © 2014, Это мой сайт, пожалуйста, не копируйте и не воруйте его
+		footer.footer © 2015. addWatermark - разработка D.I.M.A. unity
 
 		script(src="bower/jquery/dist/jquery.js")
 		script(src="bower/qtip2/jquery.qtip.js")

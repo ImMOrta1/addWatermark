@@ -27,6 +27,14 @@ var mainJS = (function() {
         $('#fileuploadWat').on('change', _uploadInfoWat);
         $('#fileupload').on('change', _uploadInfo);
 
+        //Disable letters function
+        $('.position-right__input-top').on('click input keydown', function() {
+            $(this).prop('disabled', true);
+        });
+        $('.position-right__input-bot').on('click input keydown', function() {
+            $(this).prop('disabled', true);
+        });
+
         //Upload to Server 
         $('#upload').on('submit', _ajaxServer);
 
@@ -67,6 +75,10 @@ var mainJS = (function() {
         $('.position-right_arrow-hor').css('display', 'none');
         $('.position-right__vector').css('display', 'block');
 
+        $('.change-view__link_normal').removeClass('active');
+        $('.change-view__link_normal').addClass('active');
+        $('.change-view__link_multi').removeClass('active');
+
         positionFix('width','left',watermark,bgContainer);
         positionFix('height','top',watermark,bgContainer);
 
@@ -98,13 +110,17 @@ var mainJS = (function() {
         $('.position-right_arrow-hor').css('display', 'block');
         $('.position-right__vector').css('display', 'none');
 
+        $('.change-view__link_multi').removeClass('active');
+        $('.change-view__link_multi').addClass('active');
+        $('.change-view__link_normal').removeClass('active');
+
         //Position Function Till Mode
         _dragWatermark(watermark, parentDrag, '');
         _paddingTill(watermarkImg, watermark);
         _getPaddingTill();
         //Opacity Function Listen
         _opacity(watermark,opacity);
-    }
+    };
 
 
 //Function Upload Name
@@ -303,7 +319,7 @@ var mainJS = (function() {
             $('.position-left__till-item_btm-left').css('border-right-width', borderX);
             $('.position-left__till-item_btm-right').css('border-left-width', borderX);
         }
-    }
+    };
 
 //Opacity Function
     var _opacity = function(water, opacValue) {
@@ -373,11 +389,11 @@ var mainJS = (function() {
 
 mainJS.init();
 
-//------------change languages----------------
+//------------change languages buttons----------------
 var lang = function () {
     var langInit = function () {
         _setupListners();
-    }
+    };
     var _setupListners = function(){
         $('#eng').on('click', function(){
             $('.icons__lang-item').removeClass('active');
@@ -458,5 +474,3 @@ var resetFunc = function () {
 }();
 
 resetFunc.init();
-
-
