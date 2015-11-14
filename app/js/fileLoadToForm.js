@@ -11,13 +11,14 @@ var fileLoadToForm = (function () {
         _fileUploadFunc('#fileuploadWat','.image-view__water-img');
     };
 
-//Загрузка файлов на сервер jQueri File Upload
+//Загрузка файлов на сервер jQuery File Upload
     var _fileUploadFunc = function (inputFile,container) {
 
         var inputImg = $(inputFile),
             inputImgContainer = inputImg.closest('.file-upload__container'),
             fakeTextUrl = inputImgContainer.find('.file-upload__inputInvis'),
-            fileNameText = inputImgContainer.find('.file-upload__fake');
+            fileNameText = inputImgContainer.find('.file-upload__fake'),
+            wrapContainer = $(container).closest('.image-view__container-main-image');
 
         $(inputFile).fileupload({
 
@@ -43,17 +44,19 @@ var fileLoadToForm = (function () {
                 var imgObj = JSON.parse(data.result),
                     imgUrl = imgObj.files[0].url;
 
-                //Записываем путь до файла на сервере в background-image элемента
-                $(container).attr('src', imgUrl);
+                //Записываем путь до файла на сервере в src элемента
+                $(container).remove();
 
                 // Изменение размера изображений
                 if (container == '.image-view__main-img') {
-                    resizeImage.resizeMain(container)
+                    $('<img src="' + imgUrl + '">').prependTo(wrapContainer).addClass(container.slice(1));
+                    resizeImage.resizeMain(container);
                 } 
                 if (container == '.image-view__water-img') {
+                    $('<img src="' + imgUrl + '">').appendTo(wrapContainer).addClass(container.slice(1));
                     resizeImage.resizeWater(container);
+                    resizeImage.tillWater(container, imgUrl);
                 } 
-
 
                 //Сохраняем путь до файла на сервере в скрытый Input
                 fakeTextUrl.val(imgUrl);

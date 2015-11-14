@@ -15,7 +15,7 @@ var paths = {
 		},
 
 		scss : {
-			location	: 'app/scss/**/*scss',
+			location	: 'app/scss/**/*.scss',
 			entryPoint	: 'app/css/main.css',
 		},
 
@@ -27,7 +27,7 @@ var paths = {
 		},
 
 		browserSync : {
-			baseDir		: 'app',
+			baseDir		: 'app/',
 			watchPaths 	: ['app/*.html', 'app/css/*.css', 'app/js/*.js']
 		}
 }
@@ -61,6 +61,7 @@ gulp.task('sync', function() {
 	browserSync.init({
 		proxy: "addWatermark/app"
 		// server: {
+		//	port: 9000,
 		// 	baseDir: paths.browserSync.baseDir
 		// }
 	});

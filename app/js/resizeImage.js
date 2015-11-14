@@ -4,55 +4,66 @@ var resizeImage = (function () {
 	var resizeMain = function (image) {
         $(image).load(function() {
 
+
             var $this = $(this),
                 widthMainNatural = $this.width(),
-                heigthMainNatural = $this.height(),
+                heightMainNatural = $this.height(),
                 ImgContainer = $this.closest('.image-view__container-main-image'),
                 q = ImgContainer.attr('data-ratio');
 
-            if (widthMainNatural > heigthMainNatural) {
+            if (widthMainNatural > heightMainNatural) {
                 if (widthMainNatural > 650) {
                     q = widthMainNatural / 650;
                     ImgContainer.attr('data-ratio', q);
                     $this.width('650');
 
                     var widthContainer = $this.width(),
-                        heigthContainer = $this.height();
+                        heightContainer = $this.height();
 
                     ImgContainer.css("width", widthContainer);
-                    ImgContainer.css("height", heigthContainer);
+                    ImgContainer.css("height", heightContainer);
                 } else {
-                    q = 0;
-                    ImgContainer.attr('data-ratio', q);
+                    if (heightMainNatural > 530) {
+                        q = heightMainNatural / 530;
+                        ImgContainer.attr('data-ratio', q);
+                        $this.height('530');
 
-                    var widthContainer = $this.width(),
-                        heigthContainer = $this.height();
+                        var widthContainer = $this.width(),
+                            heightContainer = $this.height();
 
-                    ImgContainer.css("width", widthContainer);
-                    ImgContainer.css("height", heigthContainer);
+                        ImgContainer.css("width", widthContainer);
+                        ImgContainer.css("height", heightContainer);
+                    } else {
+                        q = 0;
+                        ImgContainer.attr('data-ratio', q);
+
+                        var widthContainer = $this.width(),
+                            heightContainer = $this.height();
+
+                        ImgContainer.css("width", widthContainer);
+                        ImgContainer.css("height", heightContainer);
+                    }
                 }
             } else {
-                if (heigthMainNatural > 530) {
-                    q = heigthMainNatural / 530;
+                if (heightMainNatural > 530) {
+                    q = heightMainNatural / 530;
                     ImgContainer.attr('data-ratio', q);
                     $this.height('530');
 
                     var widthContainer = $this.width(),
-                        heigthContainer = $this.height();
-
-                    console.log(widthContainer);
+                        heightContainer = $this.height();
 
                     ImgContainer.css("width", widthContainer);
-                    ImgContainer.css("height", heigthContainer);
+                    ImgContainer.css("height", heightContainer);
                 } else {
                     q = 0;
                     ImgContainer.attr('data-ratio', q);
 
                     var widthContainer = $this.width(),
-                        heigthContainer = $this.height();
+                        heightContainer = $this.height();
 
                     ImgContainer.css("width", widthContainer);
-                    ImgContainer.css("height", heigthContainer);
+                    ImgContainer.css("height", heightContainer);
                 }
             }
         })
@@ -64,88 +75,71 @@ var resizeImage = (function () {
 
             var $this = $(this);
                 widthWaterNatural = $this.width(),
-                heigthWaterNatural = $this.height(),
+                heightWaterNatural = $this.height(),
                 ImgContainer = $this.closest('.image-view__container-main-image'),
                 q = ImgContainer.attr('data-ratio');
 
             if (!(q == 0)) {
                 var widthWater = widthWaterNatural / q,
-                    heightWater = heigthWaterNatural / q;
-                    widthContainerImages = $('.image-view__container-main-image').css('width').slice(0, -2),
-                    heightContainerImages = $('.image-view__container-main-image').css('height').slice(0, -2),
-                    sourceWater = $('.image-view__water-img').attr('src');
+                    heightWater = heightWaterNatural / q;
 
-                horizontalElems = Math.round(widthContainerImages / widthWater);
-                horizontalElemsBlock = horizontalElems * 2;
-                verticalElems = Math.round(heightContainerImages / heightWater);
-                verticalElemsBlock = verticalElems * 2;
-
-                widthElemsBlock = widthWater * (horizontalElemsBlock+2);
-                heigthElemsBlock = heightWater * (verticalElemsBlock+2);
-
-                $('.wrap-image-view__water-img').css('position', 'absolute');
-                $('.wrap-image-view__water-img').css('top', '0');
-                $('.wrap-image-view__water-img').css('left', '0');
-                $('.wrap-image-view__water-img').css('right', '0');
-                $('.wrap-image-view__water-img').css('bottom', '0');
-                $('.wrap-image-view__water-img').css('margin', 'auto');
-                $('.wrap-image-view__water-img').css('width', widthElemsBlock);
-                $('.wrap-image-view__water-img').css('height', heigthElemsBlock);
-
-                $('.image-view__container-main-image').css('overflow', 'hidden');
-
-
-
-                for (i = 1; i < verticalElemsBlock; i++ ) {
-                    for (j = 1; j < horizontalElemsBlock; j++ ) {
-                        $('<img src="' + sourceWater + '" class="image-view__water-img">').appendTo(".wrap-image-view__water-img");
-                    }
-                    $('<br/>').appendTo(".wrap-image-view__water-img");
-                }
-
-                $('.image-view__water-img').css('position', 'static');
-                $('.image-view__water-img').css('width', widthWater);
-                $('.image-view__water-img').css('height', heightWater);
+                    $this.width(widthWater);
+                    $this.height(heightWater);
+                    $this.addClass('ui-draggable ui-draggable-handle')
             }
+
+            $('.change-view__link_normal').trigger('click');
         })
     }
 
-//Tilling Block Function 
-    var tilingBlock = function () {
-        var widthWater = $('.image-view__water-img').attr('width'),
-            heightWater = $('.image-view__water-img').attr('height'),
-            widthContainerImages = $('.image-view__container-main-image').css('width'),
-            heightContainerImages = $('.image-view__container-main-image').css('height'),
-            sourceWater = $('.image-view__water-img').attr('src');
+// Tilling Water Image
+    var tillWater = function (image, url) {
+        $(image).load(function() {
 
-        console.log(widthWater);
-        console.log(heightWater);
-        console.log(widthContainerImages);
-        console.log(heightContainerImages);
+            $('.wrap-image-view__water-till-block').remove();
+            $('<div data-x-elem=0 data-y-elem=0>').appendTo(ImgContainer).addClass('wrap-image-view__water-till-block');
+
+            var $this = $(this);
+                widthWater = $this.width(),
+                heightWater = $this.height(),
+                ImgContainer = $this.closest('.image-view__container-main-image'),
+                q = ImgContainer.attr('data-ratio'),
+                tillBlock = $('.wrap-image-view__water-till-block');
+
+            widthContainerImages = ImgContainer.css('width').slice(0, -2);
+            heightContainerImages = ImgContainer.css('height').slice(0, -2);
 
 
-        horizontalElems = Math.round(widthContainerImages / widthWater);
-        horizontalElemsBlock = horizontalElems + Math.round(horizontalElems / 2);
-        verticalElems = Math.round(heightContainerImages / heightWater);
-        verticalElemsBlock = verticalElems + Math.round(verticalElems / 2);
-        console.log(horizontalElems);
-        console.log(horizontalElemsBlock);
-        console.log(verticalElems);
-        console.log(verticalElemsBlock);
+            horizontalElems = Math.round(widthContainerImages / widthWater);
+            horizontalElemsBlock = horizontalElems * 2;
+            tillBlock.attr('data-x-elem', horizontalElemsBlock);
+            verticalElems = Math.round(heightContainerImages / heightWater);
+            verticalElemsBlock = verticalElems * 2;
+            tillBlock.attr('data-y-elem', verticalElemsBlock);
 
-        for (i = 1; i < verticalElemsBlock; i++ ) {
-            for (j = 1; i < horizontalElemsBlock; j++ ) {
-                $('<img src="' + sourceWater + '" width=' + widthWater + ' height=' + heightWater + ' class="image-view__water-img">').appendTo(".wrap-image-view__water-img");
+            widthElemsBlock = widthWater * horizontalElemsBlock;
+            heightElemsBlock = heightWater * verticalElemsBlock;
+
+            tillBlock.css('width', widthElemsBlock);
+            tillBlock.css('height', heightElemsBlock);
+
+            for (i = 1; i < verticalElemsBlock; i++ ) {
+                for (j = 1; j < horizontalElemsBlock; j++ ) {
+                    $('<img src="' + url + '" class="image-view__water-till-img">').appendTo(tillBlock);
+                }
+                $('<br/>').appendTo(tillBlock);
             }
-            $('<br>').appendTo(".wrap-image-view__water-img");
-        }
-    };
+
+            $('.image-view__water-till-img').attr('width', widthWater);
+            $('.image-view__water-till-img').attr('height', heightWater);
+        })
+    }
 
 //Возвращаем значения
 	return {
 		resizeMain: resizeMain,
 		resizeWater: resizeWater,
-        tilingBlock: tilingBlock
+        tillWater: tillWater
 	}
 })();
 
