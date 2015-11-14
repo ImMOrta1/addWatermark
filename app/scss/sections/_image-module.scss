@@ -608,10 +608,12 @@
   left: 0;
   z-index: 10;
 }
+
 .icons__lang-list{
   padding: 0;
   margin: 0 0 20px;
 }
+
 .icons__lang-item{
   font-family: 'SegoeUILight';
   font-size: 18px;
@@ -629,6 +631,20 @@
 .icons__lang-link{
   text-decoration: none;
   color: #999ca1;
+}
+
+// instuctions ----------------------------
+.icons__instuctions {
+	margin-bottom: 20px;
+}
+
+.icons__instuctions_link {
+	display: block;
+	@include get-sprite($map2, instructions);
+
+	&:hover {
+		@include get-sprite($map2, instructions-hover);
+	}
 }
 
 //--------------Social buttons--------------
@@ -683,3 +699,37 @@
   }
 }
 
+
+// popup -----------------------
+.popup {
+	display: none;
+	top: 50%;
+	left: 50%;
+}
+
+.popup__container {
+	position: relative;
+	padding: 20px;
+	width: 500px;
+	background: #fff;
+	@include border-radius;
+}
+
+.popup__logo-container {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.popup__title {
+	text-align: center;
+	font-size: 24px;
+}
+
+.popup__text__list {
+	margin: 20px 0 0 40px;
+}
+
+.popup__text__item {
+	list-style: decimal;
+	margin-bottom: 10px;
+}

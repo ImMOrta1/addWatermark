@@ -427,3 +427,34 @@ var lang = function () {
 
 lang.init();
 
+// popup -----------------------------------
+
+var Popup = (function() {
+
+    var popupInit = function() {
+        _setUpListners();
+    };
+
+    var _setUpListners = function() {
+        _popup();
+    };
+
+    var _popup = function() {
+
+        $('.icons__instuctions_link').on('click', function(e) {
+            e.preventDefault();
+
+            $('.popup').bPopup({
+                positionStyle: 'fixed',
+                closeClass : 'popup-close',
+            });
+        });
+    };
+
+    return {
+        init: popupInit
+    };
+
+}());
+
+Popup.init();
