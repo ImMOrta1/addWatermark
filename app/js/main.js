@@ -27,15 +27,8 @@ var mainJS = (function() {
         $('#fileuploadWat').on('change', _uploadInfoWat);
         $('#fileupload').on('change', _uploadInfo);
 
-        //Disable Functions Start
-        _disableFunc();
-        _disableAlert();
-
         //Upload to Server 
         $('#upload').on('submit', _ajaxServer);
-
-        //Reset function 
-        resetForm();
 
         //Reset position function
         _setCoordinate(0,0);
@@ -60,6 +53,10 @@ var mainJS = (function() {
         parentDrag = bgContainer;
         opacity = watermark.css('opacity');
         ajaxPOST.mode = 'normal';
+        widthMain = bgContainer.css('width').slice(0, -2);
+        heightMain = bgContainer.css('height').slice(0, -2);
+        widthWatermark = watermark.css('width').slice(0, -2);
+        heightWatermark = watermark.css('height').slice(0, -2);
 
         $('.wrap-image-view__water-till-block').css('display', 'none');
         $('.image-view__water-img').css('display', 'block');
@@ -70,16 +67,11 @@ var mainJS = (function() {
         $('.position-right_arrow-hor').css('display', 'none');
         $('.position-right__vector').css('display', 'block');
 
-        $(watermark).change(function(event) {
-            console.log('I am hero')
-        });
-
-        $('#fileuploadWat').on('change', function(event) {
-
-        });
+        positionFix('width','left',watermark,bgContainer);
+        positionFix('height','top',watermark,bgContainer);
 
         //Position Function Normal Mode
-        _coordinates();
+        _coordinates( widthMain - widthWatermark, heightMain - heightWatermark);
         _dragWatermark(watermark, parentDrag, _dragGetSlice);
         _getCoordinates();
         $('.position-left__list li').on('click touchstart', _gridChange);
@@ -130,7 +122,6 @@ var mainJS = (function() {
     };
 
 //Position Function
-
     var  _dragWatermark = function(dragBlock, container, func) {
         dragBlock.draggable({
             containment: container,
@@ -144,9 +135,9 @@ var mainJS = (function() {
             _getCoordinates();
         };
 
-    var _coordinates = function() {
+    var _coordinates = function(maxX,maxY) {
 
-        _spinnerX.spinner({ min: 0, max: 650 });
+        _spinnerX.spinner({ min: 0, max: maxX });
         _spinnerX.on('spin', function(event, ui) {
             var currentValX = ui.value;
 
@@ -155,7 +146,7 @@ var mainJS = (function() {
             })
         });
 
-        _spinnerY.spinner({ min: 0, max: 530 });
+        _spinnerY.spinner({ min: 0, max: maxY });
         _spinnerY.on('spin', function(event, ui) {
             var currentValY = ui.value;
 
@@ -328,39 +319,18 @@ var mainJS = (function() {
         });
     };
 
-//Reset Function
-    var resetForm = function() {
-        $('.buttons__reset').on('click', function(){
-            $('.image-view__water-img').css('left', 0),
-            $('.image-view__water-img').css('top', 0),
-                $('.position-right__input-top').spinner('value', 0),
-                $('.position-right__input-bot').spinner('value', 0),
-                $('.opacity__slider').slider("value", 1),
-                $('.image-view__water-img').css('opacity', 1)
-        })
-    };
+// Fix position 
+    var positionFix = function(mode, mode_pos, mark, main) {
+        var param1 = $(mark).css(mode_pos).slice(0, -2),
+            param2 = $(mark).css(mode).slice(0, -2),
+            param3 = $(main).css(mode).slice(0, -2),
+            ifParam = Number(param1) + Number(param2),
+            result = Number(param3) - Number(param2);
 
-//Disable Function
-    var _disableFunc = function() {
-
-        $('#fileupload').on('change', function() {
-            $('.sidebar__disable').addClass('sidebar__disable_settings')
-        });
-
-        $('#fileuploadWat').on('change', function() {
-            $('.sidebar__disable').addClass('sidebar__disable_none')
-        });
-    };
-
-    var _disableAlert = function() {
-        $('.sidebar__disable').on('click', function() {
-            swal({
-                title: 'Вы забыли выбрать изображения',
-                text: 'Для включения настроек изменения водяного знака сначала выберите необходимые вам изображения!',
-                confirmButtonText: "Продолжить работу"
-            });
-        });
-    };
+        if (ifParam > param3) {
+            $(mark).css(mode_pos,result)
+        }
+    }
 
 //Upload to Server Function
     var _ajaxServer = function (event) {
@@ -426,4 +396,67 @@ var lang = function () {
 }();
 
 lang.init();
+
+// -----------  Disable Functions -----------
+var disableFuncs = function () {
+    var disableInit = function () {
+        _setupListners();
+    }
+    var _setupListners = function(){
+        _disableFunc();
+        _disableAlert();
+    };
+
+    var _disableFunc = function() {
+
+        $('#fileupload').on('change', function() {
+            $('.sidebar__disable').addClass('sidebar__disable_settings')
+        });
+
+        $('#fileuploadWat').on('change', function() {
+            $('.sidebar__disable').addClass('sidebar__disable_none')
+        });
+    };
+
+    var _disableAlert = function() {
+        $('.sidebar__disable').on('click', function() {
+            swal({
+                title: 'Вы забыли выбрать изображения',
+                text: 'Для включения настроек изменения водяного знака сначала выберите необходимые вам изображения!',
+                confirmButtonText: "Продолжить работу"
+            });
+        });
+    };
+
+    return {
+        init: disableInit
+    }
+}();
+
+disableFuncs.init();
+
+
+// ------------ Reset Function ------------
+var resetFunc = function () {
+    var resetInit = function () {
+        _setupListners();
+    }
+    var _setupListners = function(){
+        $('.buttons__reset').on('click', function(){
+            $('.image-view__water-img').css('left', 0),
+            $('.image-view__water-img').css('top', 0),
+            $('.position-right__input-top').spinner('value', 0),
+            $('.position-right__input-bot').spinner('value', 0),
+            $('.opacity__slider').slider("value", 1),
+            $('.image-view__water-img').css('opacity', 1)
+        })
+    };
+
+    return {
+        init: resetInit
+    }
+}();
+
+resetFunc.init();
+
 

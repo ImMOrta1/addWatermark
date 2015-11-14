@@ -69,6 +69,8 @@ var resizeImage = (function () {
                     ImgContainer.css("height", heightContainer);
                 }
             }
+
+            $('.change-view__link_normal').trigger('click');
         })
     }
 
@@ -133,8 +135,8 @@ var resizeImage = (function () {
             verticalElemsBlock = verticalElems * 2;
             tillBlock.attr('data-y-elem', verticalElemsBlock);
 
-            widthElemsBlock = widthWater * horizontalElemsBlock;
-            heightElemsBlock = heightWater * verticalElemsBlock;
+            widthElemsBlock = (widthWater+15) * horizontalElemsBlock;
+            heightElemsBlock = (heightWater+15) * verticalElemsBlock;
 
             tillBlock.css('width', widthElemsBlock);
             tillBlock.css('height', heightElemsBlock);
@@ -148,6 +150,13 @@ var resizeImage = (function () {
 
             $('.image-view__water-till-img').attr('width', widthWater);
             $('.image-view__water-till-img').attr('height', heightWater);
+            $('.image-view__water-till-img').css('padding-right', 15);
+            $('.image-view__water-till-img').css('padding-bottom', 15);
+
+            centerLeft = widthContainerImages / 2 + widthContainerImages / 4;
+            centerTop = heightContainerImages / 2 + heightContainerImages / 4;
+            tillBlock.css('left', -centerLeft);
+            tillBlock.css('top', -centerTop);
         })
     }
 

@@ -63,7 +63,7 @@ var fileLoadToForm = (function () {
 
                 // Отрезаем лишнию часть пути, для вывода в fakeInput
                 fileName = imgUrl.replace(/.+[\\\/]/, "");
-                fileNameText.text(fileName);
+                fileNameText.text(decodeURI(fileName));
                 console.log('done');
             }
 
