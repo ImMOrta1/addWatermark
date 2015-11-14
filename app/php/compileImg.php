@@ -137,6 +137,40 @@
 
 		}
 
+		function resize_watermark($main_img_obj, $watermark_img_obj) {
+
+			$main_img_obj_w	= imagesx( $main_img_obj );
+			$main_img_obj_h	= imagesy( $main_img_obj );
+			$watermark_img_obj_w	= imagesx( $watermark_img_obj );
+			$watermark_img_obj_h	= imagesy( $watermark_img_obj );
+
+			if ($watermark_img_obj_w > $main_img_obj_w) {
+				$new_watermark_w = $main_img_obj_w;
+				$new_watermark_h = $watermark_img_obj_h / $watermark_img_obj_w * $main_img_obj_w;
+
+				if ($new_watermark_h > $main_img_obj_h) {
+					$new_watermark_h = $main_img_obj_h;
+					$new_watermark_w = $new_watermark_w / $new_watermark_h * $main_img_obj_h;
+				}
+			} elseif ($watermark_img_obj_h > $main_img_obj_h) {
+					$new_watermark_h = $main_img_obj_h;
+					$new_watermark_w = $new_watermark_w / $watermark_img_obj_h * $main_img_obj_h;
+			} else {
+				$new_watermark_h = $watermark_img_obj_h;
+				$new_watermark_w = $watermark_img_obj_w;
+			}
+
+			$return_img = imagecreatetruecolor($new_watermark_w, $new_watermark_h);
+
+			imageAlphaBlending($return_img, false);
+			imageSaveAlpha($return_img, true);
+
+			ImageCopyResampled($return_img, $watermark_img_obj, 0, 0, 0, 0, $new_watermark_w, $new_watermark_h, $watermark_img_obj_w, $watermark_img_obj_h); 
+
+			return $return_img;
+
+		}
+
 }
 
 function image_unpack($type, $file) {
@@ -194,8 +228,10 @@ function removeDirectory($dir) {
 
 			$watermark = new watermark3();
 			if ($mode == 'normal') {
+				$im2=$watermark->resize_watermark($im1,$im2);
 				$im=$watermark->create_watermark($im1,$im2,$posX,$posY,$opacity_water);
 			} elseif ($mode == 'till') {
+				$im2=$watermark->resize_watermark($im1,$im2);
 				$till_img=$watermark->till_image($im1,$im2,$margY,$margX);
 				$im=$watermark->create_watermark($im1,$till_img,$posX,$posY,$opacity_water);
 			}
