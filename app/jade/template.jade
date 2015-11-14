@@ -100,6 +100,10 @@ html(lang="ru-RU")
 						a.icons__lang-link(href="#") РУС
 					li.icons__lang-item#eng
 						a.icons__lang-link(href="#") ENG
+
+				.icons__instuctions
+					a.icons__instuctions_link(href="#")
+
 				.icons__social
 					a.icons__social-link.like(href="#")
 					ul.icons__social-list
@@ -107,6 +111,22 @@ html(lang="ru-RU")
 						each item in items
 							li(class="icons__social-item icons__social-item_" + item)
 								a.icons__social-link(href="#")
+
+			.popup
+				.popup__container
+					.popup__logo-container
+						img.popup__logo(src="img/popup-logo.png")
+					.poput__content
+						h2.popup__title Как пользоваться приложением
+						ol.popup__text__list
+							li.popup__text__item Выберите и загрузите рисунок с помощь первого поля выбора файла
+							li.popup__text__item Выберите и загрузите рисунок водяного знака с помощь второго поля выбора файла
+							li.popup__text__item После выбора файлов основного рисунка и вотермарка станут доступня различные настройки.
+							li.popup__text__item Используйте настройки манипуляции и вотермарком
+							li.popup__text__item Если вас не устраивают настройки вотермарка нажмите кнопку сброс
+							li.popup__text__item Для сохранения результата нажмите кнопку скачать
+
+
 
 
 		footer.footer © 2015. addWatermark - разработка D.I.M.A. unity
@@ -120,7 +140,8 @@ html(lang="ru-RU")
 		script(src="js/fileLoadToForm.js")
 		script(src="js/main.js")
 		script(src="js/resizeImage.js")
+		script(src="bower/bPopup/jquery.bpopup.min.js")
+		script(src="bower/particles.js/particles.min.js")
 		script(src="particles.js")
 		script(src="js/app.js")
 		script(src="js/lib/stats.js")
-

@@ -8,6 +8,7 @@
     "normalize-css": "normalize.css#~3.0.3",
     "modernizr": "~2.8.3",
     "sweetalert": "~1.1.3",
-    "particles.js": "~2.0.0"
+    "particles.js": "~2.0.0",
+    "bPopup": "bpopup#~0.11.0"
   }
 }
