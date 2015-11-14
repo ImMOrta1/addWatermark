@@ -27,6 +27,14 @@ var mainJS = (function() {
         $('#fileuploadWat').on('change', _uploadInfoWat);
         $('#fileupload').on('change', _uploadInfo);
 
+        //Disable letters function
+        $('.position-right__input-top').on('click input keydown', function() {
+            $(this).prop('disabled', true);
+        });
+        $('.position-right__input-bot').on('click input keydown', function() {
+            $(this).prop('disabled', true);
+        });
+
         //Disable Functions Start
         _disableFunc();
         _disableAlert();
@@ -112,7 +120,7 @@ var mainJS = (function() {
         _getPaddingTill();
         //Opacity Function Listen
         _opacity(watermark,opacity);
-    }
+    };
 
 
 //Function Upload Name
@@ -312,7 +320,7 @@ var mainJS = (function() {
             $('.position-left__till-item_btm-left').css('border-right-width', borderX);
             $('.position-left__till-item_btm-right').css('border-left-width', borderX);
         }
-    }
+    };
 
 //Opacity Function
     var _opacity = function(water, opacValue) {
@@ -331,12 +339,13 @@ var mainJS = (function() {
 //Reset Function
     var resetForm = function() {
         $('.buttons__reset').on('click', function(){
-            $('.image-view__water-img').css('left', 0),
-            $('.image-view__water-img').css('top', 0),
-                $('.position-right__input-top').spinner('value', 0),
-                $('.position-right__input-bot').spinner('value', 0),
+            $('.wrap-image-view__water-till-block').css('opacity', 1),
+                watermark.css('left', 0),
+                watermark.css('top', 0),
+                inputX.spinner('value', 0),
+                inputY.spinner('value', 0),
                 $('.opacity__slider').slider("value", 1),
-                $('.image-view__water-img').css('opacity', 1)
+                watermark.css('opacity', 1)
         })
     };
 
@@ -403,11 +412,11 @@ var mainJS = (function() {
 
 mainJS.init();
 
-//------------change languages----------------
+//------------change languages buttons----------------
 var lang = function () {
     var langInit = function () {
         _setupListners();
-    }
+    };
     var _setupListners = function(){
         $('#eng').on('click', function(){
             $('.icons__lang-item').removeClass('active');
@@ -458,3 +467,25 @@ var Popup = (function() {
 }());
 
 Popup.init();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> e819fe648b6210028fd6c1c5a938a30d01aee42f

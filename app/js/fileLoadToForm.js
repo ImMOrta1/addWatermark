@@ -61,8 +61,9 @@ var fileLoadToForm = (function () {
                 //Сохраняем путь до файла на сервере в скрытый Input
                 fakeTextUrl.val(imgUrl);
 
-                // Отрезаем лишнию часть пути, для вывода в fakeInput
+                // Отрезаем лишнюю часть пути, для вывода в fakeInput
                 fileName = imgUrl.replace(/.+[\\\/]/, "");
+                fileNameText.text(decodeURI(fileName));
                 fileNameText.text(fileName);
                 console.log('done');
             }
