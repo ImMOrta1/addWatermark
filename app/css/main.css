@@ -98,6 +98,12 @@ p {
   -webkit-box-shadow: 0 5px 25px rgba(50, 50, 50, 0.2);
   -moz-box-shadow: 0 5px 25px rgba(50, 50, 50, 0.2);
   -o-box-shadow: 0 5px 25px rgba(50, 50, 50, 0.2);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
 }
 .main:before, .main:after {
   content: "";
@@ -113,6 +119,12 @@ p {
   height: 630px;
   padding: 15px 25px 25px 25px;
   background: url(../img/image-bg.png);
+  -webkit-border-radius: 4px 0 0 4px;
+  -moz-border-radius: 4px 0 0 4px;
+  border-radius: 4px 0 0 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
 }
 
 .image-view__text {
@@ -450,37 +462,39 @@ p {
 .position-right__top,
 .position-right__bottom {
   margin-bottom: 11px;
-}
-
-.position-right__top {
-  float: right;
+  position: relative;
 }
 
 .position-right__vector {
-  display: inline-block;
+  position: absolute;
+  left: -15px;
+  top: 14px;
   width: 13px;
   font-family: "RobotoLight";
   font-size: 16px;
   color: #2e3641;
-  padding-top: 10px;
 }
 
 .position-right_arrow-vert {
+  position: absolute;
+  left: -15px;
+  top: 10px;
   width: 11px;
   height: 30px;
   background: url('../img/icons-s14e72c0174.png') 0 -1033px no-repeat;
   height: 30px;
   width: 11px;
-  display: inline-block;
 }
 
 .position-right_arrow-hor {
+  position: absolute;
+  left: -33px;
+  top: 20px;
   width: 29px;
   height: 9px;
   background: url('../img/icons-s14e72c0174.png') 0 -954px no-repeat;
   height: 9px;
   width: 29px;
-  display: inline-block;
 }
 
 .change-view {
