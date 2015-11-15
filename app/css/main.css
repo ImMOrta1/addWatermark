@@ -784,20 +784,12 @@ p {
 
 .icons__instuctions_link {
   display: block;
-<<<<<<< HEAD
-  background: url('../img/social-sf15e70b7d1.png') 0 -333px no-repeat;
-=======
   background: url('../img/social-sd059ff5b64.png') 0 -333px no-repeat;
->>>>>>> unity/master
   height: 41px;
   width: 43px;
 }
 .icons__instuctions_link:hover {
-<<<<<<< HEAD
-  background: url('../img/social-sf15e70b7d1.png') 0 -222px no-repeat;
-=======
   background: url('../img/social-sd059ff5b64.png') 0 -222px no-repeat;
->>>>>>> unity/master
   height: 41px;
   width: 43px;
 }
@@ -807,7 +799,7 @@ p {
   left: 0;
 }
 .icons__social:hover {
-  left: 40px;
+  left: 39px;
   position: absolute;
   -webkit-transition: left .5s;
   -moz-transition: left .5s;
@@ -822,20 +814,12 @@ p {
 .icons__social-link.like {
   position: absolute;
   left: 0;
-<<<<<<< HEAD
-  background: url('../img/social-sf15e70b7d1.png') 0 -555px no-repeat;
-=======
   background: url('../img/social-sd059ff5b64.png') 0 -555px no-repeat;
->>>>>>> unity/master
   height: 41px;
   width: 43px;
 }
 .icons__social-link.like:hover {
-<<<<<<< HEAD
-  background: url('../img/social-sf15e70b7d1.png') 0 -444px no-repeat;
-=======
   background: url('../img/social-sd059ff5b64.png') 0 -444px no-repeat;
->>>>>>> unity/master
   height: 41px;
   width: 43px;
 }
@@ -850,59 +834,34 @@ p {
 }
 
 .icons__social-item_fb {
-<<<<<<< HEAD
-  background: url('../img/social-sf15e70b7d1.png') 0 -111px no-repeat;
-=======
   background: url('../img/social-sd059ff5b64.png') 0 -111px no-repeat;
->>>>>>> unity/master
   height: 41px;
   width: 43px;
 }
 .icons__social-item_fb:hover {
-<<<<<<< HEAD
-  background: url('../img/social-sf15e70b7d1.png') 0 0 no-repeat;
-=======
   background: url('../img/social-sd059ff5b64.png') 0 0 no-repeat;
->>>>>>> unity/master
   height: 41px;
   width: 43px;
 }
 
 .icons__social-item_tw {
-<<<<<<< HEAD
-  background: url('../img/social-sf15e70b7d1.png') 0 -779px no-repeat;
-=======
   background: url('../img/social-sd059ff5b64.png') 0 -777px no-repeat;
->>>>>>> unity/master
   height: 41px;
   width: 43px;
 }
 .icons__social-item_tw:hover {
-<<<<<<< HEAD
-  background: url('../img/social-sf15e70b7d1.png') 0 -666px no-repeat;
-  height: 43px;
-=======
   background: url('../img/social-sd059ff5b64.png') 0 -666px no-repeat;
   height: 41px;
->>>>>>> unity/master
   width: 43px;
 }
 
 .icons__social-item_vk {
-<<<<<<< HEAD
-  background: url('../img/social-sf15e70b7d1.png') 0 -1001px no-repeat;
-=======
   background: url('../img/social-sd059ff5b64.png') 0 -999px no-repeat;
->>>>>>> unity/master
   height: 41px;
   width: 43px;
 }
 .icons__social-item_vk:hover {
-<<<<<<< HEAD
-  background: url('../img/social-sf15e70b7d1.png') 0 -890px no-repeat;
-=======
   background: url('../img/social-sd059ff5b64.png') 0 -888px no-repeat;
->>>>>>> unity/master
   height: 41px;
   width: 43px;
 }
