@@ -452,8 +452,12 @@ p {
   margin-bottom: 11px;
 }
 
+.position-right__top {
+  float: right;
+}
+
 .position-right__vector {
-  display: inline-block !important;
+  display: inline-block;
   width: 13px;
   font-family: "RobotoLight";
   font-size: 16px;
@@ -467,7 +471,7 @@ p {
   background: url('../img/icons-s14e72c0174.png') 0 -1033px no-repeat;
   height: 30px;
   width: 11px;
-  display: none !important;
+  display: inline-block;
 }
 
 .position-right_arrow-hor {
@@ -476,7 +480,7 @@ p {
   background: url('../img/icons-s14e72c0174.png') 0 -954px no-repeat;
   height: 9px;
   width: 29px;
-  display: none !important;
+  display: inline-block;
 }
 
 .change-view {

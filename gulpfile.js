@@ -23,14 +23,14 @@ var paths = {
 			configFile	: 'config.rb',
 			cssFolder	: 'app/css',
 			scssFolder	: 'app/scss',
-			imgFolder	: 'app/img'
+			imgFolder	: 'app/img/'
 		},
 
 		browserSync : {
 			baseDir		: 'app/',
 			watchPaths 	: ['app/*.html', 'app/css/*.css', 'app/js/*.js', 'app/*.json']
 		}
-}
+};
 
 /* ----- Jade ----- */
 
