@@ -11,6 +11,7 @@
   background: #f1f1f5;
   @include clearfix;
   margin: 0 auto;
+  @include shadow;
 }
 
 .image-view {
