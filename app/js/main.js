@@ -74,11 +74,9 @@ var mainJS = (function() {
         $('.position-right_arrow-vert').css('display', 'none');
         $('.position-right_arrow-hor').css('display', 'none');
         $('.position-right__vector').css('display', 'block');
-
         $('.change-view__link_normal').removeClass('active');
         $('.change-view__link_normal').addClass('active');
         $('.change-view__link_multi').removeClass('active');
-
         positionFix('width','left',watermark,bgContainer);
         positionFix('height','top',watermark,bgContainer);
 
@@ -90,7 +88,7 @@ var mainJS = (function() {
 
         //Opacity Function Listen
         _opacity(watermark,opacity);
-    }
+    };
 
     var TillMode = function() {
         watermark = $('.wrap-image-view__water-till-block');
@@ -109,7 +107,6 @@ var mainJS = (function() {
         $('.position-right_arrow-vert').css('display', 'block');
         $('.position-right_arrow-hor').css('display', 'block');
         $('.position-right__vector').css('display', 'none');
-
         $('.change-view__link_multi').removeClass('active');
         $('.change-view__link_multi').addClass('active');
         $('.change-view__link_normal').removeClass('active');
@@ -121,7 +118,6 @@ var mainJS = (function() {
         //Opacity Function Listen
         _opacity(watermark,opacity);
     };
-
 
 //Function Upload Name
     var _uploadInfo = function (){
@@ -152,7 +148,6 @@ var mainJS = (function() {
         };
 
     var _coordinates = function(maxX,maxY) {
-
         _spinnerX.spinner({ min: 0, max: maxX });
         _spinnerX.on('spin', function(event, ui) {
             var currentValX = ui.value;
@@ -320,7 +315,6 @@ var mainJS = (function() {
             $('.position-left__till-item_btm-right').css('border-left-width', borderX);
         }
     };
-
 //Opacity Function
     var _opacity = function(water, opacValue) {
         $('.opacity__slider').slider({
@@ -346,7 +340,7 @@ var mainJS = (function() {
         if (ifParam > param3) {
             $(mark).css(mode_pos,result)
         }
-    }
+    };
 
 //Upload to Server Function
     var _ajaxServer = function (event) {
@@ -404,8 +398,6 @@ var lang = function () {
             $('#rus').addClass('active');
         });
     };
-
-
     return {
         init: langInit
     }
@@ -417,7 +409,7 @@ lang.init();
 var disableFuncs = function () {
     var disableInit = function () {
         _setupListners();
-    }
+    };
     var _setupListners = function(){
         _disableFunc();
         _disableAlert();
@@ -487,7 +479,7 @@ Popup.init();
 var resetFunc = function () {
     var resetInit = function () {
         _setupListners();
-    }
+    };
     var _setupListners = function(){
         $('.buttons__reset').on('click', function(){
             watermark.css('left', 0),
@@ -499,11 +491,75 @@ var resetFunc = function () {
             $('wrap-image-view__water-till-block').css('opacity', 1)
         })
     };
-
     return {
         init: resetInit
     }
 }();
 
 resetFunc.init();
+
+// Social Sharing Module
+var SharingModule = (function() {
+    var
+        myUrl = document.location.href,
+        title = document.title,
+        desc = $('meta[name="description"]').attr('content'),
+        fb = $('.icons__social-item_fb'),
+        tw = $('.icons__social-item_tw'),
+        vk = $('.icons__social-item_vk');
+
+    var init = function(){
+            _setupListners();
+        };        
+
+    var _setupListners = function(){
+            fb.on('click', _fb);
+            tw.on('click', _tw);
+            vk.on('click', _vk);
+        };
+
+    var _fb = function(e) {
+        console.log(fb);
+        e.preventDefault();
+    var url = 'http://www.facebook.com/sharer.php?s=100';
+        url += '&p[title]=' + encodeURIComponent(title);
+        url += '&p[summary]=' + encodeURIComponent(desc);
+        url += '&p[url]=' + encodeURIComponent(myUrl);
+        popup(url);
+    };
+
+    var _tw = function(e) {
+        console.log(tw);
+        e.preventDefault();
+    var url = 'http://twitter.com/share?';
+        url += 'text=' + encodeURIComponent(title);
+        url += '&url=' + encodeURIComponent(myUrl);
+        url += '&counturl=' + encodeURIComponent(url);
+        popup(url);
+    };
+      
+    var _vk = function(e) {
+        e.preventDefault();
+    var url = 'http://vk.com/share.php?';
+        url += 'url=' + encodeURIComponent(myUrl);
+        url += '&title=' + encodeURIComponent(title);
+        url += '&description=' + encodeURIComponent(desc);
+        url += '&noparse=true';
+        popup(url);
+    };
+
+    function popup(url) {
+        var sharingWidth = 650,
+             sharingHeight = 450,
+             marginLeft  = screen.availWidth / 2 - sharingWidth / 2,
+             marginTop = screen.availHeight / 2 - sharingHeight / 2;
+        window.open(url, '_blank', 'toolbar=0, status=0, width=650, height=450, left=' + marginLeft +', top=' + marginTop);
+    }
+    
+    return {
+       init: init
+    };      
+})();
+
+SharingModule.init();
 
