@@ -792,7 +792,7 @@ p {
   left: 0;
 }
 .icons__social:hover {
-  left: 39px;
+  left: 40px;
   position: absolute;
   -webkit-transition: left .5s;
   -moz-transition: left .5s;
