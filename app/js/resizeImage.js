@@ -131,10 +131,10 @@ var resizeImage = (function () {
             heightContainerImages = ImgContainer.css('height').slice(0, -2);
 
             horizontalElems = Math.floor( ImgContainer.attr('data-width') / $this.attr('data-width') );
-            horizontalElemsBlock = horizontalElems * 3;
+            horizontalElemsBlock = horizontalElems * 2;
             tillBlock.attr('data-x-elem', horizontalElemsBlock);
             verticalElems = Math.floor(ImgContainer.attr('data-height') / $this.attr('data-height'));
-            verticalElemsBlock = verticalElems * 3;
+            verticalElemsBlock = verticalElems * 2;
             tillBlock.attr('data-y-elem', verticalElemsBlock);
             widthElemsBlock = (widthWater+15) * horizontalElemsBlock;
             heightElemsBlock = (heightWater+15) * verticalElemsBlock;

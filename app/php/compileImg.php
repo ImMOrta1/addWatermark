@@ -103,14 +103,14 @@
 			$marginGorNat = $marginGor * $q;
 			$till_img_elems_w = floor( $main_img_obj_w / $watermark_img_obj_w);
 			$till_img_elems_h = floor( $main_img_obj_h / $watermark_img_obj_h);
-			$till_img_obj_w = $till_img_elems_w * 3 * ($watermark_img_obj_w + $marginGorNat);
-			$till_img_obj_h = $till_img_elems_h * 3 * ($watermark_img_obj_h + $marginVertNat);
+			$till_img_obj_w = $till_img_elems_w * 2 * ($watermark_img_obj_w + $marginGorNat);
+			$till_img_obj_h = $till_img_elems_h * 2 * ($watermark_img_obj_h + $marginVertNat);
 			$return_img	= imagecreatetruecolor( $till_img_obj_w, $till_img_obj_h );
 			imagesavealpha($return_img, true);
 			$trans_color = imagecolorallocatealpha($return_img, 0, 0, 0, 127);
 			imagefill($return_img,0,0,$trans_color);
-			for( $y = 1; $y < ($till_img_elems_h + 1) * 3; $y++ ) {
-				for( $x = 1; $x < ($till_img_elems_w + 1) * 3; $x++ ) {
+			for( $y = 1; $y < ($till_img_elems_h + 1) * 2; $y++ ) {
+				for( $x = 1; $x < ($till_img_elems_w + 1) * 2; $x++ ) {
 					imagecopy($return_img, $watermark_img_obj, ($watermark_img_obj_w + $marginGorNat) * $x, ($watermark_img_obj_h + $marginVertNat) * $y, 0, 0, $watermark_img_obj_w, $watermark_img_obj_h);
 				}
 			}
