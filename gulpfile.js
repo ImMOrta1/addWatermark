@@ -28,7 +28,7 @@ var paths = {
 
 		browserSync : {
 			baseDir		: 'app/',
-			watchPaths 	: ['app/*.html', 'app/css/*.css', 'app/js/*.js']
+			watchPaths 	: ['app/*.html', 'app/css/*.css', 'app/js/*.js', 'app/*.json']
 		}
 }
 
