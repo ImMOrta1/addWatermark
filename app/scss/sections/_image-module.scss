@@ -451,10 +451,10 @@
   display: block !important;
   width: 13px !important;
   height: 8px !important;
-  background: url('../img/icons-s0883b82317.png') 0 -234px no-repeat !important;
+  background: url('../img/icons-s14e72c0174.png') 0 -234px no-repeat !important;
 
   &:hover {
-	background: url('../img/icons-s0883b82317.png') 0 -156px no-repeat !important;
+	background: url('../img/icons-s14e72c0174.png') 0 -156px no-repeat !important;
   }
 }
 
@@ -463,10 +463,10 @@
   display: block !important;
   width: 13px !important;
   height: 8px !important;
-  background: url('../img/icons-s0883b82317.png') 0 -78px no-repeat !important;
+  background: url('../img/icons-s14e72c0174.png') 0 -78px no-repeat !important;
 
   &:hover {
-	background: url('../img/icons-s0883b82317.png') 0 0 no-repeat !important;
+	background: url('../img/icons-s14e72c0174.png') 0 0 no-repeat !important;
   }
 }
 
@@ -530,14 +530,14 @@
 }
 
 .ui-slider-handle {
-  background: url('../img/icons-s0883b82317.png') 0 -504px no-repeat !important;
+  background: url('../img/icons-s14e72c0174.png') 0 -504px no-repeat !important;
   width: 24px !important;
   height: 24px !important;
   top: -9px !important;
   margin-left: -10px !important;
 
   &:hover {
-	background: url('../img/icons-s0883b82317.png') 0 -410px no-repeat !important;
+	background: url('../img/icons-s14e72c0174.png') 0 -410px no-repeat !important;
 	cursor: pointer !important;
   }
 }
@@ -747,4 +747,12 @@
 
 .popup__text__item_copy {
 	list-style: none;
+}
+
+.popup__exit_icon {
+	z-index: 9999;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	@include get-sprite($map, z-exit);
 }

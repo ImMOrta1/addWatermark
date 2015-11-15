@@ -462,7 +462,7 @@ var Popup = (function() {
 
             $('.popup').bPopup({
                 positionStyle: 'fixed',
-                closeClass : 'popup-close',
+                closeClass : 'popup__exit_icon',
             });
         });
     };
