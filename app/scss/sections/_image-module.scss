@@ -718,7 +718,11 @@
 
 .popup__logo-container {
   text-align: center;
-  margin-bottom: 20px;
+  margin: 20px 0 30px;
+}
+
+.popup__content {
+	padding-bottom: 20px;
 }
 
 .popup__title {
@@ -727,10 +731,20 @@
 }
 
 .popup__text__list {
-  margin: 20px 0 0 40px;
+  margin: 20px 40px;
 }
 
 .popup__text__item {
   list-style: decimal;
   margin-bottom: 10px;
+}
+
+.popup__copyright {
+	text-align: center;
+	border-top: 1px dashed #555;
+	padding-top: 30px;
+}
+
+.popup__text__item_copy {
+	list-style: none;
 }
