@@ -11,6 +11,7 @@
   background: #f1f1f5;
   @include clearfix;
   margin: 0 auto;
+  @include shadow;
 }
 
 .image-view {
@@ -53,22 +54,22 @@
   overflow: hidden;
 
   .image-view__main-img {
-	position: absolute;
-	top: 0;
-	left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
   .image-view__water-img {
-	position: absolute;
-	top: 0;
-	left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
   .wrap-image-view__water-till-block {
-	position: absolute;
-	top: 0;
-	left: 0;
-	display: none;
-	font-size: 0;
+  	position: absolute;
+  	top: 0;
+  	left: 0;
+  	display: none;
+  	font-size: 0;
   }
 }
 
@@ -165,12 +166,15 @@
   font-family: $light;
   font-size: 12px;
   color: $grey;
-  padding: 5px 3px 4px 3px;
+  padding: 5px 40px 4px 3px;
   border: $greyBord;
   outline: 0px;
   @include border-radius;
   cursor: pointer;
   background: #f7f7f7;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .file-upload__icon {
@@ -188,15 +192,15 @@
   border-top: 1px solid #f4c3c2;
 
   &:before {
-	position: absolute;
-	top: -1px;
-	right: 0;
-	left: 0;
-	margin: auto;
-	content: "";
-	width: 19px;
-	height: 11px;
-	background: url(../img/title-arrow.jpg) no-repeat;
+    position: absolute;
+    top: -1px;
+    right: 0;
+    left: 0;
+    margin: auto;
+    content: "";
+    width: 19px;
+    height: 11px;
+    background: url(../img/title-arrow.jpg) no-repeat;
   }
 }
 .position {
@@ -206,15 +210,15 @@
   margin-bottom: 25px;
 
   &:before {
-	position: absolute;
-	top: -1px;
-	right: 0;
-	left: 0;
-	margin: auto;
-	content: "";
-	width: 19px;
-	height: 11px;
-	background: url(../img/title-arrow.jpg) no-repeat;
+    position: absolute;
+    top: -1px;
+    right: 0;
+    left: 0;
+    margin: auto;
+    content: "";
+    width: 19px;
+    height: 11px;
+    background: url(../img/title-arrow.jpg) no-repeat;
   }
 }
 
@@ -254,19 +258,19 @@
   box-sizing: border-box;
 
   &:nth-child(3n) {
-	border-right: 0;
+    border-right: 0;
   }
 
   &:nth-child(7n) {
-	border-bottom: 0;
+    border-bottom: 0;
   }
 
   &:nth-child(8n) {
-	border-bottom: 0;
+    border-bottom: 0;
   }
 
   &:nth-child(9n) {
-	border-bottom: 0;
+    border-bottom: 0;
   }
 }
 
@@ -276,8 +280,8 @@
   height: 100%;
 
   &:hover {
-	background: #bfcbd9;
-	@include transition;
+    background: #bfcbd9;
+    @include transition;
   }
 
   &_active {
@@ -288,9 +292,9 @@
 .position-left__item_active {
   background-color: #f97e76;
   &:hover {
-	.position-left__link {
-	  background: none;
-	}
+    .position-left__link {
+      background: none;
+    }
   }
 }
 
@@ -336,15 +340,18 @@
 
 .position-right {
   float: right;
+
 }
 
 .position-right__top,
 .position-right__bottom {
   margin-bottom: 11px;
 }
-
+.position-right__top{
+  float: right;
+}
 .position-right__vector {
-  display: inline-block !important;
+  display: inline-block;
   width: 13px;
   font-family: $light;
   font-size: 16px;
@@ -356,14 +363,14 @@
   width: 11px;
   height: 30px;
   @include get-sprite($map, y-position);
-  display: none !important;
+  display: inline-block;
 }
 
 .position-right_arrow-hor {
   width: 29px;
   height: 9px;
   @include get-sprite($map, x-position);
-  display: none !important;
+  display: inline-block;
 }
 // change-view ----------------------------
 .change-view {
@@ -389,7 +396,7 @@
   @include get-sprite($map, view-normal);
 
   &:hover, &.active {
-	@include get-sprite($map, view-normal-hover);
+    @include get-sprite($map, view-normal-hover);
   }
 }
 
@@ -397,7 +404,7 @@
   @include get-sprite($map, view-multi);
 
   &:hover, &.active {
-	@include get-sprite($map, view-multi-hover);
+    @include get-sprite($map, view-multi-hover);
   }
 }
 
@@ -451,10 +458,10 @@
   display: block !important;
   width: 13px !important;
   height: 8px !important;
-  background: url('../img/icons-s0883b82317.png') 0 -234px no-repeat !important;
+  background: url('../img/icons-s14e72c0174.png') 0 -234px no-repeat !important;
 
   &:hover {
-	background: url('../img/icons-s0883b82317.png') 0 -156px no-repeat !important;
+	background: url('../img/icons-s14e72c0174.png') 0 -156px no-repeat !important;
   }
 }
 
@@ -463,10 +470,10 @@
   display: block !important;
   width: 13px !important;
   height: 8px !important;
-  background: url('../img/icons-s0883b82317.png') 0 -78px no-repeat !important;
+  background: url('../img/icons-s14e72c0174.png') 0 -78px no-repeat !important;
 
   &:hover {
-	background: url('../img/icons-s0883b82317.png') 0 0 no-repeat !important;
+	background: url('../img/icons-s14e72c0174.png') 0 0 no-repeat !important;
   }
 }
 
@@ -530,14 +537,14 @@
 }
 
 .ui-slider-handle {
-  background: url('../img/icons-s0883b82317.png') 0 -504px no-repeat !important;
+  background: url('../img/icons-s14e72c0174.png') 0 -504px no-repeat !important;
   width: 24px !important;
   height: 24px !important;
   top: -9px !important;
   margin-left: -10px !important;
 
   &:hover {
-	background: url('../img/icons-s0883b82317.png') 0 -410px no-repeat !important;
+	background: url('../img/icons-s14e72c0174.png') 0 -410px no-repeat !important;
 	cursor: pointer !important;
   }
 }
@@ -551,15 +558,15 @@
   padding-top: 55px;
 
   &:before {
-	position: absolute;
-	top: -1px;
-	right: 0;
-	left: 0;
-	margin: auto;
-	content: "";
-	width: 19px;
-	height: 11px;
-	background: url(../img/title-arrow.jpg) no-repeat;
+    position: absolute;
+    top: -1px;
+    right: 0;
+    left: 0;
+    margin: auto;
+    content: "";
+    width: 19px;
+    height: 11px;
+    background: url(../img/title-arrow.jpg) no-repeat;
   }
 }
 
@@ -577,8 +584,8 @@
   outline: none;
 
   &:hover {
-	background: #839fb3;
-	@include transition;
+    background: #839fb3;
+    @include transition;
   }
 }
 
@@ -596,8 +603,8 @@
   outline: none;
 
   &:hover {
-	background: #d73d33;
-	@include transition;
+    background: #d73d33;
+    @include transition;
   }
 }
 
@@ -623,7 +630,7 @@
   margin-bottom: 1px;
   background: #d7d5d7;
   &.active{
-	background: #b2b0b2;
+    background: #b2b0b2;
   }
 }
 .icons__lang-item.active .icons__lang-link{
@@ -644,7 +651,7 @@
   @include get-sprite($map2, instructions);
 
   &:hover {
-	@include get-sprite($map2, instructions-hover);
+    @include get-sprite($map2, instructions-hover);
   }
 }
 
@@ -653,30 +660,30 @@
   display: block;
   left: 0;
   &:hover{
-	left: 39px;
-	position: absolute;
-	-webkit-transition: left .5s;
-	-moz-transition: left .5s;
-	-ms-transition: left .5s;
-	-o-transition: left .5s;
-	transition: left .5s;
+    left: 39px;
+    position: absolute;
+    -webkit-transition: left .5s;
+    -moz-transition: left .5s;
+    -ms-transition: left .5s;
+    -o-transition: left .5s;
+    transition: left .5s;
   }
 }
 .icons__social-link {
   text-indent: -9999px;
 
   &.like{
-	position: absolute;
-	left: 0;
-	@include get-sprite($map2, like);
-	&:hover{
-	  @include get-sprite($map2, like-hover);
-	}
+    position: absolute;
+    left: 0;
+    @include get-sprite($map2, like);
+    &:hover{
+      @include get-sprite($map2, like-hover);
+    }
   }
 }
 .icons__social-list{
   position: absolute;
-  left: -39px;
+  left: -43px;
 }
 .icons__social-item{
   display: block;
@@ -684,19 +691,19 @@
 .icons__social-item_fb{
   @include get-sprite($map2, fb);
   &:hover{
-	@include get-sprite($map2, fb-hover);
+    @include get-sprite($map2, fb-hover);
   }
 }
 .icons__social-item_tw{
   @include get-sprite($map2, tw);
   &:hover{
-	@include get-sprite($map2, tw-hover);
+    @include get-sprite($map2, tw-hover);
   }
 }
 .icons__social-item_vk{
   @include get-sprite($map2, vk);
   &:hover{
-	@include get-sprite($map2, vk-hover);
+    @include get-sprite($map2, vk-hover);
   }
 }
 
@@ -718,7 +725,11 @@
 
 .popup__logo-container {
   text-align: center;
-  margin-bottom: 20px;
+  margin: 20px 0 30px;
+}
+
+.popup__content {
+	padding-bottom: 20px;
 }
 
 .popup__title {
@@ -727,10 +738,28 @@
 }
 
 .popup__text__list {
-  margin: 20px 0 0 40px;
+  margin: 20px 40px;
 }
 
 .popup__text__item {
   list-style: decimal;
   margin-bottom: 10px;
+}
+
+.popup__copyright {
+	text-align: center;
+	border-top: 1px dashed #555;
+	padding-top: 30px;
+}
+
+.popup__text__item_copy {
+	list-style: none;
+}
+
+.popup__exit_icon {
+	z-index: 9999;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	@include get-sprite($map, z-exit);
 }

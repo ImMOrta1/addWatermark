@@ -27,9 +27,9 @@
 					$box_width = $main_img_obj_w;
 				} 
 			}
+
 			$water_position_x_perc =  $water_position_x / $box_width * 100;
 			$water_position_y_perc =  $water_position_y / $box_height * 100;
-	 
 			$main_img_obj_min_x	= floor( $water_position_x_perc * $main_img_obj_w / 100 );
 			$main_img_obj_max_x	= ceil( ( $main_img_obj_w / 2 ) + ( $watermark_img_obj_w / 2 ) );
 			$main_img_obj_min_y	= floor( $water_position_y_perc * $main_img_obj_h / 100 );
@@ -116,6 +116,7 @@
 			}
 			return $return_img;
 		}
+
 		function resize_watermark($main_img_obj, $watermark_img_obj) {
 			$main_img_obj_w	= imagesx( $main_img_obj );
 			$main_img_obj_h	= imagesy( $main_img_obj );
@@ -142,6 +143,7 @@
 			return $return_img;
 		}
 }
+
 function image_unpack($type, $file) {
 		    if ($type == 'jpg')
 				return imagecreatefromjpeg($file);
@@ -197,9 +199,11 @@ function removeDirectory($dir) {
 				$till_img=$watermark->till_image($im1,$im2,$margY,$margX);
 				$im=$watermark->create_watermark($im1,$till_img,$posX,$posY,$opacity_water);
 			}
+
 			if (!(file_exists('results'))) {
 				mkdir('results');
 			}
+
 			$finalName = 'results/' . random(8) . '-water.jpg';
   			imagejpeg($im,$finalName, 90);
 			imagedestroy($im);

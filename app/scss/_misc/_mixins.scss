@@ -71,3 +71,10 @@ $map2: sprite-map('social/*.png', $spacing: 70px);
   -o-transition: 0.7s;
   transition: 0.7s;
 }
+
+@mixin shadow {
+	box-shadow: 0 5px 25px rgba(50, 50, 50, 0.2);
+	-webkit-box-shadow: 0 5px 25px rgba(50, 50, 50, 0.2);
+	-moz-box-shadow: 0 5px 25px rgba(50, 50, 50, 0.2);
+	-o-box-shadow: 0 5px 25px rgba(50, 50, 50, 0.2);
+}
