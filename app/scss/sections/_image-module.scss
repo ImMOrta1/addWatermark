@@ -12,6 +12,7 @@
   @include clearfix;
   margin: 0 auto;
   @include shadow;
+  @include border-radius;
 }
 
 .image-view {
@@ -20,6 +21,7 @@
   height: 630px;
   padding: 15px 25px 25px 25px;
   background: url(../img/image-bg.png);
+  @include border-radius( 4px 0 0 4px);
 }
 
 .image-view__text {
@@ -340,37 +342,41 @@
 
 .position-right {
   float: right;
-
 }
 
 .position-right__top,
 .position-right__bottom {
   margin-bottom: 11px;
+  position: relative;
 }
 .position-right__top{
-  float: right;
 }
 .position-right__vector {
-  display: inline-block;
+	position: absolute;
+	left: -15px;
+	top: 14px;
   width: 13px;
   font-family: $light;
   font-size: 16px;
   color: $black;
-  padding-top: 10px;
 }
 
 .position-right_arrow-vert {
+	position: absolute;
+	left: -15px;
+	top: 10px;
   width: 11px;
   height: 30px;
   @include get-sprite($map, y-position);
-  display: inline-block;
 }
 
 .position-right_arrow-hor {
+	position: absolute;
+	left: -33px;
+	top: 20px;
   width: 29px;
   height: 9px;
   @include get-sprite($map, x-position);
-  display: inline-block;
 }
 // change-view ----------------------------
 .change-view {
