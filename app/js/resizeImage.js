@@ -79,12 +79,15 @@ var resizeImage = (function () {
         $(image).load(function() {
 
             var $this = $(this);
-            widthWaterNatural = $this.width(),
+                widthWaterNatural = $this.width(),
                 heightWaterNatural = $this.height(),
                 ImgContainer = $this.closest('.image-view__container-main-image'),
                 q = ImgContainer.attr('data-ratio'),
                 widthMainNatural = ImgContainer.attr('data-width'),
                 heightMainNatural = ImgContainer.attr('data-height');
+
+            $this.attr('data-width', widthWaterNatural);
+            $this.attr('data-height', heightWaterNatural);
 
             if (widthWaterNatural > widthMainNatural) {
                 $this.width(widthMainNatural);
@@ -118,7 +121,7 @@ var resizeImage = (function () {
             $('<div data-x-elem=0 data-y-elem=0>').appendTo(ImgContainer).addClass('wrap-image-view__water-till-block');
 
             var $this = $(this);
-            widthWater = $this.width(),
+                widthWater = $this.width(),
                 heightWater = $this.height(),
                 ImgContainer = $this.closest('.image-view__container-main-image'),
                 q = ImgContainer.attr('data-ratio'),
@@ -127,22 +130,20 @@ var resizeImage = (function () {
             widthContainerImages = ImgContainer.css('width').slice(0, -2);
             heightContainerImages = ImgContainer.css('height').slice(0, -2);
 
-
-            horizontalElems = Math.round(widthContainerImages / widthWater);
-            horizontalElemsBlock = horizontalElems * 2;
+            horizontalElems = Math.floor( ImgContainer.attr('data-width') / $this.attr('data-width') );
+            horizontalElemsBlock = horizontalElems * 3;
             tillBlock.attr('data-x-elem', horizontalElemsBlock);
-            verticalElems = Math.round(heightContainerImages / heightWater);
-            verticalElemsBlock = verticalElems * 2;
+            verticalElems = Math.floor(ImgContainer.attr('data-height') / $this.attr('data-height'));
+            verticalElemsBlock = verticalElems * 3;
             tillBlock.attr('data-y-elem', verticalElemsBlock);
-
             widthElemsBlock = (widthWater+15) * horizontalElemsBlock;
             heightElemsBlock = (heightWater+15) * verticalElemsBlock;
 
             tillBlock.css('width', widthElemsBlock);
             tillBlock.css('height', heightElemsBlock);
 
-            for (i = 1; i < verticalElemsBlock; i++ ) {
-                for (j = 1; j < horizontalElemsBlock; j++ ) {
+            for (i = 1; i < verticalElemsBlock+1; i++ ) {
+                for (j = 1; j < horizontalElemsBlock+1; j++ ) {
                     $('<img src="' + url + '" class="image-view__water-till-img">').appendTo(tillBlock);
                 }
                 $('<br/>').appendTo(tillBlock);
@@ -153,10 +154,10 @@ var resizeImage = (function () {
             $('.image-view__water-till-img').css('padding-right', 15);
             $('.image-view__water-till-img').css('padding-bottom', 15);
 
-            centerLeft = widthContainerImages / 2 + widthContainerImages / 4;
-            centerTop = heightContainerImages / 2 + heightContainerImages / 4;
-            tillBlock.css('left', -centerLeft);
-            tillBlock.css('top', -centerTop);
+            centerLeft = widthContainerImages / 2  - widthElemsBlock / 2;
+            centerTop = heightContainerImages / 2  - heightElemsBlock / 2;
+            tillBlock.css('left', centerLeft);
+            tillBlock.css('top', centerTop);
         })
     }
 
