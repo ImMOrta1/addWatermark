@@ -784,12 +784,12 @@ p {
 
 .icons__instuctions_link {
   display: block;
-  background: url('../img/social-sb17cb0b1df.png') 0 -333px no-repeat;
+  background: url('../img/social-sd059ff5b64.png') 0 -333px no-repeat;
   height: 41px;
   width: 43px;
 }
 .icons__instuctions_link:hover {
-  background: url('../img/social-sb17cb0b1df.png') 0 -222px no-repeat;
+  background: url('../img/social-sd059ff5b64.png') 0 -222px no-repeat;
   height: 41px;
   width: 43px;
 }
@@ -814,19 +814,19 @@ p {
 .icons__social-link.like {
   position: absolute;
   left: 0;
-  background: url('../img/social-sb17cb0b1df.png') 0 -555px no-repeat;
+  background: url('../img/social-sd059ff5b64.png') 0 -555px no-repeat;
   height: 41px;
-  width: 39px;
+  width: 43px;
 }
 .icons__social-link.like:hover {
-  background: url('../img/social-sb17cb0b1df.png') 0 -444px no-repeat;
+  background: url('../img/social-sd059ff5b64.png') 0 -444px no-repeat;
   height: 41px;
-  width: 39px;
+  width: 43px;
 }
 
 .icons__social-list {
   position: absolute;
-  left: -39px;
+  left: -43px;
 }
 
 .icons__social-item {
@@ -834,36 +834,36 @@ p {
 }
 
 .icons__social-item_fb {
-  background: url('../img/social-sb17cb0b1df.png') 0 -111px no-repeat;
+  background: url('../img/social-sd059ff5b64.png') 0 -111px no-repeat;
   height: 41px;
-  width: 39px;
+  width: 43px;
 }
 .icons__social-item_fb:hover {
-  background: url('../img/social-sb17cb0b1df.png') 0 0 no-repeat;
+  background: url('../img/social-sd059ff5b64.png') 0 0 no-repeat;
   height: 41px;
-  width: 39px;
+  width: 43px;
 }
 
 .icons__social-item_tw {
-  background: url('../img/social-sb17cb0b1df.png') 0 -777px no-repeat;
+  background: url('../img/social-sd059ff5b64.png') 0 -777px no-repeat;
   height: 41px;
-  width: 39px;
+  width: 43px;
 }
 .icons__social-item_tw:hover {
-  background: url('../img/social-sb17cb0b1df.png') 0 -666px no-repeat;
+  background: url('../img/social-sd059ff5b64.png') 0 -666px no-repeat;
   height: 41px;
-  width: 39px;
+  width: 43px;
 }
 
 .icons__social-item_vk {
-  background: url('../img/social-sb17cb0b1df.png') 0 -999px no-repeat;
+  background: url('../img/social-sd059ff5b64.png') 0 -999px no-repeat;
   height: 41px;
-  width: 39px;
+  width: 43px;
 }
 .icons__social-item_vk:hover {
-  background: url('../img/social-sb17cb0b1df.png') 0 -888px no-repeat;
+  background: url('../img/social-sd059ff5b64.png') 0 -888px no-repeat;
   height: 41px;
-  width: 39px;
+  width: 43px;
 }
 
 .popup {
