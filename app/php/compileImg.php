@@ -14,43 +14,23 @@
 			if ($main_img_obj_w > $main_img_obj_h) {
 				if ($main_img_obj_w > 650) {
 					$box_width = 650;
-<<<<<<< HEAD
 					$box_height = ($main_img_obj_h * $box_width / $main_img_obj_w);
 				} else {
 					$box_width = $main_img_obj_w;
 					$box_height = $main_img_obj_h;
-=======
-					$box_heigth = ($main_img_obj_h * $box_width / $main_img_obj_w);
-				} else {
-					$box_width = $main_img_obj_w;
-					$box_heigth = $main_img_obj_h;
->>>>>>> refs/remotes/unity/maks_JS
-
 				} 
 			} else {
 				if ($main_img_obj_h > 530) {
-<<<<<<< HEAD
 					$box_height = 530;
 					$box_width = ($main_img_obj_w * $box_height / $main_img_obj_h);
 				} else {
 					$box_height = $main_img_obj_h;
-=======
-					$box_heigth = 530;
-					$box_width = ($main_img_obj_w * $box_heigth / $main_img_obj_h);
-				} else {
-					$box_heigth = $main_img_obj_h;
->>>>>>> refs/remotes/unity/maks_JS
 					$box_width = $main_img_obj_w;
 				} 
 			}
 
 			$water_position_x_perc =  floor( $water_position_x / $box_width * 100 );
-<<<<<<< HEAD
 			$water_position_y_perc =  floor( $water_position_y / $box_height * 100 );
-=======
-			$water_position_y_perc =  floor( $water_position_y / $box_heigth * 100 );
->>>>>>> refs/remotes/unity/maks_JS
-	 
 			$main_img_obj_min_x	= floor( $water_position_x_perc * $main_img_obj_w / 100 );
 			$main_img_obj_max_x	= ceil( ( $main_img_obj_w / 2 ) + ( $watermark_img_obj_w / 2 ) );
 			$main_img_obj_min_y	= floor( $water_position_y_perc * $main_img_obj_h / 100 );
@@ -155,7 +135,6 @@
 
 		}
 
-<<<<<<< HEAD
 		function resize_watermark($main_img_obj, $watermark_img_obj) {
 
 			$main_img_obj_w	= imagesx( $main_img_obj );
@@ -189,9 +168,6 @@
 			return $return_img;
 
 		}
-
-=======
->>>>>>> refs/remotes/unity/maks_JS
 }
 
 function image_unpack($type, $file) {
@@ -249,26 +225,18 @@ function removeDirectory($dir) {
 
 			$watermark = new watermark3();
 			if ($mode == 'normal') {
-<<<<<<< HEAD
 				$im2=$watermark->resize_watermark($im1,$im2);
 				$im=$watermark->create_watermark($im1,$im2,$posX,$posY,$opacity_water);
 			} elseif ($mode == 'till') {
 				$im2=$watermark->resize_watermark($im1,$im2);
-=======
-				$im=$watermark->create_watermark($im1,$im2,$posX,$posY,$opacity_water);
-			} elseif ($mode == 'till') {
->>>>>>> refs/remotes/unity/maks_JS
 				$till_img=$watermark->till_image($im1,$im2,$margY,$margX);
 				$im=$watermark->create_watermark($im1,$till_img,$posX,$posY,$opacity_water);
 			}
 
-<<<<<<< HEAD
 			if (!(file_exists('results'))) {
 				mkdir('results');
 			}
 
-=======
->>>>>>> refs/remotes/unity/maks_JS
 			$finalName = 'results/' . random(8) . '-water.jpg';
 
   			imagejpeg($im,$finalName, 90);
