@@ -490,12 +490,13 @@ var resetFunc = function () {
     }
     var _setupListners = function(){
         $('.buttons__reset').on('click', function(){
-            $('.image-view__water-img').css('left', 0),
-            $('.image-view__water-img').css('top', 0),
+            watermark.css('left', 0),
+            watermark.css('top', 0),
+            watermark.css('opacity', 1),
             $('.position-right__input-top').spinner('value', 0),
             $('.position-right__input-bot').spinner('value', 0),
             $('.opacity__slider').slider("value", 1),
-            $('.image-view__water-img').css('opacity', 1)
+            $('wrap-image-view__water-till-block').css('opacity', 1)
         })
     };
 
