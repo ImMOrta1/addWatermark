@@ -1,7 +1,7 @@
 var resizeImage = (function () {
 
 //Resize main Image
-	var resizeMain = function (image) {
+    var resizeMain = function (image) {
         $(image).load(function() {
 
 
@@ -9,7 +9,7 @@ var resizeImage = (function () {
                 widthMainNatural = $this.width(),
                 heightMainNatural = $this.height(),
                 ImgContainer = $this.closest('.image-view__container-main-image');
-                q = ImgContainer.attr('data-ratio');
+            q = ImgContainer.attr('data-ratio');
 
             ImgContainer.attr('data-width', widthMainNatural);
             ImgContainer.attr('data-height', heightMainNatural);
@@ -79,7 +79,7 @@ var resizeImage = (function () {
         $(image).load(function() {
 
             var $this = $(this);
-                widthWaterNatural = $this.width(),
+            widthWaterNatural = $this.width(),
                 heightWaterNatural = $this.height(),
                 ImgContainer = $this.closest('.image-view__container-main-image'),
                 q = ImgContainer.attr('data-ratio'),
@@ -101,9 +101,9 @@ var resizeImage = (function () {
                 var widthWater = widthWaterNatural / q,
                     heightWater = heightWaterNatural / q;
 
-                    $this.width(widthWater);
-                    $this.height(heightWater);
-                    $this.addClass('ui-draggable ui-draggable-handle')
+                $this.width(widthWater);
+                $this.height(heightWater);
+                $this.addClass('ui-draggable ui-draggable-handle')
             }
 
             $('.change-view__link_normal').trigger('click');
@@ -118,7 +118,7 @@ var resizeImage = (function () {
             $('<div data-x-elem=0 data-y-elem=0>').appendTo(ImgContainer).addClass('wrap-image-view__water-till-block');
 
             var $this = $(this);
-                widthWater = $this.width(),
+            widthWater = $this.width(),
                 heightWater = $this.height(),
                 ImgContainer = $this.closest('.image-view__container-main-image'),
                 q = ImgContainer.attr('data-ratio'),
@@ -161,15 +161,15 @@ var resizeImage = (function () {
     }
 
 //Возвращаем значения
-	return {
-		resizeMain: resizeMain,
-		resizeWater: resizeWater,
+    return {
+        resizeMain: resizeMain,
+        resizeWater: resizeWater,
         tillWater: tillWater
-	}
+    }
 })();
 
 if (typeof console === "undefined" || typeof console.log === "undefined") {
-     console = {};
-     console.log = function() {};
-	};
+    console = {};
+    console.log = function() {};
+};
                 

@@ -20,7 +20,6 @@ html(lang="ru-RU")
 							img.image-view__main-img
 							img.image-view__water-img
 							.wrap-image-view__water-till-block(data-x-elem=0 data-y-elem=0)
-
 				aside.saidbar
 					form(id="upload" action="php/compileImg.php" method="POST" enctype="multipart/form-data")
 						.saidbar_text
@@ -50,7 +49,7 @@ html(lang="ru-RU")
 								ul.position-view__list
 									li.position-view__item.position-view__item_active
 										.position-left
-											-var datas = ['top-left', 'top-center', 'top-right', 'mid-left', 'mid-center', 'mid-right', 'btm-left', 'btm-center', 'btm-right']; 
+											-var datas = ['top-left', 'top-center', 'top-right', 'mid-left', 'mid-center', 'mid-right', 'btm-left', 'btm-center', 'btm-right'];
 											ul.position-left__list
 												each item in datas
 													li(class="position-left__item" data-pos= item) like
@@ -92,7 +91,6 @@ html(lang="ru-RU")
 							button.buttons__download(type="submit") Скачать
 
 					//.sidebar__disable
-
 			.icons
 				ul.icons__lang-list
 					li.icons__lang-item.active#rus
@@ -125,23 +123,17 @@ html(lang="ru-RU")
 							li.popup__text__item Если вас не устраивают настройки вотермарка нажмите кнопку "Сброс"
 							li.popup__text__item Для сохранения результата нажмите кнопку "Скачать"
 
-
-
-
 		footer.footer © 2015. addWatermark - разработка D.I.M.A. unity
 
 		script(src="bower/jquery/dist/jquery.js")
-		script(src="bower/qtip2/jquery.qtip.js")
 		script(src="bower/jquery-ui/jquery-ui.min.js")
 		script(src="bower/blueimp-file-upload/js/jquery.iframe-transport.js")
 		script(src="bower/blueimp-file-upload/js/jquery.fileupload.js")
 		script(src="bower/sweetalert/dist/sweetalert.min.js")
-		script(src="bower/jquery-file-download/src/Scripts/jquery.fileDownload.js")
 		script(src="js/fileLoadToForm.js")
 		script(src="js/main.js")
 		script(src="js/resizeImage.js")
 		script(src="bower/bPopup/jquery.bpopup.min.js")
-		script(src="bower/particles.js/particles.min.js")
 		script(src="particles.js")
 		script(src="js/app.js")
-		script(src="js/lib/stats.js")
+
