@@ -336,15 +336,18 @@
 
 .position-right {
   float: right;
+
 }
 
 .position-right__top,
 .position-right__bottom {
   margin-bottom: 11px;
 }
-
+.position-right__top{
+  float: right;
+}
 .position-right__vector {
-  display: inline-block !important;
+  display: inline-block;
   width: 13px;
   font-family: $light;
   font-size: 16px;
@@ -356,14 +359,14 @@
   width: 11px;
   height: 30px;
   @include get-sprite($map, y-position);
-  display: none !important;
+  display: inline-block;
 }
 
 .position-right_arrow-hor {
   width: 29px;
   height: 9px;
   @include get-sprite($map, x-position);
-  display: none !important;
+  display: inline-block;
 }
 // change-view ----------------------------
 .change-view {
