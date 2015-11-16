@@ -41,7 +41,7 @@ var fileLoadToForm = (function () {
             done: function(e, data) {
                     //Переводим данный из JSON строки в JS объект 
                     //и сохраняем URL в отдельную переменную
-                var imgObj = JSON.parse(data.result),
+                var imgObj = $.parseJSON(data.result),
                     imgUrl = imgObj.files[0].url;
 
                 //Записываем путь до файла на сервере в src элемента
