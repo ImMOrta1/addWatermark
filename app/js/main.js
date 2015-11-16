@@ -418,6 +418,17 @@ var lang = function () {
                 $('.opacity__title').text(langObj.opacity);
                 $('.buttons__reset').text(langObj.butClear);
                 $('.buttons__download').text(langObj.butDownload);
+                $('.popup__title').text(langObj.helpTitle);
+                $('#help1').text(langObj.help1);
+                $('#help2').text(langObj.help2);
+                $('#help3').text(langObj.help3);
+                $('#help4').text(langObj.help4);
+                $('#help5').text(langObj.help5);
+                $('#help6').text(langObj.help6);
+                $('.popup__copyright-title').text(langObj.helpDevelop);
+                $('.sweet-alert h2').text(langObj.disTitle);
+                $('.sweet-alert p').text(langObj.disBody);
+                $('.sweet-alert .confirm').text(langObj.disBut);
             });
     }
     return {
