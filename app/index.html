@@ -39,7 +39,7 @@
 						<h1 class="image-view__title">Генератор водяных знаков</h1>
 					</div>
 					<div class="image-view__container">
-						<div data-ratio='0' data-width='0' data-height='0' class="image-view__container-main-image"><img class="image-view__main-img"><img class="image-view__water-img">
+						<div data-ratio='0' data-width='0' data-height='0' class="image-view__container-main-image"><img class="image-view__main-img"><img data-width='0' data-height='0' class="image-view__water-img">
 							<div data-x-elem='0' data-y-elem='0' class="wrap-image-view__water-till-block"></div>
 						</div>
 					</div>
@@ -51,7 +51,7 @@
 						</div>
 						<div class="file-upload">
 							<label class="file-upload__label">
-								<div class="file-upload__title">Исходное изображение</div>
+								<div id="mainTitleText" class="file-upload__title">Исходное изображение</div>
 								<div class="file-upload__container">
 									<input type="file" id="fileupload" name="files[]" accept="image/jpeg, image/jpg, image/png" class="file-upload__input">
 									<div id="fake" class="file-upload__fake">выберите рисунок</div>
@@ -60,7 +60,7 @@
 								</div>
 							</label>
 							<label class="file-upload__label">
-								<div class="file-upload__title">Водяной знак</div>
+								<div id="waterTitleText" class="file-upload__title">Водяной знак</div>
 								<div class="file-upload__container">
 									<input type="file" id="fileuploadWat" accept="image/jpeg, image/jpg, image/png" class="file-upload__input">
 									<div id="fakeWat" class="file-upload__fake">выберите водяной знак</div>

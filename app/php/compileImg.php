@@ -1,20 +1,19 @@
 <?php
-
 	class watermark3{
 	 
 		function create_watermark( $main_img_obj, $watermark_img_obj, $water_position_x, $water_position_y, $alpha_level = 100 ) {
 			$alpha_level	/= 100;	
-
 			$main_img_obj_w	= imagesx( $main_img_obj );
 			$main_img_obj_h	= imagesy( $main_img_obj );
 			$watermark_img_obj_w	= imagesx( $watermark_img_obj );
 			$watermark_img_obj_h	= imagesy( $watermark_img_obj );
-
-
 			if ($main_img_obj_w > $main_img_obj_h) {
 				if ($main_img_obj_w > 650) {
 					$box_width = 650;
 					$box_height = ($main_img_obj_h * $box_width / $main_img_obj_w);
+				} elseif ($main_img_obj_h > 530) {
+					$box_height = 530;
+					$box_width = ($main_img_obj_w * $box_height / $main_img_obj_h);
 				} else {
 					$box_width = $main_img_obj_w;
 					$box_height = $main_img_obj_h;
@@ -29,8 +28,8 @@
 				} 
 			}
 
-			$water_position_x_perc =  floor( $water_position_x / $box_width * 100 );
-			$water_position_y_perc =  floor( $water_position_y / $box_height * 100 );
+			$water_position_x_perc =  $water_position_x / $box_width * 100;
+			$water_position_y_perc =  $water_position_y / $box_height * 100;
 			$main_img_obj_min_x	= floor( $water_position_x_perc * $main_img_obj_w / 100 );
 			$main_img_obj_max_x	= ceil( ( $main_img_obj_w / 2 ) + ( $watermark_img_obj_w / 2 ) );
 			$main_img_obj_min_y	= floor( $water_position_y_perc * $main_img_obj_h / 100 );
@@ -59,27 +58,22 @@
 						$avg_blue		= $this->_get_ave_color( $main_rgb['blue'],	$watermark_rbg['blue'],		$watermark_alpha );
 	 
 						$return_color	= $this->_get_image_color( $return_img, $avg_red, $avg_green, $avg_blue );
-
 					} else {
 						$return_color	= imagecolorat( $main_img_obj, $x, $y );
 	 
 					} 
-
 					
 					imagesetpixel( $return_img, $x, $y, $return_color );
 	 
 				} 
 			} 
-
 			
 			return $return_img;
 	 
 		} 
-
 		function _get_ave_color( $color_a, $color_b, $alpha_level ) {
 			return round( ( ( $color_a * ( 1 - $alpha_level ) ) + ( $color_b	* $alpha_level ) ) );
 		} 
-
 		function _get_image_color($im, $r, $g, $b) {
 			$c=imagecolorexact($im, $r, $g, $b);
 			if ($c!=-1) return $c;
@@ -87,15 +81,11 @@
 			if ($c!=-1) return $c;
 			return imagecolorclosest($im, $r, $g, $b);
 		} 
-
-
 		function till_image($main_img_obj, $watermark_img_obj,  $marginVert, $marginGor) {
-
 			$main_img_obj_w	= imagesx( $main_img_obj );
 			$main_img_obj_h	= imagesy( $main_img_obj );
 			$watermark_img_obj_w	= imagesx( $watermark_img_obj );
 			$watermark_img_obj_h	= imagesy( $watermark_img_obj );
-
 			if ($main_img_obj_w > $main_img_obj_h) {
 				if ($main_img_obj_w > 650) {
 					$q = $main_img_obj_w / 650;
@@ -109,43 +99,32 @@
 					$q = 1;
 				} 
 			}
-
 			$marginVertNat = $marginVert * $q;
 			$marginGorNat = $marginGor * $q;
-
-			$till_img_elems_w = floor( $main_img_obj_w / $watermark_img_obj_w );
-			$till_img_elems_h = floor( $main_img_obj_h / $watermark_img_obj_h );
-
-			$till_img_obj_w = $till_img_elems_w * 2 * ($watermark_img_obj_w + $marginGor);
-			$till_img_obj_h = $till_img_elems_h * 2 * ($watermark_img_obj_h + $marginVert);
-
+			$till_img_elems_w = floor( $main_img_obj_w / $watermark_img_obj_w);
+			$till_img_elems_h = floor( $main_img_obj_h / $watermark_img_obj_h);
+			$till_img_obj_w = $till_img_elems_w * 2 * ($watermark_img_obj_w + $marginGorNat);
+			$till_img_obj_h = $till_img_elems_h * 2 * ($watermark_img_obj_h + $marginVertNat);
 			$return_img	= imagecreatetruecolor( $till_img_obj_w, $till_img_obj_h );
 			imagesavealpha($return_img, true);
-
 			$trans_color = imagecolorallocatealpha($return_img, 0, 0, 0, 127);
 			imagefill($return_img,0,0,$trans_color);
-
-			for( $y = 0; $y < $till_img_elems_h * 2; $y++ ) {
-				for( $x = 0; $x < $till_img_elems_w * 2; $x++ ) {
+			for( $y = 1; $y < ($till_img_elems_h + 1) * 2; $y++ ) {
+				for( $x = 1; $x < ($till_img_elems_w + 1) * 2; $x++ ) {
 					imagecopy($return_img, $watermark_img_obj, ($watermark_img_obj_w + $marginGorNat) * $x, ($watermark_img_obj_h + $marginVertNat) * $y, 0, 0, $watermark_img_obj_w, $watermark_img_obj_h);
 				}
 			}
-
 			return $return_img;
-
 		}
 
 		function resize_watermark($main_img_obj, $watermark_img_obj) {
-
 			$main_img_obj_w	= imagesx( $main_img_obj );
 			$main_img_obj_h	= imagesy( $main_img_obj );
 			$watermark_img_obj_w	= imagesx( $watermark_img_obj );
 			$watermark_img_obj_h	= imagesy( $watermark_img_obj );
-
 			if ($watermark_img_obj_w > $main_img_obj_w) {
 				$new_watermark_w = $main_img_obj_w;
 				$new_watermark_h = $watermark_img_obj_h / $watermark_img_obj_w * $main_img_obj_w;
-
 				if ($new_watermark_h > $main_img_obj_h) {
 					$new_watermark_h = $main_img_obj_h;
 					$new_watermark_w = $new_watermark_w / $new_watermark_h * $main_img_obj_h;
@@ -157,16 +136,11 @@
 				$new_watermark_h = $watermark_img_obj_h;
 				$new_watermark_w = $watermark_img_obj_w;
 			}
-
 			$return_img = imagecreatetruecolor($new_watermark_w, $new_watermark_h);
-
 			imageAlphaBlending($return_img, false);
 			imageSaveAlpha($return_img, true);
-
 			ImageCopyResampled($return_img, $watermark_img_obj, 0, 0, 0, 0, $new_watermark_w, $new_watermark_h, $watermark_img_obj_w, $watermark_img_obj_h); 
-
 			return $return_img;
-
 		}
 }
 
@@ -180,7 +154,6 @@ function image_unpack($type, $file) {
 			return
 				false;
 	}
-
 function random($length = 10) { 
 		static $randStr = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'; 
 		$rand = ''; 
@@ -198,10 +171,7 @@ function removeDirectory($dir) {
        }
     }
   }
-
   		$data = json_decode($_POST['jsonData']);
-
-
 		$file1 = $data -> {'urlMain'};
 		$file2 = $data -> {'urlWater'};
 		$posX = $data -> {'posX'};
@@ -211,7 +181,6 @@ function removeDirectory($dir) {
 		$opacity_water = $data -> {'opacity'} * 100;
 		$mode = $data -> {'mode'};
 		$data = array();
-
 		$type1_mas = explode('.', $file1);
 		$type2_mas = explode('.', $file2);
 		$type1 = end($type1_mas);
@@ -219,10 +188,8 @@ function removeDirectory($dir) {
 		
 		if (!(image_unpack($type1,$file1) == false) && !(image_unpack($type2,$file2) == false) ) {
 	
-
 			$im1 = image_unpack($type1,$file1); 
 			$im2 = image_unpack($type2,$file2); 
-
 			$watermark = new watermark3();
 			if ($mode == 'normal') {
 				$im2=$watermark->resize_watermark($im1,$im2);
@@ -238,25 +205,17 @@ function removeDirectory($dir) {
 			}
 
 			$finalName = 'results/' . random(8) . '-water.jpg';
-
   			imagejpeg($im,$finalName, 90);
 			imagedestroy($im);
-
   			$data['status'] = 'OK';
 			$data['text'] = 'Выполнено! Получите ссылку';
 			$data['url'] = $finalName;
-
-
 		} else {
 			$data['status'] = 'ERROR!';
 			$data['text'] = 'Введите правильные файлы!';
 		}
 		
-		removeDirectory("files");
-
 		header("Content-Type: application/json");
 		echo json_encode($data);
-
   exit;
-
 ?>

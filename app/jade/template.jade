@@ -18,7 +18,7 @@ html(lang="ru-RU")
 					.image-view__container
 						.image-view__container-main-image(data-ratio=0 data-width=0 data-height=0)
 							img.image-view__main-img
-							img.image-view__water-img
+							img.image-view__water-img(data-width=0 data-height=0)
 							.wrap-image-view__water-till-block(data-x-elem=0 data-y-elem=0)
 				aside.saidbar
 					form(id="upload" action="php/compileImg.php" method="POST" enctype="multipart/form-data")
@@ -27,7 +27,7 @@ html(lang="ru-RU")
 
 						.file-upload
 							label.file-upload__label
-								.file-upload__title Исходное изображение
+								.file-upload__title#mainTitleText Исходное изображение
 								.file-upload__container
 									input.file-upload__input(type="file" id="fileupload" name="files[]" accept="image/jpeg, image/jpg, image/png")
 									.file-upload__fake#fake выберите рисунок
@@ -35,7 +35,7 @@ html(lang="ru-RU")
 									input.file-upload__inputInvis(type="text" name="mainFileText" id="mainFileText")
 
 							label.file-upload__label
-								.file-upload__title Водяной знак
+								.file-upload__title#waterTitleText Водяной знак
 								.file-upload__container
 									input.file-upload__input(type="file" id="fileuploadWat" accept="image/jpeg, image/jpg, image/png")
 									.file-upload__fake#fakeWat выберите водяной знак
