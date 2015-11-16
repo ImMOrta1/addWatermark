@@ -215,7 +215,6 @@ function removeDirectory($dir) {
 			$data['text'] = 'Введите правильные файлы!';
 		}
 		
-		removeDirectory("files");
 		header("Content-Type: application/json");
 		echo json_encode($data);
   exit;
