@@ -54,7 +54,7 @@ p {
 #particles-js {
 	position: absolute;
 	min-width: 1050px;
-	min-height: 100%;
+	height: 100%;
 	@include center;
 	background-size: cover;
 	background-attachment: fixed;

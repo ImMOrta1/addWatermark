@@ -41,7 +41,7 @@ p {
 #particles-js {
   position: absolute;
   min-width: 1050px;
-  min-height: 100%;
+  height: 100%;
   position: absolute;
   top: 0;
   right: 0;
@@ -98,6 +98,12 @@ p {
   -webkit-box-shadow: 0 5px 25px rgba(50, 50, 50, 0.2);
   -moz-box-shadow: 0 5px 25px rgba(50, 50, 50, 0.2);
   -o-box-shadow: 0 5px 25px rgba(50, 50, 50, 0.2);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
 }
 .main:before, .main:after {
   content: "";
@@ -113,6 +119,12 @@ p {
   height: 630px;
   padding: 15px 25px 25px 25px;
   background: url(../img/image-bg.png);
+  -webkit-border-radius: 4px 0 0 4px;
+  -moz-border-radius: 4px 0 0 4px;
+  border-radius: 4px 0 0 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
 }
 
 .image-view__text {
@@ -161,6 +173,7 @@ p {
   top: 0;
   left: 0;
   display: none;
+  font-size: 0;
 }
 
 .image-view__upload {
@@ -207,7 +220,7 @@ p {
 
 .sidebar__disable {
   position: absolute;
-  height: 500px;
+  height: 490px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -265,7 +278,7 @@ p {
   font-family: "RobotoLight";
   font-size: 12px;
   color: #9eb2c0;
-  padding: 5px 3px 4px 3px;
+  padding: 5px 40px 4px 3px;
   border: 1px solid #9eb2c0;
   outline: 0px;
   -webkit-border-radius: 4px;
@@ -276,6 +289,9 @@ p {
   background-clip: padding-box;
   cursor: pointer;
   background: #f7f7f7;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .file-upload__icon {
@@ -450,37 +466,39 @@ p {
 .position-right__top,
 .position-right__bottom {
   margin-bottom: 11px;
-}
-
-.position-right__top {
-  float: right;
+  position: relative;
 }
 
 .position-right__vector {
-  display: inline-block;
+  position: absolute;
+  left: -15px;
+  top: 14px;
   width: 13px;
   font-family: "RobotoLight";
   font-size: 16px;
   color: #2e3641;
-  padding-top: 10px;
 }
 
 .position-right_arrow-vert {
+  position: absolute;
+  left: -15px;
+  top: 10px;
   width: 11px;
   height: 30px;
   background: url('../img/icons-s14e72c0174.png') 0 -1033px no-repeat;
   height: 30px;
   width: 11px;
-  display: inline-block;
 }
 
 .position-right_arrow-hor {
+  position: absolute;
+  left: -33px;
+  top: 20px;
   width: 29px;
   height: 9px;
   background: url('../img/icons-s14e72c0174.png') 0 -954px no-repeat;
   height: 9px;
   width: 29px;
-  display: inline-block;
 }
 
 .change-view {
@@ -561,6 +579,8 @@ p {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
   margin-left: 0 !important;
+  font-size: 24px !important;
+  line-height: 24px !important;
 }
 
 .ui-state-default {
@@ -916,6 +936,7 @@ p {
   text-align: center;
   border-top: 1px dashed #555;
   padding-top: 30px;
+  margin: 0 20px;
 }
 
 .popup__text__item_copy {
@@ -930,6 +951,9 @@ p {
   background: url('../img/icons-s14e72c0174.png') 0 -1133px no-repeat;
   height: 24px;
   width: 24px;
+}
+.popup__exit_icon:hover {
+  opacity: 0.4;
 }
 
 /* --------- fonts --------- */

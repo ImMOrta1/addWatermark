@@ -12,6 +12,7 @@
   @include clearfix;
   margin: 0 auto;
   @include shadow;
+  @include border-radius;
 }
 
 .image-view {
@@ -20,6 +21,7 @@
   height: 630px;
   padding: 15px 25px 25px 25px;
   background: url(../img/image-bg.png);
+  @include border-radius( 4px 0 0 4px);
 }
 
 .image-view__text {
@@ -65,10 +67,11 @@
   }
 
   .wrap-image-view__water-till-block {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: none;
+  	position: absolute;
+  	top: 0;
+  	left: 0;
+  	display: none;
+  	font-size: 0;
   }
 }
 
@@ -108,7 +111,7 @@
 
 .sidebar__disable {
   position: absolute;
-  height: 500px;
+  height: 490px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -165,12 +168,15 @@
   font-family: $light;
   font-size: 12px;
   color: $grey;
-  padding: 5px 3px 4px 3px;
+  padding: 5px 40px 4px 3px;
   border: $greyBord;
   outline: 0px;
   @include border-radius;
   cursor: pointer;
   background: #f7f7f7;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .file-upload__icon {
@@ -336,37 +342,41 @@
 
 .position-right {
   float: right;
-
 }
 
 .position-right__top,
 .position-right__bottom {
   margin-bottom: 11px;
+  position: relative;
 }
 .position-right__top{
-  float: right;
 }
 .position-right__vector {
-  display: inline-block;
+	position: absolute;
+	left: -15px;
+	top: 14px;
   width: 13px;
   font-family: $light;
   font-size: 16px;
   color: $black;
-  padding-top: 10px;
 }
 
 .position-right_arrow-vert {
+	position: absolute;
+	left: -15px;
+	top: 10px;
   width: 11px;
   height: 30px;
   @include get-sprite($map, y-position);
-  display: inline-block;
 }
 
 .position-right_arrow-hor {
+	position: absolute;
+	left: -33px;
+	top: 20px;
   width: 29px;
   height: 9px;
   @include get-sprite($map, x-position);
-  display: inline-block;
 }
 // change-view ----------------------------
 .change-view {
@@ -435,6 +445,8 @@
   margin-top: 0 !important;
   margin-bottom: 0 !important;
   margin-left: 0 !important;
+  font-size: 24px !important;
+  line-height: 24px !important;
 }
 
 .ui-state-default {
@@ -746,6 +758,7 @@
 	text-align: center;
 	border-top: 1px dashed #555;
 	padding-top: 30px;
+	margin: 0 20px;
 }
 
 .popup__text__item_copy {
@@ -758,4 +771,8 @@
 	top: 10px;
 	right: 10px;
 	@include get-sprite($map, z-exit);
+
+	&:hover {
+		opacity: 0.4;
+	}
 }
