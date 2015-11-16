@@ -388,12 +388,49 @@ var lang = function () {
         $('#eng').on('click', function(){
             $('.icons__lang-item').removeClass('active');
             $('#eng').addClass('active');
+            _ajaxChange('eng');
         });
         $('#rus').on('click', function(){
             $('#eng').removeClass('active');
             $('#rus').addClass('active');
+            _ajaxChange('rus');
         });
     };
+
+    var _ajaxChange = function (lang) {
+        $.ajax({
+                url: 'php/langChange.php',
+                type:'POST',
+                dataType: 'json',
+                data:'jsonLang=' + JSON.stringify(lang)
+            })
+            .fail(function(langObj) {
+                console.log('Проблемы в PHP');
+            })
+            .done(function(langObj) {
+                $('.image-view__title').text(langObj.titleContent);
+                $('.saidbar__title').text(langObj.settings);
+                $('#mainTitleText').text(langObj.inputMain);
+                $('#fake').text(langObj.inputMainPlace);
+                $('#waterTitleText').text(langObj.inputWater);
+                $('#fakeWat').text(langObj.inputWaterPlace);
+                $('.position__title').text(langObj.position);
+                $('.opacity__title').text(langObj.opacity);
+                $('.buttons__reset').text(langObj.butClear);
+                $('.buttons__download').text(langObj.butDownload);
+                $('.popup__title').text(langObj.helpTitle);
+                $('#help1').text(langObj.help1);
+                $('#help2').text(langObj.help2);
+                $('#help3').text(langObj.help3);
+                $('#help4').text(langObj.help4);
+                $('#help5').text(langObj.help5);
+                $('#help6').text(langObj.help6);
+                $('.popup__copyright-title').text(langObj.helpDevelop);
+                $('.sweet-alert h2').text(langObj.disTitle);
+                $('.sweet-alert p').text(langObj.disBody);
+                $('.sweet-alert .confirm').text(langObj.disBut);
+            });
+    }
     return {
         init: langInit
     }
@@ -558,4 +595,5 @@ var SharingModule = (function() {
 })();
 
 SharingModule.init();
+
 

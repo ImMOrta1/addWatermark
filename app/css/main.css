@@ -173,6 +173,7 @@ p {
   top: 0;
   left: 0;
   display: none;
+  font-size: 0;
 }
 
 .image-view__upload {
@@ -219,7 +220,7 @@ p {
 
 .sidebar__disable {
   position: absolute;
-  height: 500px;
+  height: 490px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -277,7 +278,7 @@ p {
   font-family: "RobotoLight";
   font-size: 12px;
   color: #9eb2c0;
-  padding: 5px 3px 4px 3px;
+  padding: 5px 40px 4px 3px;
   border: 1px solid #9eb2c0;
   outline: 0px;
   -webkit-border-radius: 4px;
@@ -288,6 +289,9 @@ p {
   background-clip: padding-box;
   cursor: pointer;
   background: #f7f7f7;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .file-upload__icon {
