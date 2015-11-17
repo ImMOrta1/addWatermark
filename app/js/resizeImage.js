@@ -71,6 +71,7 @@ var resizeImage = (function () {
             }
 
             $('.change-view__link_normal').trigger('click');
+            $this.stop().animate({opacity:'1.0'},300);
         })
     }
 
@@ -110,6 +111,7 @@ var resizeImage = (function () {
             }
 
             $('.change-view__link_normal').trigger('click');
+            $this.stop().animate({opacity:'1.0'},300);
         })
     }
 

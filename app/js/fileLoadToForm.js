@@ -41,7 +41,7 @@ var fileLoadToForm = (function () {
             done: function(e, data) {
                     //Переводим данный из JSON строки в JS объект 
                     //и сохраняем URL в отдельную переменную
-                var imgObj = JSON.parse(data.result),
+                var imgObj = $.parseJSON(data.result),
                     imgUrl = imgObj.files[0].url;
 
                 //Записываем путь до файла на сервере в src элемента
@@ -49,11 +49,11 @@ var fileLoadToForm = (function () {
 
                 // Изменение размера изображений
                 if (container == '.image-view__main-img') {
-                    $('<img src="' + imgUrl + '">').prependTo(wrapContainer).addClass(container.slice(1));
+                    $('<img src="' + imgUrl + '">').prependTo(wrapContainer).addClass(container.slice(1)).css('opacity', 0);
                     resizeImage.resizeMain(container);
                 } 
                 if (container == '.image-view__water-img') {
-                    $('<img src="' + imgUrl + '">').appendTo(wrapContainer).addClass(container.slice(1));
+                    $('<img src="' + imgUrl + '">').appendTo(wrapContainer).addClass(container.slice(1)).css('opacity', 0);
                     resizeImage.resizeWater(container);
                     resizeImage.tillWater(container, imgUrl);
                 } 

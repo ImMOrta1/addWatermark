@@ -11,10 +11,11 @@
 				if ($main_img_obj_w > 650) {
 					$box_width = 650;
 					$box_height = ($main_img_obj_h * $box_width / $main_img_obj_w);
-				} elseif ($main_img_obj_h > 530) {
-					$box_height = 530;
-					$box_width = ($main_img_obj_w * $box_height / $main_img_obj_h);
-				} else {
+					if ($box_height > 530) {
+						$box_height = 530;
+						$box_width = ($main_img_obj_w * $box_height / $main_img_obj_h);
+					}
+				}  else {
 					$box_width = $main_img_obj_w;
 					$box_height = $main_img_obj_h;
 				} 
