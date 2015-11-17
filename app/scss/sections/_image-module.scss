@@ -445,6 +445,8 @@
   margin-top: 0 !important;
   margin-bottom: 0 !important;
   margin-left: 0 !important;
+  font-size: 24px !important;
+  line-height: 24px !important;
 }
 
 .ui-state-default {
@@ -756,6 +758,7 @@
 	text-align: center;
 	border-top: 1px dashed #555;
 	padding-top: 30px;
+	margin: 0 20px;
 }
 
 .popup__text__item_copy {
@@ -768,4 +771,8 @@
 	top: 10px;
 	right: 10px;
 	@include get-sprite($map, z-exit);
+
+	&:hover {
+		opacity: 0.4;
+	}
 }
