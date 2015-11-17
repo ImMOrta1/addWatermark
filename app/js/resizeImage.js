@@ -9,6 +9,7 @@ var resizeImage = (function () {
                 widthMainNatural = $this.width(),
                 heightMainNatural = $this.height(),
                 ImgContainer = $this.closest('.image-view__container-main-image');
+            
             q = ImgContainer.attr('data-ratio');
 
             ImgContainer.attr('data-width', widthMainNatural);
