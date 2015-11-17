@@ -53,14 +53,20 @@ var mainJS = (function() {
         });
         //reset function
         $('.buttons__reset').on('click', function(){
-            watermark.css('left', 0),
-                watermark.css('top', 0),
-                watermark.css('opacity', 1),
-                $('.position-right__input-top').spinner('value', 0),
-                $('.position-right__input-bot').spinner('value', 0),
-                $('.opacity__slider').slider("value", 1),
-                $('.wrap-image-view__water-till-block').css('opacity', 1),
-                SingleMode();
+            $('.image-view__water-img').css('left', 0),
+            $('.image-view__water-img').css('top', 0),
+            $('.image-view__water-img').css('opacity', 1),
+            $('.position-right__input-top').spinner('value', 0),
+            $('.position-right__input-bot').spinner('value', 0),
+            $('.opacity__slider').slider("value", 1),
+            $('.wrap-image-view__water-till-block').css('opacity', 1),
+            $('.image-view__water-till-img').css('padding-right', 15);
+            $('.image-view__water-till-img').css('padding-bottom', 15);
+            centerLeft = $('.image-view__main-img').css('width') / 2  - $('.wrap-image-view__water-till-block').css('width') / 2;
+            centerTop = $('.image-view__main-img').css('height') / 2  - $('.wrap-image-view__water-till-block').css('height') / 2;
+            $('.wrap-image-view__water-till-block').css('left', centerLeft);
+            $('.wrap-image-view__water-till-block').css('top', centerTop);
+            SingleMode();
         })
     };
 
