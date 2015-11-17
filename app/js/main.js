@@ -51,6 +51,17 @@ var mainJS = (function() {
         $('.change-view__link_multi').on('click', function(event) {
             TillMode()
         });
+        //reset function
+        $('.buttons__reset').on('click', function(){
+            watermark.css('left', 0),
+                watermark.css('top', 0),
+                watermark.css('opacity', 1),
+                $('.position-right__input-top').spinner('value', 0),
+                $('.position-right__input-bot').spinner('value', 0),
+                $('.opacity__slider').slider("value", 1),
+                $('.wrap-image-view__water-till-block').css('opacity', 1),
+                SingleMode();
+        })
     };
 
 //Modes Functions
@@ -430,7 +441,7 @@ var lang = function () {
                 $('.sweet-alert p').text(langObj.disBody);
                 $('.sweet-alert .confirm').text(langObj.disBut);
             });
-    }
+    };
     return {
         init: langInit
     }
@@ -507,29 +518,6 @@ var Popup = (function() {
 }());
 
 Popup.init();
-
-// ------------ Reset Function ------------
-var resetFunc = function () {
-    var resetInit = function () {
-        _setupListners();
-    };
-    var _setupListners = function(){
-        $('.buttons__reset').on('click', function(){
-            watermark.css('left', 0),
-            watermark.css('top', 0),
-            watermark.css('opacity', 1),
-            $('.position-right__input-top').spinner('value', 0),
-            $('.position-right__input-bot').spinner('value', 0),
-            $('.opacity__slider').slider("value", 1),
-            $('wrap-image-view__water-till-block').css('opacity', 1)
-        })
-    };
-    return {
-        init: resetInit
-    }
-}();
-
-resetFunc.init();
 
 // Social Sharing Module
 var SharingModule = (function() {
