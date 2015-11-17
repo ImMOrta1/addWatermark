@@ -18,7 +18,14 @@ var resizeImage = (function () {
                 if (widthMainNatural > 650) {
                     q = widthMainNatural / 650;
                     ImgContainer.attr('data-ratio', q);
-                    $this.width('650');
+
+                    if (heightMainNatural / q > 530) {
+                        q = heightMainNatural / 530;
+                        ImgContainer.attr('data-ratio', q);
+                        $this.height('530');
+                    } else {
+                        $this.width('650');
+                    }
 
                     var widthContainer = $this.width(),
                         heightContainer = $this.height();
