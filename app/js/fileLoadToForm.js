@@ -53,7 +53,7 @@ var fileLoadToForm = (function () {
                     resizeImage.resizeMain(container);
                 } 
                 if (container == '.image-view__water-img') {
-                    $('<img src="' + imgUrl + '">').appendTo(wrapContainer).addClass(container.slice(1)).css('opacity', 0);
+                    $('<img src="' + imgUrl + '">').appendTo(wrapContainer).addClass(container.slice(1).css('opacity', 0));
                     resizeImage.resizeWater(container);
                     resizeImage.tillWater(container, imgUrl);
                 } 
