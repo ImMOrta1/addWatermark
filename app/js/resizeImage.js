@@ -70,8 +70,8 @@ var resizeImage = (function () {
                 }
             }
 
-            $('.change-view__link_normal').trigger('click');
             $this.stop().animate({opacity:'1.0'},300);
+            $('.change-view__link_normal').trigger('click');
         })
     }
 
@@ -110,7 +110,7 @@ var resizeImage = (function () {
                 $this.addClass('ui-draggable ui-draggable-handle')
             }
 
-            $this.stop().animate({opacity:'0'},300).css('opacity', 1);
+            $this.stop().animate({opacity:'1.0'},300).css('opacity', 1);
             $('.change-view__link_normal').trigger('click');
         })
     }
