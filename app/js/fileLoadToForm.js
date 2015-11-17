@@ -49,11 +49,11 @@ var fileLoadToForm = (function () {
 
                 // Изменение размера изображений
                 if (container == '.image-view__main-img') {
-                    $('<img src="' + imgUrl + '">').prependTo(wrapContainer).addClass(container.slice(1));
+                    $('<img src="' + imgUrl + '">').prependTo(wrapContainer).addClass(container.slice(1)).css('opacity', 0);
                     resizeImage.resizeMain(container);
                 } 
                 if (container == '.image-view__water-img') {
-                    $('<img src="' + imgUrl + '">').appendTo(wrapContainer).addClass(container.slice(1));
+                    $('<img src="' + imgUrl + '">').appendTo(wrapContainer).addClass(container.slice(1)).css('opacity', 0);
                     resizeImage.resizeWater(container);
                     resizeImage.tillWater(container, imgUrl);
                 } 
