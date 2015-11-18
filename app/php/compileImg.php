@@ -110,8 +110,8 @@
 			imagesavealpha($return_img, true);
 			$trans_color = imagecolorallocatealpha($return_img, 0, 0, 0, 127);
 			imagefill($return_img,0,0,$trans_color);
-			for( $y = 1; $y < ($till_img_elems_h + 1) * 2; $y++ ) {
-				for( $x = 1; $x < ($till_img_elems_w + 1) * 2; $x++ ) {
+			for( $y = 0; $y < ($till_img_elems_h + 1) * 2; $y++ ) {
+				for( $x = 0; $x < ($till_img_elems_w + 1) * 2; $x++ ) {
 					imagecopy($return_img, $watermark_img_obj, ($watermark_img_obj_w + $marginGorNat) * $x, ($watermark_img_obj_h + $marginVertNat) * $y, 0, 0, $watermark_img_obj_w, $watermark_img_obj_h);
 				}
 			}
