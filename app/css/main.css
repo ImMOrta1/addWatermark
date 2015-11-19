@@ -310,7 +310,7 @@ p {
 .progress {
   height: 5px;
   overflow: hidden;
-  background-color: #5ecc6d;
+  background-color: #f1f1f5;
   border-radius: 4px;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
@@ -321,7 +321,7 @@ p {
 .progress .progress-bar {
   width: 0;
   height: 100%;
-  background-color: #fa574b;
+  background-color: #5ecc6d;
   transition: width .6s ease;
 }
 
