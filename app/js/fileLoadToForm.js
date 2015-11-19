@@ -23,12 +23,11 @@ var fileLoadToForm = (function () {
         $(inputFile).fileupload({
 
             // Папка где располагается PHP скрипт jQuery File Upload 
-            url: 'php/',
+            url: 'php/upload.php',
 
             // Отправляем данные на сервер
             add: function(e, data) {
                 data.submit();
-                fileNameText.text(data.files[0].name);
                 $('#progress').css(
                     'opacity', 1
                 );
@@ -41,7 +40,7 @@ var fileLoadToForm = (function () {
                     progress + '%'
                 );
             },
-            
+
             // В случае ошибки на сервере выводит сообщение в консоль
             fail:function(e, data, error){
                 // ×òî-òî ïîøëî íå òàê!
@@ -50,22 +49,24 @@ var fileLoadToForm = (function () {
             },
 
             // В случае успеха на сервере, выполняем эту функцию
-            done: function(e, data) {
+            success: function(data) {
                     //Переводим данный из JSON строки в JS объект 
                     //и сохраняем URL в отдельную переменную
-                var imgObj = $.parseJSON(data.result),
-                    imgUrl = imgObj.files[0].url;
+                var imgObj = $.parseJSON(data),
+                    imgUrl = imgObj.url;
+
+                    console.log(imgObj);
 
                 //Записываем путь до файла на сервере в src элемента
                 $(container).remove();
 
                 // Изменение размера изображений
                 if (container == '.image-view__main-img') {
-                    $('<img src="' + imgUrl + '">').prependTo(wrapContainer).addClass(container.slice(1)).css('opacity', 0);
+                    $('<img src="php/' + imgUrl + '">').prependTo(wrapContainer).addClass(container.slice(1)).css('opacity', 0);
                     resizeImage.resizeMain(container);
                 } 
                 if (container == '.image-view__water-img') {
-                    $('<img src="' + imgUrl + '">').appendTo(wrapContainer).addClass(container.slice(1)).css('opacity', 0);
+                    $('<img src="php/' + imgUrl + '">').appendTo(wrapContainer).addClass(container.slice(1)).css('opacity', 0);
                     resizeImage.resizeWater(container);
                     resizeImage.tillWater(container, imgUrl);
                 } 
@@ -76,6 +77,8 @@ var fileLoadToForm = (function () {
                 $('#progress').css(
                     'opacity', 0
                 );
+
+                fileNameText.text(imgObj.name);
 
                 // Отрезаем лишнюю часть пути, для вывода в fakeInput
                 console.log('done');
