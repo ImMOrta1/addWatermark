@@ -14,91 +14,83 @@ var fileLoadToForm = (function () {
 //Загрузка файлов на сервер jQuery File Upload
     var _fileUploadFunc = function (inputFile,container) {
 
+        // Определяем элементы, с которыми будем работать
         var inputImg = $(inputFile),
-            inputImgContainer = inputImg.closest('.file-upload__container'),
+            inputImgContainer = inputImg.closest('.file-upload__label'),
             fakeTextUrl = inputImgContainer.find('.file-upload__inputInvis'),
             fileNameText = inputImgContainer.find('.file-upload__fake'),
+            progressWrap = inputImgContainer.find('#progress'),
+            progressBar = inputImgContainer.find('.progress-bar'),
             wrapContainer = $(container).closest('.image-view__container-main-image');
 
+        //Инициализируем FileUpload
         $(inputFile).fileupload({
 
             // Папка где располагается PHP скрипт jQuery File Upload 
             url: 'php/upload.php',
 
-            // Отправляем данные на сервер
+            // Функция, выполняющаяся при отправке данных на сервер
             add: function(e, data) {
                 data.submit();
-                $('#progress').css(
+                
+                // Показываем прогресс-бар загрузки файлов
+                progressWrap.css(
                     'opacity', 1
                 );
             },
 
+            // Функция, выполняющаяся во время загрузки файла на сервер
             progress: function(e, data) {
+                // Прогресс-бар заполняется по мере загрузки файла
                 var progress = parseInt(data.loaded / data.total * 100, 10);
-                $('#progress .progress-bar').css(
+                progressBar.css(
                     'width',
                     progress + '%'
                 );
             },
 
-            // В случае ошибки на сервере выводит сообщение в консоль
-            fail:function(e, data, error){
-                // ×òî-òî ïîøëî íå òàê!
-                console.log(data);
-                console.log(error);
-            },
-
             // В случае успеха на сервере, выполняем эту функцию
             success: function(data) {
-                    //Переводим данный из JSON строки в JS объект 
-                    //и сохраняем URL в отдельную переменную
+                //Переводим данный из JSON строки в JS объект 
+                //и сохраняем URL в отдельную переменную
                 var imgObj = $.parseJSON(data),
-                    imgUrl = imgObj.url;
+                    imgUrl = 'php/' + imgObj.url;
 
-                    console.log(imgObj);
-
-                //Записываем путь до файла на сервере в src элемента
+                // Записываем путь до файла на сервере в src элемента
                 $(container).remove();
 
-                // Изменение размера изображений
+                // Если это главная картинка, добавляем её на страницу и выполняем функцию изменения размера под блок
                 if (container == '.image-view__main-img') {
-                    $('<img src="php/' + imgUrl + '">').prependTo(wrapContainer).addClass(container.slice(1)).css('opacity', 0);
+                    $('<img src="' + imgUrl + '">').prependTo(wrapContainer).addClass(container.slice(1)).css('opacity', 0);
                     resizeImage.resizeMain(container);
                 } 
+                // Если это водяной знак, добавляем его на страницу, изменяем размер относительно главной картинки
+                // и создаем блок с замощенным водяным знаком
                 if (container == '.image-view__water-img') {
-                    $('<img src="php/' + imgUrl + '">').appendTo(wrapContainer).addClass(container.slice(1)).css('opacity', 0);
+                    $('<img src="' + imgUrl + '">').appendTo(wrapContainer).addClass(container.slice(1)).css('opacity', 0);
                     resizeImage.resizeWater(container);
                     resizeImage.tillWater(container, imgUrl);
                 } 
 
-                //Сохраняем путь до файла на сервере в скрытый Input
-                fakeTextUrl.val(imgUrl);
+                // Сохраняем путь до файла на сервере в скрытый Input
+                fakeTextUrl.val(imgObj.url);
 
-                $('#progress').css(
+                // Скрываем прогресс-бар
+                progressWrap.css(
                     'opacity', 0
                 );
 
+                // Выводим имя загруженного файла
                 fileNameText.text(imgObj.name);
 
-                // Отрезаем лишнюю часть пути, для вывода в fakeInput
                 console.log('done');
             }
-
         });
-
     };
 
-
-//Возвращаем значения
     return {
         init: init
     }
 })();
-
-if (typeof console === "undefined" || typeof console.log === "undefined") {
-    console = {};
-    console.log = function() {};
-};
-
 
 fileLoadToForm.init();

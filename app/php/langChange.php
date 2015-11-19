@@ -1,17 +1,24 @@
 <?php
+  
+      // Расшифровываем пришедшую JSON строку
   		$lang = json_decode($_POST['jsonLang']);
 
+      // Создаем массим вывода данных
+      $data = array();
+
+      // В зависимости от выбранного языка, передаем в выходной массив данных
+      // свои значения
   		if ($lang == 'rus') {
-  			$data['titleContent'] = 'Генератор водяных знаков';
-  			$data['settings'] = 'Настройки';
-  			$data['inputMain'] = 'Исходное изображение';
-  			$data['inputMainPlace'] = 'выберите рисунок';
-  			$data['inputWater'] = 'Водяной знак';
-  			$data['inputWaterPlace'] = 'выберите водяной знак';
-  			$data['position'] = 'Положение';
-  			$data['opacity'] = 'Прозрачность';
-  			$data['butClear'] = 'Сброс';
-  			$data['butDownload'] = 'Скачать';
+        $data['titleContent'] = 'Генератор водяных знаков';
+        $data['settings'] = 'Настройки';
+        $data['inputMain'] = 'Исходное изображение';
+        $data['inputMainPlace'] = 'выберите рисунок';
+        $data['inputWater'] = 'Водяной знак';
+        $data['inputWaterPlace'] = 'выберите водяной знак';
+        $data['position'] = 'Положение';
+        $data['opacity'] = 'Прозрачность';
+        $data['butClear'] = 'Сброс';
+        $data['butDownload'] = 'Скачать';
         $data['helpTitle'] = 'Как пользоваться приложением';
         $data['help1'] = 'Выберите и загрузите рисунок с помощью первого поля выбора файла';
         $data['help2'] = 'Выберите и загрузите рисунок вотермарка с помощью второго поля выбора файла';
@@ -23,17 +30,17 @@
         $data['disTitle'] = 'Вы забыли выбрать изображения';
         $data['disBody'] = 'Для включения настроек изменения водяного знака сначала выберите необходимые вам изображения!';
         $data['disBut'] = 'Продолжить работу';
-  		}if ($lang == 'eng') {
-  			$data['titleContent'] = 'Watermarks generator';
-  			$data['settings'] = 'Settings';
-  			$data['inputMain'] = 'Original image';
-  			$data['inputMainPlace'] = 'Image.jpg';
-  			$data['inputWater'] = 'Watermark';
-  			$data['inputWaterPlace'] = 'Image.png';
-  			$data['position'] = 'Place';
-  			$data['opacity'] = 'Transparency';
-  			$data['butClear'] = 'Reset';
-  			$data['butDownload'] = 'Download';
+      }if ($lang == 'eng') {
+        $data['titleContent'] = 'Watermarks generator';
+        $data['settings'] = 'Settings';
+        $data['inputMain'] = 'Original image';
+        $data['inputMainPlace'] = 'Image.jpg';
+        $data['inputWater'] = 'Watermark';
+        $data['inputWaterPlace'] = 'Image.png';
+        $data['position'] = 'Place';
+        $data['opacity'] = 'Transparency';
+        $data['butClear'] = 'Reset';
+        $data['butDownload'] = 'Download';
         $data['helpTitle'] = 'How to use the application';
         $data['help1'] = 'Choose source image and upload it into the "Original image" field';
         $data['help2'] = 'Choose source watermark image and upload it into the "Watermark image" field';
@@ -45,9 +52,10 @@
         $data['disTitle'] = 'Вы забыли выбрать изображения';
         $data['disBody'] = 'Для включения настроек изменения водяного знака сначала выберите необходимые вам изображения!';
         $data['disBut'] = 'Продолжить работу';
-  		}
-  		
-		header("Content-Type: application/json");
-		echo json_encode($data);
+      }
+    
+    // Выводим данные
+    header("Content-Type: application/json");
+    echo json_encode($data);
   exit;
 ?>
