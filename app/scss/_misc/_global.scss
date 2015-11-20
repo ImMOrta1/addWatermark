@@ -19,6 +19,8 @@ body {
 	background: url(../img/site-bg.jpg) top center no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
+	height: 100%;
+	width: 100%;
 }
 
 html, body {
@@ -68,6 +70,7 @@ p {
 	padding-top: 80px;
 	box-sizing: border-box;
 	padding-bottom: 30px;
+	height: auto!important;
 }
 
 .footer {
@@ -80,7 +83,6 @@ p {
 	color: #fff;
 	text-align: center;
 	margin-top: -50px;
-
 }
 
 .clearfix {

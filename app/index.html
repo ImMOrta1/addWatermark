@@ -32,7 +32,7 @@
 	</head>
 	<body>
 		<div id="particles-js"></div>
-		<div class="wrapper">
+		<div class="wrapper clearfix">
 			<div class="main">
 				<section class="image-view">
 					<div class="image-view__text">
@@ -53,19 +53,25 @@
 							<label class="file-upload__label">
 								<div id="mainTitleText" class="file-upload__title">Исходное изображение</div>
 								<div class="file-upload__container">
-									<input type="file" id="fileupload" name="files[]" accept="image/jpeg, image/jpg, image/png" class="file-upload__input">
+									<input type="file" id="fileupload" name="files" accept="image/jpeg, image/jpg, image/png" class="file-upload__input">
 									<div id="fake" class="file-upload__fake">выберите рисунок</div>
 									<div class="file-upload__icon"></div>
 									<input type="text" name="mainFileText" id="mainFileText" class="file-upload__inputInvis">
+								</div>
+								<div id="progress" class="progress main-file-progress">
+									<div class="progress-bar progress-bar-success"></div>
 								</div>
 							</label>
 							<label class="file-upload__label">
 								<div id="waterTitleText" class="file-upload__title">Водяной знак</div>
 								<div class="file-upload__container">
-									<input type="file" id="fileuploadWat" accept="image/jpeg, image/jpg, image/png" class="file-upload__input">
+									<input type="file" id="fileuploadWat" name="files" accept="image/jpeg, image/jpg, image/png" class="file-upload__input">
 									<div id="fakeWat" class="file-upload__fake">выберите водяной знак</div>
 									<div class="file-upload__icon"></div>
 									<input type="text" name="waterFileText" id="waterFileText" class="file-upload__inputInvis">
+								</div>
+								<div id="progress" class="progress water-file-progress">
+									<div class="progress-bar progress-bar-success"></div>
 								</div>
 							</label>
 						</div>
