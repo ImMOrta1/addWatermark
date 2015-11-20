@@ -122,7 +122,7 @@ var mainJS = (function() {
         // Инициализируем функции перемещения и изменения растояния между замощаемыми элементами
         _dragWatermark(watermark, parentDrag, '');
         _paddingTill(watermarkImg, watermark);
-        _getPaddingTill();
+        _getPaddingTill(watermarkImg, watermark);
 
         // Инициализируем изменение прозрачности для марки в этом режиме
         _opacity(watermark,opacity);
@@ -272,7 +272,7 @@ var mainJS = (function() {
 
             // Перерасчет замощаемых элементов
             watermark.css('padding-right', currentValX + 'px');
-            widthBlock = ( widthImg + currentValX ) * widthElems;
+            widthBlock = ( Number(widthImg) + Number(currentValX) ) * widthElems;
             watermarkBlock.css('width', widthBlock);
 
             // Изменение сетки замощения
@@ -287,7 +287,7 @@ var mainJS = (function() {
 
             // Перерасчет замощаемых элементов
             watermark.css('padding-bottom', currentValY + 'px');
-            heightBlock = ( heightImg + currentValY ) * heightElems;
+            heightBlock = ( Number(heightImg) + Number(currentValY) ) * heightElems;
             watermarkBlock.css('height', heightBlock);
 
             // Изменение сетки замощения
@@ -296,25 +296,35 @@ var mainJS = (function() {
     };
 
     // Обработка данных замощаемого элемента
-    var _getPaddingTill = function(elem) {
-        
-        var paddingX = 0,
-            paddingY = 0;
+    var _getPaddingTill = function(watermark, watermarkBlock) {
 
-        if (typeof elem === 'undefined') {
-            elem = watermarkImg;
-        } 
+        // Определяем параметры замощенной марки
+        var widthImg = watermark.css('width').slice(0,-2),
+            heightImg = watermark.css('height').slice(0,-2),
+            widthElems = watermarkBlock.attr('data-x-elem'),
+            heightElems = watermarkBlock.attr('data-y-elem');
         
-            paddingX  = elem.css('padding-right').slice(0,-2);
-            paddingY  = elem.css('padding-bottom').slice(0,-2) ;
-            _setCoordinate(paddingX,paddingY);
-            _setPaddingTill(paddingX,paddingY);
+        // Узнаем отступы у элементов
+        paddingX  = watermark.css('padding-right').slice(0,-2);
+        paddingY  = watermark.css('padding-bottom').slice(0,-2);
 
-            return {
-                x: paddingX,
-                y: paddingY
-            };
+        //Выясянем ширину и высоту блока
+        widthBlock = ( Number(widthImg) + Number(paddingX) ) * widthElems;
+        heightBlock = ( Number(heightImg) + Number(paddingY) ) * heightElems;
+
+        // Применяем параметры
+        _setCoordinate(paddingX,paddingY);
+        _setPaddingTill(paddingX,paddingY);
+        watermarkBlock.css({
+            width: widthBlock,
+            height: heightBlock
+        });
+
+        return {
+            x: paddingX,
+            y: paddingY
         };
+    };
 
     // Функция изменения сетки замощения
     var _setPaddingTill = function(padX, padY) {
@@ -677,12 +687,28 @@ var ResetFunc = (function() {
         $('.position-right__input-bot').spinner('value', 0),
         $('.opacity__slider').slider("value", 1),
         $('.wrap-image-view__water-till-block').css('opacity', 1),
+
+        // Сбрасываем отступы у замощаемой марки
         $('.image-view__water-till-img').css('padding-right', 15);
         $('.image-view__water-till-img').css('padding-bottom', 15);
+
+        // Выставляем режим, как для режима замощения водяного знака
+        $('.change-view__link_multi').trigger('click');
+
+        // Выставляем водяной знак по центру
         centerLeft = $('.image-view__main-img').css('width').slice(0, -2) / 2  - $('.wrap-image-view__water-till-block').css('width').slice(0, -2) / 2;
         centerTop = $('.image-view__main-img').css('height').slice(0, -2) / 2  - $('.wrap-image-view__water-till-block').css('height').slice(0, -2) / 2;
+        console.log($('.image-view__main-img').css('width').slice(0, -2));
+        console.log($('.image-view__main-img').css('height').slice(0, -2));
+        console.log($('.wrap-image-view__water-till-block').css('width').slice(0, -2));
+        console.log($('.wrap-image-view__water-till-block').css('height').slice(0, -2));
+        console.log(centerLeft);
+        console.log(centerTop);
         $('.wrap-image-view__water-till-block').css('left', centerLeft);
         $('.wrap-image-view__water-till-block').css('top', centerTop);
+
+        // Выставляем режим, как для одиночного водяного знака
+        $('.change-view__link_normal').trigger('click');
     };
 
     return {
