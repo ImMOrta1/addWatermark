@@ -698,12 +698,6 @@ var ResetFunc = (function() {
         // Выставляем водяной знак по центру
         centerLeft = $('.image-view__main-img').css('width').slice(0, -2) / 2  - $('.wrap-image-view__water-till-block').css('width').slice(0, -2) / 2;
         centerTop = $('.image-view__main-img').css('height').slice(0, -2) / 2  - $('.wrap-image-view__water-till-block').css('height').slice(0, -2) / 2;
-        console.log($('.image-view__main-img').css('width').slice(0, -2));
-        console.log($('.image-view__main-img').css('height').slice(0, -2));
-        console.log($('.wrap-image-view__water-till-block').css('width').slice(0, -2));
-        console.log($('.wrap-image-view__water-till-block').css('height').slice(0, -2));
-        console.log(centerLeft);
-        console.log(centerTop);
         $('.wrap-image-view__water-till-block').css('left', centerLeft);
         $('.wrap-image-view__water-till-block').css('top', centerTop);
 
