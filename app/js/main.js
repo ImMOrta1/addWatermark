@@ -215,39 +215,39 @@ var mainJS = (function() {
                 // Позиционируем марку
                 switch (position) {
                     case 'top-left':
-                        watermark.css({'left':minPosX, 'top':minPosY});
+                        watermark.animate({'left':minPosX, 'top':minPosY}, 200)
                         _setCoordinate(minPosX,minPosY);
                         break;
                     case 'top-center':
-                        watermark.css({'left':midPosX, 'top':minPosY});
+                        watermark.animate({'left':midPosX, 'top':minPosY}, 200)
                         _setCoordinate(midPosX,minPosY);
                         break;
                     case 'top-right':
-                        watermark.css({'left':maxPosX, 'top':minPosY});
+                        watermark.animate({'left':maxPosX, 'top':minPosY}, 200)
                         _setCoordinate(maxPosX,minPosY);   
                         break;
                     case 'mid-left':
-                        watermark.css({'left':minPosX, 'top':midPosY});
+                        watermark.animate({'left':minPosX, 'top':midPosY}, 200)
                         _setCoordinate(minPosX,midPosY);   
                         break;
                     case 'mid-center':
-                        watermark.css({'left':midPosX, 'top':midPosY});
+                        watermark.animate({'left':midPosX, 'top':midPosY}, 200)
                         _setCoordinate(midPosX,midPosY);   
                         break;
                     case 'mid-right':
-                        watermark.css({'left':maxPosX, 'top':midPosY});
+                        watermark.animate({'left':maxPosX, 'top':midPosY}, 200)
                         _setCoordinate(maxPosX,midPosY);   
                         break;
                     case 'btm-left':
-                        watermark.css({'left':minPosX, 'top':maxPosY});
+                        watermark.animate({'left':minPosX, 'top':maxPosY}, 200)
                         _setCoordinate(minPosX,maxPosY);
                         break;
                     case 'btm-center':
-                        watermark.css({'left':midPosX, 'top':maxPosY});
+                        watermark.animate({'left':midPosX, 'top':maxPosY}, 200)
                         _setCoordinate(midPosX,maxPosY);
                         break;
                     case 'btm-right':
-                        watermark.css({'left':maxPosX, 'top':maxPosY});
+                        watermark.animate({'left':maxPosX, 'top':maxPosY}, 200)
                         _setCoordinate(maxPosX,maxPosY);   
                         break;                                 
                 }

@@ -79,6 +79,9 @@ var fileLoadToForm = (function () {
                 progressWrap.css(
                     'opacity', 0
                 );
+                progressBar.css(
+                    'width', 0
+                );
 
                 // Выводим имя загруженного файла
                 fileNameText.text(imgObj.name);
